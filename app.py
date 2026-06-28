@@ -450,29 +450,65 @@ def payment_page():
 def generate_pdf(ticker, analysis_text, price, ma20, ma60, rsi):
     pdf = FPDF()
     pdf.add_page()
-    font_candidates = [
-        "/System/Library/Fonts/AppleSDGothicNeo.ttc",
-        "/Library/Fonts/AppleGothic.ttf",
-        os.path.join(os.path.dirname(os.path.abspath(__file__)), "NanumGothic.ttf"),
-    ]
-    font_path = next((f for f in font_candidates if os.path.exists(f)), None)
-    fn = "Korean" if font_path else "Helvetica"
-    if font_path: pdf.add_font("Korean", "", font_path)
-    pdf.set_font(fn, size=16)
-    pdf.cell(0, 12, f"Stock Analysis Report - {ticker}", new_x="LMARGIN", new_y="NEXT")
-    pdf.set_font(fn, size=10)
-    pdf.cell(0, 8, f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}", new_x="LMARGIN", new_y="NEXT")
-    pdf.ln(4)
-    pdf.set_font(fn, size=12)
-    pdf.cell(0, 8, "Technical Indicators", new_x="LMARGIN", new_y="NEXT")
-    pdf.set_font(fn, size=10)
-    pdf.cell(0, 6, f"Price: {price:.2f}  |  MA20: {ma20:.2f}  |  MA60: {ma60:.2f}  |  RSI: {rsi:.1f}",
+    pdf.set_margins(18, 18, 18)
+
+    # 한글 폰트 로드 시도 (실패하면 Helvetica로 fallback)
+    fn = "Helvetica"
+    try:
+        nanum = os.path.join(os.path.dirname(os.path.abspath(__file__)), "NanumGothic.ttf")
+        if os.path.exists(nanum):
+            pdf.add_font("Korean", "", nanum)
+            fn = "Korean"
+    except Exception:
+        fn = "Helvetica"
+
+    # 제목
+    pdf.set_font(fn, size=18)
+    try:
+        pdf.cell(0, 14, f"Stock Analysis Report", new_x="LMARGIN", new_y="NEXT")
+    except:
+        pdf.cell(0, 14, "Stock Analysis Report", new_x="LMARGIN", new_y="NEXT")
+
+    pdf.set_font(fn, size=11)
+    pdf.cell(0, 8, f"{ticker}  |  {datetime.now().strftime('%Y-%m-%d %H:%M')}",
              new_x="LMARGIN", new_y="NEXT")
-    pdf.ln(4); pdf.set_font(fn, size=12)
-    pdf.cell(0, 8, "AI Analysis", new_x="LMARGIN", new_y="NEXT")
+    pdf.ln(3)
+    pdf.set_draw_color(21, 101, 192)
+    pdf.set_line_width(0.8)
+    pdf.line(18, pdf.get_y(), 192, pdf.get_y())
+    pdf.ln(5)
+
+    # 기술적 지표
+    pdf.set_font(fn, size=12)
+    try:
+        pdf.cell(0, 8, "[ Technical Indicators ]", new_x="LMARGIN", new_y="NEXT")
+    except:
+        pdf.cell(0, 8, "[ Technical Indicators ]", new_x="LMARGIN", new_y="NEXT")
+    pdf.set_font(fn, size=10)
+    pdf.cell(0, 6, f"Price: {price:.2f}   MA20: {ma20:.2f}   MA60: {ma60:.2f}   RSI: {rsi:.1f}",
+             new_x="LMARGIN", new_y="NEXT")
+    pdf.ln(4)
+
+    # AI 분석 본문
+    pdf.set_font(fn, size=12)
+    try:
+        pdf.cell(0, 8, "[ AI Analysis ]", new_x="LMARGIN", new_y="NEXT")
+    except:
+        pdf.cell(0, 8, "[ AI Analysis ]", new_x="LMARGIN", new_y="NEXT")
     pdf.set_font(fn, size=9)
-    try: pdf.multi_cell(0, 5, analysis_text)
-    except: pdf.multi_cell(0, 5, analysis_text.encode('latin-1', 'replace').decode('latin-1'))
+    pdf.ln(2)
+
+    # 한글 인코딩 안전 처리
+    clean_text = analysis_text
+    try:
+        pdf.multi_cell(0, 5.5, clean_text)
+    except Exception:
+        try:
+            safe = clean_text.encode('latin-1', errors='replace').decode('latin-1')
+            pdf.multi_cell(0, 5.5, safe)
+        except Exception:
+            pdf.multi_cell(0, 5.5, "Analysis text encoding error.")
+
     tmp = tempfile.NamedTemporaryFile(delete=False, suffix='.pdf')
     pdf.output(tmp.name)
     return tmp.name
@@ -500,69 +536,38 @@ def get_ai_analysis(ticker, company, price, ma20, ma60, rsi, news_titles, market
 
     section1 = "1. 🌏 전일 미국 시장 분석 및 국내외 거시경제 환경" if kr_market else "1. 🌏 글로벌 시장 환경 및 거시경제 영향 요소"
 
-    prompt = f"""당신은 월가 출신의 20년 경력 시니어 주식 애널리스트입니다.
-아래 데이터를 바탕으로 {lang_str} 매우 상세하고 전문적인 분석 리포트를 작성해주세요.
-각 항목은 반드시 【전체 개요】→【세부 데이터 및 팩트】→【시사점】 순서로 충분히 길게 작성하세요.
-숫자, 비율, 구체적 사례, 역사적 선례를 반드시 포함하세요.
+    prompt = f"""당신은 경험 많은 주식 애널리스트입니다. {lang_str} 작성하세요.
+일반 투자자가 빠르게 읽고 "살까? 팔까?"를 바로 결정할 수 있도록,
+핵심만 간결하게, 각 항목은 3~5문장으로 작성하세요.
+전문 용어보다 쉬운 말을 쓰고, 숫자와 팩트를 섞어 신뢰감을 주세요.
 
-═══════════════════════════════════
-📌 분석 대상 종목 정보
-═══════════════════════════════════
-종목명: {company} ({ticker})
-현재가: {price:.2f}
-MA20: {ma20:.2f} ({ma_status}, 현재가 대비 {ma20_gap:+.1f}%)
-MA60: {ma60:.2f} (이격률 {ma60_gap:+.1f}%, {ma_cross})
-RSI(14): {rsi:.1f} → {rsi_status}
-최근 관련 뉴스:
-{news_text}
-═══════════════════════════════════
+📌 종목: {company} ({ticker})
+현재가: {price:.2f} | MA20: {ma20:.2f} ({ma20_gap:+.1f}%) | MA60: {ma60:.2f} ({ma60_gap:+.1f}%) | RSI: {rsi:.1f} ({rsi_status}) | 배열: {ma_cross}
+최근 뉴스: {news_text}
 
-다음 6개 항목을 각각 400~600자 이상으로 상세히 작성하세요:
+아래 6개 항목을 작성하세요. 각 항목 제목은 그대로 유지하세요.
 
 {section1}
-▸ 전체 개요: 최근 미국/글로벌 증시 흐름, 금리·환율·유가·달러인덱스 동향을 종합 설명
-▸ 세부 데이터: 주요 지수(S&P500, 나스닥, 다우) 등락률, 섹터별 자금 흐름, 외국인/기관 수급 동향, 채권시장 동향
-▸ 시사점: 이 거시 환경이 해당 종목에 미치는 구체적 영향과 투자자 주목 포인트
+→ 지금 시장 분위기가 이 종목에 유리한지 불리한지 한눈에 파악할 수 있게. 주요 지수 흐름, 금리·환율 영향, 섹터 트렌드 중 이 종목과 직접 관련된 것 위주로.
 
-2. 📢 시장 반응 및 투자자 여론 분석
-▸ 전체 개요: 현재 시장 참여자들의 해당 종목에 대한 전반적 시각과 심리 상태
-▸ 세부 데이터: 기관투자자 vs 개인투자자 포지션 차이, 공매도 잔고 비율, 옵션 시장 풋/콜 비율, 소셜미디어·커뮤니티 여론 동향, 애널리스트 목표주가 컨센서스
-▸ 시사점: 현재 여론이 주가에 미칠 단기·중기 영향 분석
+2. 📢 시장 반응 및 여론
+→ 지금 투자자들이 이 종목을 어떻게 보는지. 기관·외국인 수급 방향, 시장 심리, 최근 뉴스 반응. "지금 분위기가 좋다/나쁘다"를 명확히.
 
-3. 📊 주가 등락 핵심 원인 심층 분석
-▸ 전체 개요: 최근 주가 움직임의 근본적 원인과 배경
-▸ 세부 데이터: 실적(매출/영업이익/EPS) 변화, 업황 사이클, 경쟁사 동향, 규제 이슈, 신제품·신사업 모멘텀, PER·PBR 등 밸류에이션 지표와 역사적 평균 비교
-▸ 시사점: 이 원인이 일시적인지 구조적인지 판단, 향후 실적 전망
+3. 📊 주가 등락 이유
+→ 왜 올랐는지 또는 왜 내렸는지 핵심 이유 2~3가지. 실적·이슈·업황 중 지금 가장 영향력 큰 것 위주로.
 
-4. 🔗 연관 종목 및 동반 흐름 예상
-▸ 전체 개요: 해당 종목과 같은 방향으로 움직일 가능성이 높은 연관 종목군 설명
-▸ 세부 데이터: 공급망 상·하위 업체, 동일 섹터 경쟁사, ETF 편입 현황, 과거 상관관계 데이터, 각 연관 종목의 현재 기술적 위치
-▸ 시사점: 포트폴리오 관점에서의 리스크 분산 전략과 주목할 연관 종목 Top 3~5
+4. 🔗 함께 움직이는 연관 종목
+→ 이 종목이 오르면 같이 오를 가능성 높은 종목 3개, 각각 한 줄 이유 포함. 투자자가 바로 검색해볼 수 있게.
 
-5. 📅 단기(당일~1주) 주가 전망 시나리오
-▸ 전체 개요: 현재 기술적·펀더멘털 상황을 종합한 단기 방향성 판단
-▸ 세부 데이터:
-  [강세 시나리오] 조건, 상승 시 1차/2차 목표가와 근거
-  [약세 시나리오] 조건, 하락 시 1차/2차 지지선과 근거
-  [중립 시나리오] 박스권 상단/하단, 횡보 조건
-  - 주목해야 할 지지/저항 가격대, 거래량 기준선, 이벤트 일정
-▸ 시사점: 가장 가능성 높은 시나리오와 그 확률적 근거
+5. 📅 오늘~이번 주 전망
+→ 단기 방향성을 명확히. 상승/하락/횡보 중 하나로 결론. 지지선·저항선 가격 포함. 주목할 이벤트나 변수 한 가지.
 
-6. ✅ 종합 투자 의견 및 전략 (매수 / 매도 / 관망)
-▸ 전체 개요: 위 1~5항 분석을 종합한 최종 투자 판단과 명확한 근거
-▸ 세부 전략:
-  - 최종 의견: 매수 / 매도 / 관망 (반드시 하나 선택)
-  - 적정 매수/매도 가격대
-  - 손절가(Stop-loss) 및 목표가(Target price)
-  - 투자 비중 제안 (공격적/중립/보수적 투자자별)
-  - 보유 기간 추천
-▸ 핵심 리스크: 이 투자 판단이 틀릴 수 있는 상황과 대응 방법
-
-⚠️ 면책 고지: 본 분석은 참고용이며 투자 손실에 대한 책임은 투자자 본인에게 있습니다.
+6. ✅ 최종 결론: 매수 / 매도 / 관망
+→ 셋 중 하나를 반드시 선택. 그 이유를 2~3문장으로. 목표가와 손절가를 숫자로 제시. 마지막에 "⚠️ 본 분석은 참고용이며 투자 판단은 본인 책임입니다." 추가.
 """
     message = client.messages.create(
         model="claude-haiku-4-5",
-        max_tokens=8000,
+        max_tokens=3000,
         messages=[{"role": "user", "content": prompt}]
     )
     return message.content[0].text
@@ -806,14 +811,27 @@ def admin_panel():
 def main_app():
     apply_style()
 
-    hc1, hc2, hc3 = st.columns([6, 1, 1])
-    with hc1:
-        st.markdown(f"<h1 style='margin:0; padding:10px 0;'>📈 {t('title')}</h1>", unsafe_allow_html=True)
-    with hc2:
-        st.markdown("<br>", unsafe_allow_html=True)
+    # ── 헤더 배너 ──
+    st.markdown(f"""
+    <div style='background: linear-gradient(135deg, #0d47a1 0%, #1565c0 60%, #1976d2 100%);
+                border-radius: 16px; padding: 22px 32px; margin-bottom: 18px;
+                box-shadow: 0 4px 20px rgba(13,71,161,0.25);
+                display: flex; align-items: center; justify-content: space-between;'>
+        <div>
+            <div style='font-size: 2.4rem; font-weight: 800; color: white !important; letter-spacing:-0.5px; line-height:1.1;'>
+                📈 {t('title')}
+            </div>
+            <div style='color: rgba(255,255,255,0.75) !important; font-size: 0.95rem; margin-top:5px;'>
+                {t('subtitle')}
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    btn_col1, btn_col2, btn_col3 = st.columns([8, 1, 1])
+    with btn_col2:
         lang_toggle()
-    with hc3:
-        st.markdown("<br>", unsafe_allow_html=True)
+    with btn_col3:
         if st.button(t("logout")):
             st.session_state['logged_in'] = False; st.rerun()
 
