@@ -8,6 +8,13 @@ import anthropic
 import os, json, hashlib, smtplib, tempfile, base64, urllib.request
 from email.mime.text import MIMEText
 from fpdf import FPDF
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.units import cm
+from reportlab.lib import colors
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, HRFlowable, Table, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from datetime import datetime
 
 # ── 설정 ──────────────────────────────────────────────
@@ -446,23 +453,20 @@ def payment_page():
                 st.warning("구독이 해지되었습니다.")
                 st.rerun()
 
-# ── 한글 폰트 확보 (없으면 GitHub에서 다운로드) ────────────────
+# ── 한글 폰트 확보 ───────────────────────────────────────────
 @st.cache_resource
 def get_korean_font_path():
-    """NanumGothic.ttf 경로 반환. 없으면 다운로드."""
     candidates = [
         os.path.join(os.path.dirname(os.path.abspath(__file__)), "NanumGothic.ttf"),
         "/mount/src/stock-analysis/NanumGothic.ttf",
         "NanumGothic.ttf",
     ]
-    # 유효한 TTF 파일(100KB 이상)이 있으면 바로 반환
     for p in candidates:
         if os.path.exists(p) and os.path.getsize(p) > 100_000:
             return p
-    # 없으면 다운로드
+    # 없으면 Google Fonts에서 다운로드
     save_path = "/tmp/NanumGothic.ttf"
-    url = ("https://github.com/google/fonts/raw/main/"
-           "ofl/nanumgothic/NanumGothic-Regular.ttf")
+    url = "https://github.com/google/fonts/raw/main/ofl/nanumgothic/NanumGothic-Regular.ttf"
     try:
         urllib.request.urlretrieve(url, save_path)
         if os.path.exists(save_path) and os.path.getsize(save_path) > 100_000:
@@ -471,126 +475,133 @@ def get_korean_font_path():
         pass
     return None
 
-# ── PDF 생성 ────────────────────────────────────────────────
+# ── PDF 생성 (reportlab 사용 — 한글 완벽 지원) ──────────────────
 def generate_pdf(ticker, analysis_text, price, ma20, ma60, rsi):
-    pdf = FPDF()
-    pdf.set_margins(20, 20, 20)
-    pdf.add_page()
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix='.pdf')
 
-    # 한글 폰트 로드
-    fn = "Helvetica"
+    # 폰트 등록
+    font_name = "NanumGothic"
     font_path = get_korean_font_path()
+    use_korean = False
     if font_path:
         try:
-            pdf.add_font("Nanum", "", font_path)
-            fn = "Nanum"
+            pdfmetrics.registerFont(TTFont(font_name, font_path))
+            use_korean = True
         except Exception:
-            fn = "Helvetica"
+            use_korean = False
+    fn = font_name if use_korean else "Helvetica"
 
-    def safe_write(pdf_obj, h, txt, size=10):
-        """한글/영문 안전 출력"""
-        pdf_obj.set_font(fn, size=size)
-        try:
-            pdf_obj.multi_cell(0, h, txt)
-        except Exception:
-            try:
-                pdf_obj.multi_cell(0, h, txt.encode("latin-1","replace").decode("latin-1"))
-            except Exception:
-                pass
+    doc = SimpleDocTemplate(
+        tmp.name, pagesize=A4,
+        leftMargin=2*cm, rightMargin=2*cm,
+        topMargin=2*cm, bottomMargin=2*cm
+    )
 
-    def draw_line(pdf_obj, color=(21,101,192), lw=0.5):
-        pdf_obj.set_draw_color(*color)
-        pdf_obj.set_line_width(lw)
-        pdf_obj.line(20, pdf_obj.get_y(), 190, pdf_obj.get_y())
-        pdf_obj.ln(3)
+    # 스타일 정의
+    styles = getSampleStyleSheet()
+    title_style = ParagraphStyle("Title", fontName=fn, fontSize=20,
+                                 textColor=colors.HexColor("#0d47a1"),
+                                 spaceAfter=6, leading=26)
+    sub_style   = ParagraphStyle("Sub",   fontName=fn, fontSize=10,
+                                 textColor=colors.HexColor("#555555"), spaceAfter=4)
+    head_style  = ParagraphStyle("Head",  fontName=fn, fontSize=12,
+                                 textColor=colors.HexColor("#1565c0"),
+                                 spaceBefore=14, spaceAfter=4, leading=18)
+    body_style  = ParagraphStyle("Body",  fontName=fn, fontSize=9.5,
+                                 textColor=colors.HexColor("#1a2a45"),
+                                 leading=16, spaceAfter=5)
+    small_style = ParagraphStyle("Small", fontName=fn, fontSize=8,
+                                 textColor=colors.HexColor("#888888"), leading=13)
+    indicator_style = ParagraphStyle("Ind", fontName=fn, fontSize=10,
+                                     textColor=colors.HexColor("#1a2a45"), leading=16)
 
-    # ── 헤더 ──
-    pdf.set_font(fn, size=20)
-    try:
-        pdf.cell(0, 14, "주식 분석 리포트  /  Stock Analysis Report", new_x="LMARGIN", new_y="NEXT")
-    except:
-        pdf.cell(0, 14, "Stock Analysis Report", new_x="LMARGIN", new_y="NEXT")
+    story = []
 
-    pdf.set_font(fn, size=10)
-    now_str = datetime.now().strftime('%Y년 %m월 %d일  %H:%M  (분석 기준 시점)')
-    try:
-        pdf.cell(0, 7, f"종목: {ticker}   |   분석 일시: {now_str}", new_x="LMARGIN", new_y="NEXT")
-    except:
-        pdf.cell(0, 7, f"Ticker: {ticker}   |   Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}",
-                 new_x="LMARGIN", new_y="NEXT")
-    pdf.ln(2)
-    draw_line(pdf, color=(13,71,161), lw=1.0)
+    # ── 제목 ──
+    story.append(Paragraph("📈 주식 분석 리포트", title_style))
+    now_str = datetime.now().strftime('%Y년 %m월 %d일  %H:%M')
+    story.append(Paragraph(f"종목: <b>{ticker}</b>　|　분석 시점: {now_str}", sub_style))
+    story.append(HRFlowable(width="100%", thickness=1.5,
+                            color=colors.HexColor("#0d47a1"), spaceAfter=10))
 
-    # ── 기술적 지표 박스 ──
-    pdf.set_font(fn, size=11)
-    try:
-        pdf.cell(0, 8, "[ 기술적 지표 ]", new_x="LMARGIN", new_y="NEXT")
-    except:
-        pdf.cell(0, 8, "[ Technical Indicators ]", new_x="LMARGIN", new_y="NEXT")
-
-    pdf.set_font(fn, size=10)
-    indicators = (f"현재가: {price:,.0f}   |   MA20: {ma20:,.0f}   |   "
-                  f"MA60: {ma60:,.0f}   |   RSI(14): {rsi:.1f}")
-    try:
-        pdf.cell(0, 6, indicators, new_x="LMARGIN", new_y="NEXT")
-    except:
-        pdf.cell(0, 6, f"Price:{price:.2f} MA20:{ma20:.2f} MA60:{ma60:.2f} RSI:{rsi:.1f}",
-                 new_x="LMARGIN", new_y="NEXT")
-    pdf.ln(3)
-    draw_line(pdf)
+    # ── 기술적 지표 테이블 ──
+    story.append(Paragraph("■ 기술적 지표", head_style))
+    ma20_gap = ((price - ma20) / ma20 * 100) if ma20 else 0
+    ma60_gap = ((price - ma60) / ma60 * 100) if ma60 else 0
+    rsi_label = "과매수" if rsi >= 70 else ("과매도" if rsi <= 30 else "중립")
+    tdata = [
+        ["현재가", f"{price:,.0f}원", "MA20", f"{ma20:,.0f}  ({ma20_gap:+.1f}%)"],
+        ["MA60",  f"{ma60:,.0f}  ({ma60_gap:+.1f}%)", "RSI(14)", f"{rsi:.1f}  ({rsi_label})"],
+    ]
+    tbl = Table(tdata, colWidths=[2.8*cm, 5.2*cm, 2.8*cm, 5.2*cm])
+    tbl.setStyle(TableStyle([
+        ("BACKGROUND", (0,0), (-1,-1), colors.HexColor("#f0f5ff")),
+        ("FONTNAME",   (0,0), (-1,-1), fn),
+        ("FONTSIZE",   (0,0), (-1,-1), 9.5),
+        ("TEXTCOLOR",  (0,0), (0,-1), colors.HexColor("#1565c0")),
+        ("TEXTCOLOR",  (2,0), (2,-1), colors.HexColor("#1565c0")),
+        ("FONTNAME",   (0,0), (0,-1), fn),
+        ("FONTNAME",   (2,0), (2,-1), fn),
+        ("GRID",       (0,0), (-1,-1), 0.5, colors.HexColor("#c8d8f0")),
+        ("ROWBACKGROUNDS", (0,0), (-1,-1),
+         [colors.HexColor("#eef4fc"), colors.HexColor("#f7faff")]),
+        ("PADDING",    (0,0), (-1,-1), 7),
+    ]))
+    story.append(tbl)
+    story.append(Spacer(1, 14))
+    story.append(HRFlowable(width="100%", thickness=0.5,
+                            color=colors.HexColor("#c8d8f0"), spaceAfter=8))
 
     # ── AI 분석 본문 ──
-    pdf.set_font(fn, size=11)
-    try:
-        pdf.cell(0, 8, "[ AI 심층 분석 ]", new_x="LMARGIN", new_y="NEXT")
-    except:
-        pdf.cell(0, 8, "[ AI Analysis ]", new_x="LMARGIN", new_y="NEXT")
-    pdf.ln(2)
+    story.append(Paragraph("■ AI 심층 분석", head_style))
+    story.append(Spacer(1, 6))
 
-    # 섹션별로 분리하여 출력 (제목은 굵게, 내용은 일반)
-    lines = analysis_text.split('\n')
-    for line in lines:
+    # 마크다운 제거 함수
+    import re
+    def clean_md(text):
+        text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)   # **bold**
+        text = re.sub(r'\*(.*?)\*',     r'\1', text)   # *italic*
+        text = re.sub(r'~~(.*?)~~',     r'\1', text)   # ~~strikethrough~~
+        text = re.sub(r'^#+\s*',        '',    text, flags=re.MULTILINE)  # ## 제목
+        text = re.sub(r'`(.*?)`',       r'\1', text)   # `code`
+        return text.strip()
+
+    section_emojis = ['1.','2.','3.','4.','5.','6.','✅','📌','📊','📅','📢','🔗','🌏','■','▶']
+
+    for line in analysis_text.split('\n'):
         stripped = line.strip()
         if not stripped:
-            pdf.ln(3)
+            story.append(Spacer(1, 5))
             continue
-        # 항목 제목 (숫자. 또는 ##으로 시작)
+
         is_heading = (
-            (len(stripped) > 2 and stripped[0].isdigit() and stripped[1] in '.）)') or
+            any(stripped.startswith(x) for x in section_emojis) or
             stripped.startswith('##') or
-            stripped.startswith('**') or
-            any(stripped.startswith(x) for x in ['1.','2.','3.','4.','5.','6.','✅','📌','📊','📅','📢','🔗','🌏'])
+            (len(stripped) > 2 and stripped[0].isdigit() and stripped[1] in '.）)')
         )
-        clean = stripped.lstrip('#').lstrip('*').strip()
+        cleaned = clean_md(stripped)
+        if not cleaned:
+            continue
+
         if is_heading:
-            pdf.ln(3)
-            pdf.set_font(fn, size=11)
-            try:
-                pdf.multi_cell(0, 7, clean)
-            except:
-                try: pdf.multi_cell(0, 7, clean.encode("latin-1","replace").decode("latin-1"))
-                except: pass
-            draw_line(pdf, color=(180,200,230), lw=0.3)
+            story.append(Spacer(1, 8))
+            story.append(Paragraph(cleaned, head_style))
+            story.append(HRFlowable(width="100%", thickness=0.4,
+                                    color=colors.HexColor("#dce8f8"), spaceAfter=4))
         else:
-            pdf.set_font(fn, size=9)
-            try:
-                pdf.multi_cell(0, 5.5, stripped)
-            except:
-                try: pdf.multi_cell(0, 5.5, stripped.encode("latin-1","replace").decode("latin-1"))
-                except: pass
+            story.append(Paragraph(cleaned, body_style))
 
     # ── 면책 고지 ──
-    pdf.ln(5)
-    draw_line(pdf, color=(200,200,200), lw=0.3)
-    pdf.set_font(fn, size=8)
-    try:
-        pdf.multi_cell(0, 5, "※ 본 리포트는 AI가 분석 시점의 정보를 바탕으로 생성한 참고 자료입니다. "
-                              "투자 손실에 대한 책임은 투자자 본인에게 있습니다.")
-    except:
-        pdf.multi_cell(0, 5, "Disclaimer: This report is for reference only. Invest at your own risk.")
+    story.append(Spacer(1, 16))
+    story.append(HRFlowable(width="100%", thickness=0.5,
+                            color=colors.HexColor("#cccccc"), spaceAfter=6))
+    story.append(Paragraph(
+        "※ 본 리포트는 AI가 분석 시점의 공개 정보를 바탕으로 생성한 참고 자료입니다. "
+        "투자 판단 및 손실에 대한 책임은 투자자 본인에게 있습니다.",
+        small_style
+    ))
 
-    tmp = tempfile.NamedTemporaryFile(delete=False, suffix='.pdf')
-    pdf.output(tmp.name)
+    doc.build(story)
     return tmp.name
 
 def calc_rsi(series, period=14):
@@ -618,6 +629,12 @@ def get_ai_analysis(ticker, company, price, ma20, ma60, rsi, news_titles, market
 
     now_str = datetime.now().strftime('%Y년 %m월 %d일 %H시 %M분')
     prompt = f"""당신은 10년 경력의 주식 애널리스트입니다. {lang_str} 분석 리포트를 작성하세요.
+
+⚠️ 형식 규칙 (반드시 지킬 것):
+- **볼드** 표시는 사용 가능하지만, ~~취소선~~은 절대 사용 금지
+- 마크다운 ## 제목 사용 금지 (항목 번호로만 구분)
+- 6개 항목을 반드시 모두 완성하고 마지막 항목 끝에 [END] 표시
+- 중간에 절대 끊지 말고 6번 항목까지 완전히 작성할 것
 
 【분석 기준 시점】: {now_str}
 【분석 종목】: {company} ({ticker})

@@ -5,3 +5,4 @@ streamlit
 plotly
 anthropic
 fpdf2
+reportlab
