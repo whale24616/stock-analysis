@@ -153,10 +153,10 @@ def main_app():
         history['MA60'] = history['Close'].rolling(window=60).mean()
         history['RSI'] = calc_rsi(history['Close'])
 
-        price = history['Close'].iloc[-1]
-        ma20  = history['MA20'].iloc[-1]
-        ma60  = history['MA60'].iloc[-1]
-        rsi   = history['RSI'].iloc[-1]
+        price = float(history['Close'].dropna().iloc[-1])
+        ma20  = float(history['MA20'].dropna().iloc[-1]) if not history['MA20'].dropna().empty else None
+        ma60  = float(history['MA60'].dropna().iloc[-1]) if not history['MA60'].dropna().empty else None
+        rsi   = float(history['RSI'].dropna().iloc[-1]) if not history['RSI'].dropna().empty else 50.0
 
         # 차트 (기술적 신호 위)
         st.subheader("📊 차트")
@@ -167,9 +167,9 @@ def main_app():
         # 기술적 신호
         st.subheader("🔍 기술적 신호")
         c1, c2, c3 = st.columns(3)
-        c1.metric("현재가", f"{symbol}{price:,.2f}" if price == price else "N/A")
-        c2.metric("MA20", f"{symbol}{ma20:,.2f}" if ma20 == ma20 else "N/A")
-        c3.metric("MA60", f"{symbol}{ma60:,.2f}" if ma60 == ma60 else "N/A")
+        c1.metric("현재가", f"{symbol}{price:,.2f}")
+        c2.metric("MA20", f"{symbol}{ma20:,.2f}" if ma20 else "N/A")
+        c3.metric("MA60", f"{symbol}{ma60:,.2f}" if ma60 else "N/A")
 
         col1, col2 = st.columns(2)
         with col1:
