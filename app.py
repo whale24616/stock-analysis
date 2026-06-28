@@ -8,13 +8,6 @@ import anthropic
 import os, json, hashlib, smtplib, tempfile, base64, urllib.request
 from email.mime.text import MIMEText
 from fpdf import FPDF
-from reportlab.lib.pagesizes import A4
-from reportlab.lib.units import cm
-from reportlab.lib import colors
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, HRFlowable, Table, TableStyle
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
 from datetime import datetime
 
 # ── 설정 ──────────────────────────────────────────────
@@ -453,155 +446,190 @@ def payment_page():
                 st.warning("구독이 해지되었습니다.")
                 st.rerun()
 
-# ── 한글 폰트 확보 ───────────────────────────────────────────
-@st.cache_resource
-def get_korean_font_path():
-    candidates = [
-        os.path.join(os.path.dirname(os.path.abspath(__file__)), "NanumGothic.ttf"),
-        "/mount/src/stock-analysis/NanumGothic.ttf",
-        "NanumGothic.ttf",
-    ]
-    for p in candidates:
-        if os.path.exists(p) and os.path.getsize(p) > 100_000:
-            return p
-    # 없으면 Google Fonts에서 다운로드
-    save_path = "/tmp/NanumGothic.ttf"
-    url = "https://github.com/google/fonts/raw/main/ofl/nanumgothic/NanumGothic-Regular.ttf"
-    try:
-        urllib.request.urlretrieve(url, save_path)
-        if os.path.exists(save_path) and os.path.getsize(save_path) > 100_000:
-            return save_path
-    except Exception:
-        pass
-    return None
-
-# ── PDF 생성 (reportlab 사용 — 한글 완벽 지원) ──────────────────
-def generate_pdf(ticker, analysis_text, price, ma20, ma60, rsi):
-    tmp = tempfile.NamedTemporaryFile(delete=False, suffix='.pdf')
-
-    # 폰트 등록
-    font_name = "NanumGothic"
-    font_path = get_korean_font_path()
-    use_korean = False
-    if font_path:
-        try:
-            pdfmetrics.registerFont(TTFont(font_name, font_path))
-            use_korean = True
-        except Exception:
-            use_korean = False
-    fn = font_name if use_korean else "Helvetica"
-
-    doc = SimpleDocTemplate(
-        tmp.name, pagesize=A4,
-        leftMargin=2*cm, rightMargin=2*cm,
-        topMargin=2*cm, bottomMargin=2*cm
-    )
-
-    # 스타일 정의
-    styles = getSampleStyleSheet()
-    title_style = ParagraphStyle("Title", fontName=fn, fontSize=20,
-                                 textColor=colors.HexColor("#0d47a1"),
-                                 spaceAfter=6, leading=26)
-    sub_style   = ParagraphStyle("Sub",   fontName=fn, fontSize=10,
-                                 textColor=colors.HexColor("#555555"), spaceAfter=4)
-    head_style  = ParagraphStyle("Head",  fontName=fn, fontSize=12,
-                                 textColor=colors.HexColor("#1565c0"),
-                                 spaceBefore=14, spaceAfter=4, leading=18)
-    body_style  = ParagraphStyle("Body",  fontName=fn, fontSize=9.5,
-                                 textColor=colors.HexColor("#1a2a45"),
-                                 leading=16, spaceAfter=5)
-    small_style = ParagraphStyle("Small", fontName=fn, fontSize=8,
-                                 textColor=colors.HexColor("#888888"), leading=13)
-    indicator_style = ParagraphStyle("Ind", fontName=fn, fontSize=10,
-                                     textColor=colors.HexColor("#1a2a45"), leading=16)
-
-    story = []
-
-    # ── 제목 ──
-    story.append(Paragraph("📈 주식 분석 리포트", title_style))
-    now_str = datetime.now().strftime('%Y년 %m월 %d일  %H:%M')
-    story.append(Paragraph(f"종목: <b>{ticker}</b>　|　분석 시점: {now_str}", sub_style))
-    story.append(HRFlowable(width="100%", thickness=1.5,
-                            color=colors.HexColor("#0d47a1"), spaceAfter=10))
-
-    # ── 기술적 지표 테이블 ──
-    story.append(Paragraph("■ 기술적 지표", head_style))
-    ma20_gap = ((price - ma20) / ma20 * 100) if ma20 else 0
-    ma60_gap = ((price - ma60) / ma60 * 100) if ma60 else 0
-    rsi_label = "과매수" if rsi >= 70 else ("과매도" if rsi <= 30 else "중립")
-    tdata = [
-        ["현재가", f"{price:,.0f}원", "MA20", f"{ma20:,.0f}  ({ma20_gap:+.1f}%)"],
-        ["MA60",  f"{ma60:,.0f}  ({ma60_gap:+.1f}%)", "RSI(14)", f"{rsi:.1f}  ({rsi_label})"],
-    ]
-    tbl = Table(tdata, colWidths=[2.8*cm, 5.2*cm, 2.8*cm, 5.2*cm])
-    tbl.setStyle(TableStyle([
-        ("BACKGROUND", (0,0), (-1,-1), colors.HexColor("#f0f5ff")),
-        ("FONTNAME",   (0,0), (-1,-1), fn),
-        ("FONTSIZE",   (0,0), (-1,-1), 9.5),
-        ("TEXTCOLOR",  (0,0), (0,-1), colors.HexColor("#1565c0")),
-        ("TEXTCOLOR",  (2,0), (2,-1), colors.HexColor("#1565c0")),
-        ("FONTNAME",   (0,0), (0,-1), fn),
-        ("FONTNAME",   (2,0), (2,-1), fn),
-        ("GRID",       (0,0), (-1,-1), 0.5, colors.HexColor("#c8d8f0")),
-        ("ROWBACKGROUNDS", (0,0), (-1,-1),
-         [colors.HexColor("#eef4fc"), colors.HexColor("#f7faff")]),
-        ("PADDING",    (0,0), (-1,-1), 7),
-    ]))
-    story.append(tbl)
-    story.append(Spacer(1, 14))
-    story.append(HRFlowable(width="100%", thickness=0.5,
-                            color=colors.HexColor("#c8d8f0"), spaceAfter=8))
-
-    # ── AI 분석 본문 ──
-    story.append(Paragraph("■ AI 심층 분석", head_style))
-    story.append(Spacer(1, 6))
-
-    # 마크다운 제거 함수
+# ── 리포트 HTML 생성 (한글 100% 지원, 브라우저에서 PDF 저장) ─────
+def generate_report_html(ticker, analysis_text, price, ma20, ma60, rsi):
     import re
-    def clean_md(text):
-        text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)   # **bold**
-        text = re.sub(r'\*(.*?)\*',     r'\1', text)   # *italic*
-        text = re.sub(r'~~(.*?)~~',     r'\1', text)   # ~~strikethrough~~
-        text = re.sub(r'^#+\s*',        '',    text, flags=re.MULTILINE)  # ## 제목
-        text = re.sub(r'`(.*?)`',       r'\1', text)   # `code`
-        return text.strip()
 
-    section_emojis = ['1.','2.','3.','4.','5.','6.','✅','📌','📊','📅','📢','🔗','🌏','■','▶']
+    ma20_gap  = ((price - ma20) / ma20 * 100) if ma20 else 0
+    ma60_gap  = ((price - ma60) / ma60 * 100) if ma60 else 0
+    rsi_label = "과매수 🔴" if rsi >= 70 else ("과매도 🟢" if rsi <= 30 else "중립 🔵")
+    now_str   = datetime.now().strftime('%Y년 %m월 %d일  %H:%M')
 
+    # 마크다운 → HTML 변환
+    def md_to_html(text):
+        text = re.sub(r'~~(.*?)~~', r'\1', text)                        # 취소선 제거
+        text = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', text)            # 볼드
+        text = re.sub(r'\*(.*?)\*',     r'<i>\1</i>', text)            # 이탤릭
+        text = text.replace('&', '&amp;').replace('<b>', '<b>').replace('</b>', '</b>')
+        return text
+
+    # 섹션별로 분리해서 HTML 블록 생성
+    section_starts = ['1.', '2.', '3.', '4.', '5.', '6.',
+                      '✅', '📌', '📊', '📅', '📢', '🔗', '🌏']
+
+    def is_heading(line):
+        s = line.strip()
+        if s.startswith('##'): return True
+        if any(s.startswith(x) for x in section_starts): return True
+        if len(s) > 2 and s[0].isdigit() and s[1] in '.）)': return True
+        return False
+
+    body_html = ""
     for line in analysis_text.split('\n'):
         stripped = line.strip()
         if not stripped:
-            story.append(Spacer(1, 5))
-            continue
-
-        is_heading = (
-            any(stripped.startswith(x) for x in section_emojis) or
-            stripped.startswith('##') or
-            (len(stripped) > 2 and stripped[0].isdigit() and stripped[1] in '.）)')
-        )
-        cleaned = clean_md(stripped)
-        if not cleaned:
-            continue
-
-        if is_heading:
-            story.append(Spacer(1, 8))
-            story.append(Paragraph(cleaned, head_style))
-            story.append(HRFlowable(width="100%", thickness=0.4,
-                                    color=colors.HexColor("#dce8f8"), spaceAfter=4))
+            body_html += "<div style='height:10px'></div>\n"
+        elif is_heading(stripped):
+            clean = re.sub(r'^#+\s*', '', stripped)
+            body_html += f"""
+            <div class='section-title'>{md_to_html(clean)}</div>
+            <div class='section-divider'></div>
+            """
         else:
-            story.append(Paragraph(cleaned, body_style))
+            body_html += f"<p>{md_to_html(stripped)}</p>\n"
 
-    # ── 면책 고지 ──
-    story.append(Spacer(1, 16))
-    story.append(HRFlowable(width="100%", thickness=0.5,
-                            color=colors.HexColor("#cccccc"), spaceAfter=6))
-    story.append(Paragraph(
-        "※ 본 리포트는 AI가 분석 시점의 공개 정보를 바탕으로 생성한 참고 자료입니다. "
-        "투자 판단 및 손실에 대한 책임은 투자자 본인에게 있습니다.",
-        small_style
-    ))
+    html = f"""<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset='UTF-8'>
+<title>주식 분석 리포트 - {ticker}</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link href='https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap' rel='stylesheet'>
+<style>
+  * {{ margin:0; padding:0; box-sizing:border-box; }}
+  body {{
+    font-family: 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 11pt;
+    color: #1a2a45;
+    background: #fff;
+    padding: 0;
+  }}
+  .page {{
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 50px;
+  }}
+  .report-title {{
+    font-size: 24pt;
+    font-weight: 700;
+    color: #0d47a1;
+    margin-bottom: 6px;
+  }}
+  .report-meta {{
+    font-size: 10pt;
+    color: #555;
+    margin-bottom: 4px;
+  }}
+  .header-line {{
+    border: none;
+    border-top: 2.5px solid #0d47a1;
+    margin: 14px 0 18px 0;
+  }}
+  .indicator-table {{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 22px;
+    font-size: 10.5pt;
+  }}
+  .indicator-table td {{
+    padding: 9px 14px;
+    border: 1px solid #c8d8f0;
+  }}
+  .indicator-table tr:nth-child(odd)  {{ background: #eef4fc; }}
+  .indicator-table tr:nth-child(even) {{ background: #f7faff; }}
+  .indicator-table .label {{
+    color: #1565c0;
+    font-weight: 700;
+    width: 90px;
+  }}
+  .section-title {{
+    font-size: 13pt;
+    font-weight: 700;
+    color: #1565c0;
+    margin: 22px 0 4px 0;
+  }}
+  .section-divider {{
+    border-top: 1px solid #dce8f8;
+    margin-bottom: 10px;
+  }}
+  p {{
+    line-height: 1.85;
+    margin-bottom: 8px;
+    color: #1a2a45;
+  }}
+  .ai-section-title {{
+    font-size: 13pt;
+    font-weight: 700;
+    color: #0d47a1;
+    margin: 0 0 14px 0;
+  }}
+  .disclaimer {{
+    margin-top: 30px;
+    padding-top: 12px;
+    border-top: 1px solid #ccc;
+    font-size: 8.5pt;
+    color: #888;
+    line-height: 1.6;
+  }}
+  @media print {{
+    body {{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
+    .page {{ padding: 20px 30px; }}
+    .no-print {{ display: none; }}
+  }}
+</style>
+</head>
+<body>
+<div class='page'>
 
-    doc.build(story)
+  <!-- 인쇄 안내 버튼 (화면에서만 보임) -->
+  <div class='no-print' style='background:#e3f2fd; border:1px solid #90caf9;
+       border-radius:10px; padding:12px 18px; margin-bottom:22px;
+       font-size:10pt; color:#1565c0;'>
+    💡 <b>PDF로 저장하려면:</b> 브라우저 메뉴 → 인쇄(Cmd+P) → '대상'을 <b>PDF로 저장</b> 선택
+    &nbsp;&nbsp;
+    <button onclick='window.print()' style='background:#1565c0; color:white;
+      border:none; border-radius:6px; padding:6px 16px; cursor:pointer; font-size:10pt;'>
+      🖨️ 인쇄 / PDF 저장
+    </button>
+  </div>
+
+  <!-- 헤더 -->
+  <div class='report-title'>📈 주식 분석 리포트</div>
+  <div class='report-meta'>종목: <b>{ticker}</b> &nbsp;|&nbsp; 분석 시점: {now_str}</div>
+  <hr class='header-line'>
+
+  <!-- 기술적 지표 -->
+  <div class='section-title'>■ 기술적 지표</div>
+  <div class='section-divider'></div>
+  <table class='indicator-table'>
+    <tr>
+      <td class='label'>현재가</td><td><b>{price:,.0f}원</b></td>
+      <td class='label'>MA20</td><td>{ma20:,.0f} &nbsp;({ma20_gap:+.1f}%)</td>
+    </tr>
+    <tr>
+      <td class='label'>MA60</td><td>{ma60:,.0f} &nbsp;({ma60_gap:+.1f}%)</td>
+      <td class='label'>RSI(14)</td><td>{rsi:.1f} &nbsp;{rsi_label}</td>
+    </tr>
+  </table>
+
+  <!-- AI 분석 -->
+  <div class='ai-section-title'>■ AI 심층 분석</div>
+  {body_html}
+
+  <!-- 면책 고지 -->
+  <div class='disclaimer'>
+    ※ 본 리포트는 AI가 분석 시점({now_str})의 공개 정보를 바탕으로 생성한 참고 자료입니다.
+    투자 판단 및 손실에 대한 책임은 투자자 본인에게 있습니다.
+  </div>
+
+</div>
+</body>
+</html>"""
+
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix='.html',
+                                     mode='w', encoding='utf-8')
+    tmp.write(html)
+    tmp.close()
     return tmp.name
 
 def calc_rsi(series, period=14):
@@ -1097,15 +1125,21 @@ def main_app():
                     </div>
                     """, unsafe_allow_html=True)
 
-                    pdf_path = generate_pdf(ticker, st.session_state['last_analysis'],
-                                            st.session_state['last_price'], st.session_state['last_ma20'],
-                                            st.session_state['last_ma60'], st.session_state['last_rsi'])
-                    with open(pdf_path, 'rb') as f:
-                        st.download_button(
-                            label=f"📄 {t('pdf_btn')}", data=f.read(),
-                            file_name=f"{ticker}_analysis_{datetime.now().strftime('%Y%m%d')}.pdf",
-                            mime="application/pdf", use_container_width=True
-                        )
+                    html_path = generate_report_html(
+                        ticker, st.session_state['last_analysis'],
+                        st.session_state['last_price'], st.session_state['last_ma20'],
+                        st.session_state['last_ma60'], st.session_state['last_rsi']
+                    )
+                    with open(html_path, 'r', encoding='utf-8') as f:
+                        html_data = f.read()
+                    st.download_button(
+                        label="📄 리포트 저장 (HTML → 브라우저에서 PDF 변환)",
+                        data=html_data.encode('utf-8'),
+                        file_name=f"{ticker}_report_{datetime.now().strftime('%Y%m%d_%H%M')}.html",
+                        mime="text/html",
+                        use_container_width=True
+                    )
+                    st.caption("💡 다운로드 후 파일을 열면 한글이 정상 표시됩니다. Cmd+P → PDF로 저장")
 
 # ── 진입점 ─────────────────────────────────────────────────
 if 'logged_in' not in st.session_state:
