@@ -5,7 +5,7 @@ import yfinance as yf
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import anthropic
-import os, json, hashlib, smtplib, tempfile, base64
+import os, json, hashlib, smtplib, tempfile, base64, urllib.request
 from email.mime.text import MIMEText
 from fpdf import FPDF
 from datetime import datetime
@@ -446,28 +446,46 @@ def payment_page():
                 st.warning("구독이 해지되었습니다.")
                 st.rerun()
 
+# ── 한글 폰트 확보 (없으면 GitHub에서 다운로드) ────────────────
+@st.cache_resource
+def get_korean_font_path():
+    """NanumGothic.ttf 경로 반환. 없으면 다운로드."""
+    candidates = [
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "NanumGothic.ttf"),
+        "/mount/src/stock-analysis/NanumGothic.ttf",
+        "NanumGothic.ttf",
+    ]
+    # 유효한 TTF 파일(100KB 이상)이 있으면 바로 반환
+    for p in candidates:
+        if os.path.exists(p) and os.path.getsize(p) > 100_000:
+            return p
+    # 없으면 다운로드
+    save_path = "/tmp/NanumGothic.ttf"
+    url = ("https://github.com/google/fonts/raw/main/"
+           "ofl/nanumgothic/NanumGothic-Regular.ttf")
+    try:
+        urllib.request.urlretrieve(url, save_path)
+        if os.path.exists(save_path) and os.path.getsize(save_path) > 100_000:
+            return save_path
+    except Exception:
+        pass
+    return None
+
 # ── PDF 생성 ────────────────────────────────────────────────
 def generate_pdf(ticker, analysis_text, price, ma20, ma60, rsi):
     pdf = FPDF()
     pdf.set_margins(20, 20, 20)
     pdf.add_page()
 
-    # 한글 폰트 — 여러 경로 시도
+    # 한글 폰트 로드
     fn = "Helvetica"
-    font_paths = [
-        os.path.join(os.path.dirname(os.path.abspath(__file__)), "NanumGothic.ttf"),
-        "NanumGothic.ttf",
-        "/app/NanumGothic.ttf",
-        "/mount/src/stock-analysis/NanumGothic.ttf",
-    ]
-    for fp in font_paths:
-        if os.path.exists(fp):
-            try:
-                pdf.add_font("Nanum", "", fp)
-                fn = "Nanum"
-                break
-            except Exception:
-                continue
+    font_path = get_korean_font_path()
+    if font_path:
+        try:
+            pdf.add_font("Nanum", "", font_path)
+            fn = "Nanum"
+        except Exception:
+            fn = "Helvetica"
 
     def safe_write(pdf_obj, h, txt, size=10):
         """한글/영문 안전 출력"""
