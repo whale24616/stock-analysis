@@ -449,65 +449,127 @@ def payment_page():
 # ── PDF 생성 ────────────────────────────────────────────────
 def generate_pdf(ticker, analysis_text, price, ma20, ma60, rsi):
     pdf = FPDF()
+    pdf.set_margins(20, 20, 20)
     pdf.add_page()
-    pdf.set_margins(18, 18, 18)
 
-    # 한글 폰트 로드 시도 (실패하면 Helvetica로 fallback)
+    # 한글 폰트 — 여러 경로 시도
     fn = "Helvetica"
-    try:
-        nanum = os.path.join(os.path.dirname(os.path.abspath(__file__)), "NanumGothic.ttf")
-        if os.path.exists(nanum):
-            pdf.add_font("Korean", "", nanum)
-            fn = "Korean"
-    except Exception:
-        fn = "Helvetica"
+    font_paths = [
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "NanumGothic.ttf"),
+        "NanumGothic.ttf",
+        "/app/NanumGothic.ttf",
+        "/mount/src/stock-analysis/NanumGothic.ttf",
+    ]
+    for fp in font_paths:
+        if os.path.exists(fp):
+            try:
+                pdf.add_font("Nanum", "", fp)
+                fn = "Nanum"
+                break
+            except Exception:
+                continue
 
-    # 제목
-    pdf.set_font(fn, size=18)
+    def safe_write(pdf_obj, h, txt, size=10):
+        """한글/영문 안전 출력"""
+        pdf_obj.set_font(fn, size=size)
+        try:
+            pdf_obj.multi_cell(0, h, txt)
+        except Exception:
+            try:
+                pdf_obj.multi_cell(0, h, txt.encode("latin-1","replace").decode("latin-1"))
+            except Exception:
+                pass
+
+    def draw_line(pdf_obj, color=(21,101,192), lw=0.5):
+        pdf_obj.set_draw_color(*color)
+        pdf_obj.set_line_width(lw)
+        pdf_obj.line(20, pdf_obj.get_y(), 190, pdf_obj.get_y())
+        pdf_obj.ln(3)
+
+    # ── 헤더 ──
+    pdf.set_font(fn, size=20)
     try:
-        pdf.cell(0, 14, f"Stock Analysis Report", new_x="LMARGIN", new_y="NEXT")
+        pdf.cell(0, 14, "주식 분석 리포트  /  Stock Analysis Report", new_x="LMARGIN", new_y="NEXT")
     except:
         pdf.cell(0, 14, "Stock Analysis Report", new_x="LMARGIN", new_y="NEXT")
 
-    pdf.set_font(fn, size=11)
-    pdf.cell(0, 8, f"{ticker}  |  {datetime.now().strftime('%Y-%m-%d %H:%M')}",
-             new_x="LMARGIN", new_y="NEXT")
-    pdf.ln(3)
-    pdf.set_draw_color(21, 101, 192)
-    pdf.set_line_width(0.8)
-    pdf.line(18, pdf.get_y(), 192, pdf.get_y())
-    pdf.ln(5)
-
-    # 기술적 지표
-    pdf.set_font(fn, size=12)
-    try:
-        pdf.cell(0, 8, "[ Technical Indicators ]", new_x="LMARGIN", new_y="NEXT")
-    except:
-        pdf.cell(0, 8, "[ Technical Indicators ]", new_x="LMARGIN", new_y="NEXT")
     pdf.set_font(fn, size=10)
-    pdf.cell(0, 6, f"Price: {price:.2f}   MA20: {ma20:.2f}   MA60: {ma60:.2f}   RSI: {rsi:.1f}",
-             new_x="LMARGIN", new_y="NEXT")
-    pdf.ln(4)
-
-    # AI 분석 본문
-    pdf.set_font(fn, size=12)
+    now_str = datetime.now().strftime('%Y년 %m월 %d일  %H:%M  (분석 기준 시점)')
     try:
-        pdf.cell(0, 8, "[ AI Analysis ]", new_x="LMARGIN", new_y="NEXT")
+        pdf.cell(0, 7, f"종목: {ticker}   |   분석 일시: {now_str}", new_x="LMARGIN", new_y="NEXT")
+    except:
+        pdf.cell(0, 7, f"Ticker: {ticker}   |   Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+                 new_x="LMARGIN", new_y="NEXT")
+    pdf.ln(2)
+    draw_line(pdf, color=(13,71,161), lw=1.0)
+
+    # ── 기술적 지표 박스 ──
+    pdf.set_font(fn, size=11)
+    try:
+        pdf.cell(0, 8, "[ 기술적 지표 ]", new_x="LMARGIN", new_y="NEXT")
+    except:
+        pdf.cell(0, 8, "[ Technical Indicators ]", new_x="LMARGIN", new_y="NEXT")
+
+    pdf.set_font(fn, size=10)
+    indicators = (f"현재가: {price:,.0f}   |   MA20: {ma20:,.0f}   |   "
+                  f"MA60: {ma60:,.0f}   |   RSI(14): {rsi:.1f}")
+    try:
+        pdf.cell(0, 6, indicators, new_x="LMARGIN", new_y="NEXT")
+    except:
+        pdf.cell(0, 6, f"Price:{price:.2f} MA20:{ma20:.2f} MA60:{ma60:.2f} RSI:{rsi:.1f}",
+                 new_x="LMARGIN", new_y="NEXT")
+    pdf.ln(3)
+    draw_line(pdf)
+
+    # ── AI 분석 본문 ──
+    pdf.set_font(fn, size=11)
+    try:
+        pdf.cell(0, 8, "[ AI 심층 분석 ]", new_x="LMARGIN", new_y="NEXT")
     except:
         pdf.cell(0, 8, "[ AI Analysis ]", new_x="LMARGIN", new_y="NEXT")
-    pdf.set_font(fn, size=9)
     pdf.ln(2)
 
-    # 한글 인코딩 안전 처리
-    clean_text = analysis_text
+    # 섹션별로 분리하여 출력 (제목은 굵게, 내용은 일반)
+    lines = analysis_text.split('\n')
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            pdf.ln(3)
+            continue
+        # 항목 제목 (숫자. 또는 ##으로 시작)
+        is_heading = (
+            (len(stripped) > 2 and stripped[0].isdigit() and stripped[1] in '.）)') or
+            stripped.startswith('##') or
+            stripped.startswith('**') or
+            any(stripped.startswith(x) for x in ['1.','2.','3.','4.','5.','6.','✅','📌','📊','📅','📢','🔗','🌏'])
+        )
+        clean = stripped.lstrip('#').lstrip('*').strip()
+        if is_heading:
+            pdf.ln(3)
+            pdf.set_font(fn, size=11)
+            try:
+                pdf.multi_cell(0, 7, clean)
+            except:
+                try: pdf.multi_cell(0, 7, clean.encode("latin-1","replace").decode("latin-1"))
+                except: pass
+            draw_line(pdf, color=(180,200,230), lw=0.3)
+        else:
+            pdf.set_font(fn, size=9)
+            try:
+                pdf.multi_cell(0, 5.5, stripped)
+            except:
+                try: pdf.multi_cell(0, 5.5, stripped.encode("latin-1","replace").decode("latin-1"))
+                except: pass
+
+    # ── 면책 고지 ──
+    pdf.ln(5)
+    draw_line(pdf, color=(200,200,200), lw=0.3)
+    pdf.set_font(fn, size=8)
     try:
-        pdf.multi_cell(0, 5.5, clean_text)
-    except Exception:
-        try:
-            safe = clean_text.encode('latin-1', errors='replace').decode('latin-1')
-            pdf.multi_cell(0, 5.5, safe)
-        except Exception:
-            pdf.multi_cell(0, 5.5, "Analysis text encoding error.")
+        pdf.multi_cell(0, 5, "※ 본 리포트는 AI가 분석 시점의 정보를 바탕으로 생성한 참고 자료입니다. "
+                              "투자 손실에 대한 책임은 투자자 본인에게 있습니다.")
+    except:
+        pdf.multi_cell(0, 5, "Disclaimer: This report is for reference only. Invest at your own risk.")
 
     tmp = tempfile.NamedTemporaryFile(delete=False, suffix='.pdf')
     pdf.output(tmp.name)
@@ -536,38 +598,62 @@ def get_ai_analysis(ticker, company, price, ma20, ma60, rsi, news_titles, market
 
     section1 = "1. 🌏 전일 미국 시장 분석 및 국내외 거시경제 환경" if kr_market else "1. 🌏 글로벌 시장 환경 및 거시경제 영향 요소"
 
-    prompt = f"""당신은 경험 많은 주식 애널리스트입니다. {lang_str} 작성하세요.
-일반 투자자가 빠르게 읽고 "살까? 팔까?"를 바로 결정할 수 있도록,
-핵심만 간결하게, 각 항목은 3~5문장으로 작성하세요.
-전문 용어보다 쉬운 말을 쓰고, 숫자와 팩트를 섞어 신뢰감을 주세요.
+    now_str = datetime.now().strftime('%Y년 %m월 %d일 %H시 %M분')
+    prompt = f"""당신은 10년 경력의 주식 애널리스트입니다. {lang_str} 분석 리포트를 작성하세요.
 
-📌 종목: {company} ({ticker})
-현재가: {price:.2f} | MA20: {ma20:.2f} ({ma20_gap:+.1f}%) | MA60: {ma60:.2f} ({ma60_gap:+.1f}%) | RSI: {rsi:.1f} ({rsi_status}) | 배열: {ma_cross}
-최근 뉴스: {news_text}
+【분석 기준 시점】: {now_str}
+【분석 종목】: {company} ({ticker})
+【현재가】: {price:,.0f}
+【MA20】: {ma20:,.0f} (현재가 대비 {ma20_gap:+.1f}%) → {ma_status}
+【MA60】: {ma60:,.0f} (현재가 대비 {ma60_gap:+.1f}%) → {ma_cross}
+【RSI(14)】: {rsi:.1f} → {rsi_status}
+【최근 뉴스】:
+{news_text}
 
-아래 6개 항목을 작성하세요. 각 항목 제목은 그대로 유지하세요.
+───────────────────────────────────────
+작성 원칙:
+1. 각 항목은 반드시 ① 결론(1~2문장) → ② 배경/이유(2~3문장) → ③ 세부 내용/데이터(3~4문장) 순서로 작성
+2. 일반 투자자가 쉽게 이해할 수 있는 언어 사용
+3. 가능하면 구체적인 수치, 비율, 가격대 포함
+4. 각 항목 최소 200자 이상 (전체 A4 2페이지 분량)
+5. 분석 시점({now_str}) 기준의 현재 상황을 반영
+───────────────────────────────────────
+
+아래 6개 항목을 순서대로 작성하세요:
 
 {section1}
-→ 지금 시장 분위기가 이 종목에 유리한지 불리한지 한눈에 파악할 수 있게. 주요 지수 흐름, 금리·환율 영향, 섹터 트렌드 중 이 종목과 직접 관련된 것 위주로.
+결론부터: 현재 거시경제 환경이 이 종목에 유리한지 불리한지 한 줄로 먼저 말하세요.
+그 다음: 미국/글로벌 시장 흐름, 금리·환율·유가 동향과 이 종목의 관계를 설명하세요.
+세부 내용: 섹터 전반의 자금 흐름, 이 종목이 속한 산업의 현재 위치를 구체적으로 서술하세요.
 
 2. 📢 시장 반응 및 여론
-→ 지금 투자자들이 이 종목을 어떻게 보는지. 기관·외국인 수급 방향, 시장 심리, 최근 뉴스 반응. "지금 분위기가 좋다/나쁘다"를 명확히.
+결론부터: 현재 시장에서 이 종목에 대한 전반적인 분위기를 한 줄로 먼저 말하세요.
+그 다음: 기관·외국인 투자자의 최근 수급 방향과 그 이유를 설명하세요.
+세부 내용: 최근 뉴스에 대한 시장 반응, 개인투자자 심리, 여론의 방향성을 구체적으로 서술하세요.
 
 3. 📊 주가 등락 이유
-→ 왜 올랐는지 또는 왜 내렸는지 핵심 이유 2~3가지. 실적·이슈·업황 중 지금 가장 영향력 큰 것 위주로.
+결론부터: 최근 주가 흐름의 핵심 원인을 한 줄로 먼저 말하세요.
+그 다음: 실적·이슈·업황 중 지금 가장 큰 영향을 미치는 요인 2가지를 설명하세요.
+세부 내용: 각 요인이 주가에 미치는 구체적인 영향, 관련 수치나 사례를 포함해 서술하세요.
 
 4. 🔗 함께 움직이는 연관 종목
-→ 이 종목이 오르면 같이 오를 가능성 높은 종목 3개, 각각 한 줄 이유 포함. 투자자가 바로 검색해볼 수 있게.
+결론부터: 이 종목과 가장 연관성 높은 투자 방향을 한 줄로 먼저 말하세요.
+그 다음: 연관 종목 3개를 제시하고 각각 왜 연관되는지 이유를 설명하세요.
+세부 내용: 각 연관 종목의 현재 상황, 투자자가 함께 주목해야 할 포인트를 서술하세요.
 
 5. 📅 오늘~이번 주 전망
-→ 단기 방향성을 명확히. 상승/하락/횡보 중 하나로 결론. 지지선·저항선 가격 포함. 주목할 이벤트나 변수 한 가지.
+결론부터: 단기 방향을 상승/하락/횡보 중 하나로 먼저 명확히 말하세요.
+그 다음: 그 판단의 근거가 되는 기술적 지표와 외부 변수를 설명하세요.
+세부 내용: 구체적인 지지선·저항선 가격, 이번 주 주목할 이벤트나 변수를 포함해 서술하세요.
 
 6. ✅ 최종 결론: 매수 / 매도 / 관망
-→ 셋 중 하나를 반드시 선택. 그 이유를 2~3문장으로. 목표가와 손절가를 숫자로 제시. 마지막에 "⚠️ 본 분석은 참고용이며 투자 판단은 본인 책임입니다." 추가.
+결론부터: 매수 / 매도 / 관망 중 하나를 굵게 표시하고 한 줄 이유를 말하세요.
+그 다음: 이 판단의 근거가 된 가장 중요한 2가지 이유를 설명하세요.
+세부 내용: 목표가(숫자), 손절가(숫자), 추천 보유기간을 명시하세요. 리스크 요인도 1가지 언급하세요.
 """
     message = client.messages.create(
         model="claude-haiku-4-5",
-        max_tokens=3000,
+        max_tokens=5000,
         messages=[{"role": "user", "content": prompt}]
     )
     return message.content[0].text
