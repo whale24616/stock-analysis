@@ -127,97 +127,104 @@ def send_email(to, subject, body):
     except:
         return False
 
-# ── 배경 이미지 base64 변환 ────────────────────────────────
-def get_bg_base64():
-    bg_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "background.jpg")
-    if os.path.exists(bg_path):
-        with open(bg_path, "rb") as f:
-            return base64.b64encode(f.read()).decode()
-    return None
-
 # ── 스타일 ─────────────────────────────────────────────
 def apply_style(with_bg=False):
-    bg_css = ""
-    if with_bg:
-        b64 = get_bg_base64()
-        if b64:
-            bg_css = f"""
-            .stApp {{
-                background-image: url("data:image/jpeg;base64,{b64}") !important;
-                background-size: cover !important;
-                background-position: center center !important;
-                background-repeat: no-repeat !important;
-                background-attachment: fixed !important;
-            }}
-            """
-        else:
-            bg_css = ".stApp { background: linear-gradient(160deg,#e8f4ff 0%,#d0e8ff 50%,#c0d8f8 100%) !important; }"
-    else:
-        bg_css = ".stApp { background: linear-gradient(160deg, #1a2035 0%, #1e2d4a 40%, #162040 100%); color: #e8eef7; }"
-
-    st.markdown(f"""
+    st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-    html, body, [class*="css"] {{ font-family: 'Inter', sans-serif; }}
-    {bg_css}
-    h1 {{ color: #0d47a1 !important; font-weight: 800 !important; }}
-    h2, h3 {{ color: #1565c0 !important; font-weight: 600 !important; }}
-    p, label, div {{ color: #1a2a45 !important; }}
+    html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
 
-    [data-testid="metric-container"] {{
-        background: rgba(255,255,255,0.80) !important;
-        border: 1px solid rgba(21,101,192,0.15) !important;
-        border-radius: 14px !important; padding: 18px !important;
-        backdrop-filter: blur(12px) !important;
-        box-shadow: 0 4px 20px rgba(21,101,192,0.1) !important;
-    }}
-    [data-testid="metric-container"] label {{ color: #1565c0 !important; font-size:0.78rem !important; text-transform:uppercase; letter-spacing:1px; }}
-    [data-testid="metric-container"] [data-testid="stMetricValue"] {{ color: #0a1f4e !important; font-size:1.5rem !important; font-weight:700 !important; }}
+    /* 전체 흰색 배경 */
+    .stApp { background: #f5f7fa !important; }
+    section[data-testid="stSidebar"] { background: #ffffff !important; }
 
-    .stButton > button {{
+    /* 텍스트 */
+    h1 { color: #0d47a1 !important; font-weight: 800 !important; }
+    h2, h3 { color: #1565c0 !important; font-weight: 600 !important; }
+    p, label, div, span { color: #1a2a45 !important; }
+
+    /* 메트릭 카드 */
+    [data-testid="metric-container"] {
+        background: #ffffff !important;
+        border: 1.5px solid #dce8f8 !important;
+        border-radius: 14px !important;
+        padding: 18px !important;
+        box-shadow: 0 2px 12px rgba(21,101,192,0.08) !important;
+    }
+    [data-testid="metric-container"] label {
+        color: #1565c0 !important; font-size:0.78rem !important;
+        text-transform:uppercase; letter-spacing:1px;
+    }
+    [data-testid="metric-container"] [data-testid="stMetricValue"] {
+        color: #0a1f4e !important; font-size:1.4rem !important; font-weight:700 !important;
+    }
+
+    /* 버튼 */
+    .stButton > button {
         background: linear-gradient(135deg, #1565c0, #0d47a1) !important;
-        color: white !important; border: none !important; border-radius: 10px !important;
-        padding: 10px 24px !important; font-weight: 600 !important;
-        font-size: 0.95rem !important;
-        transition: all 0.3s ease !important;
-        box-shadow: 0 4px 15px rgba(21,101,192,0.3) !important;
-    }}
-    .stButton > button:hover {{
+        color: white !important; border: none !important;
+        border-radius: 10px !important; padding: 10px 24px !important;
+        font-weight: 600 !important; font-size: 0.95rem !important;
+        transition: all 0.2s ease !important;
+        box-shadow: 0 3px 12px rgba(21,101,192,0.25) !important;
+    }
+    .stButton > button:hover {
         background: linear-gradient(135deg, #1976d2, #1565c0) !important;
-        box-shadow: 0 6px 25px rgba(21,101,192,0.5) !important;
-        transform: translateY(-2px) !important;
-    }}
-    .stTextInput > div > div > input {{
-        background: rgba(255,255,255,0.88) !important;
-        border: 1px solid rgba(21,101,192,0.2) !important;
-        border-radius: 10px !important; color: #0a1f4e !important;
-        padding: 12px 16px !important; font-size: 0.95rem !important;
-    }}
-    .stTextInput > div > div > input:focus {{
+        box-shadow: 0 5px 20px rgba(21,101,192,0.4) !important;
+        transform: translateY(-1px) !important;
+    }
+
+    /* 입력란 — 흰 배경 + 진한 테두리로 명확히 구분 */
+    .stTextInput > div > div > input {
+        background: #ffffff !important;
+        border: 2px solid #b0c8e8 !important;
+        border-radius: 10px !important;
+        color: #0a1f4e !important;
+        padding: 12px 16px !important;
+        font-size: 0.95rem !important;
+        box-shadow: 0 1px 4px rgba(21,101,192,0.06) !important;
+    }
+    .stTextInput > div > div > input:focus {
         border-color: #1565c0 !important;
         box-shadow: 0 0 0 3px rgba(21,101,192,0.15) !important;
-    }}
-    .stTextInput > div > div > input::placeholder {{ color: #8090b0 !important; }}
-    .stTextInput label {{ color: #1a3a6e !important; font-weight: 500 !important; }}
+        outline: none !important;
+    }
+    .stTextInput > div > div > input::placeholder { color: #90a4c0 !important; }
+    .stTextInput label { color: #1a3a6e !important; font-weight: 600 !important; font-size:0.9rem !important; }
 
-    .stTabs [data-baseweb="tab-list"] {{
-        background: rgba(255,255,255,0.75) !important;
+    /* 탭 */
+    .stTabs [data-baseweb="tab-list"] {
+        background: #e8f0fb !important;
         border-radius: 12px !important; padding: 5px !important;
-        border: 1px solid rgba(21,101,192,0.15) !important;
-    }}
-    .stTabs [data-baseweb="tab"] {{ color: #1a3a6e !important; border-radius:10px !important; font-weight:500 !important; padding:8px 20px !important; }}
-    .stTabs [aria-selected="true"] {{
+        border: 1px solid #c8d8f0 !important;
+    }
+    .stTabs [data-baseweb="tab"] {
+        color: #1a3a6e !important; border-radius:10px !important;
+        font-weight:500 !important; padding:8px 20px !important;
+    }
+    .stTabs [aria-selected="true"] {
         background: linear-gradient(135deg, #1565c0, #0d47a1) !important;
-        color: white !important; box-shadow: 0 4px 12px rgba(21,101,192,0.3) !important;
-    }}
-    .stSuccess {{ background: rgba(0,180,80,0.1) !important; border-left:4px solid #00c853 !important; border-radius:10px !important; }}
-    .stError   {{ background: rgba(220,30,30,0.1) !important;  border-left:4px solid #d50000 !important; border-radius:10px !important; }}
-    .stWarning {{ background: rgba(255,160,0,0.12) !important; border-left:4px solid #ff9800 !important; border-radius:10px !important; }}
-    .stInfo    {{ background: rgba(21,101,192,0.1) !important; border-left:4px solid #1565c0 !important; border-radius:10px !important; }}
-    .stRadio label {{ color: #1a3a6e !important; font-weight:500 !important; }}
-    hr {{ border-color: rgba(21,101,192,0.1) !important; }}
-    .streamlit-expanderHeader {{ background:rgba(255,255,255,0.75) !important; border:1px solid rgba(21,101,192,0.15) !important; border-radius:10px !important; color:#1a3a6e !important; }}
-    #MainMenu {{visibility:hidden;}} footer {{visibility:hidden;}}
+        color: white !important;
+        box-shadow: 0 3px 10px rgba(21,101,192,0.3) !important;
+    }
+    .stTabs [aria-selected="true"] p { color: white !important; }
+
+    /* 알림 박스 */
+    .stSuccess { background: #e8f5e9 !important; border-left:4px solid #2e7d32 !important; border-radius:10px !important; }
+    .stError   { background: #ffebee !important; border-left:4px solid #c62828 !important; border-radius:10px !important; }
+    .stWarning { background: #fff8e1 !important; border-left:4px solid #f57f17 !important; border-radius:10px !important; }
+    .stInfo    { background: #e3f2fd !important; border-left:4px solid #1565c0 !important; border-radius:10px !important; }
+
+    /* 라디오, 구분선, 익스팬더 */
+    .stRadio label { color: #1a3a6e !important; font-weight:500 !important; }
+    hr { border-color: #dce8f8 !important; }
+    .streamlit-expanderHeader {
+        background: #eef4fc !important;
+        border: 1.5px solid #c8d8f0 !important;
+        border-radius: 10px !important;
+        color: #1a3a6e !important;
+    }
+    #MainMenu {visibility:hidden;} footer {visibility:hidden;}
     </style>
     """, unsafe_allow_html=True)
 
@@ -550,7 +557,7 @@ def draw_chart(history, ticker):
 
 # ── 로그인 페이지 ─────────────────────────────────────────
 def login_page():
-    apply_style(with_bg=True)
+    apply_style()
 
     st.markdown("""
     <style>
@@ -736,7 +743,7 @@ def admin_panel():
 
 # ── 메인 앱 ────────────────────────────────────────────────
 def main_app():
-    apply_style(with_bg=False)
+    apply_style()
 
     hc1, hc2, hc3 = st.columns([6, 1, 1])
     with hc1:
