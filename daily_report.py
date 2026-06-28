@@ -269,7 +269,7 @@ def main():
 
     # 카카오 발송
     try:
-        kakao_summary += "\n🔗 자세한 분석: stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app"
+        kakao_summary += "\n🔗 자세한 분석: https://stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app"
         result = send_kakao(kakao_summary, kakao_token)
         print(f"✅ 카카오 발송 완료: {result}")
     except Exception as e:
