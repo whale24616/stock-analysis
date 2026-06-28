@@ -486,24 +486,85 @@ def calc_rsi(series, period=14):
 
 def get_ai_analysis(ticker, company, price, ma20, ma60, rsi, news_titles, market):
     client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
-    news_text = "\n".join([f"- {n}" for n in news_titles[:5]]) if news_titles else "관련 뉴스 없음"
+    news_text = "\n".join([f"- {n}" for n in news_titles[:8]]) if news_titles else "관련 뉴스 없음"
     lang = st.session_state.get('lang', 'ko')
     lang_str = "한국어로" if lang == 'ko' else "in English"
     kr_market = market in ["🇰🇷 한국", "🇰🇷 Korea"]
-    section1 = "1. 🌏 전일 미국 시장 분석 및 해당 종목 특별 이슈" if kr_market else "1. 🌏 주요 시장 영향 요소 및 해당 종목 특별 이슈"
-    prompt = f"""당신은 전문 주식 애널리스트입니다. {lang_str} 분석해주세요.
-종목: {ticker} ({company}) | 현재가: {price:.2f} | MA20: {ma20:.2f} | MA60: {ma60:.2f} | RSI: {rsi:.1f}
-최근 뉴스: {news_text}
 
-{section1} (3~4문장)
-2. 📢 시장 반응 및 여론 (2~3문장)
-3. 📊 주가 등락 이유 (2~3문장)
-4. 🔗 동반 상승/하락 예상 종목 (2~3문장)
-5. 📅 당일 주식 전망 (3~4문장)
-6. ✅ 최종 결론: 매수/매도/관망 중 하나 선택 (3~4문장)
+    # 기술적 지표 해석
+    ma_status = "MA20 위 (단기 강세)" if price > ma20 else "MA20 아래 (단기 약세)"
+    ma_cross  = "정배열 (MA20 > MA60, 강세)" if ma20 > ma60 else "역배열 (MA20 < MA60, 약세)"
+    rsi_status = "과매수 구간" if rsi >= 70 else ("과매도 구간" if rsi <= 30 else "중립 구간")
+    ma20_gap = ((price - ma20) / ma20 * 100) if ma20 else 0
+    ma60_gap = ((price - ma60) / ma60 * 100) if ma60 else 0
+
+    section1 = "1. 🌏 전일 미국 시장 분석 및 국내외 거시경제 환경" if kr_market else "1. 🌏 글로벌 시장 환경 및 거시경제 영향 요소"
+
+    prompt = f"""당신은 월가 출신의 20년 경력 시니어 주식 애널리스트입니다.
+아래 데이터를 바탕으로 {lang_str} 매우 상세하고 전문적인 분석 리포트를 작성해주세요.
+각 항목은 반드시 【전체 개요】→【세부 데이터 및 팩트】→【시사점】 순서로 충분히 길게 작성하세요.
+숫자, 비율, 구체적 사례, 역사적 선례를 반드시 포함하세요.
+
+═══════════════════════════════════
+📌 분석 대상 종목 정보
+═══════════════════════════════════
+종목명: {company} ({ticker})
+현재가: {price:.2f}
+MA20: {ma20:.2f} ({ma_status}, 현재가 대비 {ma20_gap:+.1f}%)
+MA60: {ma60:.2f} (이격률 {ma60_gap:+.1f}%, {ma_cross})
+RSI(14): {rsi:.1f} → {rsi_status}
+최근 관련 뉴스:
+{news_text}
+═══════════════════════════════════
+
+다음 6개 항목을 각각 400~600자 이상으로 상세히 작성하세요:
+
+{section1}
+▸ 전체 개요: 최근 미국/글로벌 증시 흐름, 금리·환율·유가·달러인덱스 동향을 종합 설명
+▸ 세부 데이터: 주요 지수(S&P500, 나스닥, 다우) 등락률, 섹터별 자금 흐름, 외국인/기관 수급 동향, 채권시장 동향
+▸ 시사점: 이 거시 환경이 해당 종목에 미치는 구체적 영향과 투자자 주목 포인트
+
+2. 📢 시장 반응 및 투자자 여론 분석
+▸ 전체 개요: 현재 시장 참여자들의 해당 종목에 대한 전반적 시각과 심리 상태
+▸ 세부 데이터: 기관투자자 vs 개인투자자 포지션 차이, 공매도 잔고 비율, 옵션 시장 풋/콜 비율, 소셜미디어·커뮤니티 여론 동향, 애널리스트 목표주가 컨센서스
+▸ 시사점: 현재 여론이 주가에 미칠 단기·중기 영향 분석
+
+3. 📊 주가 등락 핵심 원인 심층 분석
+▸ 전체 개요: 최근 주가 움직임의 근본적 원인과 배경
+▸ 세부 데이터: 실적(매출/영업이익/EPS) 변화, 업황 사이클, 경쟁사 동향, 규제 이슈, 신제품·신사업 모멘텀, PER·PBR 등 밸류에이션 지표와 역사적 평균 비교
+▸ 시사점: 이 원인이 일시적인지 구조적인지 판단, 향후 실적 전망
+
+4. 🔗 연관 종목 및 동반 흐름 예상
+▸ 전체 개요: 해당 종목과 같은 방향으로 움직일 가능성이 높은 연관 종목군 설명
+▸ 세부 데이터: 공급망 상·하위 업체, 동일 섹터 경쟁사, ETF 편입 현황, 과거 상관관계 데이터, 각 연관 종목의 현재 기술적 위치
+▸ 시사점: 포트폴리오 관점에서의 리스크 분산 전략과 주목할 연관 종목 Top 3~5
+
+5. 📅 단기(당일~1주) 주가 전망 시나리오
+▸ 전체 개요: 현재 기술적·펀더멘털 상황을 종합한 단기 방향성 판단
+▸ 세부 데이터:
+  [강세 시나리오] 조건, 상승 시 1차/2차 목표가와 근거
+  [약세 시나리오] 조건, 하락 시 1차/2차 지지선과 근거
+  [중립 시나리오] 박스권 상단/하단, 횡보 조건
+  - 주목해야 할 지지/저항 가격대, 거래량 기준선, 이벤트 일정
+▸ 시사점: 가장 가능성 높은 시나리오와 그 확률적 근거
+
+6. ✅ 종합 투자 의견 및 전략 (매수 / 매도 / 관망)
+▸ 전체 개요: 위 1~5항 분석을 종합한 최종 투자 판단과 명확한 근거
+▸ 세부 전략:
+  - 최종 의견: 매수 / 매도 / 관망 (반드시 하나 선택)
+  - 적정 매수/매도 가격대
+  - 손절가(Stop-loss) 및 목표가(Target price)
+  - 투자 비중 제안 (공격적/중립/보수적 투자자별)
+  - 보유 기간 추천
+▸ 핵심 리스크: 이 투자 판단이 틀릴 수 있는 상황과 대응 방법
+
+⚠️ 면책 고지: 본 분석은 참고용이며 투자 손실에 대한 책임은 투자자 본인에게 있습니다.
 """
-    message = client.messages.create(model="claude-haiku-4-5", max_tokens=2000,
-                                     messages=[{"role": "user", "content": prompt}])
+    message = client.messages.create(
+        model="claude-haiku-4-5",
+        max_tokens=8000,
+        messages=[{"role": "user", "content": prompt}]
+    )
     return message.content[0].text
 
 def name_to_ticker(query, market):
