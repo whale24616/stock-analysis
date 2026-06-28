@@ -167,9 +167,9 @@ def main_app():
         # 기술적 신호
         st.subheader("🔍 기술적 신호")
         c1, c2, c3 = st.columns(3)
-        c1.metric("현재가", f"{symbol}{price:,.2f}")
-        c2.metric("MA20", f"{symbol}{ma20:,.2f}")
-        c3.metric("MA60", f"{symbol}{ma60:,.2f}")
+         c1.metric("현재가", f"{symbol}{price:,.2f}" if price == price else "N/A")
+        c2.metric("MA20", f"{symbol}{ma20:,.2f}" if ma20 == ma20 else "N/A")
+        c3.metric("MA60", f"{symbol}{ma60:,.2f}" if ma60 == ma60 else "N/A")
 
         col1, col2 = st.columns(2)
         with col1:
@@ -209,4 +209,6 @@ if 'logged_in' not in st.session_state:
 if st.session_state['logged_in']:
     main_app()
 else:
-    login_page()
+    login_page()        c1.metric("현재가", f"{symbol}{price:,.2f}" if price == price else "N/A")
+        c2.metric("MA20", f"{symbol}{ma20:,.2f}" if ma20 == ma20 else "N/A")
+        c3.metric("MA60", f"{symbol}{ma60:,.2f}" if ma60 == ma60 else "N/A")
