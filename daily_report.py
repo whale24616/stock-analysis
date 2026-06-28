@@ -83,19 +83,14 @@ def send_kakao(text, access_token):
             "mobile_web_url": "https://stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app"
         }
     }
-    # urllib.parse로 안전하게 인코딩
-    body = urllib.parse.urlencode({
-        "template_object": json.dumps(template_obj, ensure_ascii=False)
-    })
+    # ensure_ascii=True → 모든 문자를 ASCII 안전하게 변환 (latin-1 오류 방지)
+    template_str = json.dumps(template_obj, ensure_ascii=True)
 
     print(f"🔑 사용 토큰 앞 10자리: {access_token[:10]}...")
     res = requests.post(
         url,
-        headers={
-            "Authorization": f"Bearer {access_token}",
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        data=body.encode("utf-8")
+        headers={"Authorization": f"Bearer {access_token}"},
+        data={"template_object": template_str}
     )
     return res.json()
 
