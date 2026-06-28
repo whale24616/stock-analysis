@@ -39,19 +39,35 @@ def refresh_kakao_token():
     return data.get("access_token", KAKAO_ACCESS_TOKEN)
 
 # ── 카카오 나에게 보내기 ────────────────────────────────────────
+def clean_for_kakao(text):
+    """카카오 메시지용 특수문자 제거"""
+    import re
+    # 마크다운 특수문자 제거
+    text = re.sub(r'\*+', '', text)       # *** ** * 제거
+    text = re.sub(r'#+\s*', '', text)     # ## 제거
+    text = re.sub(r'~~.*?~~', '', text)   # 취소선 제거
+    text = re.sub(r'`+', '', text)        # 백틱 제거
+    text = re.sub(r'\[END\]', '', text)   # [END] 제거
+    text = re.sub(r'\r\n', '\n', text)    # 줄바꿈 통일
+    text = re.sub(r'\n{3,}', '\n\n', text) # 3줄 이상 빈줄 → 2줄
+    text = text.strip()
+    return text
+
 def send_kakao(text, access_token):
     url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
-    # 2000자 제한으로 자르기
-    short_text = text[:1900] + "\n\n[전체 내용은 이메일 확인]" if len(text) > 1900 else text
+    clean_text = clean_for_kakao(text)
+    # 2000자 제한
+    if len(clean_text) > 1900:
+        clean_text = clean_text[:1900] + "\n\n[전체 내용은 이메일 확인]"
     payload = {
         "template_object": json.dumps({
             "object_type": "text",
-            "text": short_text,
+            "text": clean_text,
             "link": {
                 "web_url": "https://stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app",
                 "mobile_web_url": "https://stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app"
             }
-        })
+        }, ensure_ascii=False)
     }
     res = requests.post(url, headers={"Authorization": f"Bearer {access_token}"}, data=payload)
     return res.json()
@@ -201,11 +217,15 @@ def main():
                 "analysis": analysis
             })
 
-            # 카카오용 요약 (종목별 핵심만)
-            lines = analysis.split('\n')
-            summary_lines = [l for l in lines if l.strip()][:8]
-            kakao_summary += f"【{stock['name']}】현재가: {price:,.0f}\n"
-            kakao_summary += "\n".join(summary_lines[:5]) + "\n\n"
+            # 카카오용 요약 (종목별 핵심만 — 특수문자 없이)
+            import re
+            clean = re.sub(r'\*+', '', analysis)
+            clean = re.sub(r'#+\s*', '', clean)
+            clean = re.sub(r'~~.*?~~', '', clean)
+            clean = re.sub(r'`+', '', clean)
+            lines = [l.strip() for l in clean.split('\n') if l.strip()]
+            kakao_summary += f"[{stock['name']}] 현재가: {price:,.0f}\n"
+            kakao_summary += "\n".join(lines[:4]) + "\n\n"
 
         except Exception as e:
             print(f"❌ {stock['name']} 오류: {e}")
