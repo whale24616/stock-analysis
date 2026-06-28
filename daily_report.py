@@ -13,11 +13,11 @@ GMAIL_USER   = "leero1126@gmail.com"
 GMAIL_APP_PW = "xmpqsmeoexymwabm"
 SEND_TO      = "leero1126@gmail.com"   # 받을 이메일
 
-ANTHROPIC_API_KEY    = os.environ.get("ANTHROPIC_API_KEY", "")
-KAKAO_ACCESS_TOKEN   = os.environ.get("KAKAO_ACCESS_TOKEN", "")
-KAKAO_REFRESH_TOKEN  = os.environ.get("KAKAO_REFRESH_TOKEN", "")
-KAKAO_REST_API_KEY   = os.environ.get("KAKAO_REST_API_KEY", "")
-KAKAO_CLIENT_SECRET  = os.environ.get("KAKAO_CLIENT_SECRET", "")
+ANTHROPIC_API_KEY    = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+KAKAO_ACCESS_TOKEN   = os.environ.get("KAKAO_ACCESS_TOKEN", "").strip()
+KAKAO_REFRESH_TOKEN  = os.environ.get("KAKAO_REFRESH_TOKEN", "").strip()
+KAKAO_REST_API_KEY   = os.environ.get("KAKAO_REST_API_KEY", "").strip()
+KAKAO_CLIENT_SECRET  = os.environ.get("KAKAO_CLIENT_SECRET", "").strip()
 
 # ── 분석할 4개 종목 ────────────────────────────────────────────
 STOCKS = [
@@ -29,14 +29,24 @@ STOCKS = [
 
 # ── 카카오 토큰 갱신 ───────────────────────────────────────────
 def refresh_kakao_token():
-    res = requests.post("https://kauth.kakao.com/oauth/token", data={
-        "grant_type":    "refresh_token",
-        "client_id":     KAKAO_REST_API_KEY,
-        "client_secret": KAKAO_CLIENT_SECRET,
-        "refresh_token": KAKAO_REFRESH_TOKEN,
-    })
-    data = res.json()
-    return data.get("access_token", KAKAO_ACCESS_TOKEN)
+    try:
+        res = requests.post("https://kauth.kakao.com/oauth/token", data={
+            "grant_type":    "refresh_token",
+            "client_id":     KAKAO_REST_API_KEY,
+            "client_secret": KAKAO_CLIENT_SECRET,
+            "refresh_token": KAKAO_REFRESH_TOKEN,
+        })
+        data = res.json()
+        print(f"🔑 카카오 토큰 갱신 응답: {data}")
+        new_token = data.get("access_token", "")
+        if new_token:
+            return new_token.strip()
+        else:
+            print(f"⚠️ 토큰 갱신 실패, 기존 토큰 사용. 오류: {data.get('error_description', data)}")
+            return KAKAO_ACCESS_TOKEN.strip()
+    except Exception as e:
+        print(f"⚠️ 토큰 갱신 예외: {e}, 기존 토큰 사용")
+        return KAKAO_ACCESS_TOKEN.strip()
 
 # ── 카카오 나에게 보내기 ────────────────────────────────────────
 def clean_for_kakao(text):
@@ -54,22 +64,39 @@ def clean_for_kakao(text):
     return text
 
 def send_kakao(text, access_token):
+    import urllib.parse
     url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
+
+    # 토큰 정제 (개행·공백 제거)
+    access_token = access_token.strip().replace('\n', '').replace('\r', '').replace(' ', '')
+
     clean_text = clean_for_kakao(text)
     # 2000자 제한
     if len(clean_text) > 1900:
         clean_text = clean_text[:1900] + "\n\n[전체 내용은 이메일 확인]"
-    payload = {
-        "template_object": json.dumps({
-            "object_type": "text",
-            "text": clean_text,
-            "link": {
-                "web_url": "https://stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app",
-                "mobile_web_url": "https://stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app"
-            }
-        }, ensure_ascii=False)
+
+    template_obj = {
+        "object_type": "text",
+        "text": clean_text,
+        "link": {
+            "web_url": "https://stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app",
+            "mobile_web_url": "https://stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app"
+        }
     }
-    res = requests.post(url, headers={"Authorization": f"Bearer {access_token}"}, data=payload)
+    # urllib.parse로 안전하게 인코딩
+    body = urllib.parse.urlencode({
+        "template_object": json.dumps(template_obj, ensure_ascii=False)
+    })
+
+    print(f"🔑 사용 토큰 앞 10자리: {access_token[:10]}...")
+    res = requests.post(
+        url,
+        headers={
+            "Authorization": f"Bearer {access_token}",
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        data=body.encode("utf-8")
+    )
     return res.json()
 
 # ── 이메일 발송 ────────────────────────────────────────────────
