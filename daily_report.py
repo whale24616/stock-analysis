@@ -26,7 +26,7 @@ STOCKS = [
     {"ticker": "005930.KS", "name": "삼성전자",  "market": "한국"},
     {"ticker": "000660.KS", "name": "SK하이닉스", "market": "한국"},
     {"ticker": "NVDA",      "name": "NVIDIA",    "market": "미국"},
-    {"ticker": "AAPL",      "name": "Apple",     "market": "미국"},
+    {"ticker": "TSLA",      "name": "Tesla",     "market": "미국"},
 ]
 
 # ── 카카오 토큰 갱신 ───────────────────────────────────────────
@@ -267,7 +267,7 @@ def make_html_report(stock_reports, run_time):
 <div class='container'>
   <div class='header'>
     <h1>📈 매일 아침 주식 분석 리포트</h1>
-    <p>발송 시각: {run_time} &nbsp;|&nbsp; 삼성전자 · SK하이닉스 · NVIDIA · Apple</p>
+    <p>발송 시각: {run_time} &nbsp;|&nbsp; 삼성전자 · SK하이닉스 · NVIDIA · Tesla</p>
     <p style='margin-top:6px; font-size:11px; opacity:0.7;'>※ 데이터 출처: Yahoo Finance | AI 분석: Claude Haiku</p>
   </div>
   {cards}
