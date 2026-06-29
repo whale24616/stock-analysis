@@ -1043,16 +1043,19 @@ def main_app():
     hcol_title, hcol_btns = st.columns([7, 1])
     with hcol_title:
         st.markdown(f"""
-        <div style='background: linear-gradient(135deg, #071e52 0%, #0a3272 45%, #1255a8 100%);
+        <style>
+        .main-header {{ background: linear-gradient(135deg, #071e52 0%, #0a3272 45%, #1255a8 100%);
                     border-radius: 18px; padding: 24px 32px; margin-bottom: 16px;
-                    box-shadow: 0 6px 28px rgba(7,30,82,0.35);'>
-            <div style='font-size:1.9rem; font-weight:900; color:#ffffff;
-                        letter-spacing:-0.5px; line-height:1.2; text-shadow:0 2px 8px rgba(0,0,0,0.3);'>
-                📈 {t('title')}
-            </div>
-            <div style='color:rgba(200,220,255,0.90); font-size:0.85rem; margin-top:5px;'>
-                {t('subtitle')}
-            </div>
+                    box-shadow: 0 6px 28px rgba(7,30,82,0.35); }}
+        .main-header .htitle {{ font-size:1.9rem !important; font-weight:900 !important;
+                    color:#ffffff !important; letter-spacing:-0.5px; line-height:1.2;
+                    text-shadow:0 2px 10px rgba(0,0,0,0.5); }}
+        .main-header .hsub {{ color:rgba(210,228,255,0.95) !important; font-size:0.85rem;
+                    margin-top:5px; }}
+        </style>
+        <div class='main-header'>
+            <div class='htitle'>📈 {t('title')}</div>
+            <div class='hsub'>{t('subtitle')}</div>
         </div>
         """, unsafe_allow_html=True)
     with hcol_btns:
