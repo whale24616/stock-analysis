@@ -143,6 +143,12 @@ def apply_style(with_bg=False):
     h2, h3 { color: #1255a8 !important; font-weight: 700 !important; }
     p, label, div, span { color: #1a2a45 !important; }
 
+    /* 버튼 내부 텍스트는 항상 흰색 */
+    .stButton > button p,
+    .stButton > button span,
+    .stButton > button div,
+    .stButton > button { color: #ffffff !important; }
+
     /* 메트릭 카드 — 더 세련되게 */
     [data-testid="metric-container"] {
         background: #ffffff !important;
