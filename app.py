@@ -8,7 +8,9 @@ import anthropic
 import os, json, hashlib, smtplib, tempfile, base64, urllib.request
 from email.mime.text import MIMEText
 from fpdf import FPDF
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+KST = timezone(timedelta(hours=9))
+def now_kst(): return datetime.now(KST)
 
 # ── 설정 ──────────────────────────────────────────────
 ADMIN_ID      = "whale"
@@ -295,7 +297,7 @@ def activate_subscription(username):
     users = load_users()
     if username in users:
         users[username]['subscribed'] = True
-        users[username]['sub_date'] = datetime.now().strftime('%Y-%m-%d')
+        users[username]['sub_date'] = now_kst().strftime('%Y-%m-%d')
         save_users(users)
 
 def deactivate_subscription(username):
@@ -457,11 +459,11 @@ def payment_page():
                     f"안녕하세요!\n\n주식 분석 Pro 구독이 성공적으로 활성화되었습니다.\n\n"
                     f"✅ 플랜: Pro (무제한 AI 분석)\n"
                     f"💰 금액: $5.00 / 월\n"
-                    f"📅 시작일: {datetime.now().strftime('%Y-%m-%d')}\n\n감사합니다."
+                    f"📅 시작일: {now_kst().strftime('%Y-%m-%d')}\n\n감사합니다."
                 )
                 send_email(
                     ADMIN_EMAIL, "[주식앱] 신규 구독 결제",
-                    f"신규 구독: {st.session_state['username']}\n시작일: {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+                    f"신규 구독: {st.session_state['username']}\n시작일: {now_kst().strftime('%Y-%m-%d %H:%M')}"
                 )
                 st.success(t("pay_success"))
                 st.balloons()
@@ -490,7 +492,7 @@ def generate_report_html(ticker, analysis_text, price, ma20, ma60, rsi):
     ma20_gap  = ((price - ma20) / ma20 * 100) if ma20 else 0
     ma60_gap  = ((price - ma60) / ma60 * 100) if ma60 else 0
     rsi_label = "과매수 🔴" if rsi >= 70 else ("과매도 🟢" if rsi <= 30 else "중립 🔵")
-    now_str   = datetime.now().strftime('%Y년 %m월 %d일  %H:%M')
+    now_str   = now_kst().strftime('%Y년 %m월 %d일  %H:%M')
 
     # 마크다운 → HTML 변환
     def md_to_html(text):
@@ -692,7 +694,7 @@ def get_ai_analysis(ticker, company, price, ma20, ma60, rsi, news_titles, market
 
     section1 = "1. 🌏 전일 미국 시장 분석 및 국내외 거시경제 환경" if kr_market else "1. 🌏 글로벌 시장 환경 및 거시경제 영향 요소"
 
-    now_str = datetime.now().strftime('%Y년 %m월 %d일 %H시 %M분')
+    now_str = now_kst().strftime('%Y년 %m월 %d일 %H시 %M분')
     prompt = f"""당신은 10년 경력의 주식 애널리스트입니다. {lang_str} 핵심 투자 판단 리포트를 작성하세요.
 
 ⚠️ 절대 규칙:
@@ -994,7 +996,7 @@ def login_page():
                         plan_key = 'pro' if t("plan_pro") in plan else 'free'
                         users[email] = {
                             'pw': hash_pw(pw1), 'status': 'pending',
-                            'created': datetime.now().strftime('%Y-%m-%d %H:%M'),
+                            'created': now_kst().strftime('%Y-%m-%d %H:%M'),
                             'ai_count': 0, 'subscribed': False, 'plan': plan_key,
                         }
                         save_users(users)
@@ -1019,7 +1021,7 @@ def admin_panel():
                 users[email]['status'] = 'approved'
                 if users[email].get('plan') == 'pro':
                     users[email]['subscribed'] = True
-                    users[email]['sub_date'] = datetime.now().strftime('%Y-%m-%d')
+                    users[email]['sub_date'] = now_kst().strftime('%Y-%m-%d')
                 save_users(users)
                 send_email(email, "[주식앱] 가입 승인 완료", "가입이 승인되었습니다. 앱에 접속해주세요.")
                 st.rerun()
@@ -1275,7 +1277,7 @@ def main_app():
                     st.download_button(
                         label="📄 리포트 저장 (HTML → 브라우저에서 PDF 변환)",
                         data=html_data.encode('utf-8'),
-                        file_name=f"{ticker}_report_{datetime.now().strftime('%Y%m%d_%H%M')}.html",
+                        file_name=f"{ticker}_report_{now_kst().strftime('%Y%m%d_%H%M')}.html",
                         mime="text/html",
                         use_container_width=True
                     )
