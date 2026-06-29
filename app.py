@@ -1040,48 +1040,47 @@ def main_app():
     apply_style()
 
     # ── 헤더 배너 ──
-    hcol_title, hcol_btns = st.columns([7, 1])
-    with hcol_title:
-        st.markdown(f"""
-        <style>
-        .main-header {{ background: linear-gradient(135deg, #071e52 0%, #0a3272 45%, #1255a8 100%);
-                    border-radius: 18px; padding: 24px 32px; margin-bottom: 16px;
-                    box-shadow: 0 6px 28px rgba(7,30,82,0.35); }}
-        .main-header .htitle {{ font-size:1.9rem !important; font-weight:900 !important;
-                    color:#ffffff !important; letter-spacing:-0.5px; line-height:1.2;
-                    text-shadow:0 2px 10px rgba(0,0,0,0.5); }}
-        .main-header .hsub {{ color:rgba(210,228,255,0.95) !important; font-size:0.85rem;
-                    margin-top:5px; }}
-        </style>
-        <div class='main-header'>
+    cur_lang = st.session_state.get('lang', 'ko')
+    lang_label = "🇺🇸 EN" if cur_lang == 'ko' else "🇰🇷 KO"
+
+    st.markdown(f"""
+    <style>
+    .main-header {{
+        background: linear-gradient(135deg, #071e52 0%, #0a3272 45%, #1255a8 100%);
+        border-radius: 18px; padding: 22px 32px; margin-bottom: 16px;
+        box-shadow: 0 6px 28px rgba(7,30,82,0.35);
+        display: flex; align-items: center; justify-content: space-between;
+    }}
+    .main-header .htitle {{
+        font-size:1.9rem !important; font-weight:900 !important;
+        color:#ffffff !important; letter-spacing:-0.5px; line-height:1.2;
+        text-shadow:0 2px 10px rgba(0,0,0,0.5);
+    }}
+    .main-header .hsub {{
+        color:rgba(210,228,255,0.95) !important; font-size:0.85rem; margin-top:5px;
+    }}
+    .hdr-btn-wrap {{ display:flex; gap:8px; align-items:center; }}
+    .hdr-btn {{
+        background: rgba(255,255,255,0.18);
+        border: 1.5px solid rgba(255,255,255,0.5);
+        border-radius: 10px; padding: 7px 16px;
+        color: #ffffff !important; font-size: 0.82rem; font-weight: 700;
+        cursor: pointer; white-space: nowrap;
+        text-decoration: none; display: inline-block;
+    }}
+    .hdr-btn:hover {{ background: rgba(255,255,255,0.30); }}
+    </style>
+    <div class='main-header'>
+        <div>
             <div class='htitle'>📈 {t('title')}</div>
             <div class='hsub'>{t('subtitle')}</div>
         </div>
-        """, unsafe_allow_html=True)
-    with hcol_btns:
-        st.markdown("""
-        <style>
-        div[data-testid="column"]:last-child .stButton > button {
-            background: rgba(255,255,255,0.15) !important;
-            color: #ffffff !important;
-            border: 1.5px solid rgba(255,255,255,0.4) !important;
-            border-radius: 10px !important;
-            font-size: 0.82rem !important;
-            font-weight: 700 !important;
-            padding: 7px 12px !important;
-            width: 100% !important;
-            box-shadow: none !important;
-            backdrop-filter: blur(8px) !important;
-        }
-        div[data-testid="column"]:last-child .stButton > button:hover {
-            background: rgba(255,255,255,0.28) !important;
-            border-color: rgba(255,255,255,0.7) !important;
-            transform: none !important;
-            box-shadow: none !important;
-        }
-        </style>
-        <div style='height:10px'></div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
+
+    # 버튼 행 (헤더 아래 오른쪽 정렬)
+    _, bcol = st.columns([6, 1])
+    with bcol:
         lang_toggle()
         if st.button("🚪 로그아웃", key="logout_btn"):
             st.session_state['logged_in'] = False; st.rerun()
