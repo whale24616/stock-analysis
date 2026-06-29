@@ -1059,9 +1059,31 @@ def main_app():
         </div>
         """, unsafe_allow_html=True)
     with hcol_btns:
-        st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
+        st.markdown("""
+        <style>
+        div[data-testid="column"]:last-child .stButton > button {
+            background: rgba(255,255,255,0.15) !important;
+            color: #ffffff !important;
+            border: 1.5px solid rgba(255,255,255,0.4) !important;
+            border-radius: 10px !important;
+            font-size: 0.82rem !important;
+            font-weight: 700 !important;
+            padding: 7px 12px !important;
+            width: 100% !important;
+            box-shadow: none !important;
+            backdrop-filter: blur(8px) !important;
+        }
+        div[data-testid="column"]:last-child .stButton > button:hover {
+            background: rgba(255,255,255,0.28) !important;
+            border-color: rgba(255,255,255,0.7) !important;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        </style>
+        <div style='height:10px'></div>
+        """, unsafe_allow_html=True)
         lang_toggle()
-        if st.button("🚪 " + t("logout"), key="logout_btn"):
+        if st.button("🚪 로그아웃", key="logout_btn"):
             st.session_state['logged_in'] = False; st.rerun()
 
     ai_count, subscribed = get_user_sub_info(st.session_state['username'])
