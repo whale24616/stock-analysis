@@ -131,99 +131,130 @@ def send_email(to, subject, body):
 def apply_style(with_bg=False):
     st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-    html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
+    @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap');
+    html, body, [class*="css"] { font-family: 'Pretendard', 'Inter', sans-serif; }
 
-    /* 전체 흰색 배경 */
-    .stApp { background: #f5f7fa !important; }
+    /* 전체 배경 — 미묘한 그라디언트 */
+    .stApp { background: linear-gradient(160deg, #f0f4fb 0%, #eef2f9 100%) !important; }
     section[data-testid="stSidebar"] { background: #ffffff !important; }
 
     /* 텍스트 */
-    h1 { color: #0d47a1 !important; font-weight: 800 !important; }
-    h2, h3 { color: #1565c0 !important; font-weight: 600 !important; }
+    h1 { color: #0a3272 !important; font-weight: 900 !important; letter-spacing:-0.5px; }
+    h2, h3 { color: #1255a8 !important; font-weight: 700 !important; }
     p, label, div, span { color: #1a2a45 !important; }
 
-    /* 메트릭 카드 */
+    /* 메트릭 카드 — 더 세련되게 */
     [data-testid="metric-container"] {
         background: #ffffff !important;
-        border: 1.5px solid #dce8f8 !important;
-        border-radius: 14px !important;
-        padding: 18px !important;
-        box-shadow: 0 2px 12px rgba(21,101,192,0.08) !important;
+        border: 1px solid #e0eaf8 !important;
+        border-radius: 16px !important;
+        padding: 20px !important;
+        box-shadow: 0 4px 20px rgba(10,50,114,0.07) !important;
+        transition: box-shadow 0.2s ease !important;
+    }
+    [data-testid="metric-container"]:hover {
+        box-shadow: 0 8px 30px rgba(10,50,114,0.13) !important;
     }
     [data-testid="metric-container"] label {
-        color: #1565c0 !important; font-size:0.78rem !important;
-        text-transform:uppercase; letter-spacing:1px;
+        color: #6b8cc4 !important; font-size:0.73rem !important;
+        text-transform:uppercase; letter-spacing:1.2px; font-weight:600 !important;
     }
     [data-testid="metric-container"] [data-testid="stMetricValue"] {
-        color: #0a1f4e !important; font-size:1.4rem !important; font-weight:700 !important;
+        color: #0a1f4e !important; font-size:1.5rem !important; font-weight:800 !important;
     }
 
-    /* 버튼 */
+    /* 버튼 — 더 세련된 그라디언트 + 애니메이션 */
     .stButton > button {
-        background: linear-gradient(135deg, #1565c0, #0d47a1) !important;
+        background: linear-gradient(135deg, #1255a8 0%, #0a3272 100%) !important;
         color: white !important; border: none !important;
-        border-radius: 10px !important; padding: 10px 24px !important;
-        font-weight: 600 !important; font-size: 0.95rem !important;
-        transition: all 0.2s ease !important;
-        box-shadow: 0 3px 12px rgba(21,101,192,0.25) !important;
+        border-radius: 12px !important; padding: 11px 28px !important;
+        font-weight: 700 !important; font-size: 0.93rem !important;
+        letter-spacing: 0.3px !important;
+        transition: all 0.25s cubic-bezier(0.4,0,0.2,1) !important;
+        box-shadow: 0 4px 15px rgba(10,50,114,0.28) !important;
     }
     .stButton > button:hover {
-        background: linear-gradient(135deg, #1976d2, #1565c0) !important;
-        box-shadow: 0 5px 20px rgba(21,101,192,0.4) !important;
-        transform: translateY(-1px) !important;
+        background: linear-gradient(135deg, #1976d2 0%, #1255a8 100%) !important;
+        box-shadow: 0 8px 25px rgba(10,50,114,0.4) !important;
+        transform: translateY(-2px) !important;
+    }
+    .stButton > button:active {
+        transform: translateY(0px) !important;
+        box-shadow: 0 3px 10px rgba(10,50,114,0.3) !important;
     }
 
-    /* 입력란 — 흰 배경 + 진한 테두리로 명확히 구분 */
+    /* 입력란 */
     .stTextInput > div > div > input {
         background: #ffffff !important;
-        border: 2px solid #b0c8e8 !important;
-        border-radius: 10px !important;
+        border: 1.5px solid #c5d8f0 !important;
+        border-radius: 12px !important;
         color: #0a1f4e !important;
-        padding: 12px 16px !important;
+        padding: 12px 18px !important;
         font-size: 0.95rem !important;
-        box-shadow: 0 1px 4px rgba(21,101,192,0.06) !important;
+        box-shadow: 0 2px 8px rgba(10,50,114,0.05) !important;
+        transition: all 0.2s ease !important;
     }
     .stTextInput > div > div > input:focus {
-        border-color: #1565c0 !important;
-        box-shadow: 0 0 0 3px rgba(21,101,192,0.15) !important;
+        border-color: #1255a8 !important;
+        box-shadow: 0 0 0 3px rgba(18,85,168,0.12) !important;
         outline: none !important;
     }
-    .stTextInput > div > div > input::placeholder { color: #90a4c0 !important; }
-    .stTextInput label { color: #1a3a6e !important; font-weight: 600 !important; font-size:0.9rem !important; }
+    .stTextInput > div > div > input::placeholder { color: #a0b4cc !important; }
+    .stTextInput label { color: #1a3a6e !important; font-weight: 600 !important; font-size:0.88rem !important; letter-spacing:0.3px; }
 
-    /* 탭 */
+    /* 셀렉트박스 */
+    .stSelectbox > div > div {
+        background: #ffffff !important;
+        border: 1.5px solid #c5d8f0 !important;
+        border-radius: 12px !important;
+    }
+
+    /* 탭 — 더 깔끔하게 */
     .stTabs [data-baseweb="tab-list"] {
-        background: #e8f0fb !important;
-        border-radius: 12px !important; padding: 5px !important;
-        border: 1px solid #c8d8f0 !important;
+        background: #e4edf8 !important;
+        border-radius: 14px !important; padding: 5px !important;
+        border: 1px solid #cddaf0 !important;
+        gap: 4px !important;
     }
     .stTabs [data-baseweb="tab"] {
-        color: #1a3a6e !important; border-radius:10px !important;
-        font-weight:500 !important; padding:8px 20px !important;
+        color: #4a6899 !important; border-radius:10px !important;
+        font-weight:600 !important; padding:9px 22px !important;
+        transition: all 0.2s ease !important;
     }
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #1565c0, #0d47a1) !important;
+        background: linear-gradient(135deg, #1255a8, #0a3272) !important;
         color: white !important;
-        box-shadow: 0 3px 10px rgba(21,101,192,0.3) !important;
+        box-shadow: 0 4px 14px rgba(10,50,114,0.3) !important;
     }
     .stTabs [aria-selected="true"] p { color: white !important; }
 
     /* 알림 박스 */
-    .stSuccess { background: #e8f5e9 !important; border-left:4px solid #2e7d32 !important; border-radius:10px !important; }
-    .stError   { background: #ffebee !important; border-left:4px solid #c62828 !important; border-radius:10px !important; }
-    .stWarning { background: #fff8e1 !important; border-left:4px solid #f57f17 !important; border-radius:10px !important; }
-    .stInfo    { background: #e3f2fd !important; border-left:4px solid #1565c0 !important; border-radius:10px !important; }
+    .stSuccess { background: #e8f5e9 !important; border-left:4px solid #2e7d32 !important; border-radius:12px !important; }
+    .stError   { background: #ffebee !important; border-left:4px solid #c62828 !important; border-radius:12px !important; }
+    .stWarning { background: #fff8e1 !important; border-left:4px solid #ef6c00 !important; border-radius:12px !important; }
+    .stInfo    { background: #e8f2fd !important; border-left:4px solid #1255a8 !important; border-radius:12px !important; }
 
-    /* 라디오, 구분선, 익스팬더 */
-    .stRadio label { color: #1a3a6e !important; font-weight:500 !important; }
-    hr { border-color: #dce8f8 !important; }
+    /* 익스팬더 */
     .streamlit-expanderHeader {
-        background: #eef4fc !important;
-        border: 1.5px solid #c8d8f0 !important;
-        border-radius: 10px !important;
+        background: #f0f5fc !important;
+        border: 1px solid #d0e0f5 !important;
+        border-radius: 12px !important;
         color: #1a3a6e !important;
+        font-weight: 600 !important;
     }
+
+    /* 구분선 */
+    hr { border-color: #dce8f8 !important; }
+
+    /* 라디오 */
+    .stRadio label { color: #1a3a6e !important; font-weight:500 !important; }
+
+    /* 스크롤바 */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f0f4fb; }
+    ::-webkit-scrollbar-thumb { background: #b0c8e8; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #1255a8; }
+
     #MainMenu {visibility:hidden;} footer {visibility:hidden;}
     </style>
     """, unsafe_allow_html=True)
@@ -962,15 +993,21 @@ def main_app():
 
     # ── 헤더 배너 ──
     st.markdown(f"""
-    <div style='background: linear-gradient(135deg, #0d47a1 0%, #1565c0 60%, #1976d2 100%);
-                border-radius: 16px; padding: 22px 32px; margin-bottom: 18px;
-                box-shadow: 0 4px 20px rgba(13,71,161,0.25);
-                display: flex; align-items: center; justify-content: space-between;'>
-        <div>
-            <div style='font-size: 2.4rem; font-weight: 800; color: white !important; letter-spacing:-0.5px; line-height:1.1;'>
+    <div style='background: linear-gradient(135deg, #071e52 0%, #0a3272 40%, #1255a8 80%, #1976d2 100%);
+                border-radius: 20px; padding: 26px 36px; margin-bottom: 20px;
+                box-shadow: 0 8px 32px rgba(7,30,82,0.30);
+                position: relative; overflow: hidden;'>
+        <div style='position:absolute; top:-30px; right:-30px; width:180px; height:180px;
+                    background:rgba(255,255,255,0.04); border-radius:50%;'></div>
+        <div style='position:absolute; bottom:-50px; right:80px; width:120px; height:120px;
+                    background:rgba(255,255,255,0.03); border-radius:50%;'></div>
+        <div style='position:relative;'>
+            <div style='font-size: 2.2rem; font-weight: 900; color: white !important;
+                        letter-spacing:-1px; line-height:1.15;'>
                 📈 {t('title')}
             </div>
-            <div style='color: rgba(255,255,255,0.75) !important; font-size: 0.95rem; margin-top:5px;'>
+            <div style='color: rgba(255,255,255,0.70) !important; font-size: 0.88rem;
+                        margin-top:6px; letter-spacing:0.3px;'>
                 {t('subtitle')}
             </div>
         </div>
