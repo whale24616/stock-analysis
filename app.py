@@ -1224,11 +1224,34 @@ def main_app():
                     """, unsafe_allow_html=True)
 
                 if st.session_state.get('last_analysis') and st.session_state.get('last_ticker') == ticker:
+                    import re as _re
+                    def render_analysis(text):
+                        # 마크다운 → HTML 변환
+                        text = _re.sub(r'\[END\]', '', text)
+                        text = _re.sub(r'~~.*?~~', '', text)          # 취소선 제거
+                        text = _re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', text)  # 볼드
+                        text = _re.sub(r'\*(.*?)\*', r'\1', text)     # 이탤릭 제거(혼란 방지)
+                        lines = text.split('\n')
+                        html = ''
+                        for line in lines:
+                            line = line.strip()
+                            if not line:
+                                html += '<div style="height:10px"></div>'
+                            elif _re.match(r'^(\d+\.|[①②③④⑤⑥]|[-•])\s', line) or line.startswith('|'):
+                                # 리스트·표 항목
+                                html += f'<div style="padding:3px 0 3px 8px; color:#1a2a45; font-size:0.93rem; line-height:1.7;">{line}</div>'
+                            elif _re.match(r'^[1-6]\.\s*[📰📊🔗✅📅]', line) or line.startswith('결론:') or line.startswith('근거:') or line.startswith('투자 가이드') or line.startswith('실행 방안'):
+                                # 섹션 제목
+                                html += f'<div style="font-size:1.05rem; font-weight:800; color:#0a3272; margin:18px 0 6px; border-left:4px solid #1255a8; padding-left:10px;">{line}</div>'
+                            else:
+                                html += f'<p style="color:#1a2a45; font-size:0.93rem; line-height:1.85; margin:4px 0;">{line}</p>'
+                        return html
+
                     st.markdown(f"""
-                    <div style='background:rgba(255,255,255,0.88); border:1px solid rgba(21,101,192,0.15);
-                                border-radius:16px; padding:28px; margin:16px 0;
-                                box-shadow:0 8px 30px rgba(20,60,160,0.08);'>
-                        <p style='color:#1a2a45 !important; line-height:1.9; white-space:pre-wrap; font-size:0.95rem;'>{st.session_state['last_analysis']}</p>
+                    <div style='background:#ffffff; border:1px solid #e0eaf5;
+                                border-radius:16px; padding:28px 32px; margin:16px 0;
+                                box-shadow:0 4px 20px rgba(10,50,114,0.07);'>
+                        {render_analysis(st.session_state['last_analysis'])}
                     </div>
                     """, unsafe_allow_html=True)
 
