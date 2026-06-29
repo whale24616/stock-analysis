@@ -326,12 +326,25 @@ def main():
     except Exception as e:
         print(f"❌ 이메일 오류: {e}")
 
-    # 카카오 발송 (실제 분석 내용)
-    try:
-        result = send_kakao(kakao_msg, kakao_token)
-        print(f"✅ 카카오 발송 완료: {result}")
-    except Exception as e:
-        print(f"❌ 카카오 오류: {e}")
+    # 카카오 발송 — 종목별로 개별 메시지 전송 (9000자 제한 우회)
+    header = f"📈 주식 분석 리포트 | {now_kst.strftime('%Y.%m.%d %H:%M')} KST\n{'─'*30}\n\n"
+    for i, r in enumerate(stock_reports):
+        try:
+            clean = clean_for_kakao(r["analysis"])
+            msg = (
+                f"{'─'*30}\n"
+                f"[{i+1}/4] {r['name']} ({r['ticker']})\n"
+                f"현재가: {r['price']:,.0f}  |  RSI: {r['rsi']:.1f}  |  기준: {r['data_date']}\n"
+                f"{'─'*30}\n\n"
+                f"{clean}"
+            )
+            if i == 0:
+                msg = header + msg
+            result = send_kakao(msg, kakao_token)
+            print(f"✅ 카카오 [{r['name']}] 발송: {result}")
+            import time; time.sleep(1)  # 연속 발송 딜레이
+        except Exception as e:
+            print(f"❌ 카카오 [{r['name']}] 오류: {e}")
 
     print("🎉 모든 발송 완료!")
 
