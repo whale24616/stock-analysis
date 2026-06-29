@@ -124,7 +124,7 @@ def validate_data(hist, name):
     return True, f"최신 데이터 확인 ({last_date.strftime('%Y-%m-%d')})"
 
 # ── AI 분석 ────────────────────────────────────────────────────
-def get_analysis(ticker, name, market, price, ma20, ma60, rsi, data_date):
+def get_analysis(ticker, name, market, price, ma20, ma60, rsi, data_date, news_text="※ 뉴스 없음"):
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
     now_kst   = datetime.now(KST)
     now_str   = now_kst.strftime('%Y년 %m월 %d일 %H시 %M분 (KST)')
@@ -134,51 +134,53 @@ def get_analysis(ticker, name, market, price, ma20, ma60, rsi, data_date):
     kr_market = market == "한국"
     section1  = "1. 🌏 전일 미국 시장 분석 및 국내외 거시경제 환경" if kr_market else "1. 🌏 글로벌 시장 환경 및 거시경제 영향 요소"
 
-    prompt = f"""당신은 10년 경력의 주식 애널리스트입니다. 한국어로 핵심만 담은 투자 판단 리포트를 작성하세요.
+    prompt = f"""당신은 10년 경력의 주식 애널리스트입니다. 한국어로 핵심 투자 판단 리포트를 작성하세요.
 
-리포트 발송 시각: {now_str}
-데이터 기준일: {data_date}
-종목: {name} ({ticker}) | 종가: {price:,.0f} | MA20: {ma20:,.0f} ({ma20_gap:+.1f}%) | MA60: {ma60:,.0f} ({ma60_gap:+.1f}%) | RSI: {rsi:.1f} ({rsi_label})
+⚠️ 절대 규칙:
+- 아래 【실시간 데이터】와 【최근 뉴스】에 있는 내용만 근거로 사용
+- 뉴스에 없는 사실을 추측하거나 만들어내지 말 것
+- 확인 안 된 정보는 "미확인" 또는 "뉴스 없음"으로 표기
+- 4개 항목 완성 후 [END] 표시
 
-작성 원칙:
-- 핵심만, 군더더기 없이
-- 투자자가 "오늘 살까 말까"를 바로 결정할 수 있도록
-- 반드시 4개 항목 모두 완성 후 [END] 표시
+【발송 시각】: {now_str} | 【데이터 기준일】: {data_date}
+【종목】: {name} ({ticker})
+【현재가】: {price:,.0f} | MA20: {ma20:,.0f} ({ma20_gap:+.1f}%) | MA60: {ma60:,.0f} ({ma60_gap:+.1f}%) | RSI: {rsi:.1f} ({rsi_label})
+
+【최근 뉴스 (Yahoo Finance 실시간) — 이 내용만 사용】:
+{news_text}
 
 1. 📰 최근 뉴스 & 여론
-이 종목 관련 가장 최근 뉴스와 시장 여론을 2문장으로만 요약. 구체적 사실 위주.
+위 뉴스 기반 최근 2건 요약 (날짜·사실 위주, 2문장). 뉴스 없으면 "현재 확인된 뉴스 없음"으로만 표기.
 
 2. 📊 주가 흐름 분석
-MA20/MA60/RSI 수치를 활용해 현재 추세와 위치를 3~4문장으로 분석. 수치 반드시 포함.
+위 수치(현재가/MA20/MA60/RSI)만 활용해 3~4문장 분석. 수치 반드시 포함.
 
-3. 🔗 연관 종목 동향
-이 종목과 함께 움직이는 종목 3개와 현재 동향을 각 1문장씩.
+3. 🔗 연관 종목
+같은 섹터 대표 종목 3개. 동향은 위 뉴스 기반으로만, 없으면 "동향 미확인".
 
 4. ✅ 최종 투자 의견
 
-아래 구조를 정확히 따라 작성하세요:
-
-결론: "[매수/매도/관망]" — 한 줄 핵심 요약 (구체적 행동과 가격 포함)
+결론: "[매수/매도/관망]" — 한 줄 요약
 
 근거:
-- 근거 1 (수치 포함)
-- 근거 2 (수치 포함)
-- 근거 3 (수치 포함)
+- 근거 1 (수치 기반)
+- 근거 2 (뉴스 기반, 없으면 기술적 지표)
+- 근거 3
 
 투자 가이드라인:
 | 항목 | 수치 |
 |------|------|
 | 목표가 (3개월) | 구체적 가격 (+상승률%) |
 | 손절가 | 구체적 가격 (-하락률%) |
-| 추천 매수 시점 | 구체적 가격 조건 |
+| 추천 진입가 | 구체적 가격 |
 | 포지션 사이징 | 전체 자금의 X~Y% |
 | 보유 기간 | X~Y개월 |
 
 실행 방안:
-1. 즉시 행동: 기존 보유자에 대한 구체적 조언
-2. 대기 투자자: 진입 조건과 1차 매수 방법
+1. 즉시 행동: 기존 보유자 조언
+2. 대기 투자자: 진입 조건
 3. 적극 공격자: 추가 진입 조건
-4. 손실 관리: 손절 기준과 방법
+4. 손실 관리: 손절 기준
 """
     msg = client.messages.create(
         model="claude-haiku-4-5",
@@ -311,9 +313,23 @@ def main():
             rsi       = float(calc_rsi(hist["Close"]))
             data_date = hist.index[-1].strftime('%Y-%m-%d')
 
+            # 실시간 뉴스 가져오기
+            news_items = []
+            try:
+                raw_news = info.news or []
+                for n in raw_news[:8]:
+                    c = n.get('content', {})
+                    title = c.get('title', '')
+                    pub   = c.get('pubDate', '')[:10] if c.get('pubDate') else ''
+                    if title:
+                        news_items.append(f"[{pub}] {title}")
+            except:
+                pass
+            news_text = "\n".join(news_items) if news_items else "※ 현재 확인된 뉴스 없음"
+
             analysis = get_analysis(
                 stock["ticker"], stock["name"], stock["market"],
-                price, ma20, ma60, rsi, data_date
+                price, ma20, ma60, rsi, data_date, news_text
             )
             print(f"✅ {stock['name']} 분석 완료")
 
