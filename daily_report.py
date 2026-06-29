@@ -1,23 +1,25 @@
 """
-매일 아침 7시 자동 실행 — 4개 종목 AI 분석 후 이메일 + 카카오 발송
+매일 아침 자동 실행 — 4개 종목 AI 분석 후 이메일 + 카카오 발송
 """
-import os, json, smtplib, requests
+import os, json, smtplib, requests, re
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 import yfinance as yf
 import anthropic
 
 # ── 설정 ──────────────────────────────────────────────────────
 GMAIL_USER   = "leero1126@gmail.com"
 GMAIL_APP_PW = "xmpqsmeoexymwabm"
-SEND_TO      = "leero1126@gmail.com"   # 받을 이메일
+SEND_TO      = "leero1126@gmail.com"
 
 ANTHROPIC_API_KEY    = os.environ.get("ANTHROPIC_API_KEY", "").strip()
 KAKAO_ACCESS_TOKEN   = os.environ.get("KAKAO_ACCESS_TOKEN", "").strip()
 KAKAO_REFRESH_TOKEN  = os.environ.get("KAKAO_REFRESH_TOKEN", "").strip()
 KAKAO_REST_API_KEY   = os.environ.get("KAKAO_REST_API_KEY", "").strip()
 KAKAO_CLIENT_SECRET  = os.environ.get("KAKAO_CLIENT_SECRET", "").strip()
+
+KST = timezone(timedelta(hours=9))
 
 # ── 분석할 4개 종목 ────────────────────────────────────────────
 STOCKS = [
@@ -42,49 +44,41 @@ def refresh_kakao_token():
         if new_token:
             return new_token.strip()
         else:
-            print(f"⚠️ 토큰 갱신 실패, 기존 토큰 사용. 오류: {data.get('error_description', data)}")
-            return KAKAO_ACCESS_TOKEN.strip()
+            print(f"⚠️ 토큰 갱신 실패, 기존 토큰 사용")
+            return KAKAO_ACCESS_TOKEN
     except Exception as e:
-        print(f"⚠️ 토큰 갱신 예외: {e}, 기존 토큰 사용")
-        return KAKAO_ACCESS_TOKEN.strip()
+        print(f"⚠️ 토큰 갱신 예외: {e}")
+        return KAKAO_ACCESS_TOKEN
+
+# ── 카카오 특수문자 제거 ───────────────────────────────────────
+def clean_for_kakao(text):
+    text = re.sub(r'\*+', '', text)
+    text = re.sub(r'#+\s*', '', text)
+    text = re.sub(r'~~.*?~~', '', text)
+    text = re.sub(r'`+', '', text)
+    text = re.sub(r'\[END\]', '', text)
+    text = re.sub(r'\r\n', '\n', text)
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    return text.strip()
 
 # ── 카카오 나에게 보내기 ────────────────────────────────────────
-def clean_for_kakao(text):
-    """카카오 메시지용 특수문자 제거"""
-    import re
-    # 마크다운 특수문자 제거
-    text = re.sub(r'\*+', '', text)       # *** ** * 제거
-    text = re.sub(r'#+\s*', '', text)     # ## 제거
-    text = re.sub(r'~~.*?~~', '', text)   # 취소선 제거
-    text = re.sub(r'`+', '', text)        # 백틱 제거
-    text = re.sub(r'\[END\]', '', text)   # [END] 제거
-    text = re.sub(r'\r\n', '\n', text)    # 줄바꿈 통일
-    text = re.sub(r'\n{3,}', '\n\n', text) # 3줄 이상 빈줄 → 2줄
-    text = text.strip()
-    return text
-
 def send_kakao(text, access_token):
-    import urllib.parse
     url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
-
-    # 토큰 정제 (개행·공백 제거)
-    access_token = access_token.strip().replace('\n', '').replace('\r', '').replace(' ', '')
-
+    access_token = access_token.strip().replace('\n','').replace('\r','').replace(' ','')
     clean_text = clean_for_kakao(text)
-    # 2000자 제한
-    if len(clean_text) > 1900:
-        clean_text = clean_text[:1900] + "\n\n[전체 내용은 이메일 확인]"
 
-    template_obj = {
+    # 카카오 텍스트 메시지 최대 9000자 (넉넉하게 활용)
+    if len(clean_text) > 8500:
+        clean_text = clean_text[:8500] + "\n\n[이하 이메일 참조]"
+
+    template_str = json.dumps({
         "object_type": "text",
         "text": clean_text,
         "link": {
             "web_url": "https://stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app",
             "mobile_web_url": "https://stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app"
         }
-    }
-    # ensure_ascii=True → 모든 문자를 ASCII 안전하게 변환 (latin-1 오류 방지)
-    template_str = json.dumps(template_obj, ensure_ascii=True)
+    }, ensure_ascii=True)
 
     print(f"🔑 사용 토큰 앞 10자리: {access_token[:10]}...")
     res = requests.post(
@@ -113,10 +107,27 @@ def calc_rsi(series, period=14):
     rs    = gain / loss
     return (100 - (100 / (1 + rs))).iloc[-1]
 
+# ── 데이터 신뢰도 검증 ─────────────────────────────────────────
+def validate_data(hist, name):
+    if hist.empty:
+        return False, "데이터 없음"
+    last_date = hist.index[-1]
+    # timezone-aware 처리
+    if hasattr(last_date, 'tzinfo') and last_date.tzinfo is not None:
+        now = datetime.now(last_date.tzinfo)
+    else:
+        now = datetime.now()
+        last_date = last_date.replace(tzinfo=None)
+    days_old = (now - last_date).days
+    if days_old > 5:
+        return False, f"데이터가 {days_old}일 전 데이터 (너무 오래됨)"
+    return True, f"최신 데이터 확인 ({last_date.strftime('%Y-%m-%d')})"
+
 # ── AI 분석 ────────────────────────────────────────────────────
-def get_analysis(ticker, name, market, price, ma20, ma60, rsi):
+def get_analysis(ticker, name, market, price, ma20, ma60, rsi, data_date):
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-    now_str   = datetime.now().strftime('%Y년 %m월 %d일 %H시 %M분')
+    now_kst   = datetime.now(KST)
+    now_str   = now_kst.strftime('%Y년 %m월 %d일 %H시 %M분 (KST)')
     ma20_gap  = ((price - ma20) / ma20 * 100) if ma20 else 0
     ma60_gap  = ((price - ma60) / ma60 * 100) if ma60 else 0
     rsi_label = "과매수" if rsi >= 70 else ("과매도" if rsi <= 30 else "중립")
@@ -125,48 +136,80 @@ def get_analysis(ticker, name, market, price, ma20, ma60, rsi):
 
     prompt = f"""당신은 10년 경력의 주식 애널리스트입니다. 한국어로 분석 리포트를 작성하세요.
 
-분석 기준 시점: {now_str}
-종목: {name} ({ticker}) | 현재가: {price:,.0f} | MA20: {ma20:,.0f} ({ma20_gap:+.1f}%) | MA60: {ma60:,.0f} ({ma60_gap:+.1f}%) | RSI: {rsi:.1f} ({rsi_label})
+리포트 발송 시각: {now_str}
+데이터 기준일: {data_date}
+종목: {name} ({ticker}) | 종가: {price:,.0f} | MA20: {ma20:,.0f} ({ma20_gap:+.1f}%) | MA60: {ma60:,.0f} ({ma60_gap:+.1f}%) | RSI: {rsi:.1f} ({rsi_label})
 
-작성 원칙:
-- 각 항목: ① 결론(1~2문장) → ② 배경/이유(2~3문장) → ③ 세부내용(2~3문장)
-- 쉬운 언어, 구체적 수치 포함
-- 6개 항목 모두 완성 후 [END] 표시
+중요 작성 원칙:
+- 반드시 6개 항목을 모두 완성할 것 (특히 6번 결론 필수)
+- 각 항목: 결론(1~2문장) → 근거(2~3문장) → 수치 포함 세부내용(1~2문장)
+- 쉬운 언어 사용, 일반 투자자가 바로 행동할 수 있도록 구체적으로
+- 6번 항목까지 작성 완료 후 반드시 [END] 표시
 
 {section1}
-2. 📢 시장 반응 및 여론
-3. 📊 주가 등락 이유
-4. 🔗 함께 움직이는 연관 종목 3개
-5. 📅 오늘~이번 주 전망 (지지선·저항선 가격 포함)
-6. ✅ 최종 결론: 매수/매도/관망 (목표가·손절가 숫자로)
+2. 📢 주요 뉴스 및 시장 여론
+3. 📊 최근 주가 흐름 분석
+4. 🔗 연관 종목 동향 (3개)
+5. 📅 금주 전망 (지지선·저항선 가격 명시)
+6. ✅ 최종 투자 의견: 매수/매도/관망 + 목표가 + 손절가
 """
     msg = client.messages.create(
         model="claude-haiku-4-5",
-        max_tokens=2000,
+        max_tokens=3000,
         messages=[{"role": "user", "content": prompt}]
     )
-    return msg.content[0].text
+    text = msg.content[0].text
+    # [END] 없으면 결론이 잘린 것 — 마무리 문구 추가
+    if "[END]" not in text:
+        text += "\n\n✅ [분석 완료]"
+    else:
+        text = text.replace("[END]", "").strip()
+    return text
 
 # ── HTML 리포트 생성 ───────────────────────────────────────────
-def make_html_report(stock_reports):
-    now_str = datetime.now().strftime('%Y년 %m월 %d일 %H:%M')
+def make_html_report(stock_reports, run_time):
     cards = ""
     for r in stock_reports:
         analysis_html = r["analysis"].replace("\n", "<br>")
+        # 마크다운 볼드 → HTML
+        analysis_html = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', analysis_html)
         cards += f"""
-        <div style='background:#fff; border:1px solid #dce8f8; border-radius:14px;
-                    padding:28px; margin-bottom:30px;
-                    box-shadow:0 4px 15px rgba(21,101,192,0.08);'>
-            <div style='font-size:18px; font-weight:700; color:#0d47a1; margin-bottom:6px;'>
-                📈 {r['name']} ({r['ticker']})
+        <div style='background:#fff; border:1px solid #e0e8f5; border-radius:16px;
+                    padding:30px; margin-bottom:28px;
+                    box-shadow:0 4px 20px rgba(21,101,192,0.07);'>
+            <div style='display:flex; align-items:center; margin-bottom:12px;'>
+                <span style='font-size:20px; font-weight:800; color:#0d47a1;'>
+                    📈 {r['name']}
+                </span>
+                <span style='margin-left:10px; font-size:13px; color:#90a4ae;
+                             background:#f0f4ff; padding:3px 10px; border-radius:20px;'>
+                    {r['ticker']}
+                </span>
             </div>
-            <div style='font-size:12px; color:#888; margin-bottom:16px;'>
-                현재가: {r['price']:,.0f} &nbsp;|&nbsp;
-                MA20: {r['ma20']:,.0f} &nbsp;|&nbsp;
-                MA60: {r['ma60']:,.0f} &nbsp;|&nbsp;
-                RSI: {r['rsi']:.1f}
+            <div style='display:flex; gap:16px; flex-wrap:wrap; margin-bottom:20px;'>
+                <span style='background:#e3f2fd; color:#1565c0; padding:5px 14px;
+                             border-radius:20px; font-size:12px; font-weight:700;'>
+                    현재가 {r['price']:,.0f}
+                </span>
+                <span style='background:#f3e5f5; color:#6a1b9a; padding:5px 14px;
+                             border-radius:20px; font-size:12px;'>
+                    MA20 {r['ma20']:,.0f}
+                </span>
+                <span style='background:#e8f5e9; color:#2e7d32; padding:5px 14px;
+                             border-radius:20px; font-size:12px;'>
+                    MA60 {r['ma60']:,.0f}
+                </span>
+                <span style='background:#fff3e0; color:#e65100; padding:5px 14px;
+                             border-radius:20px; font-size:12px;'>
+                    RSI {r['rsi']:.1f}
+                </span>
+                <span style='background:#fafafa; color:#78909c; padding:5px 14px;
+                             border-radius:20px; font-size:12px;'>
+                    데이터 기준: {r['data_date']}
+                </span>
             </div>
-            <div style='font-size:13px; color:#1a2a45; line-height:1.9;'>
+            <div style='font-size:13.5px; color:#1a2a45; line-height:2.0;
+                        border-top:1px solid #f0f4ff; padding-top:16px;'>
                 {analysis_html}
             </div>
         </div>
@@ -176,27 +219,33 @@ def make_html_report(stock_reports):
 <html lang='ko'>
 <head>
 <meta charset='UTF-8'>
-<link href='https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap' rel='stylesheet'>
 <style>
-  body {{ font-family:'Noto Sans KR',sans-serif; background:#f5f7fa;
-          color:#1a2a45; margin:0; padding:20px; }}
-  .container {{ max-width:720px; margin:0 auto; }}
-  .header {{ background:linear-gradient(135deg,#0d47a1,#1976d2);
-             border-radius:16px; padding:28px 32px; margin-bottom:28px; color:white; }}
-  .header h1 {{ margin:0; font-size:22px; }}
-  .header p  {{ margin:6px 0 0; opacity:0.8; font-size:13px; }}
-  .footer {{ text-align:center; color:#aaa; font-size:11px; margin-top:20px; }}
+  body {{ font-family:'Noto Sans KR',sans-serif; background:#f0f4fa;
+          color:#1a2a45; margin:0; padding:24px; }}
+  .container {{ max-width:740px; margin:0 auto; }}
+  .header {{ background:linear-gradient(135deg,#0a3880,#1565c0,#1e88e5);
+             border-radius:20px; padding:32px 36px; margin-bottom:28px;
+             color:white; box-shadow:0 8px 30px rgba(10,56,128,0.25); }}
+  .header h1 {{ margin:0 0 8px; font-size:24px; font-weight:900; letter-spacing:-0.5px; }}
+  .header p  {{ margin:4px 0 0; opacity:0.85; font-size:13px; }}
+  .footer {{ text-align:center; color:#b0bec5; font-size:11px;
+             margin-top:24px; padding:16px;
+             border-top:1px solid #dce6f5; }}
 </style>
 </head>
 <body>
 <div class='container'>
   <div class='header'>
     <h1>📈 매일 아침 주식 분석 리포트</h1>
-    <p>분석 기준 시점: {now_str} &nbsp;|&nbsp; 삼성전자 · SK하이닉스 · NVIDIA · Apple</p>
+    <p>발송 시각: {run_time} &nbsp;|&nbsp; 삼성전자 · SK하이닉스 · NVIDIA · Apple</p>
+    <p style='margin-top:6px; font-size:11px; opacity:0.7;'>※ 데이터 출처: Yahoo Finance | AI 분석: Claude Haiku</p>
   </div>
   {cards}
   <div class='footer'>
-    ※ 본 리포트는 AI 분석 참고 자료입니다. 투자 판단 및 손실 책임은 투자자 본인에게 있습니다.
+    ※ 본 리포트는 AI 분석 참고 자료입니다. 투자 판단 및 손실 책임은 투자자 본인에게 있습니다.<br>
+    <a href='https://stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app'
+       style='color:#1565c0; text-decoration:none;'>🔗 상세 분석 사이트 바로가기</a>
   </div>
 </div>
 </body>
@@ -204,50 +253,60 @@ def make_html_report(stock_reports):
 
 # ── 메인 실행 ──────────────────────────────────────────────────
 def main():
-    print(f"🚀 분석 시작: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    now_kst = datetime.now(KST)
+    run_time = now_kst.strftime('%Y년 %m월 %d일 %H:%M (KST)')
+    print(f"🚀 분석 시작: {run_time}")
 
     # 카카오 토큰 갱신
     kakao_token = refresh_kakao_token()
-    print("✅ 카카오 토큰 갱신 완료")
+    print("✅ 카카오 토큰 처리 완료")
 
     stock_reports = []
-    kakao_summary = f"📈 주식 분석 리포트\n{datetime.now().strftime('%Y년 %m월 %d일 %H:%M')}\n{'='*30}\n\n"
+    # 카카오용: 종목별 핵심 내용 포함 (실제 분석 내용)
+    kakao_msg = f"📈 주식 분석 리포트\n{now_kst.strftime('%Y년 %m월 %d일 %H:%M')} KST\n{'─'*28}\n\n"
 
     for stock in STOCKS:
         print(f"📊 {stock['name']} 분석 중...")
         try:
-            info    = yf.Ticker(stock["ticker"])
-            hist    = info.history(period="3mo")
-            if hist.empty:
-                print(f"⚠️ {stock['name']} 데이터 없음")
-                continue
+            info = yf.Ticker(stock["ticker"])
+            hist = info.history(period="3mo")
 
-            price = float(hist["Close"].iloc[-1])
-            ma20  = float(hist["Close"].rolling(20).mean().dropna().iloc[-1])
-            ma60  = float(hist["Close"].rolling(60).mean().dropna().iloc[-1]) if len(hist) >= 60 else ma20
-            rsi   = float(calc_rsi(hist["Close"]))
+            # 데이터 신뢰도 검증
+            valid, msg = validate_data(hist, stock['name'])
+            if not valid:
+                print(f"⚠️ {stock['name']} 데이터 검증 실패: {msg}")
+                continue
+            print(f"✅ {stock['name']} 데이터 검증: {msg}")
+
+            price     = float(hist["Close"].iloc[-1])
+            ma20      = float(hist["Close"].rolling(20).mean().dropna().iloc[-1])
+            ma60      = float(hist["Close"].rolling(60).mean().dropna().iloc[-1]) if len(hist) >= 60 else ma20
+            rsi       = float(calc_rsi(hist["Close"]))
+            data_date = hist.index[-1].strftime('%Y-%m-%d')
 
             analysis = get_analysis(
                 stock["ticker"], stock["name"], stock["market"],
-                price, ma20, ma60, rsi
+                price, ma20, ma60, rsi, data_date
             )
             print(f"✅ {stock['name']} 분석 완료")
 
             stock_reports.append({
                 "ticker": stock["ticker"], "name": stock["name"],
                 "price": price, "ma20": ma20, "ma60": ma60, "rsi": rsi,
-                "analysis": analysis
+                "analysis": analysis, "data_date": data_date
             })
 
-            # 카카오용 요약 (종목별 핵심만 — 특수문자 없이)
-            import re
-            clean = re.sub(r'\*+', '', analysis)
-            clean = re.sub(r'#+\s*', '', clean)
-            clean = re.sub(r'~~.*?~~', '', clean)
-            clean = re.sub(r'`+', '', clean)
+            # 카카오: 종목별 전체 분석 내용 포함 (핵심 섹션 위주)
+            clean = clean_for_kakao(analysis)
             lines = [l.strip() for l in clean.split('\n') if l.strip()]
-            kakao_summary += f"[{stock['name']}] 현재가: {price:,.0f}\n"
-            kakao_summary += "\n".join(lines[:4]) + "\n\n"
+            # 앞 10줄 (결론 포함되도록)
+            snippet = "\n".join(lines[:10])
+            kakao_msg += (
+                f"[ {stock['name']} ]  현재가: {price:,.0f}  |  RSI: {rsi:.1f}\n"
+                f"데이터 기준: {data_date}\n"
+                f"{snippet}\n"
+                f"{'─'*28}\n\n"
+            )
 
         except Exception as e:
             print(f"❌ {stock['name']} 오류: {e}")
@@ -258,19 +317,18 @@ def main():
 
     # 이메일 발송
     try:
-        html = make_html_report(stock_reports)
+        html = make_html_report(stock_reports, run_time)
         send_email(
-            f"📈 주식 분석 리포트 - {datetime.now().strftime('%Y년 %m월 %d일')}",
+            f"📈 주식 분석 리포트 - {now_kst.strftime('%Y년 %m월 %d일')}",
             html
         )
         print("✅ 이메일 발송 완료")
     except Exception as e:
         print(f"❌ 이메일 오류: {e}")
 
-    # 카카오 발송
+    # 카카오 발송 (실제 분석 내용)
     try:
-        kakao_summary += "\n🔗 자세한 분석: https://stock-analysis-yhsctlbfdbbhzjbtbm8y6z.streamlit.app"
-        result = send_kakao(kakao_summary, kakao_token)
+        result = send_kakao(kakao_msg, kakao_token)
         print(f"✅ 카카오 발송 완료: {result}")
     except Exception as e:
         print(f"❌ 카카오 오류: {e}")
