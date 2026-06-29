@@ -749,21 +749,74 @@ MA20/MA60/RSI 수치를 활용해 현재 추세와 위치를 3~4문장으로 분
 
 def name_to_ticker(query, market):
     korean_stocks = {
-        "삼성전자":"005930.KS","sk하이닉스":"000660.KS","카카오":"035720.KS",
-        "네이버":"035420.KS","현대차":"005380.KS","기아":"000270.KS",
-        "셀트리온":"068270.KS","kb금융":"105560.KS","신한지주":"055550.KS",
-        "삼성바이오로직스":"207940.KS","포스코홀딩스":"005490.KS","lg화학":"051910.KS",
-        "현대모비스":"012330.KS","sk텔레콤":"017670.KS","lg에너지솔루션":"373220.KS",
-        "카카오뱅크":"323410.KS","하이브":"352820.KS","크래프톤":"259960.KS",
+        # 반도체·IT
+        "삼성전자":"005930.KS","sk하이닉스":"000660.KS","하이닉스":"000660.KS",
+        "삼성sdi":"006400.KS","삼성전기":"009150.KS","lg이노텍":"011070.KS",
+        # 인터넷·플랫폼
+        "카카오":"035720.KS","네이버":"035420.KS","카카오뱅크":"323410.KS",
+        "카카오페이":"377300.KS","크래프톤":"259960.KS","넥슨":"225570.KS",
+        # 자동차
+        "현대차":"005380.KS","현대자동차":"005380.KS","기아":"000270.KS","기아차":"000270.KS",
+        "현대모비스":"012330.KS","한온시스템":"018880.KS",
+        # 바이오·헬스
+        "셀트리온":"068270.KS","삼성바이오로직스":"207940.KS","삼성바이오":"207940.KS",
+        "유한양행":"000100.KS","한미약품":"128940.KS","에스티팜":"237690.KS",
+        # 금융
+        "kb금융":"105560.KS","신한지주":"055550.KS","하나금융지주":"086790.KS",
+        "우리금융지주":"316140.KS","미래에셋증권":"006800.KS","삼성생명":"032830.KS",
+        # 소재·에너지
+        "포스코홀딩스":"005490.KS","포스코":"005490.KS","lg화학":"051910.KS",
+        "lg에너지솔루션":"373220.KS","에코프로":"086520.KS","에코프로비엠":"247540.KS",
+        # 통신
+        "sk텔레콤":"017670.KS","kt":"030200.KS","lg유플러스":"032640.KS",
+        # 엔터
+        "하이브":"352820.KS","sm":"041510.KS","jyp":"035900.KS","yg":"122870.KS",
     }
+
+    # 미국 주요 종목 한글→티커 매핑
+    us_stocks = {
+        # 빅테크
+        "애플":"AAPL","엔비디아":"NVDA","마이크로소프트":"MSFT","구글":"GOOGL",
+        "알파벳":"GOOGL","아마존":"AMZN","메타":"META","테슬라":"TSLA",
+        "넷플릭스":"NFLX","인텔":"INTC","amd":"AMD","퀄컴":"QCOM",
+        # AI·반도체
+        "팔란티어":"PLTR","팔란티어테크":"PLTR","브로드컴":"AVGO","arm":"ARM",
+        "슈퍼마이크로":"SMCI","어플라이드머티리얼즈":"AMAT","램리서치":"LRCX",
+        # 금융
+        "버크셔해서웨이":"BRK-B","jp모건":"JPM","뱅크오브아메리카":"BAC",
+        "골드만삭스":"GS","비자":"V","마스터카드":"MA",
+        # 소비재·유통
+        "아마존":"AMZN","월마트":"WMT","코스트코":"COST","나이키":"NKE",
+        # 헬스케어
+        "존슨앤존슨":"JNJ","화이자":"PFE","모더나":"MRNA","일라이릴리":"LLY",
+        # EV·에너지
+        "리비안":"RIVN","루시드":"LCID","nio":"NIO","xpeng":"XPEV",
+        # 기타 인기
+        "스포티파이":"SPOT","유니티":"U","로블록스":"RBLX","스냅":"SNAP",
+        "트위터":"X","코인베이스":"COIN","로빈후드":"HOOD","소파이":"SOFI",
+        "스퀘어":"SQ","페이팔":"PYPL","줌":"ZM","도큐사인":"DOCU",
+        "쇼피파이":"SHOP","에어비앤비":"ABNB","우버":"UBER","리프트":"LYFT",
+        "스타벅스":"SBUX","맥도날드":"MCD","코카콜라":"KO","펩시":"PEP",
+    }
+
+    q = query.strip().lower().replace(" ", "").replace("-", "")
+
     if market in ["🇰🇷 한국", "🇰🇷 Korea"]:
-        q = query.lower().replace(" ", "")
+        # 한글 이름 검색
         for name, ticker in korean_stocks.items():
-            if q in name or name in q: return ticker
-        if not (query.endswith(".KS") or query.endswith(".KQ")):
-            return query + ".KS"
-        return query
-    return query.upper()
+            if q == name or q in name or name in q:
+                return ticker
+        # 티커 직접 입력 (.KS/.KQ 포함 여부)
+        if not (query.upper().endswith(".KS") or query.upper().endswith(".KQ")):
+            return query.upper() + ".KS"
+        return query.upper()
+    else:
+        # 한글로 미국 종목 검색
+        for name, ticker in us_stocks.items():
+            if q == name or q in name or name in q:
+                return ticker
+        # 영문 티커 직접 입력
+        return query.upper()
 
 def draw_chart(history, ticker):
     fig = make_subplots(rows=3, cols=1, shared_xaxes=True,
@@ -987,33 +1040,25 @@ def main_app():
     apply_style()
 
     # ── 헤더 배너 ──
-    st.markdown(f"""
-    <div style='background: linear-gradient(135deg, #071e52 0%, #0a3272 40%, #1255a8 80%, #1976d2 100%);
-                border-radius: 20px; padding: 26px 36px; margin-bottom: 20px;
-                box-shadow: 0 8px 32px rgba(7,30,82,0.30);
-                position: relative; overflow: hidden;'>
-        <div style='position:absolute; top:-30px; right:-30px; width:180px; height:180px;
-                    background:rgba(255,255,255,0.04); border-radius:50%;'></div>
-        <div style='position:absolute; bottom:-50px; right:80px; width:120px; height:120px;
-                    background:rgba(255,255,255,0.03); border-radius:50%;'></div>
-        <div style='position:relative;'>
-            <div style='font-size: 2.2rem; font-weight: 900; color: white !important;
-                        letter-spacing:-1px; line-height:1.15;'>
+    hcol_title, hcol_btns = st.columns([7, 1])
+    with hcol_title:
+        st.markdown(f"""
+        <div style='background: linear-gradient(135deg, #071e52 0%, #0a3272 45%, #1255a8 100%);
+                    border-radius: 18px; padding: 24px 32px; margin-bottom: 16px;
+                    box-shadow: 0 6px 28px rgba(7,30,82,0.35);'>
+            <div style='font-size:1.9rem; font-weight:900; color:#ffffff;
+                        letter-spacing:-0.5px; line-height:1.2; text-shadow:0 2px 8px rgba(0,0,0,0.3);'>
                 📈 {t('title')}
             </div>
-            <div style='color: rgba(255,255,255,0.70) !important; font-size: 0.88rem;
-                        margin-top:6px; letter-spacing:0.3px;'>
+            <div style='color:rgba(200,220,255,0.90); font-size:0.85rem; margin-top:5px;'>
                 {t('subtitle')}
             </div>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    btn_col1, btn_col2, btn_col3 = st.columns([8, 1, 1])
-    with btn_col2:
+        """, unsafe_allow_html=True)
+    with hcol_btns:
+        st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
         lang_toggle()
-    with btn_col3:
-        if st.button(t("logout")):
+        if st.button("🚪 " + t("logout"), key="logout_btn"):
             st.session_state['logged_in'] = False; st.rerun()
 
     ai_count, subscribed = get_user_sub_info(st.session_state['username'])
