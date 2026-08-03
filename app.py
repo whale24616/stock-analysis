@@ -1141,9 +1141,16 @@ def main_app():
             if query:
                 ticker = name_to_ticker(query, market)
                 with st.spinner(t("loading")):
-                    stock   = yf.Ticker(ticker)
-                    info    = stock.info
-                    history = stock.history(period="6mo")
+                    try:
+                        stock   = yf.Ticker(ticker)
+                        info    = stock.info
+                        history = stock.history(period="6mo")
+                    except Exception as e:
+                        if "RateLimit" in type(e).__name__ or "rate" in str(e).lower():
+                            st.warning("⏳ Yahoo Finance 요청 한도 초과 — 잠시 후 다시 시도해주세요. (보통 1~2분 후 해결)")
+                        else:
+                            st.error(f"데이터 조회 오류: {e}")
+                        return
 
                 if history.empty:
                     st.error(f"'{query}' 데이터를 찾을 수 없습니다.")
