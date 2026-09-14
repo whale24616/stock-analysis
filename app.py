@@ -9,6 +9,7 @@ import os, json, hashlib, smtplib, tempfile, base64, urllib.request
 from email.mime.text import MIMEText
 from fpdf import FPDF
 from datetime import datetime, timezone, timedelta
+import signals
 KST = timezone(timedelta(hours=9))
 def now_kst(): return datetime.now(KST)
 
@@ -1046,6 +1047,63 @@ def admin_panel():
                     deactivate_subscription(email); st.rerun()
 
 # ── 메인 앱 ────────────────────────────────────────────────
+@st.cache_data(ttl=600, show_spinner=False)
+def get_signal_scan():
+    return signals.scan_all()
+
+
+def signal_dashboard():
+    st.subheader("📡 포트폴리오 신호판")
+    st.caption(
+        "한국 5 · 미국 5 고정 종목의 정량 스코어(-100~+100)를 매일 계산합니다. "
+        "손절/목표가는 ATR(변동성) 기반이며, 백테스트로 검증된 기준입니다. "
+        "※ 투자 참고용이며 투자 권유가 아닙니다."
+    )
+    if st.button("🔄 새로고침", key="signal_refresh"):
+        get_signal_scan.clear()
+
+    with st.spinner("10종목 스코어 계산 중... (약 10~20초)"):
+        try:
+            rows = get_signal_scan()
+        except Exception as e:
+            st.error(f"신호 계산 오류: {e}")
+            return
+
+    if not rows:
+        st.warning("데이터를 불러오지 못했습니다. 잠시 후 새로고침해주세요.")
+        return
+
+    badge_color = {"매수": "#2e7d32", "매도": "#c62828", "관망": "#78909c"}
+
+    for r in rows:
+        symbol = "₩" if r["market"] == "한국" else "$"
+        color = badge_color[r["signal"]]
+        with st.container():
+            c0, c1, c2, c3, c4, c5 = st.columns([2.2, 1, 1.1, 1.1, 1.1, 0.9])
+            c0.markdown(f"**{r['name']}**  `{r['ticker']}`  ·  {r['sector']} ({r['market']})")
+            c1.metric("현재가", f"{symbol}{r['price']:,.0f}")
+            c2.markdown(
+                f"<div style='margin-top:8px;'><span style='background:{color};color:white;"
+                f"padding:5px 12px;border-radius:10px;font-weight:700;font-size:0.85rem;'>"
+                f"{r['signal']} {r['score']:+.1f}</span></div>",
+                unsafe_allow_html=True,
+            )
+            c3.metric("손절가", f"{symbol}{r['stop_loss']:,.0f}")
+            c4.metric("목표가", f"{symbol}{r['take_profit']:,.0f}")
+            c5.metric("RSI", f"{r['rsi']:.0f}")
+
+            with st.expander("지표 세부 내역"):
+                sub = r["sub_scores"]
+                d1, d2, d3, d4, d5, d6 = st.columns(6)
+                d1.metric("추세", f"{sub['trend']:+.2f}")
+                d2.metric("MACD", f"{sub['macd']:+.2f}")
+                d3.metric("RSI", f"{sub['rsi']:+.2f}")
+                d4.metric("볼린저", f"{sub['bb']:+.2f}")
+                d5.metric("거래량", f"{sub['volume']:+.2f}")
+                d6.metric("뉴스", f"{sub['news']:+.2f}")
+        st.divider()
+
+
 def main_app():
     apply_style()
 
@@ -1108,10 +1166,13 @@ def main_app():
         unsafe_allow_html=True
     )
 
-    tab_main, tab_sub = st.tabs(["📊 주식 분석", "💳 구독 / 결제"])
+    tab_main, tab_signals, tab_sub = st.tabs(["📊 주식 분석", "📡 신호판", "💳 구독 / 결제"])
 
     with tab_sub:
         payment_page()
+
+    with tab_signals:
+        signal_dashboard()
 
     with tab_main:
         if st.session_state.get('is_admin'):
