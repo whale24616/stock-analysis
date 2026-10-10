@@ -1,0 +1,172 @@
+{
+ "ep": 2,
+ "title_en": "Faster Than Defense",
+ "title_ko": "방공보다 빠르게",
+ "subtitle_ko": "제트 추진 미사일-드론의 원리",
+ "sections": [
+  {
+   "title_en": "[0:00–0:40] COLD OPEN",
+   "title_ko": "[0:00–0:40] 콜드 오픈",
+   "paras_en": [
+    "Last time, we ended with a question. If being slow is the weakness… what happens when you make it fast?",
+    "Picture the same radar screen. But this dot isn't crawling. It crosses the display in a fraction of the time, low and straight.",
+    "The gun crews who learned to track propeller drones by ear now have seconds, not minutes.",
+    "Ukraine has started fielding a new kind of weapon. It's launched like a drone, built like a drone, priced closer to a drone — but it flies like a missile.",
+    "This is how jet-powered missile-drones work, and why speed changes the whole equation."
+   ],
+   "paras_ko": [
+    "지난 편은 하나의 질문으로 끝났다. 느린 것이 약점이라면… 빠르게 만들면 어떻게 될까?",
+    "같은 레이더 화면을 떠올려 보자. 하지만 이번 점은 기어가지 않는다. 낮고 곧게, 훨씬 짧은 시간 안에 화면을 가로지른다.",
+    "프로펠러 드론을 소리로 추적하는 법을 익힌 대공포 요원들에게 이제 주어지는 시간은 분이 아니라 초 단위다.",
+    "우크라이나는 새로운 종류의 무기를 실전에 투입하기 시작했다. 드론처럼 발사되고, 드론처럼 만들어지고, 가격도 드론에 더 가깝다. 하지만 비행은 미사일처럼 한다.",
+    "이것이 제트 추진 미사일-드론이 작동하는 방식이며, 속도가 왜 방정식 전체를 바꾸는지에 대한 이야기다."
+   ]
+  },
+  {
+   "title_en": "[0:40–1:40] CONTEXT — A Missile You Can Mass-Produce",
+   "title_ko": "[0:40–1:40] 배경 — 대량생산할 수 있는 미사일",
+   "paras_en": [
+    "Propeller drones proved that Ukraine could reach deep into Russia. But Russia adapted. Mobile gun teams, rooftop missile systems and layered radar made slow targets easier to kill.",
+    "Ukraine's answer was a category officials began calling the **“missile-drone”** — in Ukrainian, *raketa-dron*.",
+    "The first to be publicly named was **Palianytsia**, announced in August 2024. **[FACT-CHECK: announcement date and first reported use]** Then came **Peklo** — Ukrainian for “hell” — reportedly delivered to the military in late 2024. **[FACT-CHECK: Peklo delivery date]**",
+    "Others followed, including **Ruta**, from a state-owned defence group, and the much larger **FP-5 Flamingo** from the company Fire Point. **[FACT-CHECK: Ruta manufacturer and status; Flamingo unveiling date]**",
+    "A caution before we go further. Most published performance figures for these weapons come from manufacturers or officials. Very few have been independently verified. We'll flag the difference as we go.",
+    "But to see why they exist at all, we need to look inside the engine."
+   ],
+   "paras_ko": [
+    "프로펠러 드론은 우크라이나가 러시아 깊숙한 곳까지 닿을 수 있다는 것을 증명했다. 하지만 러시아는 적응했다. 기동 화력조, 옥상 미사일 시스템, 다층 레이더망이 느린 표적을 잡기 쉽게 만들었다.",
+    "우크라이나의 답은 관계자들이 **‘미사일-드론(missile-drone)’**, 우크라이나어로 *라케타-드론*이라고 부르기 시작한 범주였다.",
+    "처음으로 공개적으로 이름이 알려진 것은 2024년 8월에 발표된 **팔랴니챠(Palianytsia)**다. **[FACT-CHECK: 발표 날짜와 최초 사용 보도]** 이어서 우크라이나어로 ‘지옥’을 뜻하는 **페클로(Peklo)**가 2024년 말 군에 인도된 것으로 알려졌다. **[FACT-CHECK: 페클로 인도 시점]**",
+    "그 뒤로 국영 방산 그룹이 만든 **루타(Ruta)**, 그리고 파이어 포인트(Fire Point)사의 훨씬 큰 **FP-5 플라밍고(Flamingo)** 등이 뒤따랐다. **[FACT-CHECK: 루타 제조사와 배치 현황, 플라밍고 공개 시점]**",
+    "더 나아가기 전에 주의할 점이 있다. 이 무기들에 대해 공개된 성능 수치는 대부분 제조사나 당국자에게서 나온 것이다. 독립적으로 검증된 것은 거의 없다. 이야기하면서 그 차이를 표시하겠다.",
+    "하지만 이 무기들이 애초에 왜 존재하는지 보려면, 엔진 안을 들여다봐야 한다."
+   ]
+  },
+  {
+   "title_en": "[1:40–3:10] SEGMENT 1 — Inside a Small Turbojet",
+   "title_ko": "[1:40–3:10] 세그먼트 1 — 소형 터보제트의 내부",
+   "paras_en": [
+    "A piston engine turns a propeller, and the propeller pushes air backwards. A jet engine skips the propeller. It throws the air backwards itself — much faster.",
+    "The simplest version is the **turbojet**, and it does four things in a row.",
+    "First, the **compressor** — a spinning wheel of blades — squeezes incoming air to several times its normal pressure.",
+    "Second, in the **combustion chamber**, fuel is sprayed into that compressed air and burned continuously. The gas gets very hot and expands.",
+    "Third, that hot gas rushes through a **turbine** — another bladed wheel, on the same shaft as the compressor. The turbine takes just enough energy from the gas to keep the compressor spinning. The engine powers itself.",
+    "Fourth, everything left over leaves through the **nozzle** as a high-speed jet. Newton's third law does the rest: push gas backwards, and the aircraft is pushed forwards.",
+    "Small turbojets like these have been used for decades in target drones and some cruise missiles. They're compact, simple, and produce a lot of thrust for their weight. **[FACT-CHECK: engine types reportedly used in Palianytsia/Peklo]**",
+    "There's one big catch, and it's fuel."
+   ],
+   "paras_ko": [
+    "피스톤 엔진은 프로펠러를 돌리고, 프로펠러가 공기를 뒤로 민다. 제트 엔진은 프로펠러를 건너뛴다. 공기를 직접, 훨씬 빠르게 뒤로 던진다.",
+    "가장 단순한 형태가 **터보제트(turbojet)**이며, 네 가지 일을 차례로 한다.",
+    "첫째, 회전하는 날개 바퀴인 **압축기(compressor)**가 들어오는 공기를 평소 압력의 몇 배로 압축한다.",
+    "둘째, **연소실(combustion chamber)**에서 압축된 공기에 연료를 분사해 연속적으로 태운다. 가스는 매우 뜨거워지고 팽창한다.",
+    "셋째, 그 뜨거운 가스가 압축기와 같은 축에 달린 또 하나의 날개 바퀴, **터빈(turbine)**을 통과한다. 터빈은 압축기를 계속 돌릴 만큼의 에너지만 가스에서 뽑아낸다. 엔진이 스스로를 돌리는 것이다.",
+    "넷째, 남은 모든 에너지는 **노즐(nozzle)**을 통해 고속 제트로 빠져나간다. 나머지는 뉴턴의 제3법칙이 해결한다. 가스를 뒤로 밀면, 기체는 앞으로 밀린다.",
+    "이런 소형 터보제트는 수십 년 동안 표적 드론과 일부 순항미사일에 쓰여 왔다. 작고, 단순하며, 무게에 비해 큰 추력을 낸다. **[FACT-CHECK: 팔랴니챠/페클로에 쓰인 것으로 보도된 엔진 종류]**",
+    "하지만 큰 함정이 하나 있다. 바로 연료다."
+   ]
+  },
+  {
+   "title_en": "[3:10–4:40] SEGMENT 2 — The Price of Speed",
+   "title_ko": "[3:10–4:40] 세그먼트 2 — 속도의 대가",
+   "paras_en": [
+    "Remember the **Breguet range equation** from Episode 1? Engine efficiency was one of its three pillars. This is where jets pay.",
+    "A propeller moves a big mass of air a little. A small turbojet moves a small mass of air a lot. Physics says the first is more efficient — the energy in a fast exhaust jet that isn't turned into useful thrust is simply wasted.",
+    "Engineers measure this as **specific fuel consumption**: how much fuel an engine burns for each unit of thrust, every hour. Small turbojets score badly — reportedly several times worse than a piston-propeller combination at the same job. **[FACT-CHECK: typical SFC comparison, small turbojet vs piston engine — ESTIMATE]**",
+    "So a jet drone carries more fuel, flies a shorter distance, or both. Manufacturer claims for Peklo, for example, are a range of up to around 700 kilometres — less than some propeller drones. **[FACT-CHECK: Peklo claimed range — MANUFACTURER CLAIM]**",
+    "Then why accept the penalty? Because of what speed buys.",
+    "Propeller drones cruise at roughly 150 to 200 kilometres per hour. Jet missile-drones are reported to fly several times faster — figures of around 600 to 700 kilometres per hour are commonly cited. **[FACT-CHECK: reported cruise speeds — REPORTED]**",
+    "A mission that took a propeller drone five hours might take a jet roughly one. **[FACT-CHECK: illustrative flight-time comparison]** Less time in the air means less time to be detected, tracked and shot at."
+   ],
+   "paras_ko": [
+    "1편에서 본 **브레게 항속거리 공식**을 기억하는가? 엔진 효율은 그 세 기둥 중 하나였다. 바로 여기서 제트는 대가를 치른다.",
+    "프로펠러는 많은 양의 공기를 조금 움직인다. 소형 터보제트는 적은 양의 공기를 크게 움직인다. 물리학은 앞쪽이 더 효율적이라고 말한다. 빠른 배기 제트에 담긴 에너지 중 유효한 추력으로 바뀌지 않은 부분은 그냥 버려지기 때문이다.",
+    "엔지니어들은 이를 **비연료소모율(specific fuel consumption)**로 측정한다. 엔진이 추력 한 단위를 내기 위해 한 시간에 태우는 연료의 양이다. 소형 터보제트는 이 점수가 나쁘다. 같은 일을 하는 피스톤-프로펠러 조합보다 몇 배 나쁜 것으로 알려져 있다. **[FACT-CHECK: 소형 터보제트와 피스톤 엔진의 일반적인 비연료소모율 비교 — 추정치]**",
+    "그래서 제트 드론은 연료를 더 싣거나, 더 짧게 날거나, 둘 다다. 예를 들어 페클로에 대한 제조사 주장은 최대 약 700킬로미터 사거리로, 일부 프로펠러 드론보다 짧다. **[FACT-CHECK: 페클로 주장 사거리 — 제조사 주장]**",
+    "그런데 왜 이런 손해를 감수할까? 속도가 사다 주는 것 때문이다.",
+    "프로펠러 드론은 대략 시속 150~200킬로미터로 순항한다. 제트 미사일-드론은 몇 배 빠르게 나는 것으로 보도되며, 흔히 인용되는 수치는 시속 600~700킬로미터 안팎이다. **[FACT-CHECK: 보도된 순항 속도 — 보도치]**",
+    "프로펠러 드론으로 다섯 시간 걸리던 임무가 제트로는 한 시간 남짓이면 끝날 수 있다. **[FACT-CHECK: 예시용 비행시간 비교]** 공중에 있는 시간이 짧을수록 탐지되고, 추적되고, 사격당할 시간도 줄어든다."
+   ]
+  },
+  {
+   "title_en": "[4:40–6:10] SEGMENT 3 — Shrinking the Engagement Window",
+   "title_ko": "[4:40–6:10] 세그먼트 3 — 교전 시간창 줄이기",
+   "paras_en": [
+    "Here's the core idea. Every air-defence weapon has a bubble of reach. A target is only in danger while it's inside that bubble. Engineers call this the **engagement window**.",
+    "Let's do some simple, illustrative math. Imagine an anti-aircraft gun with an effective reach of about four kilometres, and a target flying straight at it. **[FACT-CHECK: illustrative figure only — typical short-range gun reach]**",
+    "At 150 kilometres per hour — about 42 metres per second — the target spends roughly **95 seconds** inside that bubble. Plenty of time to spot it, aim and fire many bursts.",
+    "At 700 kilometres per hour — about 195 metres per second — the same four kilometres take roughly **20 seconds**. The window has shrunk by almost five times.",
+    "And those 20 seconds aren't all usable. The crew still has to detect the target, turn the gun and compute where to aim. That **reaction time** eats into a window that's already tiny.",
+    "Speed also hurts the aim itself. A gun has to fire at where the target *will be*. The faster the target, the further ahead the gunner must lead it — and the bigger any small error becomes.",
+    "Short-range missile systems face a milder version of the same problem. But mobile gun teams — the cheapest layer of defence against slow drones — lose most of their value against a fast one.",
+    "That's the whole point. Not invisibility. Just less time for the defender to act."
+   ],
+   "paras_ko": [
+    "핵심 아이디어는 이렇다. 모든 방공 무기에는 사거리라는 거품이 있다. 표적은 그 거품 안에 있는 동안에만 위험하다. 엔지니어들은 이를 **교전 시간창(engagement window)**이라고 부른다.",
+    "간단한 예시 계산을 해 보자. 유효 사거리가 약 4킬로미터인 대공포가 있고, 표적이 그 포를 향해 곧장 날아온다고 상상해 보자. **[FACT-CHECK: 예시용 수치 — 일반적인 단거리 대공포 사거리]**",
+    "시속 150킬로미터, 즉 초속 약 42미터라면 표적은 그 거품 안에서 약 **95초**를 보낸다. 발견하고, 조준하고, 여러 번 연사하기에 충분한 시간이다.",
+    "시속 700킬로미터, 즉 초속 약 195미터라면 같은 4킬로미터를 지나는 데 약 **20초**가 걸린다. 시간창이 거의 다섯 배 줄어든 것이다.",
+    "게다가 그 20초를 전부 쓸 수 있는 것도 아니다. 사수는 여전히 표적을 탐지하고, 포를 돌리고, 조준점을 계산해야 한다. 그 **반응 시간**이 이미 좁은 시간창을 갉아먹는다.",
+    "속도는 조준 자체도 어렵게 만든다. 포는 표적이 *있을* 곳을 향해 쏴야 한다. 표적이 빠를수록 사수는 더 멀리 앞을 겨눠야 하고, 작은 오차도 더 커진다.",
+    "단거리 미사일 시스템도 같은 문제를 겪지만 정도는 덜하다. 하지만 느린 드론에 맞선 가장 저렴한 방어층인 기동 화력조는 빠른 드론 앞에서 가치 대부분을 잃는다.",
+    "이것이 요점이다. 보이지 않게 되는 것이 아니다. 방어 측이 행동할 시간을 줄이는 것뿐이다."
+   ]
+  },
+  {
+   "title_en": "[6:10–7:30] IN THE FIELD",
+   "title_ko": "[6:10–7:30] 실전 사례",
+   "paras_en": [
+    "So where does a drone end and a **cruise missile** begin? Increasingly, nowhere clear.",
+    "Both fly on wings. Both navigate on their own. Both carry a one-way payload. The real differences are speed, size — and cost.",
+    "The goal is a **“cheap missile”**: built from simpler airframes and commercial-grade parts, in factories that can scale. Unit costs have been described as a fraction of a traditional cruise missile, but reliable figures are rarely published. **[FACT-CHECK: any reported unit cost — ESTIMATE]**",
+    "At the top end sits the **FP-5 Flamingo**. Its manufacturer claims a range of around 3,000 kilometres and a warhead of roughly one tonne — numbers that put it firmly in cruise-missile territory. **[FACT-CHECK: Flamingo claimed range and warhead — MANUFACTURER CLAIM]** The company has also claimed ambitious daily production targets. **[FACT-CHECK: claimed production rate]**",
+    "Getting these aircraft airborne is its own challenge. A jet engine produces little thrust at low speed, so many types reportedly use a **rocket booster** that burns for a few seconds and drops away. Others use a **catapult** — a rail that flings the aircraft up to flying speed. **[FACT-CHECK: launch method per type]**",
+    "Officials have reported missile-drone strikes on airfields, fuel and military sites inside Russia, though independent confirmation of individual results is often limited. **[FACT-CHECK: specific reported strikes and dates]**"
+   ],
+   "paras_ko": [
+    "그렇다면 드론은 어디서 끝나고 **순항미사일(cruise missile)**은 어디서 시작될까? 갈수록 그 경계는 분명하지 않다.",
+    "둘 다 날개로 난다. 둘 다 스스로 항법한다. 둘 다 돌아오지 않는 탑재물을 싣는다. 진짜 차이는 속도, 크기, 그리고 비용이다.",
+    "목표는 **‘값싼 미사일’**이다. 더 단순한 기체와 상용 등급 부품으로, 규모를 키울 수 있는 공장에서 만든다. 단가는 기존 순항미사일의 일부 수준이라고 설명되지만, 신뢰할 만한 수치는 거의 공개되지 않는다. **[FACT-CHECK: 보도된 단가 — 추정치]**",
+    "가장 위에는 **FP-5 플라밍고**가 있다. 제조사는 약 3,000킬로미터 사거리와 약 1톤 탄두를 주장한다. 확실히 순항미사일 영역에 들어가는 수치다. **[FACT-CHECK: 플라밍고 주장 사거리와 탄두 — 제조사 주장]** 회사는 야심 찬 일일 생산 목표도 밝혔다. **[FACT-CHECK: 주장된 생산 속도]**",
+    "이 기체들을 공중에 띄우는 것 자체도 과제다. 제트 엔진은 저속에서 추력이 작기 때문에, 많은 기종이 몇 초 동안 연소한 뒤 떨어져 나가는 **로켓 부스터(rocket booster)**를 쓰는 것으로 알려져 있다. 다른 기종은 기체를 비행 속도까지 내던지는 레일, **캐터펄트(catapult)**를 쓴다. **[FACT-CHECK: 기종별 발사 방식]**",
+    "당국은 러시아 내 비행장, 연료 시설, 군사 시설에 대한 미사일-드론 공격을 보고해 왔지만, 개별 결과에 대한 독립적 확인은 제한적인 경우가 많다. **[FACT-CHECK: 보도된 구체적 공격과 날짜]**"
+   ]
+  },
+  {
+   "title_en": "[7:30–8:50] LIMITS & COUNTER",
+   "title_ko": "[7:30–8:50] 한계와 대응",
+   "paras_en": [
+    "Speed is not a magic shield.",
+    "First, **cost**. Turbojets, boosters and higher-speed airframes cost more than a piston engine and foam wings. Every missile-drone is money that could have bought several propeller drones.",
+    "Second, the **range trade-off**. Thirsty engines mean either less reach, less payload, or a bigger, more expensive aircraft — which is exactly where Flamingo ends up.",
+    "Third, a jet engine is **hot and loud**, and a fast, straight-flying target is still a clear radar return.",
+    "And most importantly, speeds of 700 kilometres per hour are fast for a drone, but slow for a **fighter jet** or a **surface-to-air missile**. Systems designed to shoot down real cruise missiles can still intercept these. **[FACT-CHECK: reported interceptions of Ukrainian missile-drones]**",
+    "What changes is *who* can stop them. Speed pushes the job from cheap guns to expensive missiles and aircraft — and that, again, is a cost the defender has to pay."
+   ],
+   "paras_ko": [
+    "속도가 마법의 방패는 아니다.",
+    "첫째, **비용**이다. 터보제트, 부스터, 고속 기체는 피스톤 엔진과 폼 날개보다 비싸다. 미사일-드론 한 대는 프로펠러 드론 여러 대를 살 수 있었던 돈이다.",
+    "둘째, **사거리 트레이드오프**다. 연료를 많이 먹는 엔진은 사거리가 줄거나, 탑재량이 줄거나, 더 크고 비싼 기체가 되어야 한다는 뜻이다. 플라밍고가 바로 그 길로 간 경우다.",
+    "셋째, 제트 엔진은 **뜨겁고 시끄럽다**. 그리고 빠르고 곧게 나는 표적은 여전히 뚜렷한 레이더 반사를 남긴다.",
+    "가장 중요한 점은, 시속 700킬로미터는 드론으로서는 빠르지만 **전투기**나 **지대공 미사일**에게는 느리다는 것이다. 진짜 순항미사일을 격추하도록 설계된 시스템은 여전히 이것들을 요격할 수 있다. **[FACT-CHECK: 우크라이나 미사일-드론 요격 보도]**",
+    "달라지는 것은 *누가* 막을 수 있느냐다. 속도는 그 임무를 값싼 대공포에서 비싼 미사일과 항공기로 넘긴다. 그리고 그것은 또다시 방어 측이 치러야 하는 비용이다."
+   ]
+  },
+  {
+   "title_en": "[8:50–9:40] OUTRO",
+   "title_ko": "[8:50–9:40] 아웃트로",
+   "paras_en": [
+    "Episodes 1 and 2 were about reaching far — slow and efficient, or fast and expensive.",
+    "But some of the most important drones in this war never travel more than a few kilometres.",
+    "In the next episode, **“The $500 Killer”**, we look at **FPV drones**: racing-hobby technology that changed the front line, and why something this cheap became one of the war's defining weapons.",
+    "If you want to understand how a war is reshaping the future of air power, subscribe — and tell us in the comments what you want us to break down next."
+   ],
+   "paras_ko": [
+    "1편과 2편은 멀리 닿는 것에 관한 이야기였다. 느리고 효율적이거나, 빠르고 비싸거나.",
+    "하지만 이 전쟁에서 가장 중요한 드론 중 일부는 몇 킬로미터 이상 날아가지 않는다.",
+    "다음 편 **‘500달러짜리 킬러(The $500 Killer)’**에서는 **FPV 드론**을 다룬다. 전선을 바꿔 놓은 레이싱 취미용 기술, 그리고 이렇게 값싼 물건이 어떻게 이 전쟁을 규정하는 무기 중 하나가 되었는지를.",
+    "전쟁이 어떻게 미래의 항공 전력을 바꾸고 있는지 이해하고 싶다면 구독하고, 다음에 무엇을 분석했으면 좋겠는지 댓글로 알려 달라."
+   ]
+  }
+ ]
+}

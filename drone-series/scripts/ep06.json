@@ -1,0 +1,164 @@
+{
+ "ep": 6,
+ "title_en": "Anatomy of a Shahed",
+ "title_ko": "샤헤드 해부",
+ "subtitle_ko": "위협의 구조와 우크라이나의 다층 방공",
+ "sections": [
+  {
+   "title_en": "[0:00–0:40] COLD OPEN",
+   "title_ko": "[0:00–0:40] 콜드 오픈",
+   "paras_en": [
+    "2 a.m. Over central Ukraine, a sound drifts down from the dark sky. A rough, buzzing drone — like a moped flying overhead.",
+    "Then another. And another. On some nights, hundreds of them arrive in a single wave. **[FACT-CHECK: record single-night drone counts]**",
+    "Each one is slow, simple, and cheap. Any single one is easy to shoot down.",
+    "The problem is that there are so many.",
+    "This is the **Shahed** — and the story of how Ukraine learned to fight it."
+   ],
+   "paras_ko": [
+    "새벽 2시. 우크라이나 중부의 어두운 하늘에서 소리가 내려온다. 거칠게 윙윙거리는 소리, 마치 머리 위로 오토바이가 날아가는 것 같다.",
+    "그리고 또 하나. 또 하나. 어떤 밤에는 수백 대가 한 번의 파상 공격으로 몰려온다. **[FACT-CHECK: 하룻밤 최대 드론 발사 수 기록]**",
+    "하나하나는 느리고, 단순하고, 싸다. 한 대만 놓고 보면 격추하기 쉽다.",
+    "문제는 그 수가 너무 많다는 것이다.",
+    "이것이 **샤헤드(Shahed)**다. 그리고 우크라이나가 이것과 싸우는 법을 익혀 온 이야기다."
+   ]
+  },
+  {
+   "title_en": "[0:40–1:40] CONTEXT — Part 2: Defence",
+   "title_ko": "[0:40–1:40] 배경 — 2부: 방어",
+   "paras_en": [
+    "So far in this series, we've looked at drones from the attacker's side. With this episode, we begin **Part 2: Defence** — how you stop them.",
+    "And there is no better place to start than the drone that has defined Russia's long-range campaign against Ukraine.",
+    "The **Shahed-136** was designed in Iran. From autumn 2022, Russia began launching it against Ukrainian cities and power infrastructure, under the name **Geran-2**. **[FACT-CHECK: date of first confirmed use in Ukraine]**",
+    "At first, the drones were reportedly imported. Then Russia moved production home, and the numbers climbed from dozens a week to thousands a month. **[FACT-CHECK: monthly launch totals over time]**",
+    "To understand why it is so hard to stop, we first need to take one apart — on paper."
+   ],
+   "paras_ko": [
+    "지금까지 이 시리즈는 공격하는 쪽에서 드론을 살펴봤다. 이번 편부터 **2부: 방어**를 시작한다. 드론을 어떻게 막는가에 관한 이야기다.",
+    "그 출발점으로, 우크라이나를 상대로 한 러시아 장거리 공격을 상징하게 된 이 드론보다 더 좋은 대상은 없다.",
+    "**샤헤드-136**은 이란에서 설계됐다. 2022년 가을부터 러시아는 이 드론을 **게란-2(Geran-2)**라는 이름으로 우크라이나의 도시와 전력 기반시설에 발사하기 시작했다. **[FACT-CHECK: 우크라이나에서 최초 사용이 확인된 시점]**",
+    "처음에는 수입한 것으로 알려졌다. 이후 러시아는 생산을 자국으로 옮겼고, 발사 수는 주당 수십 대에서 월 수천 대로 늘어났다. **[FACT-CHECK: 시기별 월간 발사 총계]**",
+    "이 드론을 막기가 왜 그토록 어려운지 이해하려면, 먼저 하나를 분해해 봐야 한다. 물론 종이 위에서."
+   ]
+  },
+  {
+   "title_en": "[1:40–3:10] SEGMENT 1 — The Airframe and the Engine",
+   "title_ko": "[1:40–3:10] 세그먼트 1 — 기체와 엔진",
+   "paras_en": [
+    "Start with the shape. The Shahed is a **delta wing** — a flat triangle roughly two and a half metres across, with small vertical fins at the wingtips. **[FACT-CHECK: wingspan and length — REPORTED]**",
+    "Compare that with the long, slender wings of the Ukrainian drones in Episode 1. A delta is less efficient aerodynamically, but it is compact, strong, and very easy to build. Fewer parts, fewer joints, fewer things to go wrong.",
+    "That compactness matters for launch, too. Shaheds are fired from simple rails, often with a small **rocket booster**, so they don't need a runway. Several can be launched in quick succession from a truck or a fixed site.",
+    "At the back sits a small **piston engine** driving a pusher propeller. The engine is reportedly a copy of a German light-aircraft engine, the Limbach L550, produced in Iran as the MD550. **[FACT-CHECK: engine type — REPORTED]**",
+    "That engine explains the famous sound — and the speed. Cruise is reported at under 200 kilometres per hour, with a range of well over a thousand kilometres. **[FACT-CHECK: cruise speed and range — REPORTED]**",
+    "Most of the airframe is reportedly composite and foam. Inside, there is space for fuel, electronics and a warhead in the nose — and that's about it. This is not a precision instrument. It is a flying production line product."
+   ],
+   "paras_ko": [
+    "먼저 형태부터 보자. 샤헤드는 **델타익(delta wing)**이다. 폭 약 2.5미터의 납작한 삼각형으로, 날개 끝에 작은 수직 꼬리날개가 달려 있다. **[FACT-CHECK: 날개폭과 전장 — 보도치]**",
+    "1편에서 본 우크라이나 드론의 길고 가느다란 날개와 비교해 보라. 델타익은 공기역학적 효율은 떨어지지만, 작고 튼튼하며 만들기가 매우 쉽다. 부품도, 이음매도, 고장 날 곳도 적다.",
+    "이 작은 크기는 발사에도 중요하다. 샤헤드는 단순한 레일에서, 흔히 소형 **로켓 부스터**의 도움을 받아 발사되므로 활주로가 필요 없다. 트럭이나 고정 발사장에서 여러 대를 연달아 띄울 수 있다.",
+    "뒤쪽에는 추진식 프로펠러를 돌리는 소형 **피스톤 엔진**이 있다. 이 엔진은 독일 경비행기용 엔진인 림바흐 L550을 복제해 이란에서 MD550이라는 이름으로 생산한 것으로 알려져 있다. **[FACT-CHECK: 엔진 형식 — 보도치]**",
+    "이 엔진이 그 유명한 소리와 속도를 설명해 준다. 순항 속도는 시속 200킬로미터 미만, 항속거리는 1,000킬로미터를 훌쩍 넘는 것으로 보도된다. **[FACT-CHECK: 순항 속도와 항속거리 — 보도치]**",
+    "기체 대부분은 복합재와 폼으로 만들어진 것으로 알려져 있다. 내부에는 연료, 전자장비, 그리고 기수의 탄두를 위한 공간이 있다. 그게 거의 전부다. 이것은 정밀 기기가 아니다. 생산 라인에서 쏟아져 나오는 비행하는 공산품이다."
+   ]
+  },
+  {
+   "title_en": "[3:10–4:40] SEGMENT 2 — Navigation and Mass Production",
+   "title_ko": "[3:10–4:40] 세그먼트 2 — 항법과 대량생산",
+   "paras_en": [
+    "How does a drone this simple find a city a thousand kilometres away? Like the drones in Episode 1: an **inertial navigation system**, corrected by **satellite navigation**.",
+    "Recovered wreckage has reportedly shown Russian-built versions using multi-element **anti-jam antenna arrays** — the same CRPA principle we explained before — to keep hearing satellites through Ukrainian jamming. **[FACT-CHECK: CRPA \"Kometa\" antenna reports]**",
+    "Some have also reportedly carried cellular modems or small cameras, letting operators receive position or images during flight. **[FACT-CHECK: reports of mobile-network modems and cameras]**",
+    "But the real story is not inside the drone. It is the factory.",
+    "Russia built a large production site in the **Alabuga** special economic zone in Tatarstan. Leaked documents and investigative reporting suggest output of thousands of drones per month, with ambitions to go higher. **[FACT-CHECK: Alabuga output figures — REPORTED/ESTIMATE]**",
+    "Unit cost estimates vary widely — from tens of thousands of dollars to a few hundred thousand — but every estimate agrees on one thing: it is far cheaper than a cruise missile. **[FACT-CHECK: unit cost estimates — ESTIMATE]**",
+    "And the family keeps growing. Alongside the original, Russia now launches cheap **decoy drones** like the Gerbera, which look similar on radar but carry no real warhead, and **jet-powered** versions such as the Geran-3, which fly much faster. **[FACT-CHECK: Gerbera decoy and Geran-3 jet variant details]**"
+   ],
+   "paras_ko": [
+    "이렇게 단순한 드론이 어떻게 천 킬로미터 떨어진 도시를 찾아갈까? 1편의 드론들과 마찬가지다. **위성항법**으로 보정되는 **관성항법장치**다.",
+    "회수된 잔해 분석에 따르면, 러시아산 버전은 우크라이나의 재밍 속에서도 위성 신호를 계속 듣기 위해 다중 소자 **재밍 방지 안테나 배열**을 쓰는 것으로 알려졌다. 앞서 설명한 CRPA와 같은 원리다. **[FACT-CHECK: CRPA ‘코메타’ 안테나 관련 보도]**",
+    "일부는 휴대전화망 모뎀이나 소형 카메라를 탑재해, 비행 중 운용자가 위치나 영상을 받을 수 있었던 것으로도 보도됐다. **[FACT-CHECK: 이동통신 모뎀 및 카메라 탑재 보도]**",
+    "하지만 진짜 이야기는 드론 내부에 있지 않다. 공장에 있다.",
+    "러시아는 타타르스탄의 **알라부가(Alabuga)** 경제특구에 대규모 생산 시설을 지었다. 유출 문서와 탐사 보도에 따르면 월 수천 대 규모를 생산하며, 더 늘릴 계획인 것으로 보인다. **[FACT-CHECK: 알라부가 생산량 — 보도치/추정치]**",
+    "단가 추정치는 수만 달러에서 수십만 달러까지 편차가 크다. 하지만 모든 추정이 한 가지에는 동의한다. 순항미사일보다 훨씬 싸다는 것이다. **[FACT-CHECK: 단가 추정치 — 추정치]**",
+    "그리고 이 계열은 계속 늘어나고 있다. 러시아는 원형과 함께 게르베라(Gerbera) 같은 값싼 **디코이 드론**을 발사한다. 레이더에서는 비슷하게 보이지만 실제 탄두가 없다. 또 게란-3 같은 **제트 추진** 버전은 훨씬 빠르게 난다. **[FACT-CHECK: 게르베라 디코이와 게란-3 제트 변형 세부 정보]**"
+   ]
+  },
+  {
+   "title_en": "[4:40–6:30] SEGMENT 3 — The Layered Defence",
+   "title_ko": "[4:40–6:30] 세그먼트 3 — 다층 방공",
+   "paras_en": [
+    "So why is this drone such a hard problem? Four reasons: it is **cheap**, it is **numerous**, it flies **low and slow**, and it comes **at night**. Put together, the goal is **saturation** — more targets than the defence can handle at once.",
+    "Ukraine's answer is not one weapon. It is a **layered air defence** — think of it as a series of nets, each with a different mesh size.",
+    "At the top are **long- and medium-range missile systems** — Patriot, NASAMS, IRIS-T and older Soviet-era systems. They can hit almost anything, but each interceptor is precious, so commanders try to save them for cruise and ballistic missiles. **[FACT-CHECK: systems in Ukrainian service]**",
+    "Below them are **gun-based systems** like the German **Gepard** — radar-guided twin cannons that fire short bursts of relatively cheap shells. The Gepard became one of the stars of Ukraine's anti-Shahed fight. **[FACT-CHECK: Gepard deliveries and performance reports]**",
+    "Next come the **mobile fire groups**: pickup trucks with heavy machine guns, **searchlights** and **thermal sights**, moving between positions along likely flight paths. Low-tech, but cheap, flexible and everywhere.",
+    "Add **aviation** — fighters and even helicopters hunting drones at night — and **electronic warfare**, which tries to confuse navigation.",
+    "And at the bottom, the newest layer: **interceptor drones** — small, fast drones built to ram or explode near a Shahed. We'll give those their own episode, Episode 9."
+   ],
+   "paras_ko": [
+    "그렇다면 이 드론은 왜 그렇게 어려운 문제일까? 네 가지 이유다. **싸고**, **많고**, **낮고 느리게** 날며, **밤에** 온다. 이것들을 합치면 목표는 **포화**다. 방어 측이 한 번에 감당할 수 있는 것보다 많은 표적.",
+    "우크라이나의 답은 하나의 무기가 아니다. **다층 방공**이다. 그물코 크기가 서로 다른 그물을 여러 겹 친 것이라고 생각하면 된다.",
+    "맨 위에는 **장거리·중거리 미사일 시스템**이 있다. 패트리엇, NASAMS, IRIS-T, 그리고 구소련 시절 시스템들이다. 거의 무엇이든 맞힐 수 있지만, 요격미사일 한 발 한 발이 귀하기 때문에 지휘관들은 이를 순항미사일과 탄도미사일을 위해 아껴 두려 한다. **[FACT-CHECK: 우크라이나가 운용 중인 시스템]**",
+    "그 아래에는 독일의 **게파르트(Gepard)** 같은 **대공포 기반 시스템**이 있다. 레이더로 유도되는 쌍열 기관포가 비교적 값싼 포탄을 짧게 연사한다. 게파르트는 우크라이나의 대(對)샤헤드 전투에서 스타 중 하나가 됐다. **[FACT-CHECK: 게파르트 인도 현황과 성과 보도]**",
+    "다음은 **기동 화력조(mobile fire groups)**다. 중기관총, **탐조등**, **열영상 조준경**을 갖춘 픽업트럭들이 예상 비행 경로를 따라 진지를 옮겨 다닌다. 기술 수준은 낮지만, 싸고, 유연하고, 어디에나 있다.",
+    "여기에 **항공 전력**, 즉 밤에 드론을 사냥하는 전투기와 헬기까지 더해지고, 항법을 교란하려는 **전자전**이 더해진다.",
+    "그리고 맨 아래에는 가장 새로운 층, **요격 드론**이 있다. 샤헤드에 부딪히거나 근처에서 폭발하도록 만든 작고 빠른 드론이다. 이 드론들은 9편에서 따로 다룬다."
+   ]
+  },
+  {
+   "title_en": "[6:30–7:45] IN THE FIELD — The Cost-Exchange Problem",
+   "title_ko": "[6:30–7:45] 실전 사례 — 비용 교환 문제",
+   "paras_en": [
+    "Here's the math that defines this fight. A single medium-range interceptor missile can reportedly cost more than ten Shaheds. **[FACT-CHECK: interceptor vs Shahed cost — ESTIMATE]**",
+    "That's the **cost-exchange problem**. If you answer every cheap drone with an expensive missile, you can win every engagement — and still lose the war of budgets and stockpiles.",
+    "There is a second cost, too. Every launcher defending a city at night is a launcher that is not protecting troops at the front — and the attacker gets to choose where to strike next.",
+    "That's why Ukraine pushes most Shahed interceptions down to the cheaper layers: guns, mobile groups, and increasingly interceptor drones.",
+    "Ukrainian officials regularly report shooting down or suppressing a large majority of incoming drones. But with hundreds launched in one night, even a small percentage getting through can mean damaged power stations and homes. **[FACT-CHECK: published interception rates — OFFICIAL CLAIM]**",
+    "And decoys make it worse. Every decoy that draws fire spends ammunition, time and attention that the real drones don't have to face."
+   ],
+   "paras_ko": [
+    "이 싸움을 규정하는 계산이 있다. 중거리 요격미사일 한 발은 샤헤드 열 대보다 비쌀 수 있는 것으로 알려져 있다. **[FACT-CHECK: 요격미사일 대 샤헤드 비용 — 추정치]**",
+    "이것이 **비용 교환 문제(cost-exchange problem)**다. 값싼 드론 하나하나에 비싼 미사일로 응수하면, 모든 교전에서 이기고도 예산과 재고의 전쟁에서 질 수 있다.",
+    "두 번째 비용도 있다. 밤에 도시를 지키는 발사대 하나는 전선의 병력을 지키지 못하는 발사대 하나다. 그리고 다음에 어디를 칠지는 공격하는 쪽이 고른다.",
+    "그래서 우크라이나는 샤헤드 요격 대부분을 더 저렴한 층으로 내려보낸다. 대공포, 기동 화력조, 그리고 점점 더 요격 드론으로.",
+    "우크라이나 당국은 날아오는 드론의 대다수를 격추하거나 무력화했다고 꾸준히 발표한다. 하지만 하룻밤에 수백 대가 발사되면, 통과하는 비율이 작아도 발전소와 주택이 피해를 입을 수 있다. **[FACT-CHECK: 공개된 요격률 — 공식 주장]**",
+    "디코이는 상황을 더 악화시킨다. 사격을 끌어들이는 디코이 하나하나가 탄약과 시간과 주의력을 소모시키고, 진짜 드론은 그만큼 덜 견제받는다."
+   ]
+  },
+  {
+   "title_en": "[7:45–9:00] LIMITS & COUNTER",
+   "title_ko": "[7:45–9:00] 한계와 대응",
+   "paras_en": [
+    "This is not a static contest. Both sides adapt, sometimes within weeks.",
+    "The Shahed also has clear weaknesses. It is **loud**, it is **slow**, and it shows up on radar. Its warhead is far smaller than a cruise missile's, so a single hit rarely matches a missile strike.",
+    "Russia has reportedly changed flight altitudes, routes and timing, and shifted to larger, concentrated waves aimed at overwhelming specific areas. **[FACT-CHECK: reported changes in Russian tactics]**",
+    "Faster jet-powered variants shrink the time gun crews have to react, while improved anti-jam navigation makes electronic warfare less effective.",
+    "Ukraine, in turn, has spread out its defences, trained more mobile crews, and scaled up interceptor drones that cost a fraction of a missile. **[FACT-CHECK: interceptor drone production figures]**",
+    "But every one of those layers shares a single weakness. None of them can shoot at what they cannot find."
+   ],
+   "paras_ko": [
+    "이것은 정지된 대결이 아니다. 양측은 적응한다. 때로는 몇 주 만에.",
+    "샤헤드에도 분명한 약점이 있다. **시끄럽고**, **느리며**, 레이더에 잡힌다. 탄두는 순항미사일보다 훨씬 작아서, 한 대가 명중해도 미사일 한 발의 타격에는 좀처럼 미치지 못한다.",
+    "러시아는 비행 고도와 경로, 시점을 바꾸고, 특정 지역을 압도하기 위해 더 크고 집중된 파상 공격으로 전환한 것으로 알려져 있다. **[FACT-CHECK: 러시아 전술 변화 보도]**",
+    "더 빠른 제트 추진 변형은 대공포 요원들이 대응할 시간을 줄이고, 개선된 재밍 방지 항법은 전자전의 효과를 떨어뜨린다.",
+    "우크라이나는 이에 맞서 방공 자산을 분산시키고, 기동 화력조를 더 많이 훈련시키고, 미사일 가격의 일부에 불과한 요격 드론의 생산을 늘렸다. **[FACT-CHECK: 요격 드론 생산 수치]**",
+    "하지만 이 모든 층에는 공통된 약점이 하나 있다. 찾을 수 없는 것은 쏠 수 없다는 것이다."
+   ]
+  },
+  {
+   "title_en": "[9:00–9:40] OUTRO",
+   "title_ko": "[9:00–9:40] 아웃트로",
+   "paras_en": [
+    "In the next episode, “Listening to the Sky,” we look at the hidden first layer of every defence: **detection** — radars, thermal cameras, and a nationwide network of **acoustic sensors** that literally listen for that moped sound.",
+    "Because before you can choose which net to use, you have to know where the drone is — and which of the dots on the screen is a real threat.",
+    "The cheapest defence in this war might turn out to be a microphone on a pole.",
+    "If you want to understand how a war is reshaping air defence, subscribe — and tell us in the comments what you'd like us to decode next."
+   ],
+   "paras_ko": [
+    "다음 편 ‘하늘에 귀 기울이다’에서는 모든 방어의 숨겨진 첫 번째 층, **탐지**를 살펴본다. 레이더, 열영상 카메라, 그리고 그 오토바이 같은 소리를 말 그대로 귀 기울여 듣는 전국 단위의 **음향 센서** 네트워크다.",
+    "어떤 그물을 쓸지 고르기 전에, 먼저 드론이 어디 있는지, 그리고 화면 위의 점들 중 어느 것이 진짜 위협인지 알아야 하기 때문이다.",
+    "이 전쟁에서 가장 값싼 방어 수단은 어쩌면 장대 위에 달린 마이크 하나일지도 모른다.",
+    "전쟁이 방공을 어떻게 바꾸고 있는지 이해하고 싶다면 구독하고, 다음에 무엇을 해독했으면 좋겠는지 댓글로 알려 달라."
+   ]
+  }
+ ]
+}
