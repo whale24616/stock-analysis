@@ -1,0 +1,9 @@
+
+# drone-series render outputs
+drone-series/**/gfx/
+drone-series/**/seg/
+drone-series/**/audio/
+drone-series/**/img/
+drone-series/**/vid/
+drone-series/**/jobs.json
+drone-series/**/*.mp4

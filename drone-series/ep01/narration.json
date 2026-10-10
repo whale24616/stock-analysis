@@ -1,0 +1,47 @@
+[
+ {
+  "title": "[0:00\u20130:45] COLD OPEN",
+  "text": "Night. Somewhere south of Moscow, a radar operator watches a cluster of slow-moving dots crawl across the screen. They're not fast. Roughly the speed of a car on a highway. They've been in the air for hours. And they took off from Ukraine, more than five hundred kilometres away. Over the past few years, Moscow has gone from a city that felt untouchable to one where airports shut down and air-defence crews sit on rooftops. Not because of ballistic missiles. Not because of an air force. Because of something that looks a lot like a small private aircraft, with nobody inside. This is how Ukraine's long-range drones actually work.",
+  "words": 109
+ },
+ {
+  "title": "[0:45\u20131:45] CONTEXT \u2014 Why build a drone instead of a missile?",
+  "text": "In 2022, Ukraine had a problem. Russia could strike any Ukrainian city with cruise and ballistic missiles. Ukraine could not strike back deep inside Russia. Western partners supplied long-range weapons, but in limited numbers, and often with restrictions on where they could be used. So Ukraine went looking for a weapon it could build itself, in large numbers, at a fraction of the cost of a missile. The answer was the long-range one-way attack drone, sometimes called a \"kamikaze drone,\" though the engineering is closer to a light aircraft than a toy. Today, dozens of Ukrainian manufacturers produce them. Names like Liutyi, UJ-22 Airborne, Bober, and FP-1. Their targets: oil refineries, airbases, ammunition depots, and command sites, hundreds, sometimes more than a thousand kilometres from the front. To understand why they look the way they do, you have to start with one brutal engineering triangle.",
+  "words": 145
+ },
+ {
+  "title": "[1:45\u20133:15] SEGMENT 1 \u2014 The Airframe",
+  "text": "Every long-range drone designer is fighting three demands at once: fly far, carry enough, cost little. Improve one, and the other two get worse. The first answer is the wing. Look at a Liutyi: long, slender wings, what engineers call a high aspect ratio. That's the ratio of wingspan to wing width. Gliders use the same trick. Here's why. A wing creates lift by pushing air downward, but at the wingtips, high-pressure air from underneath curls around to the top, forming a vortex. That vortex is pure waste, it's called induced drag. A longer, thinner wing spreads lift across a wider span and weakens those tip vortices. Less drag means less fuel burned per kilometre. The second answer is where the propeller goes. Most of these drones use a pusher layout, the propeller at the back. That keeps the nose free for the payload and sensors, and it means the wing sees clean, undisturbed air instead of the turbulent wash from a propeller in front. The third answer is material. Instead of aerospace aluminium, many airframes use composites, foam cores and simple tubing, cheap, light, and quick to manufacture. A non-metallic body also reflects radar less strongly than a metal one. The engine, fuel system and payload are still metal, so these drones are not \"stealthy\", just harder to see than their size suggests. Finally, balance. The heaviest items, fuel and payload, sit close to the centre of gravity, so the aircraft stays stable as fuel burns off over a long flight.",
+  "words": 252
+ },
+ {
+  "title": "[3:15\u20134:45] SEGMENT 2 \u2014 Propulsion and the Physics of Range",
+  "text": "Why a piston engine, and not a jet? Because at these speeds, roughly 150 to 200 kilometres per hour, a propeller driven by a small piston engine is far more fuel-efficient than a jet. Jets shine at high speed. At low speed, they drink fuel. Aircraft designers have an equation for this, the Breguet range equation. Stripped down, it says range depends on three things: One, how efficiently the engine and propeller turn fuel into thrust. Two, how aerodynamically efficient the aircraft is: its lift-to-drag ratio. Three, how much of the take-off weight is fuel. That last part is the trap. Range depends on the logarithm of the weight ratio, meaning every extra litre of fuel buys you a little less range than the one before. And every kilogram of fuel is a kilogram you can't use for payload. That's the trade-off you see across the Ukrainian fleet. Some designs carry a small warhead a very long way. Others carry more over a shorter distance. Published figures for different types range from roughly 20 to more than 70 kilograms of payload, and from several hundred to over 1,500 kilometres of range. At highway speed, a thousand-kilometre mission takes five to seven hours. That long flight time shapes everything, especially navigation.",
+  "words": 210
+ },
+ {
+  "title": "[4:45\u20136:15] SEGMENT 3 \u2014 Navigation: Flying Blind for Six Hours",
+  "text": "Here's a problem most people never think about. Over a thousand kilometres, nobody can fly this drone by remote control. Radio needs line of sight, and because the Earth is curved, a low-flying aircraft disappears below the radio horizon within a few dozen kilometres. So for most of the mission, the drone is on its own. Its first tool is the inertial navigation system, accelerometers and gyroscopes that measure every turn and change of speed, and calculate position from them. It can't be jammed, because it doesn't listen to anything. But small errors add up. Every hour, the estimated position drifts further from reality. So the drone corrects itself with satellite navigation, GPS, Galileo, and others. And that's exactly what Russia attacks. Electronic warfare systems either drown the satellite signal in noise, jamming, or broadcast fake signals that make the drone think it's somewhere else, spoofing. Both sides have responded with anti-jam antenna arrays, sometimes called CRPA. Several antenna elements work together, detect the direction the jamming comes from, and electronically \"turn a deaf ear\" to it while still listening to the satellites. And when satellites fail completely, some systems are reported to use a third layer: cameras that compare the ground below with stored maps, a modern version of terrain matching, a technique first developed for cruise missiles. Three layers, inertial, satellite, visual. Each one covers the others' weaknesses.",
+  "words": 230
+ },
+ {
+  "title": "[6:15\u20137:30] SEGMENT 4 \u2014 Getting Through the Air Defence",
+  "text": "Building the drone is half the job. The other half is planning a route through one of the densest air-defence networks in the world. Mission planners use intelligence on radar and missile positions to route drones through gaps, around known sites, along valleys, at low altitude where the Earth's curvature hides them from ground radar until the last moment. Then there's saturation. An air-defence battery can only track and engage so many targets at once. Launch enough drones on converging routes, mixed with cheap decoys, and some get through. And then there's the math that matters most. An air-defence interceptor can cost several times more than the drone it destroys. Even when the defender wins every engagement, it is spending more than the attacker. And every launcher guarding a refinery near Moscow is one launcher not protecting troops at the front.",
+  "words": 141
+ },
+ {
+  "title": "[7:30\u20138:30] IN THE FIELD",
+  "text": "The results are visible in public reporting. A sustained campaign against Russian oil refineries has, at times, taken a significant share of refining capacity offline. Strikes on airbases have reached aircraft hundreds of kilometres from the border. And the attacks on the Moscow region, most of them intercepted, have still repeatedly forced airports to suspend flights, and pushed Russia to put air-defence systems on buildings in and around the capital. The drone doesn't need to get through every time. It only needs to make the defender pay, everywhere, all the time.",
+  "words": 91
+ },
+ {
+  "title": "[8:30\u20139:20] LIMITS & COUNTER",
+  "text": "But these drones have real weaknesses. They're slow, giving defenders time to react. They're loud, the piston engine can be heard from the ground. They show up on radar. And their warheads are small compared with a cruise missile. Russia has adapted: mobile fire teams with machine guns and autocannons, short-range missile systems on rooftops, layered electronic warfare, and its own interceptor drones. Which raises the obvious question. If being slow is the weakness... what happens when you make it fast?",
+  "words": 81
+ },
+ {
+  "title": "[9:20\u20139:45] OUTRO",
+  "text": "In the next episode, we look at the new generation: jet-powered missile-drones, Palianytsia, Peklo, and the Flamingo, weapons that blur the line between a drone and a cruise missile. If you want to understand how a war is reshaping the future of air power, subscribe, and tell us in the comments which system you want us to break down next.",
+  "words": 60
+ }
+]
