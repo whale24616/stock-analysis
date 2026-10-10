@@ -7,3 +7,6 @@ drone-series/**/img/
 drone-series/**/vid/
 drone-series/**/jobs.json
 drone-series/**/*.mp4
+drone-series/**/*.zip
+drone-series/**/*.mov
+drone-series/deliverables/EP*_video/
