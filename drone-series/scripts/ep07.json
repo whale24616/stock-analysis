@@ -1,0 +1,162 @@
+{
+ "ep": 7,
+ "title_en": "Listening to the Sky",
+ "title_ko": "하늘에 귀를 기울이다",
+ "subtitle_ko": "드론 탐지와 센서 네트워크",
+ "sections": [
+  {
+   "title_en": "[0:00–0:40] COLD OPEN",
+   "title_ko": "[0:00–0:40] 콜드 오픈",
+   "paras_en": [
+    "A field in central Ukraine. Night. On a wooden pole sits a small grey box, not much bigger than a lunchbox.",
+    "It has no screen. No spinning dish. It just listens.",
+    "Somewhere to the east, a low, droning buzz grows louder — the sound of a small piston engine, like a moped in the sky.",
+    "Within seconds, that sound becomes a dot on a tablet many kilometres away. And a crew with a machine gun starts driving.",
+    "Before you can stop a drone, you have to find it. And finding something small, slow and low is one of air defence's hardest problems.",
+    "This is how Ukraine learned to listen to the sky."
+   ],
+   "paras_ko": [
+    "우크라이나 중부의 한 들판. 밤. 나무 기둥 위에 작은 회색 상자 하나가 달려 있다. 도시락통보다 조금 클까 말까 한 크기다.",
+    "화면도 없다. 회전하는 안테나도 없다. 그저 듣고 있을 뿐이다.",
+    "동쪽 어딘가에서 낮게 웅웅거리는 소리가 점점 커진다. 하늘을 나는 오토바이 같은, 소형 피스톤 엔진의 소리다.",
+    "몇 초 만에 그 소리는 수 킬로미터 떨어진 태블릿 화면 위의 점이 된다. 그리고 기관총을 든 팀이 차를 몰기 시작한다.",
+    "드론을 막으려면 먼저 찾아야 한다. 그런데 작고, 느리고, 낮게 나는 물체를 찾는 일은 방공에서 가장 어려운 문제 중 하나다.",
+    "이것이 우크라이나가 하늘에 귀를 기울이는 법을 배운 이야기다."
+   ]
+  },
+  {
+   "title_en": "[0:40–1:40] CONTEXT — A Problem of Numbers",
+   "title_ko": "[0:40–1:40] 배경 — 숫자의 문제",
+   "paras_en": [
+    "Since autumn 2022, Russia has launched long-range attack drones at Ukraine almost every night — first the Iranian-designed **Shahed-136**, then mass-produced Russian versions called **Geran-2**. **[FACT-CHECK: first combat use autumn 2022; scale of Russian domestic Geran-2 production]**",
+    "On some nights, hundreds were reportedly launched at once. **[FACT-CHECK: record single-night drone launch numbers, 2025–2026]**",
+    "Ukraine's air defence was built to stop jets and cruise missiles. But firing an interceptor worth hundreds of thousands of dollars at a drone reportedly costing tens of thousands is a losing trade. **[FACT-CHECK: drone and interceptor unit costs — ESTIMATE]**",
+    "The cheaper answers are guns, mobile fire groups and interceptor drones. But they all share one weakness: short reach. They need to know exactly where the drone is — and they need to know early.",
+    "So the real battle starts long before anyone fires. It's a battle of detection."
+   ],
+   "paras_ko": [
+    "2022년 가을 이후, 러시아는 거의 매일 밤 우크라이나를 향해 장거리 공격 드론을 띄워 왔다. 처음에는 이란이 설계한 **샤헤드-136(Shahed-136)**, 이후에는 러시아가 대량 생산한 **게란-2(Geran-2)**다. **[FACT-CHECK: 2022년 가을 첫 실전 사용, 러시아 내 게란-2 생산 규모]**",
+    "어떤 밤에는 수백 대가 한꺼번에 발사된 것으로 알려져 있다. **[FACT-CHECK: 2025~2026년 하룻밤 최대 발사 수]**",
+    "우크라이나의 방공망은 전투기와 순항미사일을 막도록 만들어졌다. 하지만 수십만 달러짜리 요격미사일을, 대당 수만 달러로 알려진 드론에 쏘는 것은 밑지는 거래다. **[FACT-CHECK: 드론과 요격미사일 단가 — 추정치]**",
+    "더 저렴한 답은 기관총, 기동 화력조, 그리고 요격 드론이다. 하지만 이들에게는 공통된 약점이 있다. 사거리가 짧다는 것이다. 드론이 정확히 어디 있는지 알아야 하고, 그것도 일찍 알아야 한다.",
+    "그래서 진짜 싸움은 누군가 방아쇠를 당기기 훨씬 전에 시작된다. 탐지의 싸움이다."
+   ]
+  },
+  {
+   "title_en": "[1:40–3:20] SEGMENT 1 — Why Radar Struggles with Small Drones",
+   "title_ko": "[1:40–3:20] 세그먼트 1 — 레이더는 왜 소형 드론에 약한가",
+   "paras_en": [
+    "Radar works a bit like shouting into a canyon and listening for the echo. It sends out a pulse of radio energy and times how long the reflection takes to come back.",
+    "The first problem is geometry. Radio waves travel in nearly straight lines, but the Earth curves away beneath them. That creates a **radar horizon**. A radar mast ten metres tall can't see an aircraft flying at a hundred metres beyond roughly fifty kilometres. **[FACT-CHECK: radar horizon example using standard 4/3-Earth model]**",
+    "Hills, forests and buildings make it worse. A drone that follows valleys can stay hidden until it's almost overhead.",
+    "The second problem is **clutter**. A radar looking low doesn't just see the drone — it sees trees, rooftops, power lines and the ground itself. Picking out a faint echo is like hearing a whisper in a stadium.",
+    "Radars filter clutter with the **Doppler effect** — the frequency shift caused by motion. Moving things stand out; still things fade. But a drone at highway speed is slow by radar standards.",
+    "The third problem is size. How strongly an object reflects radar is called its **radar cross-section**. A small drone made largely of composites can reflect only a tiny fraction of what a fighter jet does — sometimes comparable to a large bird. **[FACT-CHECK: typical RCS values for fighters, Shahed-class and small drones — ESTIMATE]**",
+    "And the sky is full of birds. A radar sensitive enough to catch every small drone will also catch every flock of geese — and bury its operators in false alarms.",
+    "Radars still matter. But blanketing the low sky over a country the size of Ukraine would take enormous numbers of them. So Ukraine tried something cheaper."
+   ],
+   "paras_ko": [
+    "레이더는 협곡에 대고 소리를 지른 뒤 메아리를 듣는 것과 비슷하게 작동한다. 전파 펄스를 내보내고, 그 반사파가 돌아오기까지 걸리는 시간을 잰다.",
+    "첫 번째 문제는 기하학이다. 전파는 거의 직선으로 나아가지만, 지구는 그 아래에서 둥글게 휘어져 멀어진다. 그래서 **레이더 수평선(radar horizon)**이 생긴다. 높이 10미터의 레이더 마스트는 고도 100미터로 나는 항공기를 약 50킬로미터 너머에서는 보지 못한다. **[FACT-CHECK: 표준 4/3 지구 모델 기준 레이더 수평선 계산 예시]**",
+    "언덕, 숲, 건물은 상황을 더 나쁘게 만든다. 계곡을 따라 나는 드론은 거의 머리 위에 올 때까지 숨어 있을 수 있다.",
+    "두 번째 문제는 **클러터(clutter)**다. 낮은 곳을 보는 레이더에는 드론만 보이는 것이 아니다. 나무, 지붕, 전선, 그리고 땅 자체가 보인다. 그 속에서 희미한 반사파를 골라내는 것은 경기장에서 속삭임을 듣는 것과 같다.",
+    "레이더는 움직임 때문에 생기는 주파수 변화, 즉 **도플러 효과(Doppler effect)**로 클러터를 걸러 낸다. 움직이는 것은 두드러지고, 멈춰 있는 것은 사라진다. 하지만 고속도로 속도로 나는 드론은 레이더 기준으로는 느리다.",
+    "세 번째 문제는 크기다. 물체가 레이더를 얼마나 강하게 반사하는지를 **레이더 반사 면적(RCS, radar cross-section)**이라고 한다. 주로 복합재로 만든 소형 드론은 전투기가 반사하는 양의 아주 작은 일부만 반사할 수 있다. 때로는 큰 새와 비슷한 수준이다. **[FACT-CHECK: 전투기, 샤헤드급, 소형 드론의 대표 RCS 값 — 추정치]**",
+    "그리고 하늘에는 새가 가득하다. 모든 소형 드론을 잡아낼 만큼 민감한 레이더는 모든 기러기 떼도 잡아내고, 운용병들을 허위 경보 속에 파묻어 버린다.",
+    "레이더는 여전히 중요하다. 하지만 우크라이나만 한 나라의 낮은 하늘을 빈틈없이 덮으려면 엄청난 수의 레이더가 필요하다. 그래서 우크라이나는 더 저렴한 방법을 시도했다."
+   ]
+  },
+  {
+   "title_en": "[3:20–5:10] SEGMENT 2 — The Acoustic Network",
+   "title_ko": "[3:20–5:10] 세그먼트 2 — 음향 탐지 네트워크",
+   "paras_en": [
+    "Every engine is a noise machine. A piston engine fires its cylinders many times per second, and the propeller blades chop the air in a steady rhythm. Together they create a hum with a strong base tone and a ladder of harmonics — an **acoustic signature**.",
+    "Ukraine's answer was reportedly a nationwide **acoustic detection network**, often referred to as **Sky Fortress** — thousands of low-cost sensors, each essentially a few microphones and a small computer, mounted on poles and towers. **[FACT-CHECK: name, developer, sensor count, unit cost]**",
+    "Sound has strengths radar lacks. It bends around hills and over treetops, and it doesn't care how small or non-metallic the drone is. But sound travels at only about **343 metres per second**, and it fades quickly — so each sensor reportedly hears just a few kilometres around it. **[FACT-CHECK: reported detection radius per sensor]**",
+    "That's why the trick is numbers. One microphone can tell you a drone is nearby. Several can tell you where.",
+    "Sound reaches each microphone at a slightly different moment. By measuring that **time difference of arrival**, the system estimates a direction — the same way your two ears tell you which side a car horn came from. Combine bearings from sensors spread across the landscape, and the lines cross near the drone. That's **triangulation**.",
+    "Repeat it every few seconds and those positions join into a **track**: a heading, a speed, a likely destination.",
+    "Finally, **machine learning**. Algorithms trained on recordings learn to separate a drone engine from a truck or a generator — and reportedly even to tell drone types apart. **[FACT-CHECK: claimed ML classification capabilities]**"
+   ],
+   "paras_ko": [
+    "모든 엔진은 소음을 만드는 기계다. 피스톤 엔진은 1초에 여러 번 실린더를 점화하고, 프로펠러 날개는 일정한 리듬으로 공기를 가른다. 이 둘이 함께 강한 기본음과 층층이 쌓인 배음을 가진 웅웅거림을 만든다. 바로 **음향 신호(acoustic signature)**다.",
+    "우크라이나의 답은 전국 규모의 **음향 탐지 네트워크(acoustic detection network)**였던 것으로 알려져 있다. 흔히 **‘스카이 포트리스(Sky Fortress)’**라고 불린다. 기둥과 탑 위에 설치된 수천 개의 저가 센서로, 각각은 사실상 마이크 몇 개와 소형 컴퓨터 한 대로 이루어져 있다. **[FACT-CHECK: 명칭, 개발 주체, 센서 수, 개당 가격]**",
+    "소리에는 레이더에 없는 장점이 있다. 언덕을 돌아 나무 위로 휘어 퍼지고, 드론이 얼마나 작든, 금속이 아니든 상관하지 않는다. 하지만 소리는 초속 약 **343미터**로밖에 이동하지 못하고 빠르게 약해진다. 그래서 센서 하나가 듣는 범위는 주변 몇 킬로미터에 불과한 것으로 알려져 있다. **[FACT-CHECK: 보도된 센서당 탐지 반경]**",
+    "그래서 핵심은 숫자다. 마이크 하나는 드론이 근처에 있다는 것을 알려 줄 수 있다. 여러 개는 어디에 있는지를 알려 줄 수 있다.",
+    "소리는 마이크마다 아주 조금씩 다른 순간에 도착한다. 이 **도달 시간차(TDOA, time difference of arrival)**를 측정하면 방향을 추정할 수 있다. 두 귀로 자동차 경적이 어느 쪽에서 울렸는지 아는 것과 같은 원리다. 넓게 흩어진 센서들의 방위선을 합치면, 그 선들이 드론 근처에서 교차한다. 이것이 **삼각측량(triangulation)**이다.",
+    "이를 몇 초마다 반복하면 위치들이 이어져 하나의 **항적(track)**이 된다. 진행 방향, 속도, 그리고 예상 목적지다.",
+    "마지막은 **머신러닝(machine learning)**이다. 녹음 데이터로 학습한 알고리즘은 드론 엔진 소리를 트럭이나 발전기 소리와 구별해 내고, 알려진 바에 따르면 드론 기종까지 구분한다. **[FACT-CHECK: 주장된 머신러닝 분류 능력]**"
+   ]
+  },
+  {
+   "title_en": "[5:10–6:50] SEGMENT 3 — Sensor Fusion: One Picture of the Sky",
+   "title_ko": "[5:10–6:50] 세그먼트 3 — 센서 융합: 하늘을 담은 하나의 그림",
+   "paras_en": [
+    "Microphones are only one layer. The network reportedly also uses small drone-detection radars, and **optical and thermal cameras** that confirm what is actually flying. **[FACT-CHECK: sensor types integrated into the network]**",
+    "**Radio-frequency detectors** listen for the control links and data signals some drones transmit. And civilians help too: smartphone apps have reportedly let people report a drone they see or hear with a single tap. **[FACT-CHECK: civilian reporting apps such as ePPO, user numbers]**",
+    "Every sensor is imperfect. Microphones give rough positions. Radars have blind spots. Cameras need a clear line of sight. A civilian report is fast, but noisy.",
+    "**Sensor fusion** is the art of combining them. If an acoustic track, a radar return and a camera image all point to the same object at the same moment, confidence rises sharply.",
+    "The fused tracks flow into a shared digital map — what militaries call a **common operating picture**. In Ukraine, situational-awareness systems such as **Delta** reportedly display incoming drones alongside friendly units. **[FACT-CHECK: Delta's role in the air-defence picture; related systems]**",
+    "That map does the cueing. The nearest **mobile fire group** — often a pickup truck with a heavy machine gun, a searchlight and a thermal sight — receives a predicted path, and heads to where the drone will be, not where it was.",
+    "Increasingly, the same picture also guides **interceptor drones** launched to meet attackers in the air. **[FACT-CHECK: scale of interceptor-drone use against Shahed-type drones, 2025–2026]**"
+   ],
+   "paras_ko": [
+    "마이크는 한 층에 불과하다. 이 네트워크는 소형 드론 탐지 레이더, 그리고 실제로 무엇이 날고 있는지 확인해 주는 **광학·열상 카메라(optical and thermal cameras)**도 활용하는 것으로 알려져 있다. **[FACT-CHECK: 네트워크에 통합된 센서 종류]**",
+    "**무선 주파수(RF) 탐지기(radio-frequency detectors)**는 일부 드론이 송출하는 조종 링크와 데이터 신호를 엿듣는다. 민간인도 돕는다. 스마트폰 앱으로 보거나 들은 드론을 한 번의 터치로 신고할 수 있게 한 것으로 알려져 있다. **[FACT-CHECK: ePPO 등 민간 신고 앱, 사용자 수]**",
+    "모든 센서는 불완전하다. 마이크는 대략적인 위치만 준다. 레이더에는 사각지대가 있다. 카메라는 막힘없는 시야가 필요하다. 민간 신고는 빠르지만 부정확하다.",
+    "**센서 융합(sensor fusion)**은 이들을 결합하는 기술이다. 음향 항적, 레이더 반사파, 카메라 영상이 같은 순간 같은 물체를 가리키면 신뢰도가 급격히 올라간다.",
+    "융합된 항적은 공유 디지털 지도로 흘러 들어간다. 군에서는 이를 **공통 작전 상황도(common operating picture)**라고 부른다. 우크라이나에서는 **델타(Delta)** 같은 상황 인식 시스템이 다가오는 드론을 아군 부대와 함께 표시하는 것으로 알려져 있다. **[FACT-CHECK: 방공 상황도에서 델타의 역할, 관련 시스템]**",
+    "그 지도가 표적 지시를 한다. 가장 가까운 **기동 화력조(mobile fire group)**, 흔히 중기관총과 탐조등, 열상 조준경을 단 픽업트럭이 예상 경로를 전달받고, 드론이 있었던 곳이 아니라 있을 곳으로 향한다.",
+    "점점 더, 같은 상황도가 공중에서 공격 드론을 맞이하도록 발사되는 **요격 드론(interceptor drones)**도 유도하고 있다. **[FACT-CHECK: 2025~2026년 샤헤드 계열 대상 요격 드론 운용 규모]**"
+   ]
+  },
+  {
+   "title_en": "[6:50–8:00] IN THE FIELD",
+   "title_ko": "[6:50–8:00] 실전 사례",
+   "paras_en": [
+    "At various points in the war, mobile fire groups have reportedly accounted for a substantial share of downed Shahed-type drones. **[FACT-CHECK: share of shootdowns attributed to mobile fire groups — REPORTED]**",
+    "The economics are striking. A pole-mounted acoustic sensor reportedly costs about as much as a smartphone, and a machine-gun round costs a few dollars. Against a drone worth tens of thousands, the arithmetic finally starts to favour the defender. **[FACT-CHECK: cost comparisons — ESTIMATE]**",
+    "Other militaries have noticed: the acoustic approach has reportedly been briefed to US and NATO officials. **[FACT-CHECK: reported US/NATO interest in Sky Fortress]**",
+    "The deeper lesson isn't about any single sensor. It's about architecture: many cheap, imperfect eyes and ears, wired into one network, can outperform a few expensive ones."
+   ],
+   "paras_ko": [
+    "전쟁의 여러 시점에서, 기동 화력조가 격추된 샤헤드 계열 드론의 상당 부분을 차지한 것으로 알려져 있다. **[FACT-CHECK: 기동 화력조에 의한 격추 비율 — 보도치]**",
+    "경제성은 놀랍다. 기둥에 다는 음향 센서 하나는 스마트폰 한 대 값 정도로 알려져 있고, 기관총탄 한 발은 몇 달러에 불과하다. 수만 달러짜리 드론과 비교하면, 마침내 계산이 방어하는 쪽에 유리해지기 시작한다. **[FACT-CHECK: 비용 비교 — 추정치]**",
+    "다른 나라 군대들도 주목했다. 이 음향 탐지 방식은 미국과 NATO 관계자들에게 소개된 것으로 알려져 있다. **[FACT-CHECK: 스카이 포트리스에 대한 미국/NATO 관심 보도]**",
+    "더 깊은 교훈은 특정 센서 하나에 관한 것이 아니다. 구조에 관한 것이다. 값싸고 불완전한 수많은 눈과 귀를 하나의 네트워크로 엮으면, 비싼 소수의 장비를 능가할 수 있다."
+   ]
+  },
+  {
+   "title_en": "[8:00–9:15] LIMITS & COUNTER",
+   "title_ko": "[8:00–9:15] 한계와 대응",
+   "paras_en": [
+    "But listening has limits.",
+    "The first is **noise**. Wind, rain, traffic and artillery all compete with the faint hum of a distant engine, and strong wind bends sound, distorting direction estimates. Fog and cloud blind cameras too.",
+    "Then the attacker adapts. Russia has reportedly mixed large numbers of **decoy drones** into its raids — cheap airframes that look and sound much like the real thing — to overload the network and drain ammunition. **[FACT-CHECK: Gerbera-type decoys and their reported share of raids]**",
+    "Routes and altitudes have reportedly changed as well, with some drones flying higher, beyond the effective reach of machine guns, and others shifting paths from night to night. **[FACT-CHECK: reported changes in Shahed flight altitude, 2025]**",
+    "And future drones may be harder to catch. Jet-powered variants are reportedly faster, shrinking the time between detection and arrival, while electric drones can be far quieter. **[FACT-CHECK: reports of jet-powered Geran-3]**",
+    "Detection is never finished. Every improvement on one side triggers an adaptation on the other."
+   ],
+   "paras_ko": [
+    "하지만 듣는 것에는 한계가 있다.",
+    "첫째는 **소음(noise)**이다. 바람, 비, 차량, 포격 소리가 모두 멀리서 들려오는 희미한 엔진음과 경쟁하고, 강한 바람은 소리를 휘게 만들어 방향 추정을 왜곡한다. 안개와 구름은 카메라의 눈도 가린다.",
+    "그리고 공격하는 쪽도 적응한다. 러시아는 공격에 대량의 **디코이 드론(decoy drones)**을 섞어 온 것으로 알려져 있다. 진짜와 비슷하게 생기고 비슷한 소리를 내는 값싼 기체로, 네트워크를 과부하시키고 탄약을 소모시키려는 것이다. **[FACT-CHECK: 게르베라(Gerbera)형 디코이와 공격 내 보도된 비중]**",
+    "경로와 고도도 바뀐 것으로 알려져 있다. 일부 드론은 기관총의 유효 사거리를 넘어서는 더 높은 고도로 날고, 다른 드론들은 밤마다 경로를 바꾼다. **[FACT-CHECK: 2025년 샤헤드 비행 고도 변화 보도]**",
+    "그리고 미래의 드론은 잡기가 더 어려울 수 있다. 제트 추진형은 더 빠른 것으로 알려져 탐지에서 도달까지의 시간을 줄이고, 전기 드론은 훨씬 조용할 수 있다. **[FACT-CHECK: 제트 추진형 게란-3 보도]**",
+    "탐지에는 끝이 없다. 한쪽의 모든 개선은 다른 쪽의 적응을 불러온다."
+   ]
+  },
+  {
+   "title_en": "[9:15–9:45] OUTRO",
+   "title_ko": "[9:15–9:45] 아웃트로",
+   "paras_en": [
+    "But sensors are only half of this hidden contest. The other half plays out in the radio spectrum — where signals are jammed, spoofed and hunted.",
+    "In the next episode, **The Invisible War**: how **electronic warfare** became the battlefield's unseen front line. Subscribe so you don't miss it — and tell us in the comments what you'd like us to decode next."
+   ],
+   "paras_ko": [
+    "하지만 센서는 이 보이지 않는 경쟁의 절반일 뿐이다. 나머지 절반은 전파 스펙트럼에서 벌어진다. 신호가 재밍되고, 스푸핑되고, 추적당하는 곳이다.",
+    "다음 편 **‘보이지 않는 전쟁(The Invisible War)’**에서는 **전자전(electronic warfare)**이 어떻게 전장의 보이지 않는 최전선이 되었는지 살펴본다. 놓치지 않도록 구독하고, 다음에 어떤 주제를 해독했으면 좋겠는지 댓글로 알려 달라."
+   ]
+  }
+ ]
+}

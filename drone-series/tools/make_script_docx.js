@@ -1,7 +1,7 @@
 // Build bilingual (EN | KO) script .docx files from drone-series/scripts/epNN.json
 // Usage: node make_script_docx.js <outDir> [ep numbers...]   (no numbers = all + combined)
 const fs=require('fs'), path=require('path');
-const {Document,Packer,Paragraph,TextRun,Table,TableRow,TableCell,WidthType,ShadingType,HeadingLevel,AlignmentType,BorderStyle,Footer,PageNumber,TableLayoutType,VerticalAlign,TableOfContents,PageBreak}=require('docx');
+const {Document,Packer,Paragraph,TextRun,Table,TableRow,TableCell,WidthType,ShadingType,HeadingLevel,AlignmentType,BorderStyle,Footer,PageNumber,TableLayoutType,VerticalAlign}=require('docx');
 const SRC=path.join(__dirname,'..','scripts');
 const OUT=process.argv[2]||'.'; const only=process.argv.slice(3).map(Number);
 const FONT={ascii:'Calibri',hAnsi:'Calibri',eastAsia:'Malgun Gothic',cs:'Calibri'};
@@ -51,7 +51,7 @@ const legend=()=>[
   P('왼쪽은 녹음용 영어 원문, 오른쪽은 한국어 번역입니다. 굵은 글씨는 화면 그래픽과 연결되는 핵심 용어입니다.'),
   P('[FACT-CHECK] 주황색 표시는 업로드 전에 최신 공개자료(RUSI, ISW, CSIS, Oryx, Reuters 등)로 반드시 확인해야 할 수치·사건입니다.')];
 function doc(children,label){
-  return new Document({styles:{default:{document:{run:{font:FONT,size:21}}}},features:{updateFields:true},
+  return new Document({styles:{default:{document:{run:{font:FONT,size:21}}}},
     sections:[{properties:{page:{size:{width:11906,height:16838},margin:{top:1134,bottom:1134,left:1134,right:1134}}},
       footers:{default:new Footer({children:[new Paragraph({alignment:AlignmentType.CENTER,children:[new TextRun({text:`Drone War Decoded · ${label} · `,font:FONT,size:16,color:'888888'}),new TextRun({children:[PageNumber.CURRENT],font:FONT,size:16,color:'888888'})]})]})},
       children}]});
@@ -76,10 +76,7 @@ const eps=files.map(f=>JSON.parse(fs.readFileSync(path.join(SRC,f))));
     const bc=(t,w)=>new TableCell({width:{size:w,type:WidthType.DXA},borders,margins:{top:80,bottom:80,left:120,right:120},children:[new Paragraph({children:[new TextRun({text:t,font:FONT,size:19})]})]});
     c.push(new Table({width:{size:TW,type:WidthType.DXA},columnWidths:cw,rows:[new TableRow({tableHeader:true,children:['편','English title','한국어 제목','구분','영어 단어'].map((t,i)=>hc(t,cw[i]))}),...rows.map(r=>new TableRow({children:r.map((t,i)=>bc(t,cw[i]))}))]}));
     c.push(...legend());
-    c.push(new Paragraph({children:[new PageBreak()]}));
-    c.push(new Paragraph({spacing:{after:120},children:[new TextRun({text:'목차 (Table of Contents)',font:FONT,size:28,bold:true})]}));
-    c.push(new TableOfContents('Contents',{hyperlink:true,headingStyleRange:'1-1'}));
-    c.push(new Paragraph({spacing:{before:120},children:[new TextRun({text:'※ 목차가 비어 보이면 Word에서 목차를 클릭 → “필드 업데이트”를 누르세요.',font:FONT,size:18,color:'888888'})]}));
+    c.push(P('각 편은 새 페이지에서 시작합니다. Word의 [보기 → 탐색 창]을 켜면 편·구간 제목으로 바로 이동할 수 있습니다.'));
     for(const d of eps) c.push(...episodeBlocks(d,{combined:true}));
     const name='Drone-War-Decoded_EP01-EP10_All-Scripts_EN-KO.docx';
     fs.writeFileSync(path.join(OUT,name),await Packer.toBuffer(doc(c,'All scripts EP01–EP10 (EN/KO)')));

@@ -1,0 +1,172 @@
+{
+ "ep": 10,
+ "title_en": "The Future Battlefield",
+ "title_ko": "미래의 전장",
+ "subtitle_ko": "수동 방어, 지향성 에너지, 그리고 세계가 배우는 교훈",
+ "sections": [
+  {
+   "title_en": "[0:00–0:40] COLD OPEN",
+   "title_ko": "[0:00–0:40] 콜드 오픈",
+   "paras_en": [
+    "A supply road, somewhere near the front line in Ukraine. From above, it doesn’t look like a road at all. It looks like a long green tunnel.",
+    "Netting, stretched over poles for kilometres, catching small drones before they reach the trucks underneath. **[FACT-CHECK: net tunnels over frontline roads, length]**",
+    "It’s almost medieval. And it’s one of the clearest signs of where this war has gone.",
+    "After nine episodes of jet-powered drones, jamming and interceptors, part of the newest answer to the drone is the oldest idea in warfare: put something between you and the threat.",
+    "In this final episode, we look at the future battlefield — and at what the rest of the world is learning from this one."
+   ],
+   "paras_ko": [
+    "우크라이나 전선 근처 어딘가의 보급로. 위에서 보면 도로처럼 보이지 않는다. 길고 푸른 터널처럼 보인다.",
+    "기둥 위로 수 킬로미터에 걸쳐 펼쳐진 그물이, 작은 드론들이 아래의 트럭에 닿기 전에 걸러 낸다. **[FACT-CHECK: 전선 도로 그물 터널, 길이]**",
+    "거의 중세적이다. 그리고 이것은 이 전쟁이 어디까지 왔는지 보여 주는 가장 분명한 신호 중 하나다.",
+    "제트 추진 드론, 재밍, 요격 드론을 다룬 아홉 편이 지난 지금, 드론에 대한 최신 해법의 일부는 전쟁에서 가장 오래된 아이디어다. 나와 위협 사이에 무언가를 두는 것.",
+    "이번 마지막 편에서는 미래의 전장을 살펴본다. 그리고 세계가 지금의 전장에서 무엇을 배우고 있는지도."
+   ]
+  },
+  {
+   "title_en": "[0:40–1:40] CONTEXT — The Attack–Defence Cycle",
+   "title_ko": "[0:40–1:40] 배경 — 공격과 방어의 순환",
+   "paras_en": [
+    "Every weapon in this series followed the same pattern. An attack appears. A defence answers. The attack adapts — often within months.",
+    "Cheap long-range drones forced air defences to spread thin. **FPV drones** turned every vehicle near the front into a potential target. **Electronic warfare** jammed their radio links, so engineers built **fibre-optic** drones that jamming can’t touch.",
+    "Each step pushed the cost of attacking down, and the cost of defending up.",
+    "So armies now attack the problem three ways: becoming harder to hit, making defensive shots cheaper, and building machines that react faster than humans.",
+    "Let’s start with the cheapest."
+   ],
+   "paras_ko": [
+    "이 시리즈의 모든 무기는 같은 패턴을 따랐다. 공격이 등장한다. 방어가 응답한다. 공격이 적응한다. 대개 몇 달 만에.",
+    "값싼 장거리 드론은 방공망을 얇게 펼치도록 강요했다. **FPV 드론**은 전선 근처의 모든 차량을 잠재적 표적으로 만들었다. **전자전**이 무선 링크를 재밍하자, 엔지니어들은 재밍이 닿지 않는 **광섬유(fibre-optic)** 드론을 만들었다.",
+    "단계마다 공격 비용은 내려가고 방어 비용은 올라갔다.",
+    "그래서 군대들은 이제 세 방향으로 이 문제에 달려든다. 맞히기 어려워지는 것, 방어 사격을 더 싸게 만드는 것, 인간보다 빨리 반응하는 기계를 만드는 것.",
+    "가장 싼 것부터 시작하자."
+   ]
+  },
+  {
+   "title_en": "[1:40–3:10] SEGMENT 1 — Passive Defence: The Return of Armour and Concealment",
+   "title_ko": "[1:40–3:10] 세그먼트 1 — 수동 방어: 장갑과 은폐의 귀환",
+   "paras_en": [
+    "The first anti-drone screens were improvised: welded metal mesh over tank turrets, nicknamed **“cope cages”** and widely mocked online. **[FACT-CHECK: when cope cages first appeared, 2021–2022]**",
+    "The mockery faded. A small drone carries a small charge, and anything that keeps it off the armour can sharply reduce damage. Today, many vehicles on both sides wear **cages, screens and netting**. **[FACT-CHECK: prevalence of cages; ‘turtle tank’ reports]**",
+    "**Net tunnels** scale the same idea up to the road itself. Reports describe key supply routes covered with netting, so drones get tangled before they reach a vehicle. **[FACT-CHECK: extent and effectiveness of road net tunnels]**",
+    "Then there’s **concealment**. Drone cameras see heat, so camouflage now has to hide warmth as well as colour: **multispectral** nets and blankets that blend an engine or a soldier into the background temperature.",
+    "**Decoys** flip the logic. Inflatable or wooden dummies are cheap. If an attacker wastes a costly munition on one, the defender wins. **[FACT-CHECK: reported decoy use, e.g. inflatable and wooden dummy systems]**",
+    "And finally, **dispersion and hardening**: spreading units out, and putting aircraft and command posts under concrete or earth. **[FACT-CHECK: reported construction of hardened shelters]**",
+    "None of this is new. Knights wore armour. World War One had camouflage painters. The drone has simply made the oldest ideas urgent again."
+   ],
+   "paras_ko": [
+    "최초의 대드론 차단막은 즉흥적인 것이었다. 전차 포탑 위에 용접한 금속 그물로, **‘코프 케이지(cope cage)’**라는 별명이 붙었고 온라인에서 널리 조롱받았다. **[FACT-CHECK: 코프 케이지 최초 등장 시점, 2021–2022년]**",
+    "조롱은 곧 사라졌다. 작은 드론은 작은 폭약을 싣고, 그것을 장갑에서 떼어 놓는 것이라면 무엇이든 피해를 크게 줄일 수 있다. 지금은 양측의 많은 차량이 **케이지, 차단막, 그물**을 두르고 있다. **[FACT-CHECK: 케이지 보급 정도, ‘거북 전차’ 보도]**",
+    "**그물 터널**은 같은 아이디어를 도로 전체로 확장한다. 보도에 따르면 주요 보급로가 그물로 덮여, 드론이 차량에 닿기 전에 얽혀 버린다. **[FACT-CHECK: 도로 그물 터널의 규모와 효과]**",
+    "다음은 **은폐**다. 드론 카메라는 열을 본다. 그래서 위장은 이제 색깔뿐 아니라 온기까지 숨겨야 한다. 엔진이나 병사를 주변 온도에 녹아들게 하는 **다중 스펙트럼(multispectral)** 위장망과 담요다.",
+    "**디코이(기만체)**는 논리를 뒤집는다. 풍선형이나 목제 모형은 싸다. 공격 측이 비싼 탄약을 거기에 낭비하면 방어 측이 이긴다. **[FACT-CHECK: 풍선형·목제 모형 등 디코이 사용 보도]**",
+    "마지막으로 **분산과 방호(강화)**다. 부대를 흩어 놓고, 항공기와 지휘소를 콘크리트나 흙 아래에 두는 것이다. **[FACT-CHECK: 강화 엄체 건설 보도]**",
+    "이 중 새로운 것은 하나도 없다. 기사들은 갑옷을 입었다. 1차 세계대전에는 위장 도색 전문가들이 있었다. 드론은 그저 가장 오래된 아이디어들을 다시 절박하게 만들었을 뿐이다."
+   ]
+  },
+  {
+   "title_en": "[3:10–4:50] SEGMENT 2 — Directed Energy: Light and Microwaves",
+   "title_ko": "[3:10–4:50] 세그먼트 2 — 지향성 에너지: 빛과 마이크로파",
+   "paras_en": [
+    "Passive defence absorbs a hit. **Directed energy** tries to stop the drone without firing anything solid at all.",
+    "A **high-energy laser** works by heating. It focuses a beam onto one small spot — a motor, a camera, a plastic wing — and holds it there until the material weakens, melts or burns. That holding time is called **dwell time**, and it decides everything.",
+    "The appeal is price. Once the system exists, each shot costs mostly electricity. Britain has described its **DragonFire** laser as costing around ten pounds per shot. **[FACT-CHECK: DragonFire ~£10 per shot claim]**",
+    "But physics pushes back. The **atmosphere** absorbs and scatters the beam; rain, fog, dust and smoke weaken it badly. A powerful beam even heats the air it passes through, which can defocus it — an effect called **thermal blooming**. And a laser engages one target at a time.",
+    "Israel’s **Iron Beam**, DragonFire, and American and South Korean programmes are being tested or fielded. **[FACT-CHECK: operational status of Iron Beam, US and South Korean laser programmes]**",
+    "Ukraine says it has one too. A commander reportedly announced a laser called **“Tryzub”** — but almost no independent details exist. **[FACT-CHECK: Tryzub claim, date (reportedly late 2024), verification]**",
+    "The second branch is **high-power microwave**. Instead of a pinpoint beam, it sends a short, intense burst of radio energy in a wide cone, inducing currents that scramble or burn out a drone’s electronics. One burst can affect several drones at once — a natural answer to swarms.",
+    "The catch is range. That energy spreads fast, so power falls steeply with distance — making these short-range, last-line defences. **[FACT-CHECK: reported ranges of HPM systems, e.g. Epirus Leonidas]**"
+   ],
+   "paras_ko": [
+    "수동 방어는 타격을 흡수한다. **지향성 에너지**는 단단한 무언가를 아예 쏘지 않고 드론을 멈추려 한다.",
+    "**고에너지 레이저**는 가열로 작동한다. 빔을 모터, 카메라, 플라스틱 날개 같은 작은 한 점에 집중시키고, 재료가 약해지거나 녹거나 탈 때까지 그 자리에 붙잡아 둔다. 이 유지 시간을 **조사 시간(dwell time)**이라 하며, 이것이 모든 것을 결정한다.",
+    "매력은 가격이다. 시스템이 일단 갖춰지면, 한 발의 비용은 대부분 전기료다. 영국은 자국의 **드래곤파이어(DragonFire)** 레이저 한 발 비용이 약 10파운드라고 밝혔다. **[FACT-CHECK: 드래곤파이어 발당 약 10파운드 주장]**",
+    "하지만 물리학이 반격한다. **대기**는 빔을 흡수하고 산란시킨다. 비, 안개, 먼지, 연기는 빔을 크게 약화시킨다. 강력한 빔은 지나가는 공기까지 데워 초점을 흐트러뜨릴 수 있는데, 이를 **열 블루밍(thermal blooming)**이라 한다. 그리고 레이저는 한 번에 하나의 표적만 상대한다.",
+    "이스라엘의 **아이언 빔(Iron Beam)**, 드래곤파이어, 그리고 미국과 한국의 프로그램들이 시험 또는 배치 중이다. **[FACT-CHECK: 아이언 빔, 미국·한국 레이저 프로그램의 실전 배치 현황]**",
+    "우크라이나도 하나 있다고 말한다. 한 지휘관이 **‘트리주브(Tryzub)’**라는 레이저를 발표한 것으로 알려졌다. 하지만 독립적으로 확인된 세부 사항은 거의 없다. **[FACT-CHECK: 트리주브 주장, 시점(2024년 말로 보도), 검증 여부]**",
+    "두 번째 갈래는 **고출력 마이크로파**다. 핀포인트 빔 대신 짧고 강렬한 전파 에너지를 넓은 원뿔 모양으로 쏘아, 드론 전자장비에 전류를 유도해 오작동시키거나 태워 버린다. 한 번의 방사로 여러 드론에 동시에 영향을 줄 수 있다. 군집에 대한 자연스러운 해법이다.",
+    "문제는 사거리다. 그 에너지는 빠르게 퍼져 거리가 멀어질수록 출력이 급격히 떨어진다. 그래서 이런 시스템은 단거리, 최후 방어선이 된다. **[FACT-CHECK: 에피루스 레오니다스 등 HPM 시스템의 보도된 사거리]**"
+   ]
+  },
+  {
+   "title_en": "[4:50–6:20] SEGMENT 3 — Autonomy and Swarms",
+   "title_ko": "[4:50–6:20] 세그먼트 3 — 자율성과 군집",
+   "paras_en": [
+    "Almost every defence so far shares one assumption: drones arrive one at a time, each flown by one human.",
+    "**Autonomy** threatens that assumption. Most attack drones still need a human pilot. But both sides reportedly use **terminal guidance** — software that locks on in the final seconds, so the drone can finish its approach even if jamming cuts the link. **[FACT-CHECK: reported use of machine-vision terminal guidance by both sides]**",
+    "A **swarm** goes further. Instead of each drone obeying a pilot, the drones share information and divide tasks among themselves . Think of starlings: no leader, just simple rules producing complex behaviour.",
+    "For defenders, that’s a nightmare: no single link to jam, no single operator to find.",
+    "It also raises the hardest question in this series: who decides? This is the **human-in-the-loop** debate. Supporters argue machines react faster, keep working under jamming, and might make fewer errors than exhausted soldiers.",
+    "Critics argue a machine cannot weigh context the way **international humanitarian law** demands — telling a soldier from a civilian, or a fighter who is surrendering from one who isn’t. And if an autonomous system gets it wrong, who is **accountable**: the commander, the programmer, or the manufacturer?",
+    "Diplomats have debated rules for **lethal autonomous weapons** at the United Nations for more than a decade, so far without a binding treaty. **[FACT-CHECK: status of UN CCW / General Assembly talks as of 2026]** The technology keeps moving."
+   ],
+   "paras_ko": [
+    "지금까지의 방어는 거의 모두 하나의 가정을 공유한다. 드론은 하나씩 오고, 각각을 한 명의 인간이 조종한다는 것.",
+    "**자율성**은 그 가정을 위협한다. 대부분의 공격 드론은 여전히 인간 조종사가 필요하다. 하지만 양측 모두 **종말 유도(terminal guidance)**를 쓰는 것으로 알려져 있다. 마지막 몇 초 동안 표적을 고정하는 소프트웨어로, 재밍이 링크를 끊어도 드론이 접근을 마칠 수 있게 한다. **[FACT-CHECK: 양측의 머신비전 종말 유도 사용 보도]**",
+    "**군집(swarm)**은 한 걸음 더 나아간다. 드론 하나하나가 조종사를 따르는 대신, 드론들이 정보를 공유하고 서로 임무를 나눈다. 찌르레기 떼를 떠올려 보라. 지도자는 없고, 단순한 규칙들이 복잡한 행동을 만들어 낸다.",
+    "방어 측에게는 악몽이다. 재밍할 단 하나의 링크도, 찾아낼 단 한 명의 운용자도 없다.",
+    "그리고 이 시리즈에서 가장 어려운 질문이 생긴다. 누가 결정하는가? 이것이 **인간 개입(human-in-the-loop)** 논쟁이다. 지지하는 쪽은 기계가 더 빨리 반응하고, 재밍 속에서도 계속 작동하며, 지친 병사보다 실수가 적을 수 있다고 주장한다.",
+    "비판하는 쪽은 기계가 **국제인도법**이 요구하는 방식으로 맥락을 따질 수 없다고 주장한다. 군인과 민간인을, 항복하는 전투원과 그렇지 않은 전투원을 구별하는 일 말이다. 그리고 자율 시스템이 잘못 판단한다면, 누가 **책임**을 지는가? 지휘관인가, 프로그래머인가, 제조사인가?",
+    "외교관들은 10년 넘게 유엔에서 **치명적 자율무기**에 관한 규칙을 논의해 왔지만, 아직 구속력 있는 조약은 없다. **[FACT-CHECK: 2026년 기준 유엔 CCW·총회 논의 현황]** 기술은 계속 나아간다."
+   ]
+  },
+  {
+   "title_en": "[6:20–7:40] IN THE FIELD — What the World Is Learning",
+   "title_ko": "[6:20–7:40] 실전 사례 — 세계가 배우는 것",
+   "paras_en": [
+    "Militaries everywhere study Ukraine like a laboratory.",
+    "The biggest lesson is **mass**. For decades, Western armies bought small numbers of **exquisite** systems — superb, expensive and slow to replace. Ukraine, by contrast, reportedly produced millions of drones in a single year. **[FACT-CHECK: Ukrainian annual drone production figures, 2024–2025]**",
+    "The United States has announced plans to buy small drones in large numbers and treat them more like ammunition than aircraft. **[FACT-CHECK: 2025 US Defense Department drone directives and Army plans]**",
+    "In Europe, countries bordering Russia have discussed a **“drone wall”** of layered sensors and counter-drone systems, especially after drones strayed into NATO airspace. **[FACT-CHECK: EU ‘drone wall’ proposals; 2025 incursions into Poland]**",
+    "**Taiwan** sees cheap drones as part of a defence that would make any crossing of the strait costly, and has reportedly set targets for domestic production. **[FACT-CHECK: Taiwan drone procurement and production targets]**",
+    "**South Korea** has reportedly set up a dedicated drone command and plans to train large numbers of drone operators. **[FACT-CHECK: ROK Drone Operations Command (2023); reported plan to train ‘500,000 drone warriors’]**",
+    "Everywhere, the pattern repeats: new units, new training, and procurement that values numbers and speed as much as perfection."
+   ],
+   "paras_ko": [
+    "세계 곳곳의 군대가 우크라이나를 실험실처럼 연구한다.",
+    "가장 큰 교훈은 **물량(mass)**이다. 수십 년 동안 서방 군대는 소수의 **고급(exquisite)** 체계를 샀다. 뛰어나지만 비싸고, 대체하는 데 오래 걸리는 무기들이다. 반면 우크라이나는 한 해에 수백만 대의 드론을 생산한 것으로 알려졌다. **[FACT-CHECK: 우크라이나 연간 드론 생산량, 2024–2025년]**",
+    "미국은 소형 드론을 대량으로 구매하고, 이를 항공기라기보다 탄약처럼 다루겠다는 계획을 발표했다. **[FACT-CHECK: 2025년 미 국방부 드론 지침과 육군 계획]**",
+    "유럽에서는 러시아와 국경을 맞댄 나라들이 센서와 대드론 체계를 겹겹이 두는 **‘드론 장벽(drone wall)’**을 논의해 왔다. 특히 드론이 나토 영공에 들어온 이후로. **[FACT-CHECK: EU ‘드론 장벽’ 제안, 2025년 폴란드 영공 침범]**",
+    "**대만**은 값싼 드론을 해협 횡단을 값비싸게 만들 방어의 일부로 보고, 국내 생산 목표를 세운 것으로 알려졌다. **[FACT-CHECK: 대만 드론 조달·생산 목표]**",
+    "**한국**은 전담 드론작전사령부를 창설하고, 대규모 드론 운용 인력을 양성할 계획인 것으로 알려졌다. **[FACT-CHECK: 드론작전사령부 창설(2023년), ‘50만 드론전사’ 양성 계획 보도]**",
+    "어디서나 패턴은 반복된다. 새로운 부대, 새로운 훈련, 그리고 완벽함만큼이나 물량과 속도를 중시하는 조달 방식이다."
+   ]
+  },
+  {
+   "title_en": "[7:40–8:50] LIMITS & COUNTER",
+   "title_ko": "[7:40–8:50] 한계와 대응",
+   "paras_en": [
+    "None of these technologies is a silver bullet.",
+    "**Cages and nets** add weight, snag on trees, and can be beaten from new angles. Camouflage loses to better sensors. Decoys work only until the enemy learns to spot them.",
+    "**Lasers** struggle in bad weather, need large amounts of power and cooling, and must hold each target in turn — a serious problem against a swarm. **Microwaves** reach only short distances, and electronics can be shielded, at a cost in weight.",
+    "**Autonomy** relies on software that can be fooled by decoys, odd lighting, or situations it never trained for. And true swarms remain hard to deliver at scale.",
+    "And every one of these defences will itself be answered. That is the one prediction this series can make with confidence."
+   ],
+   "paras_ko": [
+    "이 기술들 중 어느 것도 만능 해결책은 아니다.",
+    "**케이지와 그물**은 무게를 늘리고, 나무에 걸리며, 새로운 각도에서 뚫릴 수 있다. 위장은 더 나은 센서에 진다. 디코이는 적이 알아보는 법을 익힐 때까지만 통한다.",
+    "**레이저**는 악천후에 고전하고, 막대한 전력과 냉각이 필요하며, 표적을 하나씩 차례로 붙잡아야 한다. 군집을 상대로는 심각한 문제다. **마이크로파**는 짧은 거리에만 닿고, 전자장비는 무게를 대가로 차폐할 수 있다.",
+    "**자율성**은 디코이, 이상한 조명, 학습하지 못한 상황에 속을 수 있는 소프트웨어에 의존한다. 그리고 진정한 군집을 대규모로 구현하기는 여전히 어렵다.",
+    "그리고 이 방어들 하나하나도 결국 응답을 받게 될 것이다. 이것이 이 시리즈가 자신 있게 할 수 있는 유일한 예측이다."
+   ]
+  },
+  {
+   "title_en": "[8:50–9:45] OUTRO — Series Finale",
+   "title_ko": "[8:50–9:45] 아웃트로 — 시리즈 피날레",
+   "paras_en": [
+    "Over ten episodes, we’ve followed that cycle.",
+    "From long-range drones striking hundreds of kilometres behind the lines, jet-powered missile-drones, FPVs, naval drones and a hidden strike on strategic bombers, to the Shahed waves, the sensors listening for them, the **electronic warfare** in between, and the **interceptor drones** that hunt other drones.",
+    "Each step was an attack and an answer. Each made the next one necessary.",
+    "The deepest lesson may not be about any single machine. It’s that technology cheap enough to build in a workshop can now challenge systems costing millions — and that changes who can fight, and how.",
+    "Whether that makes the world more dangerous, or just different, is a question for all of us.",
+    "Thank you for following Drone War Decoded. If it helped you understand this war, subscribe — and tell us in the comments what we should decode next."
+   ],
+   "paras_ko": [
+    "열 편에 걸쳐 우리는 그 순환을 따라왔다.",
+    "전선 수백 킬로미터 뒤를 때리는 장거리 드론, 제트 추진 미사일-드론, FPV, 해상 드론과 전략폭격기를 노린 은닉 공격에서, 샤헤드의 물결과 그것을 듣는 센서들, 그 사이의 **전자전(electronic warfare)**, 그리고 다른 드론을 사냥하는 **요격 드론(interceptor drone)**까지.",
+    "각 단계는 공격이자 응답이었다. 그리고 각 단계가 다음 단계를 불가피하게 만들었다.",
+    "가장 깊은 교훈은 어느 한 기계에 관한 것이 아닐지도 모른다. 작업장에서 만들 수 있을 만큼 싼 기술이 이제 수백만 달러짜리 체계에 도전할 수 있다는 것. 그리고 그것이 누가, 어떻게 싸울 수 있는지를 바꾼다는 것이다.",
+    "그것이 세상을 더 위험하게 만드는지, 아니면 그저 다르게 만드는지는 우리 모두의 질문이다.",
+    "‘드론 워 디코디드’를 함께해 주셔서 감사하다. 이 전쟁을 이해하는 데 도움이 되었다면 구독하고, 다음에 무엇을 해독했으면 좋겠는지 댓글로 알려 달라."
+   ]
+  }
+ ]
+}

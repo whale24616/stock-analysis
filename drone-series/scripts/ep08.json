@@ -1,0 +1,164 @@
+{
+ "ep": 8,
+ "title_en": "The Invisible War",
+ "title_ko": "보이지 않는 전쟁",
+ "subtitle_ko": "전자전: 재밍, 스푸핑, 그리고 끝없는 군비 경쟁",
+ "sections": [
+  {
+   "title_en": "[0:00–0:40] COLD OPEN",
+   "title_ko": "[0:00–0:40] 콜드 오픈",
+   "paras_en": [
+    "A small quadcopter skims over a field toward a trench line. On the pilot’s goggles, the live video is crisp and clear.",
+    "Then the picture fills with static. The controls stop responding. Somewhere ahead, the drone drifts, hovers, and drops into the mud.",
+    "Nobody fired a shot. Nobody saw the weapon that brought it down.",
+    "Because the weapon was invisible. It was made of radio waves.",
+    "This is **electronic warfare** — the hidden battle that decides whether a drone ever reaches its target."
+   ],
+   "paras_ko": [
+    "작은 쿼드콥터가 참호선을 향해 들판 위를 낮게 스쳐 간다. 조종사의 고글 속 실시간 영상은 선명하고 깨끗하다.",
+    "그러다 화면이 잡음으로 가득 찬다. 조종이 먹히지 않는다. 저 앞 어딘가에서 드론은 표류하다가 멈칫하더니 진흙 속으로 떨어진다.",
+    "아무도 총을 쏘지 않았다. 드론을 떨어뜨린 무기를 본 사람도 없다.",
+    "그 무기는 눈에 보이지 않았기 때문이다. 그것은 전파로 만들어져 있었다.",
+    "이것이 **전자전(electronic warfare)**이다. 드론이 과연 표적에 닿을 수 있는지를 결정하는, 보이지 않는 전투다."
+   ]
+  },
+  {
+   "title_en": "[0:40–1:40] CONTEXT — A war fought on the airwaves",
+   "title_ko": "[0:40–1:40] 배경 — 전파 위에서 벌어지는 전쟁",
+   "paras_en": [
+    "Most of the small drones over Ukraine depend on two invisible threads. One is the **control link** — the radio connection between pilot and drone. The other is **satellite navigation**, which tells the drone where it is.",
+    "Cut either thread, and a drone becomes blind, lost, or useless.",
+    "Russia entered the war with one of the largest electronic warfare forces in the world, built to fight exactly this kind of battle. **[FACT-CHECK: scale of Russian EW forces pre-2022]** Ukraine began the war flying many off-the-shelf commercial drones never designed to resist it.",
+    "Some estimates have suggested that, at certain points, Ukraine was losing many thousands of drones a month — a large share of them to electronic warfare rather than to guns or missiles. **[FACT-CHECK: monthly drone loss estimates and EW share, e.g. RUSI 2023 report]**",
+    "To understand that war, you need to understand one simple idea: how a radio signal survives the journey from one antenna to another."
+   ],
+   "paras_ko": [
+    "우크라이나 상공의 소형 드론 대부분은 보이지 않는 두 가닥의 실에 의존한다. 하나는 조종사와 드론을 잇는 무선 연결, 즉 **조종 링크(control link)**다. 다른 하나는 드론에게 자신의 위치를 알려 주는 **위성항법(satellite navigation)**이다.",
+    "둘 중 어느 하나라도 끊으면 드론은 눈이 멀거나, 길을 잃거나, 쓸모없어진다.",
+    "러시아는 바로 이런 전투를 위해 만들어진, 세계 최대 규모 수준의 전자전 전력을 갖춘 채 전쟁에 들어섰다. **[FACT-CHECK: 2022년 이전 러시아 전자전 전력 규모]** 반면 우크라이나는 이런 공격을 견디도록 설계된 적이 없는 상용 기성품 드론을 대거 날리며 전쟁을 시작했다.",
+    "일부 추정에 따르면 한때 우크라이나는 매달 수천 대의 드론을 잃었고, 그중 상당수는 총이나 미사일이 아니라 전자전 때문이었다. **[FACT-CHECK: 월간 드론 손실 추정치와 전자전 비중, 예: RUSI 2023년 보고서]**",
+    "그 전쟁을 이해하려면 하나의 단순한 개념을 이해해야 한다. 전파 신호가 한 안테나에서 다른 안테나까지 가는 여정을 어떻게 버텨 내는가."
+   ]
+  },
+  {
+   "title_en": "[1:40–3:10] SEGMENT 1 — Signal, Noise, and Distance",
+   "title_ko": "[1:40–3:10] 세그먼트 1 — 신호, 잡음, 그리고 거리",
+   "paras_en": [
+    "Imagine trying to talk to a friend across a crowded room. Your voice is the **signal**. The chatter of everyone else is the **noise**.",
+    "Whether your friend understands you doesn’t depend on how loud you are in absolute terms. It depends on how loud you are *compared with* the room. Engineers call that the **signal-to-noise ratio**.",
+    "A radio receiver works the same way. Every receiver hears some background noise. As long as the signal stands clearly above it, the message gets through.",
+    "Now add distance. A radio wave spreads out like ripples on a pond. The same energy is stretched over a larger and larger area, so it gets weaker fast. Roughly speaking, double the distance and the received power drops to about a quarter. That’s the **inverse-square law**.",
+    "This is the drone pilot’s core problem. The further the drone flies toward the enemy, the weaker the pilot’s signal becomes — and the closer it gets to whoever might be listening, or shouting.",
+    "Satellite navigation is even more fragile. Navigation satellites orbit about twenty thousand kilometres up. By the time their signals reach the ground, they are extraordinarily faint — often described as weaker than the background noise itself. **[FACT-CHECK: GNSS orbit altitude and received signal strength relative to noise floor]**",
+    "Receivers can still find that whisper, using clever signal processing. But it doesn’t take much to drown it out."
+   ],
+   "paras_ko": [
+    "붐비는 방 건너편의 친구에게 말을 건다고 상상해 보자. 당신의 목소리는 **신호(signal)**다. 다른 모든 사람의 웅성거림은 **잡음(noise)**이다.",
+    "친구가 당신 말을 알아듣는지는 당신 목소리의 절대적인 크기에 달려 있지 않다. 방 안의 소음에 *비해* 얼마나 큰지에 달려 있다. 엔지니어들은 이것을 **신호 대 잡음비(signal-to-noise ratio)**라고 부른다.",
+    "무선 수신기도 똑같이 작동한다. 모든 수신기는 어느 정도의 배경 잡음을 듣는다. 신호가 그 위로 뚜렷이 솟아 있는 한, 메시지는 전달된다.",
+    "이제 거리를 더해 보자. 전파는 연못의 물결처럼 퍼져 나간다. 같은 에너지가 점점 더 넓은 면적에 펼쳐지므로 빠르게 약해진다. 대략 말해, 거리가 두 배가 되면 수신 전력은 약 4분의 1로 줄어든다. 이것이 **역제곱 법칙(inverse-square law)**이다.",
+    "이것이 드론 조종사의 핵심 문제다. 드론이 적을 향해 멀리 날아갈수록 조종사의 신호는 약해지고, 엿듣거나 소리를 지를 수 있는 상대에게는 더 가까워진다.",
+    "위성항법은 훨씬 더 취약하다. 항법 위성은 약 2만 킬로미터 상공을 돈다. 그 신호가 지상에 닿을 무렵이면 극도로 희미해져서, 흔히 배경 잡음보다도 약하다고 묘사된다. **[FACT-CHECK: 위성항법 위성 궤도 고도와 잡음 대비 수신 신호 세기]**",
+    "수신기는 정교한 신호 처리를 통해 그래도 그 속삭임을 찾아낸다. 하지만 그것을 묻어 버리는 데는 그리 많은 것이 필요하지 않다."
+   ]
+  },
+  {
+   "title_en": "[3:10–4:40] SEGMENT 2 — Jamming and Spoofing",
+   "title_ko": "[3:10–4:40] 세그먼트 2 — 재밍과 스푸핑",
+   "paras_en": [
+    "**Jamming** is the simplest form of electronic attack. If the receiver needs the signal to stand above the noise, the jammer just adds more noise.",
+    "Back to the crowded room: the jammer is someone standing next to your friend with a megaphone. You can shout all you like, but your friend can’t hear you anymore.",
+    "And here the inverse-square law works in the jammer’s favour. A jammer near the drone can overpower a pilot far away, even with modest power — because distance weakens the pilot’s signal much more.",
+    "Conceptually, jammers come in two styles. **Barrage jamming** floods a wide slice of the spectrum with noise, like turning up the volume on an entire room. **Targeted jamming** concentrates on the specific channel a drone is using — like the megaphone aimed at one ear.",
+    "**Spoofing** is subtler. Instead of drowning the satellite signal, the attacker broadcasts a convincing fake one. The drone’s receiver locks on to the counterfeit and calmly reports the wrong position.",
+    "A jammed drone knows it’s lost. A spoofed drone doesn’t — which can make spoofing the more dangerous of the two."
+   ],
+   "paras_ko": [
+    "**재밍(jamming)**은 가장 단순한 형태의 전자 공격이다. 수신기가 신호를 잡음 위로 구분해 내야 한다면, 재머는 그냥 잡음을 더 보탠다.",
+    "다시 붐비는 방으로 돌아가 보자. 재머는 친구 바로 옆에서 확성기를 든 사람이다. 아무리 소리를 질러도 친구는 더 이상 당신 말을 듣지 못한다.",
+    "그리고 여기서 역제곱 법칙은 재머에게 유리하게 작용한다. 드론 가까이에 있는 재머는 그리 크지 않은 출력으로도 멀리 있는 조종사를 압도할 수 있다. 거리가 조종사의 신호를 훨씬 더 많이 약화시키기 때문이다.",
+    "개념적으로 재머에는 두 가지 방식이 있다. **광대역 재밍(barrage jamming)**은 넓은 주파수 영역을 잡음으로 뒤덮는다. 방 전체의 볼륨을 올리는 것과 같다. **표적 재밍(targeted jamming)**은 드론이 쓰는 특정 채널에 집중한다. 한쪽 귀에 겨눈 확성기와 같다.",
+    "**스푸핑(spoofing)**은 더 교묘하다. 위성 신호를 묻어 버리는 대신, 공격자는 그럴듯한 가짜 신호를 송출한다. 드론의 수신기는 위조 신호에 고정되어 태연하게 엉뚱한 위치를 보고한다.",
+    "재밍당한 드론은 자신이 길을 잃었다는 것을 안다. 스푸핑당한 드론은 모른다. 그래서 스푸핑이 둘 중 더 위험할 수 있다."
+   ]
+  },
+  {
+   "title_en": "[4:40–6:20] SEGMENT 3 — The Arms Race: From Frequency Hopping to Fiber and AI",
+   "title_ko": "[4:40–6:20] 세그먼트 3 — 군비 경쟁: 주파수 도약에서 광섬유와 AI까지",
+   "paras_en": [
+    "What followed was one of the fastest technological arms races in modern warfare, measured in weeks rather than years.",
+    "Step one: commercial drones met jammers, and fell in large numbers. Step two: drone makers began moving their links to different, less crowded channels — and jammer crews followed.",
+    "Defences evolved too. **Frequency hopping** makes the link jump rapidly between many channels in a pattern only the pilot and drone share, so a targeted jammer is always one step behind. **Directional antennas** focus the pilot’s signal toward the drone, like cupping your hands around your mouth. And **anti-jam satellite antennas** combine several elements to tune out interference coming from one direction.",
+    "Step three: electronic warfare spread everywhere along the front. Jammers appeared on vehicles, at positions, even in soldiers’ hands. The airwaves near the contact line became, by many accounts, some of the most contested on Earth. **[FACT-CHECK: density of EW along the front, analyst descriptions]**",
+    "Step four was a surprisingly old-fashioned answer: **fiber-optic drones**. Instead of radio, the drone unspools a hair-thin glass fibre behind it, carrying commands and video as light. There is no radio link to jam. Russia was reported to field them at scale first, around 2024, and Ukraine soon followed. **[FACT-CHECK: timing and first large-scale use of fiber-optic FPV drones]**",
+    "The trade-off is physical: the spool adds weight, the cable limits range, and it can snag on trees or wires.",
+    "Step five: **autonomy**. If the link is most likely to fail in the final seconds, near the enemy’s jammers, let the drone finish the job itself. With **terminal guidance**, the pilot selects a target, and onboard software tracks it through the last stretch — even after the link drops. **[FACT-CHECK: reported deployment of AI terminal guidance modules]**"
+   ],
+   "paras_ko": [
+    "그 뒤로 이어진 것은 현대전에서 가장 빠른 기술 군비 경쟁 중 하나였다. 몇 년이 아니라 몇 주 단위로 측정되는 경쟁이었다.",
+    "1단계: 상용 드론이 재머를 만나 대거 추락했다. 2단계: 드론 제작자들은 링크를 덜 붐비는 다른 채널로 옮기기 시작했고, 재머 운용조가 그 뒤를 쫓았다.",
+    "방어 기술도 진화했다. **주파수 도약(frequency hopping)**은 조종사와 드론만 공유하는 패턴에 따라 링크가 여러 채널 사이를 빠르게 뛰어다니게 해서, 표적 재머가 늘 한 발 늦게 만든다. **지향성 안테나(directional antenna)**는 조종사의 신호를 드론 쪽으로 모은다. 입 주위에 두 손을 모으는 것과 같다. 그리고 **재밍 방지 위성 안테나(anti-jam antenna)**는 여러 소자를 결합해 특정 방향에서 오는 간섭을 걸러 낸다.",
+    "3단계: 전자전이 전선 전역으로 퍼졌다. 재머는 차량에, 진지에, 심지어 병사들의 손에도 등장했다. 여러 증언에 따르면 접촉선 부근의 전파 공간은 지구상에서 가장 치열하게 다투는 곳 중 하나가 되었다. **[FACT-CHECK: 전선의 전자전 밀도, 분석가들의 묘사]**",
+    "4단계는 놀랍도록 고전적인 해법이었다. **광섬유 드론(fiber-optic drone)**이다. 드론은 전파 대신 머리카락처럼 가는 유리 섬유를 뒤로 풀어내며 날고, 명령과 영상은 빛으로 전달된다. 재밍할 무선 링크가 아예 없다. 러시아가 2024년 무렵 먼저 대규모로 배치한 것으로 보도됐고, 우크라이나도 곧 뒤따랐다. **[FACT-CHECK: 광섬유 FPV 드론의 대규모 첫 사용 시점]**",
+    "대가는 물리적이다. 실패(스풀)가 무게를 더하고, 케이블이 사거리를 제한하며, 나무나 전선에 걸릴 수 있다.",
+    "5단계: **자율성(autonomy)**. 적의 재머 근처인 마지막 몇 초에 링크가 끊길 가능성이 가장 크다면, 마무리를 드론 스스로 하게 하면 된다. **종말 유도(terminal guidance)** 방식에서는 조종사가 표적을 지정하면, 탑재 소프트웨어가 링크가 끊긴 뒤에도 마지막 구간 동안 표적을 추적한다. **[FACT-CHECK: AI 종말 유도 모듈 배치 보도]**"
+   ]
+  },
+  {
+   "title_en": "[6:20–7:40] IN THE FIELD",
+   "title_ko": "[6:20–7:40] 실전 사례",
+   "paras_en": [
+    "On the front line, electronic warfare has become personal equipment.",
+    "Soldiers reportedly carry small **drone detectors** — pocket-sized receivers that listen for drone control and video signals and warn that one may be nearby. **[FACT-CHECK: reported use of portable drone detectors]**",
+    "Trenches and dugouts have their own short-range jammers, and many vehicles now carry jammers on their roofs — a protective bubble that, when it works, can make attacking drones lose their link before impact. **[FACT-CHECK: reported trench and vehicle-mounted jammers]**",
+    "But these bubbles are imperfect. A jammer tuned for one type of drone may do nothing against another — and nothing at all against a fiber-optic drone.",
+    "The effects also reach far beyond the battlefield. Widespread satellite-navigation interference has been reported across the Baltic and Black Sea regions, with civilian airline crews describing lost or false GPS positions. **[FACT-CHECK: reported GNSS interference affecting civil aviation, regions and dates]**",
+    "Aviation authorities have issued warnings. **[FACT-CHECK: aviation safety bulletins on GNSS interference]** Radio waves don’t respect borders."
+   ],
+   "paras_ko": [
+    "전선에서 전자전은 개인 장비가 되었다.",
+    "병사들은 소형 **드론 탐지기(drone detector)**를 휴대하는 것으로 알려져 있다. 드론의 조종 신호와 영상 신호를 감지해 근처에 드론이 있을 수 있다고 경고하는 주머니 크기의 수신기다. **[FACT-CHECK: 휴대용 드론 탐지기 사용 보도]**",
+    "참호와 엄체호에는 자체 단거리 재머가 있고, 이제 많은 차량이 지붕에 재머를 싣고 다닌다. 제대로 작동하면 공격 드론이 충돌 전에 링크를 잃게 만드는 보호막이다. **[FACT-CHECK: 참호 및 차량 탑재 재머 보도]**",
+    "하지만 이 보호막은 완벽하지 않다. 한 종류의 드론에 맞춘 재머는 다른 종류에는 소용없을 수 있고, 광섬유 드론에는 전혀 효과가 없다.",
+    "그 영향은 전장을 훨씬 넘어선다. 발트해와 흑해 지역 전반에서 광범위한 위성항법 간섭이 보고되었고, 민항기 승무원들은 GPS 위치가 사라지거나 엉뚱하게 표시됐다고 증언했다. **[FACT-CHECK: 민간 항공에 영향을 준 위성항법 간섭 보도, 지역과 시점]**",
+    "항공 당국은 경고를 발령했다. **[FACT-CHECK: 위성항법 간섭 관련 항공 안전 공지]** 전파는 국경을 지키지 않는다."
+   ]
+  },
+  {
+   "title_en": "[7:40–9:00] LIMITS & COUNTER",
+   "title_ko": "[7:40–9:00] 한계와 대응",
+   "paras_en": [
+    "Electronic warfare has a fundamental weakness: to jam, you have to transmit.",
+    "And anything that transmits can be heard. A powerful jammer is like a lighthouse in the dark. Using several receivers at different positions, the other side can measure the direction of the signal and work out where it comes from — a technique called **direction finding**.",
+    "Once located, a jammer can become a target for artillery or for drones. **[FACT-CHECK: reported strikes on located EW systems]**",
+    "Physics sets other limits too. Jamming takes power, and power means batteries, generators, and heat. A soldier’s pocket jammer can only cover a small area. Bigger coverage means bigger, heavier, more visible equipment.",
+    "And jammers can blind their own side. Friendly drones and radios share the same airwaves, so coordination becomes a constant struggle.",
+    "Meanwhile, every countermeasure invites a counter-countermeasure. Fiber-optic drones can’t be jammed — but they can still be seen, heard, and shot down."
+   ],
+   "paras_ko": [
+    "전자전에는 근본적인 약점이 있다. 재밍하려면 전파를 내보내야 한다.",
+    "그리고 전파를 내보내는 것은 무엇이든 들킬 수 있다. 강력한 재머는 어둠 속의 등대와 같다. 상대는 여러 위치의 수신기로 신호의 방향을 측정해 발신지를 알아낼 수 있다. 이것을 **방향 탐지(direction finding)**라고 한다.",
+    "위치가 드러난 재머는 포병이나 드론의 표적이 될 수 있다. **[FACT-CHECK: 위치가 탐지된 전자전 장비 타격 보도]**",
+    "물리학은 다른 한계도 정한다. 재밍에는 전력이 필요하고, 전력은 곧 배터리, 발전기, 그리고 열을 뜻한다. 병사의 휴대용 재머는 좁은 영역만 보호할 수 있다. 더 넓게 보호하려면 더 크고, 더 무겁고, 더 눈에 띄는 장비가 필요하다.",
+    "게다가 재머는 아군의 눈까지 멀게 할 수 있다. 아군의 드론과 무전기도 같은 전파 공간을 쓰기 때문에, 조율은 끊임없는 과제가 된다.",
+    "그러는 동안 모든 대응책은 또 다른 대응의 대응을 부른다. 광섬유 드론은 재밍할 수 없다. 하지만 여전히 보이고, 들리고, 격추될 수 있다."
+   ]
+  },
+  {
+   "title_en": "[9:00–9:40] OUTRO",
+   "title_ko": "[9:00–9:40] 아웃트로",
+   "paras_en": [
+    "The invisible war hasn’t ended. It has simply forced both sides to look for answers that don’t depend on radio at all.",
+    "And one of those answers is a drone built for a single job: to find other drones and knock them out of the sky.",
+    "In the next episode, **Drones That Hunt Drones**, we look at **interceptor drones** — how they find their prey, and why they may be cheaper than the missiles they replace.",
+    "If you want to understand the technology reshaping modern war, subscribe — and tell us in the comments what you want us to decode next."
+   ],
+   "paras_ko": [
+    "보이지 않는 전쟁은 끝나지 않았다. 다만 양측이 아예 전파에 의존하지 않는 해답을 찾도록 몰아붙였을 뿐이다.",
+    "그 해답 중 하나가 단 하나의 임무를 위해 만들어진 드론이다. 다른 드론을 찾아내 하늘에서 떨어뜨리는 것.",
+    "다음 편 **‘드론을 사냥하는 드론’**에서는 **요격 드론(interceptor drone)**을 살펴본다. 그것들이 어떻게 먹잇감을 찾는지, 그리고 왜 대체하는 미사일보다 저렴할 수 있는지.",
+    "현대전을 바꾸고 있는 기술을 이해하고 싶다면 구독하고, 다음에 무엇을 해독했으면 좋겠는지 댓글로 알려 달라."
+   ]
+  }
+ ]
+}

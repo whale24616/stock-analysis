@@ -1,0 +1,164 @@
+{
+ "ep": 3,
+ "title_en": "The $500 Killer",
+ "title_ko": "500달러짜리 킬러",
+ "subtitle_ko": "FPV 드론 혁명과 광섬유 드론",
+ "sections": [
+  {
+   "title_en": "[0:00–0:40] COLD OPEN",
+   "title_ko": "[0:00–0:40] 콜드 오픈",
+   "paras_en": [
+    "A small quadcopter skims low over a field at more than a hundred kilometres per hour. Its pilot sits in a dugout kilometres away, wearing goggles, seeing exactly what the drone sees. **[FACT-CHECK: typical FPV speeds and pilot standoff distances]**",
+    "Ten years ago, machines like this raced through foam gates in sports halls.",
+    "Today, they are one of the most common weapons on the front line in Ukraine — used by both sides, in the hundreds of thousands. **[FACT-CHECK: scale of FPV use by both sides]**",
+    "Some reportedly cost about as much as a smartphone. **[FACT-CHECK: FPV unit cost range — ESTIMATE]**",
+    "And the newest ones trail a thread of glass behind them — a link no jammer can touch.",
+    "This is the story of the FPV drone."
+   ],
+   "paras_ko": [
+    "작은 쿼드콥터 한 대가 시속 100킬로미터가 넘는 속도로 들판 위를 낮게 스치듯 날아간다. 조종사는 수 킬로미터 떨어진 참호 속에서 고글을 쓰고, 드론이 보는 것을 그대로 보고 있다. **[FACT-CHECK: FPV 드론의 일반적 속도와 조종사 이격 거리]**",
+    "10년 전, 이런 기계들은 체육관에서 스펀지 게이트 사이를 누비며 경주를 했다.",
+    "오늘날 이것들은 우크라이나 전선에서 가장 흔한 무기 중 하나다. 양측 모두가 수십만 대 단위로 사용한다. **[FACT-CHECK: 양측의 FPV 사용 규모]**",
+    "일부는 스마트폰 한 대 값 정도라고 알려져 있다. **[FACT-CHECK: FPV 드론 단가 범위 — 추정치]**",
+    "그리고 최신형은 뒤로 유리 실 한 가닥을 늘어뜨리며 난다. 어떤 재머도 건드릴 수 없는 연결선이다.",
+    "이것은 FPV 드론의 이야기다."
+   ]
+  },
+  {
+   "title_en": "[0:40–1:40] CONTEXT — From spotter to striker",
+   "title_ko": "[0:40–1:40] 배경 — 관측병에서 타격수로",
+   "paras_en": [
+    "In the war's first year, small drones were mostly eyes. Off-the-shelf camera quadcopters spotted targets and corrected artillery fire.",
+    "But artillery shells ran short on both sides, and a spotter drone still needs a gun to do the damage. **[FACT-CHECK: 2023 artillery shell shortages]**",
+    "So crews asked a simple question: what if the drone itself was the weapon?",
+    "The answer came from an unlikely place — the world of hobby **FPV racing**, where pilots fly cheap, agile quadcopters through goggles. **FPV** stands for **first-person view**.",
+    "By 2023 and 2024, FPV drones had turned the ground near the front into what soldiers call a constantly watched “kill zone.” **[FACT-CHECK: timeline of FPV adoption; reported depth of the “kill zone”]**",
+    "To see why, start with what is actually inside one."
+   ],
+   "paras_ko": [
+    "전쟁 첫해, 소형 드론은 주로 ‘눈’이었다. 시판 카메라 쿼드콥터가 표적을 찾고 포병 사격을 수정했다.",
+    "하지만 양측 모두 포탄이 부족해졌고, 관측 드론은 여전히 피해를 입히려면 포가 필요했다. **[FACT-CHECK: 2023년 포탄 부족 상황]**",
+    "그래서 운용병들은 단순한 질문을 던졌다. 드론 자체가 무기라면 어떨까?",
+    "답은 뜻밖의 곳에서 나왔다. 조종사들이 고글을 쓰고 값싸고 민첩한 쿼드콥터를 날리는 취미 **FPV 레이싱**의 세계다. **FPV**는 **1인칭 시점(first-person view)**의 약자다.",
+    "2023~2024년 무렵 FPV 드론은 전선 인근 지역을 병사들이 ‘킬존’이라 부르는, 늘 감시당하는 공간으로 바꿔 놓았다. **[FACT-CHECK: FPV 도입 시기, 보도된 ‘킬존’의 깊이]**",
+    "그 이유를 알려면, 먼저 그 안에 실제로 무엇이 들어 있는지부터 봐야 한다."
+   ]
+  },
+  {
+   "title_en": "[1:40–3:10] SEGMENT 1 — Anatomy of a Racing Drone",
+   "title_ko": "[1:40–3:10] 세그먼트 1 — 레이싱 드론의 해부학",
+   "paras_en": [
+    "Strip away the battlefield, and an FPV drone is a racing quadcopter. Four arms, four propellers, a battery, and very little else.",
+    "The **frame** is usually carbon fibre — stiff, light, and cheap to cut. Stiffness matters: a flexing frame vibrates, and vibration confuses the sensors.",
+    "At the end of each arm sits a **brushless motor**, spinning at tens of thousands of revolutions per minute. Each is driven by an **electronic speed controller**, or **ESC**, which switches power through the motor's coils in precise sequence — like pushing a swing at exactly the right moment, thousands of times a second.",
+    "The brain is the **flight controller**: a small board with a gyroscope and an accelerometer. A quadcopter is naturally unstable, so the flight controller adjusts all four motors many hundreds of times per second just to keep it level. The pilot tells the computer what to do; the computer flies.",
+    "Then there's the **video link**. A tiny camera streams to the pilot's **goggles**. **Analog video** is cheap and has very low delay, and as the signal weakens it fades into static rather than freezing. **Digital video** is far sharper, but costlier, and can drop out abruptly at the edge of range.",
+    "Finally, the **radio control link** carries the pilot's stick commands the other way. Two radio links, one in each direction — and both, as we'll see, are the drone's weak point."
+   ],
+   "paras_ko": [
+    "전장을 걷어 내면 FPV 드론은 레이싱 쿼드콥터다. 팔 네 개, 프로펠러 네 개, 배터리 하나, 그리고 그 밖에는 거의 아무것도 없다.",
+    "**프레임**은 보통 탄소섬유다. 단단하고, 가볍고, 싸게 가공할 수 있다. 강성이 중요하다. 휘는 프레임은 진동하고, 진동은 센서를 혼란에 빠뜨린다.",
+    "각 팔 끝에는 분당 수만 회전으로 도는 **브러시리스 모터**가 달려 있다. 각 모터는 **전자변속기(ESC)**가 구동하는데, 모터 코일에 전력을 정밀한 순서로 바꿔 넣는다. 그네를 정확한 순간에 미는 일을 1초에 수천 번 반복하는 것과 같다.",
+    "두뇌는 **비행 제어기(플라이트 컨트롤러)**다. 자이로스코프와 가속도계를 갖춘 작은 기판이다. 쿼드콥터는 본래 불안정하기 때문에, 비행 제어기는 수평을 유지하는 것만으로도 1초에 수백 번씩 네 모터를 모두 조정한다. 조종사가 컴퓨터에 지시하면, 비행은 컴퓨터가 한다.",
+    "다음은 **영상 링크**다. 작은 카메라가 조종사의 **고글**로 영상을 보낸다. **아날로그 영상**은 싸고 지연이 매우 짧으며, 신호가 약해지면 화면이 멈추는 대신 점점 노이즈로 흐려진다. **디지털 영상**은 훨씬 선명하지만 더 비싸고, 통신 거리 끝에서 갑자기 끊길 수 있다.",
+    "마지막으로 **무선 조종 링크**가 반대 방향으로 조종사의 스틱 명령을 전달한다. 방향이 다른 두 개의 무선 링크. 곧 보겠지만, 이 둘 모두가 드론의 약점이다."
+   ]
+  },
+  {
+   "title_en": "[3:10–4:40] SEGMENT 2 — From Hobby Shop to Mass Production",
+   "title_ko": "[3:10–4:40] 세그먼트 2 — 취미 상점에서 대량생산으로",
+   "paras_en": [
+    "Why did hobby technology win, instead of a purpose-built military system?",
+    "Because of the **commercial supply chain**. Motors, cameras, batteries and boards are made in enormous numbers, much of it in China. That makes them cheap, standardised and easy to swap. **[FACT-CHECK: share of FPV components sourced from China; export restrictions]**",
+    "Early Ukrainian production came largely from **volunteer workshops** — garages and apartments, funded by crowdfunding. Over time, the state stepped in with procurement programmes, marketplaces for military units, and a growing domestic component industry. **[FACT-CHECK: Brave1 and state procurement programmes; drone marketplace for units]**",
+    "The numbers grew fast. Ukrainian officials said the country produced well over a million FPV drones in 2024, and announced much higher targets for 2025. Russia has scaled up in parallel. **[FACT-CHECK: Ukraine 2024 FPV production claim; 2025 targets; Russian production estimates]**",
+    "But a drone is only as good as its pilot. FPV flying is hard: in its most agile modes, the pilot controls speed, angle and height all at once. Training often starts in **simulators** before moving to real aircraft. **[FACT-CHECK: typical FPV pilot training duration]**",
+    "Cheap parts, mass production, and thousands of trained operators — that's the formula. But it had one fatal dependency: radio."
+   ],
+   "paras_ko": [
+    "왜 군용으로 설계된 시스템이 아니라 취미용 기술이 이겼을까?",
+    "**상업용 공급망** 때문이다. 모터, 카메라, 배터리, 기판은 막대한 양으로 생산되고, 상당 부분이 중국에서 만들어진다. 덕분에 싸고, 규격화되어 있고, 교체하기 쉽다. **[FACT-CHECK: 중국산 FPV 부품 비중, 수출 규제]**",
+    "우크라이나의 초기 생산은 주로 크라우드펀딩으로 운영되는 차고와 아파트의 **자원봉사 작업장**에서 나왔다. 시간이 지나면서 국가가 조달 프로그램, 부대용 마켓플레이스, 성장하는 국내 부품 산업으로 개입했다. **[FACT-CHECK: Brave1 및 국가 조달 프로그램, 부대용 드론 마켓플레이스]**",
+    "수량은 빠르게 늘었다. 우크라이나 당국은 2024년에 FPV 드론을 100만 대를 훨씬 넘게 생산했다고 밝혔고, 2025년에는 그보다 훨씬 높은 목표를 발표했다. 러시아도 나란히 생산을 늘렸다. **[FACT-CHECK: 우크라이나 2024년 FPV 생산량 주장, 2025년 목표, 러시아 생산량 추정]**",
+    "하지만 드론은 조종사만큼만 좋다. FPV 비행은 어렵다. 가장 민첩한 모드에서는 조종사가 속도, 각도, 고도를 한꺼번에 제어해야 한다. 훈련은 실제 기체로 넘어가기 전에 **시뮬레이터**에서 시작하는 경우가 많다. **[FACT-CHECK: FPV 조종사 일반 훈련 기간]**",
+    "값싼 부품, 대량생산, 수천 명의 숙련된 운용병. 이것이 공식이다. 하지만 여기에는 치명적인 의존성이 하나 있었다. 바로 무선 통신이다."
+   ]
+  },
+  {
+   "title_en": "[4:40–6:30] SEGMENT 3 — Beating the Jammer: Fibre and AI",
+   "title_ko": "[4:40–6:30] 세그먼트 3 — 재머를 이기는 법: 광섬유와 AI",
+   "paras_en": [
+    "Remember those two radio links? **Electronic warfare** goes straight after them.",
+    "A **jammer** doesn't need to be clever. It just shouts louder than the pilot on the channels the drone is listening to. Near the target, the pilot's signal is weakest and the jammer's is strongest. The video turns to snow and the drone misses. Analysts estimate EW has defeated a large share of FPV drones. **[FACT-CHECK: reported EW-induced FPV failure rates]**",
+    "The first answer was brutally simple: remove the radio. **Fibre-optic FPV** drones carry a **spool** of hair-thin optical fibre that unwinds behind them as they fly. Video and commands travel as pulses of light inside the glass.",
+    "Light inside a cable can't be jammed by radio noise — there's simply nothing in the air to interfere with. A fibre drone also emits no control signal for direction-finding equipment to detect. Russia reportedly fielded them at scale first, notably around Kursk, and Ukraine followed. **[FACT-CHECK: Russian fibre-optic FPV use in Kursk 2024–25; Ukrainian adoption timeline]**",
+    "But the cable is also the weakness. The spool adds weight, which costs flight time or payload. Fibre can snag on trees and wires. It can't freely double back over its own line. And range is capped by how much fibre it can carry — reported figures run from around ten to over twenty kilometres. **[FACT-CHECK: reported fibre spool lengths and ranges]**",
+    "The second answer is software: **AI terminal guidance**. The pilot flies the drone and selects the target on screen. If the radio link drops during the final approach, an onboard computer keeps tracking that patch of the image and completes the last stretch on its own. **[FACT-CHECK: reported use and effectiveness of terminal guidance modules]**",
+    "It's not a robot choosing what to attack. A human still makes that decision; the machine simply holds on when the link is lost."
+   ],
+   "paras_ko": [
+    "앞서 말한 두 개의 무선 링크를 기억하는가? **전자전**은 바로 그것을 노린다.",
+    "**재머**는 영리할 필요가 없다. 드론이 듣고 있는 채널에서 조종사보다 더 크게 소리치기만 하면 된다. 표적 근처에서는 조종사의 신호가 가장 약하고 재머의 신호가 가장 강하다. 영상은 눈보라처럼 변하고 드론은 빗나간다. 분석가들은 상당수의 FPV 드론이 전자전에 무력화됐다고 추정한다. **[FACT-CHECK: 보도된 전자전으로 인한 FPV 실패율]**",
+    "첫 번째 해답은 잔인할 만큼 단순했다. 무선을 없애는 것이다. **광섬유 FPV** 드론은 머리카락처럼 가는 광섬유를 감은 **스풀(spool)**을 싣고, 날아가면서 뒤로 풀어낸다. 영상과 명령은 유리 속을 지나는 빛의 펄스로 전달된다.",
+    "케이블 속의 빛은 전파 잡음으로 재밍할 수 없다. 공중에 방해할 대상 자체가 없기 때문이다. 광섬유 드론은 방향 탐지 장비가 잡아낼 조종 신호도 내보내지 않는다. 러시아가 먼저 대규모로 배치한 것으로 알려져 있으며, 특히 쿠르스크 일대에서 두드러졌고, 우크라이나가 뒤를 따랐다. **[FACT-CHECK: 2024~25년 쿠르스크에서 러시아의 광섬유 FPV 사용, 우크라이나 도입 시기]**",
+    "하지만 케이블은 약점이기도 하다. 스풀은 무게를 늘려 비행시간이나 탑재량을 깎아 먹는다. 광섬유는 나무와 전선에 걸릴 수 있다. 자신이 깔아 온 선 위로 자유롭게 되돌아갈 수도 없다. 그리고 사거리는 실을 수 있는 광섬유의 양으로 제한된다. 보도된 수치는 약 10킬로미터에서 20킬로미터 이상까지다. **[FACT-CHECK: 보도된 광섬유 스풀 길이와 사거리]**",
+    "두 번째 해답은 소프트웨어, **AI 종말 유도**다. 조종사가 드론을 날리며 화면에서 표적을 지정한다. 최종 접근 중에 무선 링크가 끊기면, 탑재 컴퓨터가 영상 속 그 부분을 계속 추적하며 마지막 구간을 스스로 마무리한다. **[FACT-CHECK: 종말 유도 모듈의 보도된 사용 현황과 효과]**",
+    "이것은 무엇을 공격할지 스스로 고르는 로봇이 아니다. 그 결정은 여전히 사람이 내린다. 기계는 링크가 끊겼을 때 붙잡고 있을 뿐이다."
+   ]
+  },
+  {
+   "title_en": "[6:30–7:40] IN THE FIELD",
+   "title_ko": "[6:30–7:40] 실전 사례",
+   "paras_en": [
+    "On today's front line, drones — FPVs above all — are reported to account for a large share of destroyed vehicles and equipment. **[FACT-CHECK: share of losses attributed to FPV and other drones]**",
+    "The economics are stark: a drone worth a few hundred dollars can disable an armoured vehicle worth millions. **[FACT-CHECK: FPV vs armoured vehicle cost comparison — ESTIMATE]**",
+    "Movement near the front now happens at night, in bad weather, or in small groups — because anything visible may be seen, and anything seen may be struck within minutes.",
+    "At the other end of the small-drone spectrum sit **heavy bomber multicopters** — large drones with six or eight rotors, nicknamed **“Baba Yaga”** by Russian soldiers after the witch of Slavic folklore. **[FACT-CHECK: origin of the nickname; representative types]**",
+    "They fly mostly at night with **thermal cameras**, carry far heavier loads than an FPV, and come home to be reused. Some also deliver supplies to cut-off positions. **[FACT-CHECK: reported payload capacity and logistics use]**"
+   ],
+   "paras_ko": [
+    "오늘날 전선에서는 드론, 그중에서도 FPV가 파괴된 차량과 장비의 상당 부분을 차지하는 것으로 보도된다. **[FACT-CHECK: FPV 및 기타 드론에 의한 손실 비중]**",
+    "경제학은 냉혹하다. 수백 달러짜리 드론 한 대가 수백만 달러짜리 장갑차를 무력화할 수 있다. **[FACT-CHECK: FPV와 장갑차 비용 비교 — 추정치]**",
+    "이제 전선 근처의 이동은 밤에, 악천후 속에서, 혹은 소규모로 이뤄진다. 보이는 것은 무엇이든 발견될 수 있고, 발견된 것은 무엇이든 몇 분 안에 타격받을 수 있기 때문이다.",
+    "소형 드론 스펙트럼의 반대편 끝에는 **대형 폭격 멀티콥터**가 있다. 로터가 여섯 개나 여덟 개인 큰 드론으로, 러시아 병사들은 슬라브 민담 속 마녀의 이름을 따 **‘바바야가(Baba Yaga)’**라고 부른다. **[FACT-CHECK: 별명의 유래, 대표 기종]**",
+    "이들은 주로 밤에 **열화상 카메라**를 달고 날며, FPV보다 훨씬 무거운 짐을 싣고, 기지로 돌아와 재사용된다. 일부는 고립된 진지에 보급품을 전달하기도 한다. **[FACT-CHECK: 보도된 탑재량과 보급 용도]**"
+   ]
+  },
+  {
+   "title_en": "[7:40–9:00] LIMITS & COUNTER",
+   "title_ko": "[7:40–9:00] 한계와 대응",
+   "paras_en": [
+    "None of this makes the FPV unstoppable.",
+    "The first defences were physical: **cages** and screens welded over vehicles, and **nets** strung over roads to catch drones before they arrive. Some supply routes are reportedly covered by kilometres of netting. **[FACT-CHECK: reports of netted road corridors]**",
+    "**Electronic warfare** still works against radio-linked drones, and portable jammers are now common on vehicles and in soldiers' kits.",
+    "At close range, soldiers increasingly carry **shotguns** — an old answer to small, fast flying targets.",
+    "And both sides are now building **interceptor drones** — fast quadcopters designed to hunt other drones in the air. That's a story we'll return to in Episode 9.",
+    "Every counter triggers a counter-counter. Jamming led to fibre; fibre led to nets; nets lead to the next idea. The cycle runs in months, not years."
+   ],
+   "paras_ko": [
+    "그렇다고 FPV를 막을 수 없는 것은 아니다.",
+    "첫 방어는 물리적인 것이었다. 차량 위에 용접한 **케이지**와 차폐막, 그리고 드론이 닿기 전에 걸러 내도록 도로 위에 친 **그물**이다. 일부 보급로는 수 킬로미터에 걸쳐 그물로 덮여 있다고 한다. **[FACT-CHECK: 그물로 덮인 도로 구간 보도]**",
+    "**전자전**은 무선 링크 드론에는 여전히 효과가 있고, 휴대용 재머는 이제 차량에 흔히 달려 있으며 병사 개인이 들고 다니기도 한다.",
+    "근거리에서는 **산탄총**을 드는 병사가 늘고 있다. 작고 빠른 비행 표적에 대한 오래된 해답이다.",
+    "그리고 양측 모두 이제 **요격 드론**을 만들고 있다. 공중에서 다른 드론을 사냥하도록 설계된 빠른 쿼드콥터다. 이 이야기는 9편에서 다시 다룬다.",
+    "모든 대응은 그에 대한 대응을 낳는다. 재밍은 광섬유를 낳았고, 광섬유는 그물을 낳았고, 그물은 다음 아이디어를 낳는다. 이 순환은 몇 년이 아니라 몇 달 단위로 돈다."
+   ]
+  },
+  {
+   "title_en": "[9:00–9:40] OUTRO",
+   "title_ko": "[9:00–9:40] 아웃트로",
+   "paras_en": [
+    "The FPV drone shows how a war can turn a consumer hobby into an industry — and how fast the counter-measures follow.",
+    "But drones aren't only reshaping the land war. In the Black Sea, Ukraine has pushed back a major navy without a large fleet of its own. **[FACT-CHECK: Black Sea Fleet losses and relocation claims]**",
+    "In the next episode, **“Sinking a Fleet Without a Navy,”** we look at **naval drones** — and what they mean for sea power.",
+    "Subscribe so you don't miss it — and tell us in the comments which drone you want us to decode next."
+   ],
+   "paras_ko": [
+    "FPV 드론은 전쟁이 어떻게 소비자 취미를 하나의 산업으로 바꿔 놓는지, 그리고 대응책이 얼마나 빨리 뒤따르는지를 보여 준다.",
+    "하지만 드론이 바꾸고 있는 것은 지상전만이 아니다. 흑해에서 우크라이나는 변변한 함대 없이 강대국 해군을 밀어냈다. **[FACT-CHECK: 흑해함대 손실 및 이동 관련 주장]**",
+    "다음 편 **‘해군 없이 함대를 침몰시키다’**에서는 **해상 드론**과 그것이 해양 전력에 갖는 의미를 살펴본다.",
+    "놓치지 않으려면 구독하고, 다음에 어떤 드론을 해부했으면 좋겠는지 댓글로 알려 달라."
+   ]
+  }
+ ]
+}
