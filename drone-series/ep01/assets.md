@@ -71,3 +71,11 @@ Text sent per section: `narration.json` (minor punctuation tweaks for TTS pacing
 - Weapon-mounted vehicles trip image moderation; use generic "vehicle silhouette" wording.
 - `generate_video` may return a preset recommendation instead of a job; resubmit with `declined_preset_id`.
 - This Claude environment cannot download Higgsfield CDN files (network policy), so editing runs in the Higgsfield sandbox.
+
+## Korean version (2026-10-12)
+
+- Final video (uploaded media): `7e2f6c63-851e-4fd9-abd3-961671cfd4c2` — `ep01_reaching_moscow_KO_720p.mp4` (7:41, 720p/24fps, Korean narration + burned-in Korean subtitles; on-screen graphics stay English)
+- Narration text: `narration_ko_easy.json` (rewritten for general viewers) · voice: seed_audio preset **Arthur**, played at 0.94× for clarity
+- Narration jobs: s0 7a462f35-5c46-4e49-a7b0-592980060427 · s1 bde22144-3c0d-47da-81cc-1687209d2b81 · s2 7f3224b3-b0c5-41f9-b1b1-adfec01d3212 · s3 454bde7c-beaf-48a0-a5eb-591caca56e0c · s4 2286c03a-2155-40d2-8cf0-9d03c33197dd · s5 292064fb-0e49-4335-80c7-73f238ab2093 · s6 9ce63e7c-bf20-4e28-a4fe-deb7b6edc914 · s7 346774fc-f6a6-4000-b8e5-edf761f6245e · s8 d76ca713-cc18-4d50-9553-ab5475822333
+- Jitter fix: the old ffmpeg `zoompan` rounds the crop to whole pixels → shimmer. `build_ko.py` renders every frame with a float crop box (PIL, bicubic), outputs at the clips' native 24 fps, and uses hard cuts instead of per-shot fades.
+- Credits: 830.9 → 804.3 (**26.6**, incl. 2 short voice tests)
