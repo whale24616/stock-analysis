@@ -128,7 +128,7 @@ def xmarks(cv, s, T, ph=0):
 def analyst(cv, s, T, ph=0):
     cv.sprite("l30_analyst", (CX - 430, CY + 40), 640, alpha=seg(s, 0, 0.5))
     drone_side(cv, (CX + 380, CY - 10), 1.3, prog=seg(s, 0.3, 0.8), prop_spin=s * 18)
-    cv.dashed([(CX - 200, CY - 60), (CX + 170, CY - 20)], 4, GREY, offset=s * 30, prog=seg(s, 0.6, 0.6))
+    cv.dashed([(CX - 320, CY - 185), (CX + 170, CY - 25)], 4, GREY, offset=s * 30, prog=seg(s, 0.6, 0.6))
     cv.text((CX + 380, CY + 120), "LONG-RANGE ONE-WAY ATTACK DRONE", 30, ORANGE, alpha=seg(s, 0.9, 0.4))
 
 
