@@ -102,7 +102,8 @@ def build_timeline_audio(sents, timing):
     (title cards) push everything after them later; render.py inserts matching silence."""
     for s, tm in zip(sents, timing):
         s["a0"], s["a1"] = tm["start"], tm["end"]
-    resolved = build_timeline(sents)  # for anchors
+        s["dur"] = tm["end"] - tm["start"]
+    resolved = build_timeline(sents)  # resolves shot anchors; times are replaced below
     shift = 0.0
     out = []
     for k, sh in enumerate(resolved):
@@ -333,6 +334,10 @@ def main():
                     "-c", "copy", str(video)], check=True)
     if a.audio:
         # rebuild the voice track with silence where insert shots (title card) sit
+        voice = OUT / "voice_48k_mono.wav"
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", a.audio, "-ac", "1", "-ar", "48000", str(voice)],
+                       check=True)
+        a.audio = str(voice)
         parts, prev = [], 0.0
         filt = []
         inserts = [sh for sh in shots if "insert_at_audio" in sh]
