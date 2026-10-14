@@ -4,7 +4,8 @@
 
 ## 0. 작업 규칙 (반드시 유지)
 - 결제·구매·오토리필·개인정보 연결 **절대 금지**. Higgsfield는 크레딧 잔액 확인과 생성만.
-- 자료는 **맥의 `~/claude_code/` 아래 새 폴더에만** 저장. GitHub에는 저장하지 않음.
+- 자료는 **맥의 `~/claude_code/` 아래 새 폴더**와 **GitHub**(`whale24616/stock-analysis`, 브랜치 `claude/ukraine-drone-video-series-84w052`, 폴더 `drone-series/`)에 함께 저장.
+- 영상·ZIP 같은 큰 파일(파일당 100MB 초과 포함)은 GitHub에 올리지 않고 맥에만 보관 (`.gitignore`로 제외됨).
 - 크레딧을 쓰는 생성 전에는 예상 크레딧을 먼저 알리고 진행.
 - 무기 제작·개조·표적·주파수 등 위험한 세부는 다루지 않음(원리·공개 보도 수준). 수치는 [FACT-CHECK] 확인 후 사용.
 
