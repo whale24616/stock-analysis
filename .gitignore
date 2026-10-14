@@ -10,3 +10,7 @@ drone-series/**/*.mp4
 drone-series/**/*.zip
 drone-series/**/*.mov
 drone-series/deliverables/EP*_video/
+
+# ep01_v2 build outputs
+drone-series/**/out/
+__pycache__/
