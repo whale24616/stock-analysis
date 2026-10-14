@@ -109,7 +109,7 @@ SHOTS = [
     dict(at="정리하면", kind=L, scene="layers"),
     dict(at="세 가지가 서로의", kind=L, scene="layers", ph=1),
     # [6] getting through
-    dict(at="드론을 잘 만드는", kind=L, scene="half"),
+    dict(at="드론을 잘 만드는", kind=P, img="p29_half_job", move="right"),
     dict(at="나머지 절반은", kind=L, scene="ad_net"),
     dict(at="먼저 경로를", kind=L, scene="route"),
     dict(at="레이더와 방공 무기가", kind=L, scene="route", ph=1),
