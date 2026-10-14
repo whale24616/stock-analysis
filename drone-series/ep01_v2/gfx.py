@@ -19,6 +19,7 @@ RED = (235, 64, 52)
 
 FONT_DIR = Path(__file__).resolve().parent / "fonts"
 _fonts = {}
+_sprites = {}
 
 
 def font(kind, size):
@@ -197,6 +198,29 @@ class Canvas:
         self.d.rounded_rectangle(((x - w / 2) * SS, (y - size * 0.8) * SS, (x + w / 2) * SS, (y + size * 0.8) * SS),
                                  radius=8 * SS, outline=c, width=3 * SS)
         self.text(xy, s, size, col, alpha=alpha)
+
+    def sprite(self, name, c, height, alpha=1.0):
+        """Paste a white-on-black line drawing (img/<name>.png) with a 'lighten' blend, centred at c."""
+        if alpha <= 0:
+            return
+        key = (name, height)
+        if key not in _sprites:
+            from PIL import ImageOps
+            im = Image.open(Path(__file__).resolve().parent / "img" / f"{name}.png").convert("L")
+            im = ImageOps.autocontrast(im, cutoff=1)
+            h = int(height * SS)
+            im = im.resize((int(im.width * h / im.height), h), Image.LANCZOS)
+            im = im.point(lambda v: 0 if v < 40 else min(255, int((v - 40) * 1.4)))
+            _sprites[key] = Image.merge("RGB", (im.point(lambda v: v * WHITE[0] // 255),
+                                                im.point(lambda v: v * WHITE[1] // 255),
+                                                im.point(lambda v: v * WHITE[2] // 255)))
+        sp = _sprites[key]
+        if alpha < 1:
+            sp = sp.point(lambda v: int(v * alpha))
+        x0, y0 = int(c[0] * SS - sp.width / 2), int(c[1] * SS - sp.height / 2)
+        box = (x0, y0, x0 + sp.width, y0 + sp.height)
+        from PIL import ImageChops
+        self.im.paste(ImageChops.lighter(self.im.crop(box), sp), box)
 
     def finish(self):
         return self.im.resize((W, H), Image.LANCZOS)

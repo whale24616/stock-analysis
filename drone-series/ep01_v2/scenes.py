@@ -126,10 +126,10 @@ def xmarks(cv, s, T, ph=0):
 
 
 def analyst(cv, s, T, ph=0):
-    stick_figure(cv, (CX - 380, CY + 60), 1.0, magnifier=True, prog=seg(s, 0, 0.4))
-    drone_side(cv, (CX + 330, CY - 10), 1.3, prog=seg(s, 0.3, 0.8), prop_spin=s * 18)
-    cv.dashed([(CX - 210, CY - 90), (CX + 120, CY - 30)], 4, GREY, offset=s * 30, prog=seg(s, 0.6, 0.6))
-    cv.text((CX + 330, CY + 120), "LONG-RANGE ONE-WAY ATTACK DRONE", 30, ORANGE, alpha=seg(s, 0.9, 0.4))
+    cv.sprite("l30_analyst", (CX - 430, CY + 40), 640, alpha=seg(s, 0, 0.5))
+    drone_side(cv, (CX + 380, CY - 10), 1.3, prog=seg(s, 0.3, 0.8), prop_spin=s * 18)
+    cv.dashed([(CX - 200, CY - 60), (CX + 170, CY - 20)], 4, GREY, offset=s * 30, prog=seg(s, 0.6, 0.6))
+    cv.text((CX + 380, CY + 120), "LONG-RANGE ONE-WAY ATTACK DRONE", 30, ORANGE, alpha=seg(s, 0.9, 0.4))
 
 
 def title(cv, s, T, ph=0):
@@ -489,11 +489,12 @@ def clock(cv, s, T, ph=0):
 
 def no_pilot(cv, s, T, ph=0):
     corner(cv, s, "AUTONOMOUS FLIGHT")
-    stick_figure(cv, (CX - 380, CY + 60), 1.0)
-    cv.rect((CX - 320, CY - 40, CX - 220, CY + 20), 4, WHITE)
-    cross(cv, (CX - 300, CY - 20), 160, RED, 10, seg(s, 0.4, 0.5))
-    drone_side(cv, (CX + 360, CY - 40), 1.3, prop_spin=s * 20, prop_col=ORANGE)
-    cv.text((CX + 360, CY + 110), "FLIES ITSELF", 36, ORANGE, alpha=seg(s, 0.8, 0.4))
+    cv.sprite("l31_operator", (CX - 450, CY + 40), 640, alpha=seg(s, 0, 0.5))
+    a, b = (CX - 250, CY - 40), (CX + 200, CY - 40)
+    cv.dashed([a, b], 4, GREY, offset=-s * 40, prog=seg(s, 0.2, 0.5))
+    cross(cv, lerp_pt(a, b, 0.5), 50, RED, 10, seg(s, 0.6, 0.4))
+    drone_side(cv, (CX + 400, CY - 40), 1.3, prop_spin=s * 20, prop_col=ORANGE)
+    cv.text((CX + 400, CY + 110), "FLIES ITSELF", 36, ORANGE, alpha=seg(s, 0.9, 0.4))
 
 
 def earth_los(cv, s, T, ph=0):
