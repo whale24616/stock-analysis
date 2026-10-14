@@ -115,21 +115,19 @@ class Canvas:
     def dashed(self, pts, w=4, col=WHITE, dash=16, gap=14, offset=0.0, prog=1.0):
         pts = _partial(pts, prog)
         period = dash + gap
-        pos = -(offset % period)
+        dist = 0.0  # distance travelled along the path so far
         for i in range(len(pts) - 1):
             a, b = pts[i], pts[i + 1]
             L = math.dist(a, b)
             if L == 0:
                 continue
-            s = pos
+            s = ((offset - dist) % period) - period
             while s < L:
                 s0, s1 = max(s, 0), min(s + dash, L)
                 if s1 > s0:
                     self.line([lerp_pt(a, b, s0 / L), lerp_pt(a, b, s1 / L)], w, col)
                 s += period
-            pos = s - L - period + period
-            pos = (s - L) - period if s - L > 0 else pos
-            pos = s - L - period
+            dist += L
 
     def arc(self, c, r, a0, a1, w=5, col=WHITE):
         x, y = c
