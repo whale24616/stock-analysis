@@ -32,6 +32,7 @@ FPS = 24
 CPS = 7.0          # estimated Korean narration speed, characters per second
 GAP = 0.25         # pause after each sentence (estimated mode)
 SECTION_GAP = 0.6  # extra pause at section ends (estimated mode)
+PREROLL = 3.0      # silent lead-in: the first picture fades up before the narration starts
 NARRATION = sorted((HERE.parent / "narration_ko").glob("EP01_*_Narration_KO.txt"))[0]
 IMG_DIR = HERE / "img"
 OUT = HERE / "out"
@@ -95,6 +96,16 @@ def build_timeline(sents, timing=None):
             t += sh["dur"]
         sh["t1"] = t
     return resolved
+
+
+def apply_preroll(shots):
+    """Delay everything by PREROLL; the first shot starts at 0 so its picture can fade in first."""
+    for k, sh in enumerate(shots):
+        if k:
+            sh["t0"] += PREROLL
+        sh["t1"] += PREROLL
+        sh["cues"] = [(c0 + PREROLL, c1 + PREROLL, txt) for c0, c1, txt in sh["cues"]]
+    return shots
 
 
 def build_timeline_audio(sents, timing):
@@ -258,6 +269,8 @@ def render_shot(args):
         s = (n - n0) / FPS
         im = pencil_frame(sh, s, T) if pencil else lineart_frame(sh, s, T)
         draw_overlays(im, sh, s, pencil)
+        if sh.get("fade_in") and s < sh["fade_in"]:
+            im = Image.blend(Image.new("RGB", im.size, (0, 0, 0)), im, ease(s / sh["fade_in"]) ** 1.5)
         sub = subtitle_at(sh["cues"], n / FPS)
         if sub:
             draw_subtitle(im, sub, boxed=pencil)
@@ -311,6 +324,7 @@ def main():
     else:
         estimate(sents)
         shots = build_timeline(sents)
+    shots = apply_preroll(shots)
     if a.first:
         shots = shots[:a.first]
     total = shots[-1]["t1"]
@@ -342,8 +356,8 @@ def main():
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", a.audio, "-ac", "1", "-ar", "48000", str(voice)],
                        check=True)
         a.audio = str(voice)
-        parts, prev = [], 0.0
-        filt = []
+        parts, prev = ["[lead]"], 0.0
+        filt = [f"anullsrc=r=48000:cl=mono,atrim=0:{PREROLL}[lead];"]
         inserts = [sh for sh in shots if "insert_at_audio" in sh]
         for i, sh in enumerate(inserts):
             filt.append(f"[0:a]atrim={prev}:{sh['insert_at_audio']},asetpts=PTS-STARTPTS[a{i}];"
