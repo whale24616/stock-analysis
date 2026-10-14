@@ -651,24 +651,24 @@ RADARS = [(1150, 300, 150), (1350, 520, 170), (1600, 330, 160), (1500, 700, 130)
 
 def half(cv, s, T, ph=0):
     """'Building the drone is only half the job': split circle, BUILD done / GET THROUGH open."""
-    c, R = (CX, CY - 10), 300
+    c, R = (CX, CY - 60), 270
     p = seg(s, 0, 0.6)
     cv.arc(c, R, 90, 90 + 180 * p, 6, ORANGE)
     cv.arc(c, R, 270, 270 + 180 * seg(s, 0.3, 0.6), 6, WHITE)
     cv.line([(c[0], c[1] - R), (c[0], c[1] + R)], 4, GREY, seg(s, 0.2, 0.5))
     a = seg(s, 0.5, 0.4)
     if a > 0:
-        drone_top(cv, (c[0] - 150, c[1] - 30), 0.42, ORANGE, 4)
-        check(cv, (c[0] - 150, c[1] + 110), 34, ORANGE, 9, seg(s, 0.7, 0.4))
-        cv.text((c[0] - 150, c[1] + R + 60), "BUILD IT", 40, ORANGE, alpha=a)
+        drone_top(cv, (c[0] - 140, c[1] - 30), 0.38, ORANGE, 4)
+        check(cv, (c[0] - 140, c[1] + 120), 34, ORANGE, 9, seg(s, 0.7, 0.4))
+        cv.text((c[0] - 190, c[1] + R + 50), "BUILD IT", 40, ORANGE, alpha=a)
     b = seg(s, 0.9, 0.4)
     if b > 0:
-        for r in (60, 110, 160):
-            cv.circle((c[0] + 150, c[1] - 30), r * b, 3, RED)
-        cv.dot((c[0] + 150, c[1] - 30), 9, RED)
-        cv.text((c[0] + 150, c[1] + 110), "?", 80, WHITE, alpha=b)
-        cv.text((c[0] + 150, c[1] + R + 60), "GET THROUGH", 40, WHITE, alpha=b)
-    cv.text((CX, 120), "ONLY HALF THE JOB", 44, WHITE, alpha=seg(s, 1.2, 0.4))
+        for r in (35, 70, 105):
+            cv.circle((c[0] + 135, c[1] - 30), r * b, 3, RED)
+        cv.dot((c[0] + 135, c[1] - 30), 9, RED)
+        cv.text((c[0] + 135, c[1] + 120), "?", 80, WHITE, alpha=b)
+        cv.text((c[0] + 190, c[1] + R + 50), "GET THROUGH", 40, WHITE, alpha=b)
+    cv.text((CX, 95), "ONLY HALF THE JOB", 44, WHITE, alpha=seg(s, 1.2, 0.4))
 
 
 def ad_net(cv, s, T, ph=0):
