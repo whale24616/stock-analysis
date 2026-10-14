@@ -345,7 +345,7 @@ def main():
             prev = sh["insert_at_audio"]
         filt.append(f"[0:a]atrim={prev},asetpts=PTS-STARTPTS[tail];")
         parts.append("[tail]")
-        fc = "".join(filt) + "".join(parts) + f"concat=n={len(parts)}:v=0:a=1[out]"
+        fc = "".join(filt) + "".join(parts) + f"concat=n={len(parts)}:v=0:a=1,apad[out]"
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(video), "-i", a.audio,
                         "-filter_complex", fc.replace("[0:a]", "[1:a]"), "-map", "0:v", "-map", "[out]",
                         "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", a.out], check=True)
