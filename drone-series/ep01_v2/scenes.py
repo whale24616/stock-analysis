@@ -186,7 +186,7 @@ def names(cv, s, T, ph=0):
         y = CY + 30 * (1 - a)
         cv.rect((x - 180, y - 90, x + 180, y + 90), 4, WHITE if a >= 1 else GREY)
         cv.text((x, y), n, 40, WHITE, alpha=a)
-    cv.text((CX, CY + 200), "DOZENS OF MANUFACTURERS", 30, ORANGE, alpha=seg(s, 1.6, 0.4))
+    cv.text((CX, CY + 200), "MANY MANUFACTURERS", 30, ORANGE, alpha=seg(s, 1.6, 0.4))
 
 
 def targets(cv, s, T, ph=0):
@@ -758,7 +758,7 @@ def strike_cal(cv, s, T, ph=0):
         if hit and a > 0:
             cv.dot((x, y), 22 * a, ORANGE)
     cv.text((CX, 680), "≈ ONE HIT EVERY 3 DAYS", 54, ORANGE, alpha=seg(s, 1.0, 0.4))
-    cv.tag((CX, 780), "REPORTED · ENERGY ANALYSTS", 26, alpha=seg(s, 1.3, 0.3))
+    cv.tag((CX, 780), "IEA ANALYSIS", 26, alpha=seg(s, 1.3, 0.3))
 
 
 def refine_drop(cv, s, T, ph=0):
@@ -771,7 +771,7 @@ def refine_drop(cv, s, T, ph=0):
     cv.text((CX - 220, base + 40), "2025", 32, WHITE)
     cv.text((CX + 220, base + 40), "2026", 32, WHITE)
     cv.text((CX + 220, base - h2 - 60), "−30%", 70, ORANGE, alpha=seg(s, 1.0, 0.3))
-    cv.tag((CX + 600, 300), "REPORTED", 26, alpha=seg(s, 1.2, 0.3))
+    cv.tag((CX + 600, 300), "IEA", 26, alpha=seg(s, 1.2, 0.3))
 
 
 def capacity_claim(cv, s, T, ph=0):

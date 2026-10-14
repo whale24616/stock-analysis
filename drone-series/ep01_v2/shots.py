@@ -8,20 +8,20 @@ src: key in SOURCES -> on-screen source credit (bottom-right)
 """
 
 SOURCES = {
-    # filled from sources.md; short on-screen credits
-    "omsk": "SOURCE: CNBC, JUL 2026",
-    "550": "SOURCE: RUSSIAN MoD VIA NEWS REPORTS",
-    "every3": "SOURCE: ENERGY ANALYSTS VIA FORTUNE, JUN 2026",
-    "minus30": "SOURCE: ENERGY ANALYSTS VIA FORTUNE, JUN 2026",
-    "51": "SOURCE: UKRAINIAN MoD VIA ABC NEWS / AP",
-    "airports": "SOURCE: NEWS REPORTS (SEE DESCRIPTION)",
-    "speed": "SOURCE: REPORTED FIGURES (SEE DESCRIPTION)",
-    "types": "SOURCE: MANUFACTURER / NEWS REPORTS",
-    "range": "SOURCE: REPORTED FIGURES (SEE DESCRIPTION)",
-    "airbase": "SOURCE: NEWS REPORTS (SEE DESCRIPTION)",
-    "cost": "SOURCE: ANALYST ESTIMATES (SEE DESCRIPTION)",
-    "vision": "SOURCE: REPORTED (SEE DESCRIPTION)",
-    "counter": "SOURCE: NEWS REPORTS (SEE DESCRIPTION)",
+    # short on-screen credits; full list with URLs in sources.md (paste into the YouTube description)
+    "airports": "SOURCE: MEDUZA, JUN 2026 · KYIV INDEPENDENT, MAY 2026",
+    "speed": "SOURCE: FIRE POINT FP-1 SPEC VIA EDR MAGAZINE, JUN 2026",
+    "types": "SOURCE: KYIV INDEPENDENT · CNBC, AUG 2026",
+    "range": "SOURCE: UKR. MIN. OF STRATEGIC INDUSTRIES · ARMYINFORM, 2025–26",
+    "omsk": "SOURCE: CNBC · KYIV INDEPENDENT, JUL 2026",
+    "550": "SOURCE: RUSSIAN MoD VIA AL JAZEERA, MAY 2026",
+    "iea": "SOURCE: IEA, SEP 2026",
+    "51": "SOURCE: UKRAINIAN MoD VIA AP, OCT 2026",
+    "airbase": "SOURCE: KYIV INDEPENDENT, 2026 · THE WAR ZONE, JUL 2026",
+    "cost": "SOURCE: CSIS",
+    "vision": "SOURCE: FIRE POINT VIA ARMYINFORM, MAR 2026",
+    "crpa": "SOURCE: FIRE POINT VIA UKRAINSKA PRAVDA, JAN 2026",
+    "counter": "SOURCE: ISW VIA NV · UKRAINSKA PRAVDA, APR 2026",
 }
 
 P, L = "P", "L"
@@ -41,7 +41,7 @@ SHOTS = [
     dict(at="오늘은 우크라이나의", kind=L, scene="analyst"),
     dict(dur=3.2, kind=L, scene="title"),
     # [2] background
-    dict(at="2026년 지금", kind=L, scene="deep2026"),
+    dict(at="2026년 지금", kind=L, scene="deep2026", src="omsk"),
     dict(at="올해 7월에는", kind=P, img="p11_refinery", move="in", label="OMSK REFINERY · JUL 2026", src="omsk"),
     dict(at="하룻밤에 5백 대", kind=P, img="p14_swarm", move="right", label="550+ DRONES · ONE NIGHT", src="550"),
     dict(at="하지만 처음부터", kind=L, scene="reach_asym"),
@@ -49,7 +49,7 @@ SHOTS = [
     dict(at="싸게, 그리고", kind=L, scene="cheap_many"),
     dict(at="그 답이 바로", kind=P, img="p04_drone_night", move="in", label="LONG-RANGE ONE-WAY ATTACK DRONE"),
     dict(at="흔히 카미카제", kind=L, scene="toy_vs_plane"),
-    dict(at="지금은 수십 개", kind=P, img="p05_workshop", move="right"),
+    dict(at="지금은 여러 회사", kind=P, img="p05_workshop", move="right"),
     dict(at="이름은 류티", kind=L, scene="names", src="types"),
     dict(at="목표물은", kind=L, scene="targets"),
     dict(at="이 드론이 왜", kind=P, img="p06_designer", move="in"),
@@ -103,7 +103,7 @@ SHOTS = [
     dict(at="우리가 흔히 GPS", kind=L, scene="gnss"),
     dict(at="러시아는 바로", kind=L, scene="jam"),
     dict(at="강한 잡음을", kind=L, scene="jam", ph=1),
-    dict(at="이에 맞서", kind=L, scene="crpa", src="vision"),
+    dict(at="이에 맞서", kind=L, scene="crpa", src="crpa"),
     dict(at="방해 신호가 오는", kind=L, scene="crpa", ph=1),
     dict(at="위성 신호가 완전히", kind=L, scene="vision", src="vision"),
     dict(at="정리하면", kind=L, scene="layers"),
@@ -123,8 +123,8 @@ SHOTS = [
     dict(at="게다가 모스크바", kind=L, scene="ad_pull"),
     # [7] results
     dict(at="그 결과는", kind=P, img="p11_refinery", move="out"),
-    dict(at="2026년 들어", kind=L, scene="strike_cal", src="every3"),
-    dict(at="6월 러시아의", kind=L, scene="refine_drop", src="minus30"),
+    dict(at="2026년 들어", kind=L, scene="strike_cal", src="iea"),
+    dict(at="6월 러시아의", kind=L, scene="refine_drop", src="iea"),
     dict(at="우크라이나 국방부는", kind=L, scene="capacity_claim", src="51"),
     dict(at="국경에서 수백", kind=P, img="p12_airbase", move="in", src="airbase"),
     dict(at="모스크바를 향한", kind=P, img="p03_rooftop", move="up", src="airports"),
