@@ -26,7 +26,7 @@ sys.path.insert(0, str(HERE))
 import gfx  # noqa: E402
 from gfx import BLACK, GREY, ORANGE, WHITE, Canvas, H, W, ease, font  # noqa: E402
 from scenes import SCENES  # noqa: E402
-from shots import SHOTS, SOURCES  # noqa: E402
+from shots import SHOTS, SOURCES  # noqa: E402  (EP01; set_episode() swaps these for other episodes)
 
 FPS = 24
 CPS = 7.0          # estimated Korean narration speed, characters per second
@@ -38,6 +38,20 @@ NARRATION_EN = sorted((HERE.parent / "narration_en").glob("EP01_*_Narration_EN.t
 LANG = "ko"  # "en": English subtitles (shot anchors still resolve on the Korean script, 1:1 by sentence)
 IMG_DIR = HERE / "img"
 OUT = HERE / "out"
+EP = 1
+
+
+def set_episode(ep):
+    """Point the renderer at episode `ep`: its narration files, shot list (shots_epXX.py) and extra scenes."""
+    global EP, NARRATION, NARRATION_EN, SHOTS, SOURCES
+    import importlib
+    EP = ep
+    NARRATION = sorted((HERE.parent / "narration_ko").glob(f"EP{ep:02d}_*_Narration_KO.txt"))[0]
+    NARRATION_EN = sorted((HERE.parent / "narration_en").glob(f"EP{ep:02d}_*_Narration_EN.txt"))[0]
+    mod = importlib.import_module("shots" if ep == 1 else f"shots_ep{ep:02d}")
+    SHOTS, SOURCES = mod.SHOTS, mod.SOURCES
+    if ep != 1:
+        SCENES.update(importlib.import_module(f"scenes_ep{ep:02d}").SCENES)
 
 
 # ---------------- script & timing ----------------
@@ -337,10 +351,12 @@ def main():
     ap.add_argument("--audio")
     ap.add_argument("--jobs", type=int, default=4)
     ap.add_argument("--lang", choices=["ko", "en"], default="ko")
+    ap.add_argument("--ep", type=int, default=1)
     ap.add_argument("--out", default=str(OUT / "ep01_v2.mp4"))
     a = ap.parse_args()
     global LANG
     LANG = a.lang
+    set_episode(a.ep)
 
     fetch_images()
     sents = sentences()

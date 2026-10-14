@@ -2,6 +2,7 @@
 
   python3 align.py voice.wav            # Korean voice -> timing.json
   python3 align.py voice_en.mp3 en      # English voice -> timing_en.json (then render.py --lang en)
+  python3 align.py ep2_voice.mp3 ko 2   # episode 2 -> timing_ep02.json (then render.py --ep 2)
   python3 render.py --timing timing.json --audio voice.wav
 
 Uses faster-whisper word timestamps (preinstalled in the Higgsfield sandbox), then matches the
@@ -26,7 +27,9 @@ def norm(s):
 def main():
     audio = sys.argv[1]
     lang = sys.argv[2] if len(sys.argv) > 2 else "ko"
+    ep = int(sys.argv[3]) if len(sys.argv) > 3 else 1
     render.LANG = lang
+    render.set_episode(ep)
     from faster_whisper import WhisperModel
     model = WhisperModel("small", device="cpu", compute_type="int8")
     segs, _ = model.transcribe(audio, language=lang, word_timestamps=True, vad_filter=True)
@@ -64,7 +67,8 @@ def main():
             print("unmatched sentence", k, sents[k]["text"][:30])
     for k in range(1, len(out)):
         out[k]["start"] = max(out[k]["start"], out[k - 1]["end"] - 0.05)
-    (HERE / ("timing.json" if lang == "ko" else "timing_en.json")).write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    name = ("timing" if lang == "ko" else "timing_en") + ("" if ep == 1 else f"_ep{ep:02d}") + ".json"
+    (HERE / name).write_text(json.dumps(out, ensure_ascii=False, indent=1))
     print("matched", sum(1 for m in mapped if m is not None), "/", len(script), "chars -> timing.json")
 
 
