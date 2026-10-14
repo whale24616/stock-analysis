@@ -148,6 +148,10 @@ def chunks(text, maxlen=26):
         while len(p) > maxlen:
             cut = p.rfind(" ", 0, maxlen)
             cut = cut if cut > maxlen // 2 else maxlen
+            # don't leave a one-syllable modifier dangling at the end ("크게 세 / 가지로" -> "크게 / 세 가지로")
+            prev = p.rfind(" ", 0, cut)
+            if p[cut - 1] != "," and cut - prev - 1 == 1 and prev > maxlen // 3:
+                cut = prev
             out.append(p[:cut].strip())
             p = p[cut:].strip()
         if out and len(out[-1]) + len(p) + 1 <= maxlen:
