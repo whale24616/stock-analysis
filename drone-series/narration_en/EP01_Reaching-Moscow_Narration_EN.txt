@@ -1,0 +1,116 @@
+Night. Somewhere south of Moscow, small dots are crawling slowly across a radar screen.
+They're not fast.
+About as fast as a car on a highway.
+But these dots have already been flying for hours.
+They took off from Ukraine, more than five hundred kilometres away.
+Only a few years ago, Moscow felt far from the war.
+Now its airports shut down again and again, and air-defence weapons sit on the rooftops.
+The reason isn't missiles, or fighter jets.
+It's drones that look like small aeroplanes, with no one on board.
+Today, let's break down, simply, how Ukraine's long-range drones fly so far.
+
+In 2026, Ukraine's drones are reaching deep inside Russia.
+This July, a huge oil refinery in Omsk, Siberia, more than two thousand kilometres from the border, was hit.
+On one night, more than five hundred drones flew into Russia.
+But it wasn't always like this.
+Early in the war, Ukraine had almost no weapons that could reach deep into Russia.
+So Ukraine decided to build its own.
+A weapon it could make cheaply, and in large numbers.
+The answer was the long-range one-way attack drone.
+People call them kamikaze drones, but in shape and principle they're far closer to a light aircraft than a toy.
+Today, several companies build drones like these.
+Names like Liutyi, UJ-22, Bober and FP-1.
+Their targets are oil refineries, airbases and ammunition depots, hundreds and sometimes more than a thousand kilometres from the front.
+To understand why these drones look the way they do, we first need to understand the designers' dilemma.
+
+When you design a long-range drone, you have to get three things right at once.
+Fly far, carry enough, and cost little.
+The problem is, improve one, and the other two get worse.
+So designers use a few tricks.
+Trick number one is the wing.
+This drone's wings are long and slender.
+A lot like a glider's.
+A wing lifts by pushing air downward, but at the wingtips the air curls up and around into a vortex.
+That vortex becomes drag, pulling the aircraft back.
+The longer and thinner the wing, the weaker the vortex, and the more fuel you save.
+Trick number two is putting the propeller at the back.
+Like an outboard motor pushing a boat, it pushes the aircraft from behind.
+That frees up the nose for payload and equipment, and the wing gets clean, undisturbed air, which makes it more efficient.
+Trick number three is materials.
+Instead of expensive aerospace metal, they use plastic composites, sponge-like foam and simple tubing.
+They're cheap, light and fast to build.
+Less metal also means a weaker radar echo.
+But the engine and fuel tank are still metal, so these drones aren't truly stealthy.
+Finally, the heaviest items, fuel and payload, sit in the middle of the aircraft, close to the centre of gravity.
+That way, the balance holds even as the fuel burns off.
+
+So why use a small piston engine, like a motorbike's, instead of a jet engine?
+These drones fly slowly, at around 150 to 200 kilometres per hour.
+At that speed, a small engine turning a propeller burns far less fuel than a jet.
+Jet engines are efficient when flying fast, but at low speed they guzzle fuel.
+How far an aircraft can fly comes down to three main things.
+How efficiently the engine uses fuel, how little drag the aircraft has, and how much of its total weight is fuel.
+But there's a catch.
+The more fuel you add, the less extra range each kilo buys.
+Because the fuel itself is heavy.
+And every extra kilogram of fuel is a kilogram of payload you can't carry.
+So some drones carry a small load very far, and others carry a bigger load a little less far.
+Reported figures suggest tens of kilograms of payload, and ranges from several hundred to over fifteen hundred kilometres.
+Flying a thousand kilometres takes five to seven hours.
+So during all that time, how does the drone find its way?
+
+Surprisingly, for most of the flight, no one is steering these drones.
+Radio signals travel in straight lines, but the Earth is round.
+A low-flying drone drops below the horizon after just a few dozen kilometres, and the signal can't reach it.
+So the drone has to find its own way.
+Method one is inertial navigation.
+It's like walking with your eyes closed, counting how many steps you take in which direction.
+Sensors inside the drone keep calculating its movement to estimate where it is.
+It needs no outside signal, so it can't be jammed.
+But small errors add up, and over time the estimate drifts further from the real position.
+So method two corrects the position using satellite signals, just like a phone map.
+What we usually call GPS.
+And that's exactly what Russia attacks.
+It blasts strong noise to drown the signal out, or sends fake signals to trick the drone into thinking it's somewhere else.
+To fight back, the drones use a special antenna made of several antennas working together.
+It blocks only the direction the jamming comes from, while still listening to the real satellites.
+And if the satellite signal is lost completely, some drones reportedly look down with a camera and compare the ground with a stored map.
+In short: self-calculating inertial navigation, satellite signals, and a camera.
+Each one covers the others' weaknesses.
+
+Building a good drone is only half the job.
+The other half is getting through Russia's air defences, among the densest in the world.
+First, plan the route.
+Through the gaps, away from radars and air-defence sites, and very low.
+The lower you fly, the later radar notices.
+Next, overwhelm them with numbers.
+An air-defence unit can only engage so many targets at once.
+Send drones from many directions at once, mix in cheap decoys, and some will get through.
+And most important of all is the money.
+The interceptor missile that shoots down one drone can cost several times more than the drone itself.
+Even when the defender wins every time, it spends more than the attacker.
+And every air-defence system guarding Moscow is one less guarding the front.
+
+The results show up in report after report.
+In 2026, analysts found that Russian refineries were being hit roughly once every three days.
+In June, Russia's crude refining was down thirty percent on a year earlier.
+Ukraine's defence ministry claims it has knocked out more than half of Russia's refining capacity.
+Even aircraft at airbases hundreds of kilometres from the border have been hit.
+Most of the drones heading for Moscow were shot down, but each time airports halted flights, and Russia had to put air defences on rooftops.
+The drones don't need to reach their target every time.
+Making the enemy keep paying the price is enough.
+
+Of course, these drones have clear weaknesses.
+They're slow.
+That gives defenders time to react.
+They're loud.
+You can hear the engine from the ground.
+They show up on radar, and they carry smaller warheads than missiles.
+Russia is adapting too.
+Mobile fire teams chasing drones in machine-gun trucks, air defences on rooftops, jamming equipment, and even drones that hunt drones.
+Which raises a natural question.
+If being slow is the weakness, what happens when you make them very fast?
+
+Next time, we'll look at a new generation with jet engines: drones as fast as missiles.
+Palianytsia, Peklo, and Flamingo.
+Join us as we explore how war is reshaping the battle for the sky.

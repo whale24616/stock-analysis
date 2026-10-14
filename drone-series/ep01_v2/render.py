@@ -34,28 +34,45 @@ GAP = 0.25         # pause after each sentence (estimated mode)
 SECTION_GAP = 0.6  # extra pause at section ends (estimated mode)
 PREROLL = 3.0      # silent lead-in: the first picture fades up before the narration starts
 NARRATION = sorted((HERE.parent / "narration_ko").glob("EP01_*_Narration_KO.txt"))[0]
+NARRATION_EN = sorted((HERE.parent / "narration_en").glob("EP01_*_Narration_EN.txt"))[0]
+LANG = "ko"  # "en": English subtitles (shot anchors still resolve on the Korean script, 1:1 by sentence)
 IMG_DIR = HERE / "img"
 OUT = HERE / "out"
 
 
 # ---------------- script & timing ----------------
 
-def sentences():
+def _split(path):
     out = []
-    blocks = NARRATION.read_text(encoding="utf-8").strip().split("\n\n")
+    blocks = path.read_text(encoding="utf-8").strip().split("\n\n")
     for si, block in enumerate(blocks, 1):
         for line in block.splitlines():
             for s in re.split(r"(?<=[.?!])\s+", line.strip()):
                 if s:
                     out.append({"sec": si, "text": s})
+    return out
+
+
+def sentences():
+    out = _split(NARRATION)
+    if LANG == "en":
+        en = _split(NARRATION_EN)
+        if [s["sec"] for s in en] != [s["sec"] for s in out]:
+            raise SystemExit("EN script must match the Korean script sentence-for-sentence")
+        for s, e in zip(out, en):
+            s["disp"] = e["text"]
     for i, s in enumerate(out):
         s["last_in_sec"] = i + 1 == len(out) or out[i + 1]["sec"] != s["sec"]
     return out
 
 
+def disp(s):
+    return s.get("disp", s["text"])
+
+
 def estimate(sents):
     for s in sents:
-        d = max(1.3, len(s["text"]) / CPS) + GAP + (SECTION_GAP if s["last_in_sec"] else 0)
+        d = max(1.3, len(disp(s)) / (CPS if LANG == "ko" else 15.0)) + GAP + (SECTION_GAP if s["last_in_sec"] else 0)
         s["dur"] = d
 
 
@@ -89,7 +106,7 @@ def build_timeline(sents, timing=None):
             sh["cues"] = []
             for i in rng:
                 s = sents[i]
-                sh["cues"].append((t, t + s["dur"] - GAP * 0.5, s["text"]))
+                sh["cues"].append((t, t + s["dur"] - GAP * 0.5, disp(s)))
                 t += s["dur"]
         else:
             sh["cues"] = []
@@ -131,14 +148,15 @@ def build_timeline_audio(sents, timing):
         a0 = 0.0 if first == 0 else sents[first]["a0"]
         a1 = sents[nxt["first"]]["a0"] if nxt else sents[last]["a1"] + 1.5
         sh["t0"], sh["t1"] = a0 + shift, a1 + shift
-        sh["cues"] = [(sents[i]["a0"] + shift, sents[i]["a1"] + shift, sents[i]["text"]) for i in range(first, last + 1)]
+        sh["cues"] = [(sents[i]["a0"] + shift, sents[i]["a1"] + shift, disp(sents[i])) for i in range(first, last + 1)]
         out.append(sh)
     return out
 
 
 # ---------------- subtitles ----------------
 
-def chunks(text, maxlen=26):
+def chunks(text, maxlen=None):
+    maxlen = maxlen or (26 if LANG == "ko" else 44)
     """Split a sentence into display chunks at commas/spaces, each <= maxlen chars."""
     if len(text) <= maxlen:
         return [text]
@@ -181,7 +199,7 @@ def draw_subtitle(im, text, boxed=True):
     Words are drawn one by one with a fixed gap, because the Gmarket web font has no space glyph."""
     from PIL import ImageDraw
     d = ImageDraw.Draw(im, "RGBA")
-    f = font("sub", 64)
+    f = font("sub", 64 if LANG == "ko" else 58)
     words = text.split()
     gap = 64 * 0.28
     widths = [d.textlength(w, font=f) for w in words]
@@ -318,8 +336,11 @@ def main():
     ap.add_argument("--timing")
     ap.add_argument("--audio")
     ap.add_argument("--jobs", type=int, default=4)
+    ap.add_argument("--lang", choices=["ko", "en"], default="ko")
     ap.add_argument("--out", default=str(OUT / "ep01_v2.mp4"))
     a = ap.parse_args()
+    global LANG
+    LANG = a.lang
 
     fetch_images()
     sents = sentences()
