@@ -1,0 +1,116 @@
+Last time, we ended with a question.
+If being slow is the weakness, what happens when you make them very fast?
+Picture that radar screen again.
+This time, the dot isn't crawling.
+Low and straight, it streaks across the screen in an instant.
+For the gun crews who learned to track drones by the sound of their engines, the time they have is now measured in seconds, not minutes.
+That's because of a new weapon Ukraine has brought out.
+It's built like a drone, launched like a drone, and priced closer to a drone.
+But it flies like a missile.
+Today, let's break down, simply, how jet-powered missile-drones work, and why speed changes every calculation.
+
+In 2026, Ukraine is mixing jet drones and cruise missiles to strike weapons factories deep inside Russia.
+It started with the propeller drones we saw in episode one.
+Propeller drones proved that Ukraine could reach deep into Russia.
+But Russia didn't stand still.
+Machine-gun trucks, rooftop air defences and layers of radar got better and better at catching slow drones.
+So Ukraine built a new kind of weapon.
+In Ukraine, they call it the missile-drone.
+The first to be publicly named was Palianytsia, unveiled in August 2024.
+Then came Peklo, Ukrainian for hell, reportedly handed to the military in late 2024.
+After that came Ruta, and Fire Point's much larger Flamingo.
+One thing to keep in mind.
+Most performance figures for these weapons come from the companies that make them, or from officials.
+Very little has been independently verified.
+So on screen, we'll show who made each claim.
+Now, to see why this weapon exists, let's look inside the engine.
+
+A propeller engine spins a propeller that pushes air backwards.
+A jet engine skips the propeller and throws air backwards directly, and much faster.
+The simplest jet engine is called a turbojet, and it does four things in order.
+First, a fan-like compressor at the front squeezes the incoming air hard.
+Second, fuel is sprayed into that compressed air and burned continuously.
+The gas gets extremely hot and expands.
+Third, that hot gas spins another fan at the back, the turbine.
+The turbine sits on the same shaft as the compressor, so the engine keeps itself turning.
+Fourth, whatever energy is left blasts out of the back at high speed.
+It's like blowing up a balloon and letting it go: the air rushes out, and the balloon shoots forward.
+Push gas backwards, and the recoil pushes the aircraft forward.
+Small jet engines like this have been used for decades in target drones and some cruise missiles.
+They're small and simple, yet powerful for their weight.
+But they have one big drawback.
+Fuel.
+
+In episode one, we saw the three things that decide how far an aircraft can fly.
+One of them was how efficiently the engine uses fuel.
+This is exactly where the jet engine loses out.
+A propeller pushes a lot of air, slowly.
+A small jet engine pushes a little air, very fast.
+For the same push, the propeller uses far less fuel.
+Small jet engines are known to burn several times more fuel than a propeller engine doing the same job.
+So jet drones carry more fuel, fly shorter distances, or both.
+Peklo, for example, has a manufacturer-claimed range of about 700 kilometres, shorter than some propeller drones.
+So why accept that penalty?
+Speed.
+Propeller drones fly at 150 to 200 kilometres per hour.
+Jet missile-drones are reported to fly several times faster, around 600 to 700 kilometres per hour.
+A trip that took a propeller drone five hours takes just over an hour.
+The less time in the air, the less time to be spotted, chased and shot at.
+
+This is where the most important idea comes in.
+Every air-defence weapon has a range it can reach.
+Think of it as an invisible bubble.
+A drone is only in danger while it's inside that bubble.
+Let's do a quick calculation.
+Imagine an anti-aircraft gun that can fire out to about four kilometres, with a drone flying straight at it.
+At 150 kilometres per hour, the drone spends about 95 seconds crossing that bubble.
+That's plenty of time to spot it, aim, and fire again and again.
+At 700 kilometres per hour, it crosses the same distance in about 20 seconds.
+The time to stop it shrinks to about a fifth.
+And the defenders can't even use all 20 seconds.
+Spotting the drone, swinging the gun round and aiming all take time.
+Speed also makes it harder to hit.
+With a moving target, you have to aim not where it is, but where it's going to be.
+The faster the target, the further ahead you have to aim, and the more small mistakes make you miss.
+That's why cheap defences like the machine-gun trucks from episode one lose much of their value against fast drones.
+Here's the key point.
+A fast drone doesn't become invisible.
+It steals the defender's time to act.
+
+So is this a drone, or a cruise missile?
+The line is getting blurrier.
+Both fly on wings, both find their own way, and neither comes back.
+The real differences are speed, size, and price.
+The goal is a cheap missile.
+Simple airframes and common parts, built in factories that can churn them out.
+They're said to cost a fraction of a traditional cruise missile, but few reliable figures have been published.
+The biggest is Flamingo.
+Its maker claims a range of about 3,000 kilometres and a warhead of about one tonne.
+At that point, it's effectively a cruise missile.
+In 2026, reports said around 100 were being built a month, but the figures vary by source.
+Just getting these weapons into the air is a challenge.
+Jet engines are weak at low speed, so many types are reported to use a rocket booster for the first few seconds, then drop it.
+Others are flung off a rail, like a slingshot.
+In February 2026, Ukraine's military said it used Flamingo to strike a large arsenal in Russia's Volgograd region and a missile plant in Udmurtia.
+In late September, Ukraine's security service said Ruta and Palianytsia were used with Neptune missiles to hit a missile-component plant in Rostov.
+However, the actual damage often hasn't been independently confirmed.
+
+Of course, speed isn't a magic shield.
+First, it's expensive.
+Jet engines, boosters and fast airframes cost far more than piston engines and foam wings.
+For the price of one missile-drone, you could buy several propeller drones.
+Second, it's hard to go far.
+Thirsty engines mean less range, less payload, or a bigger and more expensive aircraft.
+Flamingo is exactly the case of going bigger.
+Third, they're hot, loud, and easy to see on radar.
+Most importantly, 700 kilometres per hour is fast for a drone, but slow for a fighter jet or an air-defence missile.
+Any weapon built to stop real cruise missiles can stop these too.
+What changes is who has to do the stopping.
+Instead of cheap machine guns, expensive missiles and fighter jets have to step in.
+And once again, the defender pays the price.
+
+Episodes one and two were about drones that fly far.
+Slow but thrifty, or fast but expensive.
+But some of the most important drones in this war fly only a few kilometres.
+Next time, we'll look at the 500-dollar killer: the FPV drone.
+Join us as we see how hobby racing drones changed the front line and became one of the defining weapons of this war.
