@@ -707,7 +707,7 @@ def low_alt(cv, s, T, ph=0):
     cv.line([(380, 660), (1800, 520)], 4, RED)
     cv.text((1300, 520), "RADAR BEAM", 26, RED)
     x = 1750 - (s * 140) % 1300
-    drone_side(cv, (x, 730), 0.45, col=ORANGE, prop_spin=s * 20)
+    drone_side(cv, (x, 730), 0.45, col=ORANGE, prop_spin=s * 20, flip=True)
     seen = x < 700
     cv.text((CX, 300), "DETECTED LATE" if seen else "BELOW THE BEAM", 54, RED if seen else ORANGE)
 

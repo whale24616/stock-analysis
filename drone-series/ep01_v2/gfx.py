@@ -247,18 +247,22 @@ def drone_top(cv, c, s=1.0, col=WHITE, w=5, prog=1.0, wing_col=None, prop_spin=0
         cv.line([(px, y - 40 * s * math.cos(a)), (px, y + 40 * s * math.cos(a))], w, col)
 
 
-def drone_side(cv, c, s=1.0, col=WHITE, w=5, prog=1.0, prop_col=None, prop_spin=0.0):
-    """Side view, nose to the right, pusher prop at the back."""
+def drone_side(cv, c, s=1.0, col=WHITE, w=5, prog=1.0, prop_col=None, prop_spin=0.0, flip=False):
+    """Side view, pusher prop at the back. Nose points right, or left when flip=True."""
     x, y = c
-    body = [(x - 170 * s, y - 6 * s), (x - 60 * s, y - 22 * s), (x + 120 * s, y - 22 * s), (x + 175 * s, y),
-            (x + 120 * s, y + 18 * s), (x - 60 * s, y + 14 * s), (x - 170 * s, y + 4 * s)]
-    wing = [(x - 20 * s, y - 22 * s), (x + 40 * s, y - 30 * s), (x + 60 * s, y - 22 * s)]
-    fin = [(x - 150 * s, y - 6 * s), (x - 170 * s, y - 70 * s), (x - 140 * s, y - 70 * s), (x - 115 * s, y - 14 * s)]
+    d = -1 if flip else 1
+
+    def P(dx, dy):
+        return (x + d * dx * s, y + dy * s)
+
+    body = [P(-170, -6), P(-60, -22), P(120, -22), P(175, 0), P(120, 18), P(-60, 14), P(-170, 4)]
+    wing = [P(-20, -22), P(40, -30), P(60, -22)]
+    fin = [P(-150, -6), P(-170, -70), P(-140, -70), P(-115, -14)]
     cv.line(body, w, col, prog)
     cv.line(wing, w, col, prog)
     cv.line(fin, w, col, prog)
     if prog >= 1:
-        px = x - 182 * s
+        px = x - d * 182 * s
         h = 55 * s * abs(math.cos(prop_spin))
         cv.line([(px, y - h), (px, y + h)], w + 1, prop_col or col)
 
