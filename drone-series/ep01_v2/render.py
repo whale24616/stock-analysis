@@ -162,14 +162,21 @@ def subtitle_at(cues, t):
 
 
 def draw_subtitle(im, text, boxed=True):
-    """Reference style: white bold Korean text on a solid black box, bottom centre."""
+    """Reference style: white bold Korean text on a solid black box, bottom centre.
+    Words are drawn one by one with a fixed gap, because the Gmarket web font has no space glyph."""
     from PIL import ImageDraw
     d = ImageDraw.Draw(im, "RGBA")
     f = font("sub", 64)
-    w = d.textlength(text, font=f)
-    x, y = W / 2, 935
-    d.rectangle((x - w / 2 - 24, y - 55, x + w / 2 + 24, y + 55), fill=(0, 0, 0, 255))
-    d.text((x, y), text, font=f, fill=(255, 255, 255, 255), anchor="mm")
+    words = text.split()
+    gap = 64 * 0.28
+    widths = [d.textlength(w, font=f) for w in words]
+    total = sum(widths) + gap * (len(words) - 1)
+    x0, y = W / 2 - total / 2, 935
+    d.rectangle((x0 - 24, y - 55, x0 + total + 24, y + 55), fill=(0, 0, 0, 255))
+    x = x0
+    for w, ww in zip(words, widths):
+        d.text((x, y), w, font=f, fill=(255, 255, 255, 255), anchor="lm")
+        x += ww + gap
 
 
 def draw_overlays(im, sh, s, pencil):
