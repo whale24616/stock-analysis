@@ -867,9 +867,9 @@ def ep2(cv, s, T, ph=0):
 
 def endcard(cv, s, T, ph=0):
     cv.text((CX, CY - 100), "DRONE WAR DECODED", 80, WHITE, alpha=seg(s, 0, 0.4))
-    cv.rect((CX - 220, CY + 20, CX + 220, CY + 120), 5, ORANGE, prog=seg(s, 0.3, 0.6))
-    cv.text((CX, CY + 70), "SUBSCRIBE", 46, ORANGE, alpha=seg(s, 0.6, 0.3))
-    cv.text((CX, CY + 220), "WHICH WEAPON SHOULD WE DECODE NEXT?", 32, WHITE, alpha=seg(s, 1.0, 0.4))
+    p = seg(s, 0.2, 0.7)
+    cv.line([(CX - 420 * p, CY - 10), (CX + 420 * p, CY - 10)], 4, ORANGE)
+    cv.text((CX, CY + 60), "NEXT  ·  EP02  ·  FASTER THAN DEFENSE", 38, ORANGE, alpha=seg(s, 0.6, 0.4))
 
 
 SCENES = {k: v for k, v in globals().items() if callable(v) and not k.startswith("_") and k not in (

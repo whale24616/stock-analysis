@@ -127,7 +127,7 @@ def build_timeline_audio(sents, timing):
 
 # ---------------- subtitles ----------------
 
-def chunks(text, maxlen=30):
+def chunks(text, maxlen=26):
     """Split a sentence into display chunks at commas/spaces, each <= maxlen chars."""
     if len(text) <= maxlen:
         return [text]
@@ -161,17 +161,14 @@ def subtitle_at(cues, t):
     return None
 
 
-def draw_subtitle(im, text, boxed):
+def draw_subtitle(im, text, boxed=True):
+    """Reference style: white bold Korean text on a solid black box, bottom centre."""
     from PIL import ImageDraw
     d = ImageDraw.Draw(im, "RGBA")
-    f = font("sub", 54)
+    f = font("sub", 64)
     w = d.textlength(text, font=f)
-    x, y = W / 2, 948
-    if boxed:
-        d.rectangle((x - w / 2 - 26, y - 46, x + w / 2 + 26, y + 46), fill=(0, 0, 0, 235))
-    else:
-        for dx, dy in ((-2, 0), (2, 0), (0, -2), (0, 2), (2, 2)):
-            d.text((x + dx, y + dy), text, font=f, fill=(0, 0, 0, 255), anchor="mm")
+    x, y = W / 2, 935
+    d.rectangle((x - w / 2 - 24, y - 55, x + w / 2 + 24, y + 55), fill=(0, 0, 0, 255))
     d.text((x, y), text, font=f, fill=(255, 255, 255, 255), anchor="mm")
 
 
@@ -192,8 +189,8 @@ def draw_overlays(im, sh, s, pencil):
         f = font("label", 22)
         w = d.textlength(txt, font=f)
         if pencil:
-            d.rectangle((W - w - 64, 850, W - 36, 886), fill=(10, 10, 10, int(0.75 * a)))
-        d.text((W - 50, 868), txt, font=f, fill=(200, 200, 200, a), anchor="rm")
+            d.rectangle((W - w - 64, 800, W - 36, 836), fill=(10, 10, 10, int(0.75 * a)))
+        d.text((W - 50, 818), txt, font=f, fill=(200, 200, 200, a), anchor="rm")
 
 
 # ---------------- frames ----------------

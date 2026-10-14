@@ -37,7 +37,14 @@ def font(kind, size):
             except Exception:
                 pass
         elif kind == "sub":
-            f = ImageFont.truetype(str(FONT_DIR / "BlackHanSans-Regular.ttf"), size)
+            # subtitle font: Gmarket Sans Bold when available (downloaded in the render sandbox),
+            # otherwise Noto Sans KR ExtraBold (bundled, OFL)
+            gm = FONT_DIR / "GmarketSansTTFBold.ttf"
+            if gm.exists():
+                f = ImageFont.truetype(str(gm), size)
+            else:
+                f = ImageFont.truetype(str(FONT_DIR / "NotoSansKR.ttf"), size)
+                f.set_variation_by_axes([800])
         else:
             f = ImageFont.truetype(str(FONT_DIR / "NanumGothic-ExtraBold.ttf"), size)
         _fonts[key] = f
