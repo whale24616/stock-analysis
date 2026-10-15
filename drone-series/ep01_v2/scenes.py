@@ -211,7 +211,7 @@ def title_card(cv, s, sub, kind="radar"):
     underline(cv, CY - 80, "DRONE WAR DECODED", 110, p)
     cv.text((CX, CY), "DRONE WAR DECODED", 110, WHITE, alpha=seg(s, 0.2, 0.5))
     cv.text((CX, CY + 110), sub, 46, ORANGE, alpha=seg(s, 0.6, 0.5))
-    underline(cv, CY + 160, sub, 46, p)
+    underline(cv, CY + 160, "DRONE WAR DECODED", 110, p)  # both lines match the big title
 
 
 def end_card(cv, s, sub, kind="map"):
