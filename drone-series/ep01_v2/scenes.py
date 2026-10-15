@@ -12,9 +12,80 @@ from gfx import (BLACK, DIM, GREY, ORANGE, RED, WHITE, airbase_icon, car_icon, c
 CX, CY = 960, 470  # visual centre (subtitle band sits below ~900)
 
 
+# Small top-left labels distracted viewers by changing every few seconds; only chart titles that
+# explain what the numbers measure are still drawn.
+CORNER_KEEP = {"FUEL USED PER KM", "REFINERY STRIKES · 2026", "RUSSIAN CRUDE RUNS · JUNE",
+               "REFINING CAPACITY OFFLINE", "FUEL BURNED, SAME JOB"}
+
+BG = (38, 38, 38)
+BG_O = (70, 42, 16)
+
+
 def corner(cv, s, text):
-    """Small top-left section label."""
-    cv.text((90, 80), text, 26, GREY, anchor="lm", alpha=seg(s, 0.1, 0.4))
+    """Small top-left chart title (only for CORNER_KEEP)."""
+    if text in CORNER_KEEP:
+        cv.text((90, 80), text, 26, GREY, anchor="lm", alpha=seg(s, 0.1, 0.4))
+
+
+def underline(cv, y, text, size, p, pad=12, w=4, col=ORANGE):
+    """Accent line exactly as wide as `text` (centred on CX), drawn out from the middle by p."""
+    half = (cv.text_w(text, size) / 2 + pad) * p
+    if half > 0:
+        cv.line([(CX - half, y), (CX + half, y)], w, col)
+
+
+def backdrop(cv, s, kind="grid"):
+    """Faint moving background so text-only cards don't feel empty. Stays well below the text in contrast.
+    Kinds combine with '+', e.g. "grid+drones"."""
+    if "+" in kind:
+        for k in kind.split("+"):
+            backdrop(cv, s, k)
+        return
+    if kind in ("grid", "radar", "map"):
+        off = (s * 12) % 80
+        for x in range(0, 1921, 80):
+            for y in range(40, 900, 80):
+                cv.dot((x + off, y), 2, BG)
+    if kind == "grid":
+        for (x, y, dx, dy) in ((120, 110, 1, 1), (1800, 110, -1, 1), (120, 840, 1, -1), (1800, 840, -1, -1)):
+            cv.line([(x, y + 60 * dy), (x, y), (x + 60 * dx, y)], 3, BG_O)
+        sy = 110 + (s * 90) % 730
+        cv.line([(120, sy), (1800, sy)], 2, (26, 26, 26))
+        for i in range(25):
+            x = 160 + i * 66
+            cv.line([(x, 840), (x, 828 if i % 5 else 816)], 2, BG)
+    if kind == "radar":
+        c, R = (CX, CY), 640
+        for r in (R, R * 0.75, R * 0.5, R * 0.25):
+            cv.circle(c, r, 2, BG)
+        a = s * 0.9
+        for k in range(10):
+            aa = a - k * 0.03
+            col = tuple(int(v * (1 - k / 10)) for v in (60, 40, 18))
+            cv.line([c, (c[0] + R * math.cos(aa), c[1] + R * math.sin(aa))], 3, col)
+    if kind == "map":
+        ukr = [(160, 600), (260, 470), (470, 420), (700, 440), (860, 510), (900, 640), (760, 740), (500, 770),
+               (300, 730), (160, 600)]
+        cv.line(ukr, 3, BG)
+        for i, b in enumerate(((1450, 260), (1650, 520), (1300, 700))):
+            a0 = (760, 520)
+            mid = ((a0[0] + b[0]) / 2, min(a0[1], b[1]) - 160)
+            pts = [lerp_pt(lerp_pt(a0, mid, t / 24), lerp_pt(mid, b, t / 24), t / 24) for t in range(25)]
+            cv.dashed(pts, 3, BG_O, offset=s * 40 + i * 9)
+            cv.circle(b, 10, 2, BG_O)
+    if kind in ("drones", "jets"):
+        rnd = random.Random(3)
+        for i in range(7):
+            y = rnd.uniform(110, 860)
+            sp = rnd.uniform(60, 110) * (2.5 if kind == "jets" else 1)
+            x = (rnd.uniform(0, 2300) + s * sp) % 2300 - 190
+            sc = rnd.uniform(0.35, 0.6)
+            if kind == "jets":
+                from scenes_ep02 import jet_drone
+                jet_drone(cv, (x, y), sc, BG, 3)
+                cv.line([(x - 260 * sc - 220, y), (x - 210 * sc, y)], 2, BG_O)
+            else:
+                drone_side(cv, (x, y), sc, BG, 3, prop_spin=s * 20)
 
 
 # ---------------- cold open ----------------
@@ -61,6 +132,7 @@ def speed(cv, s, T, ph=0):
 
 
 def timer(cv, s, T, ph=0):
+    backdrop(cv, s, "grid+drones")
     corner(cv, s, "TIME IN THE AIR")
     secs = 4 * 3600 + 12 * 60 + s * 900
     h, m, sec = int(secs // 3600), int(secs % 3600 // 60), int(secs % 60)
@@ -117,6 +189,7 @@ def omsk_label(cv, s, T, ph=0):
 
 
 def xmarks(cv, s, T, ph=0):
+    backdrop(cv, s, "grid")
     missile_icon(cv, (CX - 380, CY), 1.2)
     jet_icon(cv, (CX + 380, CY), 1.2)
     cv.text((CX - 380, CY + 160), "MISSILE", 34, WHITE)
@@ -132,12 +205,24 @@ def analyst(cv, s, T, ph=0):
     cv.text((CX + 380, CY + 120), "LONG-RANGE ONE-WAY ATTACK DRONE", 30, ORANGE, alpha=seg(s, 0.9, 0.4))
 
 
-def title(cv, s, T, ph=0):
+def title_card(cv, s, sub, kind="radar"):
+    backdrop(cv, s, kind)
     p = seg(s, 0, 0.7)
-    cv.line([(CX - 520 * p, CY - 90), (CX + 520 * p, CY - 90)], 4, ORANGE)
+    underline(cv, CY - 80, "DRONE WAR DECODED", 110, p)
     cv.text((CX, CY), "DRONE WAR DECODED", 110, WHITE, alpha=seg(s, 0.2, 0.5))
-    cv.text((CX, CY + 110), "EP01  ·  REACHING MOSCOW", 46, ORANGE, alpha=seg(s, 0.6, 0.5))
-    cv.line([(CX - 520 * p, CY + 170), (CX + 520 * p, CY + 170)], 4, ORANGE)
+    cv.text((CX, CY + 110), sub, 46, ORANGE, alpha=seg(s, 0.6, 0.5))
+    underline(cv, CY + 160, sub, 46, p)
+
+
+def end_card(cv, s, sub, kind="map"):
+    backdrop(cv, s, kind)
+    cv.text((CX, CY - 100), "DRONE WAR DECODED", 80, WHITE, alpha=seg(s, 0, 0.4))
+    underline(cv, CY - 40, "DRONE WAR DECODED", 80, seg(s, 0.2, 0.7))
+    cv.text((CX, CY + 40), sub, 38, ORANGE, alpha=seg(s, 0.6, 0.4))
+
+
+def title(cv, s, T, ph=0):
+    title_card(cv, s, "EP01  ·  REACHING MOSCOW", "radar")
 
 
 # ---------------- background ----------------
@@ -179,6 +264,7 @@ def toy_vs_plane(cv, s, T, ph=0):
 
 
 def names(cv, s, T, ph=0):
+    backdrop(cv, s, "grid")
     labels = ["LIUTYI", "UJ-22 AIRBORNE", "BOBER", "FP-1"]
     for i, n in enumerate(labels):
         a = seg(s, 0.15 + i * 0.35, 0.3)
@@ -471,6 +557,7 @@ def payload_trade(cv, s, T, ph=0):
 
 
 def range_bars(cv, s, T, ph=0):
+    backdrop(cv, s, "map")
     corner(cv, s, "KNOWN FIGURES")
     cv.text((CX, CY - 120), "PAYLOAD: TENS OF KG", 60, WHITE, alpha=seg(s, 0.1, 0.3))
     cv.text((CX, CY + 20), "RANGE: 100s – 1,500+ KM", 60, ORANGE, alpha=seg(s, 0.6, 0.3))
@@ -478,6 +565,7 @@ def range_bars(cv, s, T, ph=0):
 
 
 def clock(cv, s, T, ph=0):
+    backdrop(cv, s, "grid")
     corner(cv, s, "1,000 KM")
     frac = lerp(5 / 12, 7 / 12, ease_io(clamp(s / max(T - 0.3, 0.5))))
     clock_icon(cv, (CX - 250, CY), 230, frac)
@@ -518,6 +606,7 @@ def earth_los(cv, s, T, ph=0):
 
 
 def ins_title(cv, s, T, ph=0):
+    backdrop(cv, s, "grid+drones")
     cv.text((CX, CY - 60), "METHOD 1", 40, GREY, alpha=seg(s, 0, 0.3))
     cv.text((CX, CY + 40), "INERTIAL NAVIGATION", 100, WHITE, alpha=seg(s, 0.15, 0.4))
     for i in range(int(6 * seg(s, 0.3, 1.0))):
@@ -831,6 +920,7 @@ WEAK = ("SLOW", "LOUD", "VISIBLE ON RADAR", "SMALL WARHEAD")
 
 
 def weak(cv, s, T, ph=0):
+    backdrop(cv, s, "radar")
     corner(cv, s, "WEAKNESSES")
     if ph < 0:
         cv.text((CX, CY - 40), "BUT…", 160, ORANGE, alpha=seg(s, 0.05, 0.3))
@@ -869,6 +959,7 @@ def counters(cv, s, T, ph=0):
 
 
 def question(cv, s, T, ph=0):
+    backdrop(cv, s, "grid")
     drone_side(cv, (520, CY), 0.9, prop_spin=s * 20)
     cv.arrow((680, CY), (820, CY), 4, GREY, seg(s, 0.1, 0.4))
     cv.text((CX, CY), "?", 200, ORANGE, alpha=seg(s, 0.4, 0.3))
@@ -879,6 +970,7 @@ def question(cv, s, T, ph=0):
 
 
 def ep2(cv, s, T, ph=0):
+    backdrop(cv, s, "jets")
     cv.text((CX, 200), "NEXT  ·  EP02  ·  FASTER THAN DEFENSE", 40, ORANGE, alpha=seg(s, 0, 0.3))
     labels = ["PALIANYTSIA", "PEKLO", "FLAMINGO"]
     for i, n in enumerate(labels):
@@ -889,11 +981,8 @@ def ep2(cv, s, T, ph=0):
 
 
 def endcard(cv, s, T, ph=0):
-    cv.text((CX, CY - 100), "DRONE WAR DECODED", 80, WHITE, alpha=seg(s, 0, 0.4))
-    p = seg(s, 0.2, 0.7)
-    cv.line([(CX - 420 * p, CY - 10), (CX + 420 * p, CY - 10)], 4, ORANGE)
-    cv.text((CX, CY + 60), "NEXT  ·  EP02  ·  FASTER THAN DEFENSE", 38, ORANGE, alpha=seg(s, 0.6, 0.4))
+    end_card(cv, s, "NEXT  ·  EP02  ·  FASTER THAN DEFENSE", "jets")
 
 
 SCENES = {k: v for k, v in globals().items() if callable(v) and not k.startswith("_") and k not in (
-    "corner", "clamp", "ease", "ease_io", "seg", "lerp", "lerp_pt")}
+    "corner", "underline", "backdrop", "title_card", "end_card", "clamp", "ease", "ease_io", "seg", "lerp", "lerp_pt")}

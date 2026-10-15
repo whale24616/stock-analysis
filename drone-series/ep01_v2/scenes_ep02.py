@@ -4,7 +4,7 @@ import random
 
 from gfx import (DIM, GREY, ORANGE, RED, WHITE, car_icon, check, clamp, clock_icon, cross, drone_side, ease,
                  ease_io, jet_icon, lerp, lerp_pt, missile_icon, satellite_icon, seg, speedometer, tower_icon)
-from scenes import CX, CY, corner
+from scenes import BG_O, CX, CY, backdrop, corner, end_card, title_card
 
 
 def jet_drone(cv, c, s=1.0, col=WHITE, w=5, flip=False, flame=0.0):
@@ -56,6 +56,7 @@ def e2_radar_fast(cv, s, T, ph=0):
 
 
 def e2_seconds(cv, s, T, ph=0):
+    backdrop(cv, s, "radar")
     corner(cv, s, "TIME TO REACT")
     t = max(0.0, 20 - s * 4)
     cv.text((CX - 300, CY - 20), "MINUTES", 60, GREY)
@@ -64,6 +65,7 @@ def e2_seconds(cv, s, T, ph=0):
 
 
 def e2_like_drone(cv, s, T, ph=0):
+    backdrop(cv, s, "grid")
     items = ("BUILT LIKE A DRONE", "LAUNCHED LIKE A DRONE", "FAR CHEAPER THAN A CRUISE MISSILE")
     for i, it in enumerate(items):
         a = seg(s, 0.2 + i * 0.5, 0.3)
@@ -87,11 +89,7 @@ def e2_intro(cv, s, T, ph=0):
 
 
 def e2_title(cv, s, T, ph=0):
-    p = seg(s, 0, 0.7)
-    cv.line([(CX - 520 * p, CY - 90), (CX + 520 * p, CY - 90)], 4, ORANGE)
-    cv.text((CX, CY), "DRONE WAR DECODED", 110, WHITE, alpha=seg(s, 0.2, 0.5))
-    cv.text((CX, CY + 110), "EP02  ·  FASTER THAN DEFENSE", 46, ORANGE, alpha=seg(s, 0.6, 0.5))
-    cv.line([(CX - 520 * p, CY + 170), (CX + 520 * p, CY + 170)], 4, ORANGE)
+    title_card(cv, s, "EP02  ·  FASTER THAN DEFENSE", "jets")
 
 
 # ---------------- background ----------------
@@ -122,6 +120,7 @@ def e2_strike_map(cv, s, T, ph=0):
 
 
 def e2_term(cv, s, T, ph=0):
+    backdrop(cv, s, "jets")
     cv.text((CX, CY - 40), "MISSILE-DRONE", 120, WHITE, alpha=seg(s, 0.1, 0.4))
     cv.text((CX, CY + 80), "“RAKETA-DRON”", 44, ORANGE, alpha=seg(s, 0.6, 0.4))
 
@@ -146,8 +145,22 @@ def e2_cards(cv, s, T, ph=0):
             cv.tag((x, CY + h + 50), tag, 22, alpha=a)
 
 
+def _doc(cv, s):
+    """Faint spec sheet with a magnifier drifting over it (background for the caveat cards)."""
+    col = (44, 44, 44)
+    for k, (x, y) in enumerate(((200, 290), (1720, 310))):
+        cv.rect((x - 150, y - 190, x + 150, y + 190), 3, col, radius=10)
+        for i in range(8):
+            cv.line([(x - 110, y - 140 + i * 40), (x + (110 if i % 3 else 40), y - 140 + i * 40)], 3, col)
+        m = (x + 60 * math.sin(s * 0.8 + k), y + 40 * math.cos(s * 0.6 + k))
+        cv.circle(m, 60, 4, BG_O)
+        cv.line([(m[0] + 42, m[1] + 42), (m[0] + 100, m[1] + 100)], 7, BG_O)
+
+
 def e2_caution(cv, s, T, ph=0):
+    backdrop(cv, s, "grid")
     corner(cv, s, "A CAVEAT")
+    _doc(cv, s)
     if ph == 0:
         cv.text((CX, CY - 20), "!", 260, ORANGE, alpha=seg(s, 0, 0.2))
         return
@@ -210,6 +223,33 @@ def e2_prop_vs_jet(cv, s, T, ph=0):
 STAGES = [("COMPRESSOR", 560, 820), ("COMBUSTION", 820, 1080), ("TURBINE", 1080, 1260), ("NOZZLE", 1260, 1460)]
 
 
+def _rotor_side(cv, x, y, R, ang, col, lean, n=8):
+    """Bladed disc seen edge-on: blades sweep up and down as it turns; blades on the far side are dimmed."""
+    for i in range(n):
+        a = ang + 2 * math.pi * i / n
+        h = R * math.sin(a)
+        if abs(h) < 12:
+            continue
+        near = math.cos(a) > 0
+        c = col if near else tuple(int(v * 0.35) for v in col)
+        cv.line([(x, y - h), (x + lean, y - math.copysign(10, h))], 4 if near else 3, c)
+
+
+def _rotor_face(cv, c, R, ang, col, label):
+    """Front view of the same rotor, spinning (inset)."""
+    cv.circle(c, R, 4, col)
+    cv.circle(c, 14, 4, col)
+    for i in range(9):
+        a = ang + 2 * math.pi * i / 9
+        pts = []
+        for j in range(6):
+            r = lerp(16, R - 6, j / 5)
+            aa = a + 0.5 * j / 5
+            pts.append((c[0] + r * math.cos(aa), c[1] + r * math.sin(aa)))
+        cv.line(pts, 3, col)
+    cv.text((c[0], c[1] + R + 34), label, 22, col)
+
+
 def e2_turbojet(cv, s, T, ph=0):
     """Cut-away turbojet. ph 0 = overview, 1 compressor, 2 combustion, 3 turbine, 4 shaft, 5 nozzle."""
     corner(cv, s, "TURBOJET")
@@ -219,17 +259,15 @@ def e2_turbojet(cv, s, T, ph=0):
     cv.line(top, 6, WHITE)
     cv.line(bot, 6, WHITE)
     cv.line([(560, y), (1260, y)], 8 if ph == 4 else 4, ORANGE if ph == 4 else GREY)
-    for k in range(5):  # compressor blades
-        x = 580 + k * 48
-        h = 140 - k * 10
-        col = ORANGE if ph == 1 else WHITE
-        cv.line([(x, y - h), (x + 18, y - 10)], 4, col)
-        cv.line([(x, y + h), (x + 18, y + 10)], 4, col)
-    for k in range(3):  # turbine blades
-        x = 1110 + k * 50
-        col = ORANGE if ph in (3, 4) else WHITE
-        cv.line([(x, y - 120), (x - 18, y - 10)], 4, col)
-        cv.line([(x, y + 120), (x - 18, y + 10)], 4, col)
+    spin = s * 6.0  # compressor and turbine share the shaft, so they turn together
+    for k in range(5):  # compressor stages
+        _rotor_side(cv, 580 + k * 48, y, 140 - k * 10, spin + k * 0.3, ORANGE if ph in (1, 4) else WHITE, 18)
+    for k in range(3):  # turbine stages
+        _rotor_side(cv, 1110 + k * 50, y, 120, spin + k * 0.3, ORANGE if ph in (3, 4) else WHITE, -18)
+    if ph in (1, 4):
+        _rotor_face(cv, (300, y - 250), 85, spin, ORANGE, "COMPRESSOR")
+    if ph in (3, 4):
+        _rotor_face(cv, (1650, y - 250), 85, spin, ORANGE, "TURBINE")
     cv.rect((860, y - 110, 1040, y - 40), 4, ORANGE if ph == 2 else GREY, radius=20)
     cv.rect((860, y + 40, 1040, y + 110), 4, ORANGE if ph == 2 else GREY, radius=20)
     rnd = random.Random(1)
@@ -258,6 +296,74 @@ def e2_turbojet(cv, s, T, ph=0):
         cv.text((930, y - 250), "TURBINE DRIVES COMPRESSOR", 26, ORANGE, alpha=seg(s, 0.5, 0.3))
     if ph == 5:
         cv.arrow((1500, y), (1760, y), 8, ORANGE, seg(s, 0.1, 0.4), 28)
+
+
+def _balloon_state(t, T):
+    """Position, heading and radius of the released balloon at time t (deterministic, so the
+    exhaust trail can be drawn from past states)."""
+    t0 = 0.9  # held, fully inflated, until released
+    if t <= t0:
+        return (420, CY + 40), 0.0, 120.0
+    u = clamp((t - t0) / max(T - t0 - 0.4, 1.5))
+
+    def pos(v):
+        return (lerp(420, 1820, ease(v) * 0.55 + v * 0.45), CY + 40 - 120 * v + 70 * math.sin(v * 11) * v)
+
+    (x, y), (x2, y2) = pos(u), pos(min(u + 0.01, 1.0) if u < 1 else u)
+    if u >= 1:
+        (x2, y2), (x, y) = pos(1.0), pos(0.99)
+        x, y, x2, y2 = x2, y2, 2 * x2 - x, 2 * y2 - y
+    return (x, y), math.atan2(y2 - y, x2 - x), lerp(120, 42, u)
+
+
+def e2_balloon(cv, s, T, ph=0):
+    """Balloon released: air rushes out the back, the balloon shoots forward and shrinks."""
+    backdrop(cv, s, "grid")
+    (x, y), a, R = _balloon_state(s, T)
+    ca, sa = math.cos(a), math.sin(a)
+
+    def P(u, v):  # balloon-local (u forward, v sideways) -> screen
+        return (x + u * ca - v * sa, y + u * sa + v * ca)
+
+    # exhaust: puffs emitted at earlier moments, drifting backwards from where the nozzle was
+    if s > 0.9:
+        for k in range(1, 22):
+            te = s - k * 0.06
+            if te <= 0.9:
+                break
+            (px, py), pa, pr = _balloon_state(te, T)
+            age = s - te
+            d = pr * 1.25 + 30 + 500 * age
+            q = (px - d * math.cos(pa) + 18 * math.sin(k * 2.1), py - d * math.sin(pa) + 18 * math.cos(k * 1.7))
+            col = tuple(int(v * (1 - k / 22)) for v in WHITE)
+            cv.circle(q, 6 + 14 * age, 3, col)
+        # dashed trail of the path
+        trail = [_balloon_state(te, T)[0] for te in [0.9 + (s - 0.9) * i / 30 for i in range(31)]]
+        cv.dashed(trail, 3, DIM, offset=-s * 40)
+    # body: slightly pear-shaped, nozzle at the back
+    pts = []
+    for i in range(41):
+        th = 2 * math.pi * i / 40
+        rr = R * (1 + 0.12 * math.cos(th))
+        pts.append(P(rr * 1.1 * math.cos(th), rr * math.sin(th)))
+    wob = 0.06 * R * math.sin(s * 30) if s > 0.9 else 0
+    pts = [(px + wob * math.sin(i), py) for i, (px, py) in enumerate(pts)]
+    cv.poly(pts, fill=(60, 34, 12), col=ORANGE, w=5)
+    cv.line([P(R * 0.35, -R * 0.45), P(R * 0.6, -R * 0.15)], 5, (255, 200, 150))  # highlight
+    neck = [P(-R * 0.95, -12), P(-R * 0.95 - 26, -16), P(-R * 0.95 - 26, 16), P(-R * 0.95, 12)]
+    cv.line(neck, 4, ORANGE)
+    if s <= 0.9:  # fingers pinching the neck
+        n = P(-R * 0.95 - 34, 0)
+        cv.line([(n[0] - 10, n[1] - 40), (n[0] + 4, n[1] - 6)], 7, WHITE)
+        cv.line([(n[0] - 10, n[1] + 40), (n[0] + 4, n[1] + 6)], 7, WHITE)
+        cv.line([(n[0] - 10, n[1] - 40), (n[0] - 140, n[1] - 70)], 7, WHITE)
+        cv.line([(n[0] - 10, n[1] + 40), (n[0] - 140, n[1] + 60)], 7, WHITE)
+        return
+    if s > 1.2:
+        cv.arrow(P(-R * 1.2 - 60, 0), P(-R * 1.2 - 230, 0), 5, WHITE, seg(s, 1.2, 0.3), 20)
+        cv.arrow(P(R * 1.2 + 30, 0), P(R * 1.2 + 200, 0), 6, ORANGE, seg(s, 1.4, 0.3), 24)
+    cv.text((560, 220), "AIR RUSHES OUT ←", 34, WHITE, alpha=seg(s, 1.3, 0.3))
+    cv.text((1360, 220), "→ BALLOON SHOOTS FORWARD", 34, ORANGE, alpha=seg(s, 1.7, 0.3))
 
 
 def e2_newton(cv, s, T, ph=0):
@@ -340,6 +446,11 @@ def e2_range_bars(cv, s, T, ph=0):
 
 def e2_word(cv, s, T, ph=0):
     word = {0: "SPEED", 1: "KEY IDEA", 2: "QUICK MATH", 3: "KEY POINT", 4: "CHEAP MISSILE"}[ph]
+    backdrop(cv, s, {0: "jets", 1: "radar", 2: "grid", 3: "radar", 4: "jets"}[ph])
+    if ph == 2:
+        for i, tok in enumerate(("4 KM", "÷", "150 KM/H", "=", "95 s", "4 KM", "÷", "700 KM/H", "=", "20 s")):
+            x, y = 260 + (i % 5) * 350, (230 if i < 5 else 720)
+            cv.text((x, y - s * 6), tok, 44, (52, 52, 52))
     sc = 1 + 0.25 * (1 - seg(s, 0, 0.35))
     cv.text((CX, CY), word, int(150 * sc), ORANGE)
 
@@ -443,6 +554,7 @@ def e2_lead(cv, s, T, ph=0):
 
 
 def e2_key(cv, s, T, ph=0):
+    backdrop(cv, s, "grid")
     if ph == 0:
         cv.text((CX, CY - 40), "NOT INVISIBLE", 90, WHITE, alpha=seg(s, 0.1, 0.3))
         cv.circle((CX, CY + 120), 40, 5, WHITE)
@@ -539,6 +651,7 @@ def e2_rail(cv, s, T, ph=0):
 # ---------------- limits ----------------
 
 def e2_limits(cv, s, T, ph=0):
+    backdrop(cv, s, "radar")
     corner(cv, s, "LIMITS")
     items = ("1. COST", "2. RANGE", "3. HEAT · NOISE · RADAR")
     for i, it in enumerate(items):
@@ -607,10 +720,7 @@ def e2_recap(cv, s, T, ph=0):
 
 
 def e2_endcard(cv, s, T, ph=0):
-    cv.text((CX, CY - 100), "DRONE WAR DECODED", 80, WHITE, alpha=seg(s, 0, 0.4))
-    p = seg(s, 0.2, 0.7)
-    cv.line([(CX - 420 * p, CY - 10), (CX + 420 * p, CY - 10)], 4, ORANGE)
-    cv.text((CX, CY + 60), "NEXT  ·  EP03  ·  THE $500 KILLER", 38, ORANGE, alpha=seg(s, 0.6, 0.4))
+    end_card(cv, s, "NEXT  ·  EP03  ·  THE $500 KILLER", "drones")
 
 
 SCENES = {k: v for k, v in globals().items() if k.startswith("e2_") and callable(v)}

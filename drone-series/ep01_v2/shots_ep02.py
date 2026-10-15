@@ -55,7 +55,7 @@ SHOTS = [
     dict(at="셋째, 그 뜨거운", kind=L, scene="e2_turbojet", ph=3),
     dict(at="터빈은 앞의", kind=L, scene="e2_turbojet", ph=4),
     dict(at="넷째, 남은 힘은", kind=L, scene="e2_turbojet", ph=5),
-    dict(at="풍선을 불었다가", kind=P, img="e2_08_balloon", move="right"),
+    dict(at="풍선을 불었다가", kind=L, scene="e2_balloon"),
     dict(at="가스를 뒤로 밀면", kind=L, scene="e2_newton"),
     dict(at="이런 작은 제트 엔진은", kind=P, img="e2_09_target_drone", move="in"),
     dict(at="작고 단순하면서도", kind=L, scene="e2_small_strong"),
