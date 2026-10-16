@@ -17,9 +17,12 @@ WHITE = (245, 245, 240)
 W, H = 1280, 720
 
 EPISODES = [
-    dict(ep=1, img="p14_swarm", side="left", lines=["값싼 드론이", "모스크바까지"], sub="1,000km를 혼자 날아가는 비밀"),
-    dict(ep=2, img="e2_03_jet_climb", side="left", lines=["시속 700km", "미사일-드론"], sub="방공보다 빠르게"),
-    dict(ep=3, img="e3_01_pilot_goggles", side="right", lines=["400달러로", "전쟁을 바꾸다"], sub="FPV 드론의 모든 것"),
+    dict(ep=1, img="p14_swarm", side="left", lines=["값싼 드론이", "모스크바까지"], sub="1,000km를 혼자 날아가는 비밀",
+         tag="2026 실제 전장 · 러시아 본토 타격 전술"),
+    dict(ep=2, img="e2_03_jet_climb", side="left", lines=["시속 700km", "미사일-드론"], sub="방공보다 빠르게",
+         tag="2026 실제 전장 · 방공 돌파 전술"),
+    dict(ep=3, img="e3_01_pilot_goggles", side="right", lines=["400달러로", "전쟁을 바꾸다"], sub="FPV 드론의 모든 것",
+         tag="2026 실제 전장 · FPV 공격 전술"),
 ]
 
 
@@ -83,8 +86,14 @@ def make(cfg, out_dir):
     d.rounded_rectangle((bx, 52, bx + bw, 112), radius=8, fill=ORANGE)
     d.text((bx + 18, 84), ep, font=fb, fill=(10, 10, 10), anchor="lm")
     draw_words(d, (bx + bw + 18, 68), brand, fbr, WHITE)
+    # "real battlefield" tag in red
+    ft = font(36)
+    tw_ = words_width(d, cfg["tag"].split(), ft, ft.size * 0.28)
+    tx0 = x - tw_ - 36 if right else x
+    d.rounded_rectangle((tx0, 134, tx0 + tw_ + 36, 190), radius=8, fill=(214, 40, 40))
+    draw_words(d, (tx0 + 18, 143), cfg["tag"], ft, WHITE)
     # headline
-    y = 210
+    y = 228
     for i, line in enumerate(cfg["lines"]):
         f = fit(d, line, 150, max_w)
         draw_words(d, (x, y), line, f, ORANGE if i else WHITE, stroke=8, anchor_right=right)
