@@ -169,6 +169,25 @@ def build_timeline_audio(sents, timing):
 
 # ---------------- subtitles ----------------
 
+FORWARD_MODIFIERS = set("한두세네몇큰새첫각약총단이그저전매온")  # one-syllable words that belong to the NEXT word
+BOUND_NOUNS = set("수데번것줄개대초분년곳")  # one-syllable words that belong to the PREVIOUS word
+
+
+def _cut_ok(p, cut):
+    """A line break at p[cut] (a space) is fine unless it strands a one-syllable word on the wrong side."""
+    before = p[:cut].split()[-1] if p[:cut].split() else ""
+    after = p[cut:].split()[0] if p[cut:].split() else ""
+    if before.endswith(","):
+        return True
+    if len(before) == 1 and before in FORWARD_MODIFIERS:  # "크게 세 / 가지로"
+        return False
+    if after.rstrip(",.") in BOUND_NOUNS:  # "쏠 / 수 있고", "지나는 / 데", "수천 / 번"
+        return False
+    if before in BOUND_NOUNS:  # "쏠 수 / 있고"
+        return False
+    return True
+
+
 def chunks(text, maxlen=None):
     maxlen = maxlen or (26 if LANG == "ko" else 44)
     """Split a sentence into display chunks at commas/spaces, each <= maxlen chars."""
@@ -178,12 +197,9 @@ def chunks(text, maxlen=None):
     out = []
     for p in parts:
         while len(p) > maxlen:
-            cut = p.rfind(" ", 0, maxlen)
-            cut = cut if cut > maxlen // 2 else maxlen
-            # don't leave a one-syllable modifier dangling at the end ("크게 세 / 가지로" -> "크게 / 세 가지로")
-            prev = p.rfind(" ", 0, cut)
-            if p[cut - 1] != "," and cut - prev - 1 == 1 and prev > maxlen // 3:
-                cut = prev
+            spaces = [i for i, ch in enumerate(p[:maxlen + 1]) if ch == " " and i > maxlen // 3]
+            good = [i for i in spaces if _cut_ok(p, i)]
+            cut = (good or spaces or [maxlen])[-1]
             out.append(p[:cut].strip())
             p = p[cut:].strip()
         if out and len(out[-1]) + len(p) + 1 <= maxlen:
