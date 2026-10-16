@@ -2,20 +2,21 @@
 
 ## 제목 (추천 1개 + 대안 2개)
 
-**추천:** 시속 700km, 방공을 앞지르는 '미사일-드론' | 제트 드론의 원리 [Drone War Decoded EP02]
+**추천:** [실전] 시속 700km 우크라이나 '미사일-드론', 방공을 이렇게 뚫는다 | 2026 공격 전술 | Drone War Decoded EP02
 
 대안:
 
-- 드론인가 미사일인가? 우크라이나 제트 드론 팔랴니챠·페클로·플라밍고 [EP02]
-- 빠르면 막을 시간이 사라진다 | 제트 엔진 드론 해부 [EP02]
+- [실전] 드론인가 미사일인가? 우크라이나 제트 드론 팔랴니챠·페클로·플라밍고 | EP02
+- [실전] 빠르면 막을 시간이 사라진다, 우크라이나 제트 드론 전술 | EP02
 
 ## 섬네일
-- 파일: `EP02_thumbnail_KO.jpg` (1280×720) — https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/a0e07e2e-965f-4799-afe4-655698671267.jpg
-- 문구: 시속 700km / 미사일-드론 / 방공보다 빠르게
+- 파일: `EP02_thumbnail_KO.jpg` (1280×720) — https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/5428cf70-1356-4af7-a33d-ecd82580445e.jpg
+- 문구: [2026 우크라이나 실전 · 방공 돌파 전술] 시속 700km / 미사일-드론 / 방공보다 빠르게
 
-## 설명 (아래 상자 전체를 복사해 붙여 넣기, 4,884자 / 한도 5,000자)
+## 설명 (아래 상자 전체를 복사해 붙여 넣기, 4,827자 / 한도 5,000자)
 
 ```
+2026년 지금, 우크라이나가 실제 전장에서 러시아 무기 공장을 공격할 때 쓰는 제트 '미사일-드론' 전술을 실제 사례와 출처로 풀어 봅니다.
 레이더 위를 기어가던 점이 이제는 순식간에 화면을 가로지릅니다. 우크라이나가 꺼낸 제트 엔진 '미사일-드론' 이야기입니다.
 터보제트 엔진은 어떻게 움직이는지, 연료를 더 먹는데도 왜 속도를 택했는지, 속도가 방공의 '막을 시간'을 어떻게 줄이는지, 그리고 드론과 순항미사일의 경계까지 쉽게 풀어 봅니다.
 
@@ -71,15 +72,15 @@
 · EDR Magazine (2025-11) https://www.edrmagazine.eu/dubai-airshow-2025-uec-unveils-its-first-small-size-turbojet-engines-for-uavs-and-cruise-missiles
 · University of Colorado Boulder https://www.colorado.edu/aerospace/sites/default/files/attached-files/reaper_aiaa.pdf
 · Aerospace Technic and Technology (DOAJ) (2023-08) https://doaj.org/article/696c15397bc74897916882df007c1eb5
-· Euromaidan Press (2025-09-02) https://euromaidanpress.com/2025/09/02/ukraine-unveils-upgraded-palianytsia-drone-that-can-reach-targets-650-km-into-russia
-· 외 18건은 고정 댓글에 있습니다.
+· 외 19건은 고정 댓글에 있습니다.
 
-#드론 #우크라이나 #제트엔진 #순항미사일 #플라밍고 #방공 #군사 #과학 #DroneWarDecoded
+#우크라이나드론 #실전 #드론전술 #드론 #우크라이나 #제트엔진 #순항미사일 #플라밍고 #방공 #군사 #과학 #DroneWarDecoded
 ```
 
 ## 고정 댓글용 나머지 출처
 
 ```
+· Euromaidan Press (2025-09-02) https://euromaidanpress.com/2025/09/02/ukraine-unveils-upgraded-palianytsia-drone-that-can-reach-targets-650-km-into-russia
 · Wikipedia https://en.wikipedia.org/wiki/ZU-23-2
 · GulfLink (U.S. DoD) https://gulflink.health.mil/irfna/irfna_refs/n28en143/airdef.html
 · United24 Media https://united24media.com/war-in-ukraine/ukraines-flamingo-cruise-missile-costs-just-600k-six-times-cheaper-than-a-tomahawk-21122

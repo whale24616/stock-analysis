@@ -2,20 +2,21 @@
 
 ## 제목 (추천 1개 + 대안 2개)
 
-**추천:** 값싼 드론이 어떻게 모스크바까지 날아갈까? | 장거리 드론의 비밀 [Drone War Decoded EP01]
+**추천:** [실전] 우크라이나 드론은 어떻게 모스크바까지 날아갈까? 2026 장거리 타격 전술 해부 | Drone War Decoded EP01
 
 대안:
 
-- 오토바이 엔진 단 드론이 1,000km를 나는 법 | 우크라이나 장거리 드론 해부 [EP01]
-- 조종사 없이 모스크바까지 | 우크라이나 장거리 드론의 원리 [EP01]
+- [실전] 오토바이 엔진 단 우크라이나 드론이 러시아 정유 공장을 때리는 법 | EP01
+- [실전] 조종사 없이 1,000km, 우크라이나 장거리 드론 공격 전술 | EP01
 
 ## 섬네일
-- 파일: `EP01_thumbnail_KO.jpg` (1280×720) — https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/03b8f335-3a8e-4c68-be67-3a2c2c6e94a0.jpg
-- 문구: 값싼 드론이 / 모스크바까지 / 1,000km를 혼자 날아가는 비밀
+- 파일: `EP01_thumbnail_KO.jpg` (1280×720) — https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/19c37a01-90ac-4a64-b208-447f99c23245.jpg
+- 문구: [2026 우크라이나 실전 · 러시아 본토 타격] 값싼 드론이 / 모스크바까지 / 1,000km를 혼자 날아가는 비밀
 
-## 설명 (아래 상자 전체를 복사해 붙여 넣기, 4,897자 / 한도 5,000자)
+## 설명 (아래 상자 전체를 복사해 붙여 넣기, 4,827자 / 한도 5,000자)
 
 ```
+2026년 지금, 우크라이나가 실제 전장에서 쓰고 있는 장거리 드론 공격 전술을 실제 사례와 출처로 풀어 봅니다.
 밤하늘에 낮게 울리는 엔진 소리. 2026년, 우크라이나의 장거리 드론은 모스크바와 시베리아의 정유 공장까지 닿고 있습니다.
 값싼 프로펠러 드론이 어떻게 1,000km 넘게 혼자 날아가 목표를 찾을까요? 날개와 엔진, 항법, 방공망을 피하는 전략, 그리고 그 결과와 약점까지 쉽게 풀어 봅니다.
 
@@ -71,15 +72,15 @@
 · CSIS https://www.csis.org/analysis/calculating-cost-effectiveness-russias-drone-strikes
 · CSIS https://www.csis.org/analysis/drone-saturation-russias-shahed-campaign
 · CNBC (2026-03-05) https://www.cnbc.com/2026/03/05/iran-shahed-136-drone-cost-air-defense-gulf-war-us-israel-gulf-scorpion-strike-centcom.html
-· NV (citing ISW) (2024-03) https://english.nv.ua/amp/isw-russia-forms-mobile-fire-groups-similar-to-ukrainian-tactical-mobile-fire-groups-50405893.html
-· 외 6건은 고정 댓글에 있습니다.
+· 외 7건은 고정 댓글에 있습니다.
 
-#드론 #우크라이나 #러시아 #장거리드론 #모스크바 #전쟁 #군사 #과학 #DroneWarDecoded
+#우크라이나드론 #실전 #드론전술 #드론 #우크라이나 #러시아 #장거리드론 #모스크바 #전쟁 #군사 #과학 #DroneWarDecoded
 ```
 
 ## 고정 댓글용 나머지 출처
 
 ```
+· NV (citing ISW) (2024-03) https://english.nv.ua/amp/isw-russia-forms-mobile-fire-groups-similar-to-ukrainian-tactical-mobile-fire-groups-50405893.html
 · Ukrainska Pravda (2026-04-08) https://www.pravda.com.ua/eng/news/2026/04/08/8029225
 · TASS https://tass.com/defense/2157477
 · IISS (2026-03) https://www.iiss.org/globalassets/media-library---content--migration/files/publications---free-files/strategic-dossier/uavs-2026/iiss_uavs-isr-deterrence-and-war_032026.pdf
