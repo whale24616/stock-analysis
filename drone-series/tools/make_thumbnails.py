@@ -79,7 +79,7 @@ def make(cfg, out_dir):
     ep = f"EP{cfg['ep']:02d}"
     fb = font(40)
     bw = d.textlength(ep, font=fb) + 36
-    brand = "DRONE WAR DECODED"
+    brand = "드론 전쟁 해부"
     fbr = font(30)
     brw = words_width(d, brand.split(), fbr, fbr.size * 0.28)
     bx = x - (bw + 18 + brw) if right else x
