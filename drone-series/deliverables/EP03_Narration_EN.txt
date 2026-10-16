@@ -1,0 +1,126 @@
+So far, we've looked at drones that fly hundreds, even thousands of kilometres.
+This time, it's a small drone that flies only a few kilometres.
+A drone about the size of two palms races low and fast across a field.
+The pilot sits in a trench a few kilometres away, wearing goggles.
+Whatever the drone's camera sees, the pilot sees too.
+Ten years ago, machines like this were hobby racers zipping around gym halls.
+Today, they're one of the most common weapons on Ukraine's front line.
+One costs about 400 dollars, roughly the price of a smartphone.
+And the newest ones unspool a hair-thin glass thread behind them as they fly.
+It's a link that radio jamming can't cut.
+Today, let's break down, simply, how FPV drones work and why they changed the face of war.
+
+In the first year of the war, small drones were mostly eyes.
+Store-bought camera drones found the enemy and told the artillery where to fire.
+But both sides began running short of shells.
+So soldiers asked a simple question.
+What if the drone itself were the weapon?
+The answer came from an unexpected place: hobby drone racing.
+Racers wear goggles and fly small, nimble drones as if they were sitting inside them.
+FPV stands for first-person view, seeing through your own eyes.
+Through 2023 and 2024, FPV drones turned the area around the front into a space that is watched all the time.
+Soldiers call it the kill zone.
+In May 2026, the commander of Ukraine's drone forces said this kill zone had grown to more than 25 kilometres on each side of the front.
+To understand how that happened, we first need to look inside the drone.
+
+An FPV drone's skeleton is almost the same as a racing drone's.
+Four arms, four propellers and one battery, and that's nearly it.
+The body is usually made of carbon fibre.
+It's light, stiff and cheap to make.
+A stiff body shakes less, and less shaking keeps the sensors from getting confused.
+At the end of each arm, a small electric motor spins tens of thousands of times a minute.
+Each motor has a small controller that feeds it power in exactly the right order.
+It's like pushing a swing at just the right moment, thousands of times a second.
+The brain is a small circuit board called the flight controller.
+It holds sensors that feel tilting and shaking.
+A drone lifted by four propellers is naturally hard to balance.
+So the flight controller keeps it level by adjusting all four motors hundreds of times a second.
+The pilot chooses the direction, and the computer does the balancing.
+Next come the radio links that act as eyes and ears.
+Video from a tiny camera travels by radio to the pilot's goggles.
+In the other direction, the pilot's finger movements travel to the drone on another radio signal.
+Two radio links, running in opposite directions.
+As we'll see, these two links are exactly the FPV drone's weak point.
+
+So why did hobby parts beat purpose-built military gear?
+The answer is the supply chain.
+Motors, cameras, batteries and circuit boards are made in enormous numbers worldwide, and many of them in China.
+That makes them cheap, standard and easy to swap.
+Ukraine's early production started in garages and apartments.
+Volunteers bought parts with crowdfunded money and assembled the drones themselves.
+Over time, the government set up purchasing schemes and an online marketplace for units, and a domestic parts industry grew.
+The numbers climbed fast.
+Ukraine's Defence Ministry said it supplied about three million FPV drones to the military in 2025.
+That's roughly two and a half times the year before.
+Russia ramped up production in much the same way.
+But a drone is only as good as its pilot.
+Flying FPV is hard.
+You have to handle speed, angle and height all at once.
+So training usually starts on a computer simulator.
+Cheap parts, mass production, and thousands of skilled pilots.
+That's the FPV formula.
+But the formula had one big weakness.
+Radio.
+
+Remember those two radio links from earlier?
+Radio jamming goes after exactly these.
+A jammer doesn't need to be clever.
+It just has to shout louder than the pilot on the channel the drone is listening to.
+Near the target especially, the pilot's signal is at its weakest and the jammer's at its strongest.
+The goggle screen dissolves into snow, and the drone goes astray.
+Analysts believe a large share of FPV drones have been stopped this way.
+The first answer was surprisingly simple.
+Don't use radio at all.
+A fibre-optic drone carries a spool of glass thread as thin as a hair and pays it out behind as it flies.
+Video and commands travel through that thread as light.
+Light inside a thread can't be jammed by radio.
+And because it sends no radio signal, it's also hard to work out where the pilot is.
+Russia used them in combat first, in Kursk in August 2024, and Ukraine soon followed.
+But the thread is also a weakness.
+The spool is heavy, cutting flight time or the load it can carry.
+The thread can snag on trees or power lines.
+And the drone can only fly as far as its thread is long.
+Early on that was about ten kilometres, but 2026 reports say they now reach 30 to 40.
+The second answer is software: AI terminal guidance.
+The pilot picks a target on the screen.
+If the radio drops out at the last moment, the drone's computer keeps following that spot on the screen and finishes the remaining distance by itself.
+It isn't a robot that decides on its own what to attack.
+That decision is still made by a person.
+The machine just holds on after the link is lost.
+
+So how much has this little drone changed the battlefield?
+Ukraine claims that in 2026, most Russian losses, as much as 90 percent or more, are caused by drones.
+However, that figure hasn't been independently verified, and one independent Ukrainian analyst puts it at about 70 to 80 percent.
+The arithmetic is brutal.
+A drone costing a few hundred dollars can stop an armoured vehicle worth millions.
+In July 2026, Ukraine said a roughly 400-dollar FPV drone had hit a Russian attack helicopter.
+The drone's maker puts the helicopter's value at about 19 million dollars.
+This claim, too, hasn't been independently confirmed.
+So near the front, troops now move only at night, in bad weather, or in very small groups.
+Anything seen gets spotted, and anything spotted can be hit within minutes.
+At the other end of the small-drone scale are big bomber drones.
+These six- or eight-rotor drones are called Baba Yaga by Russian soldiers, after a witch from Slavic folk tales.
+They mostly fly at night with thermal cameras, carry far heavier loads than an FPV, and come back to be used again.
+Some also drop supplies to cut-off positions.
+
+That doesn't mean FPV drones can't be stopped.
+The first defences were physical.
+Troops weld wire cages over vehicles and string nets over roads to catch drones before they arrive.
+Some supply routes are reportedly covered by net tunnels for kilometres.
+Jamming still works well against radio-linked drones.
+Now small jammers are fitted to vehicles, and soldiers even carry them.
+At close range, more and more soldiers carry shotguns.
+It's an old answer to small, fast-flying targets.
+And both sides are building interceptor drones.
+Fast drones that hunt other drones in the air.
+We'll cover that in detail in episode nine.
+Every counter brings another counter.
+Jamming led to fibre optics, fibre optics led to nets, and nets lead to the next idea.
+This cycle turns in months, not years.
+
+FPV drones show how a hobby can become a huge industry in wartime.
+And they show how quickly countermeasures follow.
+But drones aren't only changing the fight on land.
+In the Black Sea, Ukraine pushed Russia's Black Sea Fleet far from its ports in Crimea, without a big fleet of its own.
+Next time, we'll look at the weapon that sank ships without a navy: drones on the sea.
+Join us as we see how small boats came to take on warships.
