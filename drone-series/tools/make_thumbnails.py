@@ -80,12 +80,12 @@ def make(cfg, out_dir):
     fb = font(40)
     bw = d.textlength(ep, font=fb) + 36
     brand = "드론 전쟁 해부"
-    fbr = font(30)
+    fbr = font(38)
     brw = words_width(d, brand.split(), fbr, fbr.size * 0.28)
     bx = x - (bw + 18 + brw) if right else x
     d.rounded_rectangle((bx, 52, bx + bw, 112), radius=8, fill=ORANGE)
     d.text((bx + 18, 84), ep, font=fb, fill=(10, 10, 10), anchor="lm")
-    draw_words(d, (bx + bw + 18, 68), brand, fbr, WHITE)
+    draw_words(d, (bx + bw + 18, 64), brand, fbr, WHITE, stroke=3)
     # "real battlefield" tag in red
     ft = fit(d, cfg["tag"], 36, max_w - 36)
     tw_ = words_width(d, cfg["tag"].split(), ft, ft.size * 0.28)
