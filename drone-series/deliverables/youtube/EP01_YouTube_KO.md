@@ -10,7 +10,7 @@
 - [실전] 조종사 없이 1,000km, 우크라이나 장거리 드론 공격 전술 | 드론 전쟁 해부 EP01
 
 ## 섬네일
-- 파일: `EP01_thumbnail_KO.jpg` (1280×720) — https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/19c37a01-90ac-4a64-b208-447f99c23245.jpg
+- 파일: `EP01_thumbnail_KO.jpg` (1280×720) — https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/affb8918-c111-4771-a156-c09641916936.jpg
 - 문구: [2026 우크라이나 실전 · 러시아 본토 타격] 값싼 드론이 / 모스크바까지 / 1,000km를 혼자 날아가는 비밀
 
 ## 설명 (아래 상자 전체를 복사해 붙여 넣기, 4,846자 / 한도 5,000자)

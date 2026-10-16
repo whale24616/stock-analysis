@@ -10,7 +10,7 @@
 - [실전] 빠르면 막을 시간이 사라진다, 우크라이나 제트 드론 전술 | 드론 전쟁 해부 EP02
 
 ## 섬네일
-- 파일: `EP02_thumbnail_KO.jpg` (1280×720) — https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/5428cf70-1356-4af7-a33d-ecd82580445e.jpg
+- 파일: `EP02_thumbnail_KO.jpg` (1280×720) — https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/fb5e3813-b46b-4baf-bb07-f4f84554eef3.jpg
 - 문구: [2026 우크라이나 실전 · 방공 돌파 전술] 시속 700km / 미사일-드론 / 방공보다 빠르게
 
 ## 설명 (아래 상자 전체를 복사해 붙여 넣기, 4,846자 / 한도 5,000자)

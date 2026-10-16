@@ -10,7 +10,7 @@
 - [실전] 전파 방해를 피하는 유리 실, 우크라이나 광섬유 드론 전술 | 드론 전쟁 해부 EP03
 
 ## 섬네일
-- 파일: `EP03_thumbnail_KO.jpg` (1280×720) — https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/b4e74e78-2a75-4c91-b000-d5546a34c728.jpg
+- 파일: `EP03_thumbnail_KO.jpg` (1280×720) — https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/3b80c5c9-2678-46d7-8332-9d183a1f90fb.jpg
 - 문구: [2026 우크라이나 실전 · FPV 공격 전술] 400달러로 / 전쟁을 바꾸다 / FPV 드론의 모든 것
 
 ## 설명 (아래 상자 전체를 복사해 붙여 넣기, 2,884자 / 한도 5,000자)
