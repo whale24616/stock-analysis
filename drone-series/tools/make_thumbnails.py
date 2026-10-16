@@ -12,7 +12,6 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent / "ep01_v2"
 FONT = ROOT / "fonts" / "GmarketSansTTFBold.ttf"
-INTER = ROOT / "fonts" / "Inter-Bold.ttf"
 ORANGE = (255, 138, 31)
 WHITE = (245, 245, 240)
 W, H = 1280, 720
@@ -24,8 +23,8 @@ EPISODES = [
 ]
 
 
-def font(size, path=FONT):
-    return ImageFont.truetype(str(path), size)
+def font(size):
+    return ImageFont.truetype(str(FONT), size)
 
 
 def words_width(d, words, f, gap):
@@ -75,15 +74,15 @@ def make(cfg, out_dir):
     x = W - margin if right else margin
     # series badge
     ep = f"EP{cfg['ep']:02d}"
-    fb = font(40, INTER)
+    fb = font(40)
     bw = d.textlength(ep, font=fb) + 36
     brand = "DRONE WAR DECODED"
-    fbr = font(30, INTER)
-    brw = d.textlength(brand, font=fbr)
+    fbr = font(30)
+    brw = words_width(d, brand.split(), fbr, fbr.size * 0.28)
     bx = x - (bw + 18 + brw) if right else x
     d.rounded_rectangle((bx, 52, bx + bw, 112), radius=8, fill=ORANGE)
-    d.text((bx + 18, 82), ep, font=fb, fill=(10, 10, 10), anchor="lm")
-    d.text((bx + bw + 18, 82), brand, font=fbr, fill=WHITE, anchor="lm")
+    d.text((bx + 18, 84), ep, font=fb, fill=(10, 10, 10), anchor="lm")
+    draw_words(d, (bx + bw + 18, 68), brand, fbr, WHITE)
     # headline
     y = 210
     for i, line in enumerate(cfg["lines"]):
