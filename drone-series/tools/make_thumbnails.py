@@ -25,6 +25,8 @@ EPISODES = [
          tag="2026 우크라이나 실전 · FPV 공격 전술"),
     dict(ep=4, img="e3_34_boat_vs_warship", side="left", lines=["3억 원 보트가", "함대를 밀어냈다"],
          sub="해군 없이 흑해를 바꾼 무인 보트", sub_y=616, tag="2026 우크라이나 실전 · 해상 드론 공격 전술"),
+    dict(ep=5, img="e5_01_roof_opening", side="left", lines=["트럭에 숨긴 드론", "폭격기를 덮치다"],
+         sub="4,000km 밖 기습, 거미줄 작전", tag="우크라이나 실전 · 러시아 공군기지 동시 타격"),
 ]
 
 

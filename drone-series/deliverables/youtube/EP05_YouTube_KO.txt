@@ -1,0 +1,53 @@
+[제목]
+[실전] 트럭에 숨긴 드론이 4,000km 밖 러시아 폭격기를 덮쳤다 | 우크라이나 거미줄 작전 | 드론 전쟁 해부 EP05
+
+[다른 제목 후보]
+- [실전] 나무 집 속 드론 117대, 러시아 공군기지 4곳을 동시에 치다 | 거미줄 작전 | 드론 전쟁 해부 EP05
+- [실전] 날아가지 않고 트럭으로 데려갔다, 우크라이나 거미줄 작전의 모든 것 | 드론 전쟁 해부 EP05
+
+[섬네일]
+(생성 후 링크 기입)
+
+[설명]
+2025년 6월 1일, 우크라이나가 러시아 깊숙한 공군기지 여러 곳을 거의 동시에 공격한 '거미줄 작전'을 공개된 자료와 출처로 풀어 봅니다.
+작은 드론은 수십 킬로미터도 날지 못합니다. 그래서 우크라이나는 드론을 날려 보내는 대신, 나무 집처럼 꾸민 상자에 숨겨 트럭으로 기지 바로 옆까지 데려갔습니다.
+우크라이나 보안국장이 밝힌 준비 과정, 군사 분석 기관 제인스가 분석한 휴대전화망 원격 조종, 우크라이나의 주장과 독립 평가의 차이, 그리고 2026년 지금까지 이어지는 변화까지 쉽게 정리했습니다.
+
+■ 목차
+0:00 일요일 오후의 트럭
+?:?? 닿을 수 없던 폭격기
+?:?? 트로이의 목마: 나무 집 속 드론
+?:?? 수천 km 밖에서 조종하기
+?:?? 여러 기지를 한꺼번에
+?:?? 41대 주장과 독립 평가
+?:?? 2026년, 계속되는 압박
+?:?? 대응과 한계, 다음 편
+
+■ 시리즈 드론 전쟁 해부 (Drone War Decoded)
+우크라이나 전쟁의 드론을 한 편에 하나씩, 원리부터 쉽게 해부합니다.
+1~5편은 우크라이나의 드론 공격, 6~10편은 우크라이나가 러시아 드론을 막는 방법을 다룹니다.
+
+※ 그림은 AI로 만든 일러스트이며 실제 사진이 아닙니다. 내레이션은 AI 음성으로 제작했습니다.
+※ 피해 규모 등 우크라이나 측 발표는 영상에 '주장(CLAIM)'으로 표시했고, 독립 평가(위성사진 분석, 미국 당국자 평가)를 함께 소개했습니다.
+※ 이 영상은 전쟁 속 기술을 이해하기 위한 교육용 해설입니다. 공개 보도만 인용했으며, 무기 제작·운용 정보는 다루지 않습니다.
+
+■ 출처 (2026년 10월 확인)
+· Ukrainska Pravda 2025-06-01 (작전 개요, 18개월 준비, 41대 주장) https://www.pravda.com.ua/eng/news/2025/06/1/7515065/index.amp
+· Wikipedia – Operation Spiderweb https://en.wikipedia.org/wiki/Operation_Spiderweb
+· Kyiv Independent (보안국장 말류크 인터뷰) https://kyivindependent.com/we-went-to-hell-and-back-to-achieve-this-result-sbu-chief-on-ukraines-operation-spiderweb-strike-on-russian-bombers/
+· Kyiv Post (말류크: 준비 과정) https://www.kyivpost.com/amp/post/58051
+· Babel (첼랴빈스크 거점) https://babel.ua/en/news/120508-the-sbu-head-for-the-spider-s-web-operation-ukraine-created-a-covert-enterprise-in-russia-alongside-the-local-fsb
+· Scripps News (트럭 운전사) https://www.scrippsnews.com/investigations/russia-ukraine-war-on-the-ground/operation-spider-web-how-ukraine-rewrote-the-rules-of-drone-warfare
+· Janes (원격 조종 분석, 공격 기지) https://www.janes.com/osint-insights/defence-and-national-security-analysis/operation-spiderweb-ukraine-covert-drone-strike-inside-russia
+· Espreso (70억 달러 추산) https://global.espreso.tv/7-billion-blow-ukraines-sbu-strikes-41-russian-bombers-in-operation-spiders-web
+· The Insider (위성 확인 15대) https://theins.press/en/news/281859
+· The Insider (폭격기 극동 이동) https://theins.press/en/politics/284957
+· RBC-Ukraine (Reuters 인용, 미국 당국자 평가) https://newsukraine.rbc.ua/news/us-intelligence-lowers-estimate-of-russian-1749113060.html
+· Hromadske 2026 (엥겔스 Tu-95MS 타격) https://hromadske.ua/en/war/270107-ukraines-sbu-hits-russian-tu-95ms-strategic-bomber-at-engels-airbase-zelenskyy-says
+· Defence Blog 2026 (두 번째 Tu-95 타격) https://defence-blog.com/ukraine-hits-second-tu-95-bomber-at-russian-airbase/
+· The War Zone 2026-06 (엥겔스 방호 격납고) https://www.twz.com/air/russia-is-building-huge-protective-shelters-for-its-strategic-bombers
+· AP via Boston Globe 2025-11-21 (러시아 휴대전화 인터넷 차단) https://www.bostonglobe.com/2025/11/21/world/russia-cellphone-internet-outages/
+· Human Rights Watch 2026-03-31 https://hrw.org/news/2026/03/31/russia-internet-shutdowns-escalate
+· GlobalSecurity – Geran-2 https://www.globalsecurity.org/military/world/russia/geran-2.html
+
+#우크라이나드론 #실전 #거미줄작전 #OperationSpiderweb #드론전술 #러시아폭격기 #우크라이나 #군사 #드론전쟁해부 #DroneWarDecoded
