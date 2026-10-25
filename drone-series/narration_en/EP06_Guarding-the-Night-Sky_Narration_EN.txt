@@ -1,0 +1,92 @@
+It is the night of October 18th, 2026, in Ukraine.
+Air-raid sirens sound across the cities.
+People head down into metro stations and basements.
+At that moment, hundreds of attack drones are flying in from Russia.
+Ukraine's General Staff said Russia sent 463 attack drones that day.
+And it announced that 418 of them were stopped.
+That is nine out of every ten.
+Behind that number are the people who guarded the sky all night.
+Today, let's look at who guards Ukraine's sky on a night when drones pour in, and how they do it.
+
+First, we need to know the opponent.
+Most of the incoming drones are what Russia calls the Geran, a one-way attack drone.
+It began as an Iranian design called the Shahed.
+Russia brought it in, then started building and modifying it in its own factories in huge numbers.
+It is a small uncrewed aircraft with a triangular wing and a rear propeller that flies itself to set coordinates and crashes into them.
+Its engine sounds like a moped, so Ukrainians know what it is from the sound alone.
+But not everything that flies in is a real attack drone.
+Russia mixes in cheap decoys such as the Gerbera.
+The aim is to confuse air defences and make them waste precious missiles.
+There are reports that some decoys now carry explosives too.
+So the defenders have to deal with all of them, with no time to tell real from fake.
+The drones usually take off from several places after dark and come in from many directions over several hours.
+As we saw in Episode 1, the idea is to swarm in at once and wear the air defences out.
+
+This is where the defenders' dilemma begins.
+One Geran is estimated to cost tens of thousands of dollars.
+A decoy costs about 10,000 dollars, by Ukrainian intelligence estimates.
+A single Patriot interceptor missile, by contrast, costs several million dollars.
+Stopping tens-of-thousands-dollar drones with multi-million-dollar missiles means losing more with every one you stop.
+Let's do the simple math.
+Stopping all 463 drones from that day with Patriot missiles would cost over 1.8 billion dollars in missiles in a single night.
+That is more than 2 trillion Korean won.
+No country could keep that up for weeks of nights like this.
+And missiles have to be saved for deadlier threats such as ballistic missiles.
+So Ukraine's rule is simple.
+Cheap drones get stopped with cheap weapons.
+
+The first people to show that rule in action were the mobile fire teams.
+They mount machine guns or anti-aircraft guns on the back of pickups or old army trucks.
+Then they go out ahead of time and wait where the drones are expected to pass.
+To avoid being spotted, they reportedly switch off their engines and lights and hide in the dark.
+When the alert comes in, they sweep the sky with thermal cameras and searchlights.
+As the sound gets closer, a searchlight catches the drone and the gunner pulls the trigger.
+It is a line of defence built from people, trucks and guns, without expensive equipment.
+But the limits are clear.
+Machine guns can barely reach anything above about 2 kilometres.
+So Russia began flying its drones higher and faster to avoid the fire teams.
+And if a drone shifts its route by just a few kilometres, the ambush comes up empty.
+
+The next layer is anti-aircraft guns.
+The Gepard anti-aircraft tanks sent by Germany find targets with radar and fire twin cannons.
+They are known to be especially reliable against low-flying drones.
+Shoulder-fired anti-aircraft missiles are also used against drones.
+Then come the people in the sky.
+They are the F-16 and Mirage pilots of Ukraine's Air Force.
+The pilots take off in the middle of the night and hunt drones.
+In May 2025, a photo was released of an F-16 returning with only one missile left.
+The Air Force explained that the other five missiles had all hit their targets.
+When the missiles run out, pilots sometimes close in and fire at drones with the cannon.
+But getting close to an exploding drone is dangerous for the pilot too.
+
+Now there is a new hunter in the sky.
+It is the drone that catches drones, the interceptor drone.
+From the ground, a pilot watches a screen and flies a small, fast drone into a Geran.
+An interceptor drone is reported to cost about 1,000 to 2,000 dollars.
+That is a few thousandths of a missile's price.
+Germany agreed to pay for 15,000 interceptor drones for Ukraine's National Guard.
+One report said that in January 2026, interceptor drones accounted for about 70 percent of the Shahed-type drones Ukraine shot down.
+But this figure comes second-hand from one media report and is not an officially confirmed number.
+The FPV piloting skills we saw in Episode 3 are now being used to guard the sky.
+
+All of these people move together like a single net.
+Radar and observation posts report each drone's position and heading.
+Command posts take that information and decide which layer handles which drone.
+Broadly, fighters take the drones coming in from far away, and guns and fire teams take the ones near the cities.
+Interceptor drones fill the gaps in between.
+If a drone gets through one layer, the next one is waiting.
+
+But stopping 418 also means 45 were not stopped.
+After nights like this, cities count the damage.
+Burned apartments, power cuts, shattered windows.
+Ukrainian media pointed out that even a very high interception rate does not guarantee complete safety.
+Every single drone that gets through threatens someone's home and life.
+And Russia keeps changing its drones to break through the defences.
+The biggest change is speed.
+New jet-powered Gerans fly in two to three times faster than the older drones.
+On October 17th, President Zelensky said only about 55 to 60 percent of the jet-powered drones are being shot down.
+That speed is hard to catch for machine guns and propeller interceptor drones alike.
+
+Guarding the night sky is not about one high-tech weapon but about many people stacking defences layer upon layer.
+But when the attacker gets faster, the defence has to get faster too.
+In the next episode, let's look together at jet drones flying in at hundreds of kilometres an hour, and the speed race Ukraine is running to catch them.
