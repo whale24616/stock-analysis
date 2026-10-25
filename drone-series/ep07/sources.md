@@ -1,0 +1,29 @@
+# EP07 「시속 500km, 제트 드론을 잡아라 / Catch the Jet Drone」 출처 (화면 표기 + 유튜브 설명란용)
+
+확인일: 2026-10-25. 격추·생산 수치는 대부분 우크라이나 정부·군·개발자 발표이며, 독립 검증이 없는 내용은 대본과 화면에 '주장/보도'로 밝힌다.
+작업 환경에서 일부 기사 원문을 직접 열 수 없어 검색 결과 요약으로 확인했다. 업로드 전 각 URL을 직접 열어 확인할 것.
+
+| 대본 내용 | 출처 | 화면 표기 |
+|---|---|---|
+| 2026-10-12 페도로우: 새 요격 드론(라사르 그룹)이 며칠 사이 키이우로 향하던 게란-5 2대 격추, 구상→격추 한 달, 현재 사람 조종·AI 자율화 목표, 2026년 말 월 수백 대 | Ukrainska Pravda 2026-10-12 https://www.pravda.com.ua/eng/news/2026/10/12/8057628/ · Euromaidan Press 2026-10-12 https://euromaidanpress.com/2026/10/12/built-by-ukraines-ex-defense-minister-and-unit-that-wrecked-12-billion-of-russian-gear-new-interceptor-downs-two-jet-drones-over-kyiv/ · Janes https://www.janes.com/defence-intelligence-insights/defence-news/air/palantir-to-fund-ukrainian-interceptor-uav-company-targeting-russias-geran-5 | SOURCE: FEDOROV VIA UKRAINSKA PRAVDA, OCT 2026 · CLAIM |
+| 게란-2 약 185km/h, 게란-5 450~600km/h(우크라이나 정보총국), 곧은 날개·원통형 몸통, 중국산 소형 제트 엔진 | RBC-Ukraine https://newsukraine.rbc.ua/news/ukraine-reveals-russia-s-new-geran-5-jet-1768813778.html · drone-warfare.com https://drone-warfare.com/research/geran-5/ · Raksha Anirveda https://raksha-anirveda.com/russian-geran-3-armed-drones-in-multiple-attacks-tests-ukrainian-air-defence-systems | SOURCE: UKRAINE HUR VIA RBC-UKRAINE, 2026 |
+| 제트 드론 공격 6월 약 350대 → 8월 약 2,800대 | Defence Blog https://defence-blog.com/ukraine-faces-8x-more-jet-powered-russian-drones-than-last-year/ · DroneXL/Censor (Zelensky) | REPORTED |
+| 10km 거리 기준 도착 시간 계산 | 단순 계산(185km/h → 3.2분, 500km/h → 1.2분) | CALCULATION · ILLUSTRATIVE |
+| 제트 드론이 3km 넘는 높이로 비행 | Euromaidan Press 2026-09-29 https://euromaidanpress.com/2026/09/29/ukraine-just-caught-a-geran-5-at-425-km-h-the-jet-drone-that-has-often-outrun-ukrainian-interceptor-drones-since-january/ | REPORTED |
+| 젤렌스키: 프로펠러형 85~92%, 제트형 55~60% 격추, F-16용 새 20mm 탄 | Ukranews 2026-10-17 https://ukranews.com/en/news/1181837-president-zelenskyy-states-that-air-force-is-shooting-down-up-to-60-of-jet-powered-shahed-drones | SOURCE: ZELENSKY VIA UKRANEWS, OCT 2026 |
+| 2026-03 요격 드론이 러시아 드론 3만 3천 대 격추(국방부) | Ukrainska Pravda 2026-04-09 https://www.pravda.com.ua/eng/news/2026/04/09/8029447 | SOURCE: UKRAINE MoD VIA UKRAINSKA PRAVDA · CLAIM |
+| 브레이브원: 2025년 여름부터 지원, 22개 팀(12개 정부 지원), 7종 실전, 제트·전기 프로펠러·덕티드 팬, 주문 1천 대 이상, 대량 생산까지 약 6개월 | Ukrainska Pravda 2026-10-18 https://www.pravda.com.ua/eng/news/2026/10/18/8058628/ · United24 https://united24media.com/war-in-ukraine/ukraine-has-7-different-drone-hunters-in-the-sky-and-22-teams-racing-to-build-the-next-ones-23587 | SOURCE: BRAVE1 VIA UKRAINSKA PRAVDA, OCT 2026 |
+| 9월, 제트 드론 요격기 개발 회사 67곳 | Censor.net https://censor.net/en/news/4023971/zelenskyy-reports-successful-test-against-jet-powered-shahed | SOURCE: ZELENSKY VIA CENSOR.NET, SEP 2026 |
+| 9월 말, 시속 425km·3km 이상 게란-5를 새 요격 드론으로 격추(첫 성공) | Euromaidan Press 2026-09-29 (위) | REPORTED · CLAIM |
+| 바르스를 요격기로 전환, 약 30% 명중률(젤렌스키 10/4), 엔진 부족 가능성 | Euromaidan Press 2026-10-21 https://euromaidanpress.com/2026/10/21/bars-interceptor/ | SOURCE: ZELENSKY VIA EUROMAIDAN PRESS, OCT 2026 |
+| 독일 자금으로 바르스 2천 대 공동 생산 | Militarnyi https://militarnyi.com/en/news/jet-powered-interceptor-likely-developed-based-on-bars-missile-drone/ | SOURCE: MILITARNYI, 2026 |
+| 엔진이 핵심 병목, 대부분 수입(젤렌스키, FT 인터뷰) | Kyiv Independent https://kyivindependent.com/ukraine-aims-to-produce-up-to-400-interceptor-drones-as-russian-jet-powered-drone-use-grows-zelensky-says/ · Kurs (The Guardian 인용) https://kurs.com.ua/en/novost/1483583-ukrayinski-virobniki-nazvali-golovnu-pereshkodu-dlja-borotbi-z-reaktivnimi-shahedami-the-guardian | SOURCE: ZELENSKY VIA KYIV INDEPENDENT (FT), OCT 2026 |
+| 러시아 전문가: 게란-5 시속 800km 주장(미확인) | www1.ru 2026-10-16 https://www1.ru/en/news/2026/10/16/reaktivnyi-dron-geran-5-vpervye-razognali-do-rekordnyx-800-kmc.html | RUSSIAN CLAIM · NOT VERIFIED |
+
+## 넣지 않은 것
+- 게란-5 탄두 무게, 엔진 모델명 등 세부 제원.
+- 요격 드론의 구체적 성능·유도 방식.
+
+## 표기 원칙
+- 화면 오른쪽 아래 작은 글씨로 출처 표시(1~6편과 동일).
+- 한쪽 발표는 CLAIM, 독립 확인이 없으면 NOT VERIFIED, 계산은 ILLUSTRATIVE.

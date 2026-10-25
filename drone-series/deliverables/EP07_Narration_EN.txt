@@ -1,0 +1,84 @@
+It is October 2026, in the sky over Kyiv, Ukraine's capital.
+A fast-moving dot appears on the radar.
+It is a Russian jet drone flying at over 400 kilometres an hour.
+A small Ukrainian drone rises up to block its path.
+Then a small flash bursts in the sky.
+Ukraine's former defence minister Fedorov said a new interceptor drone had shot down two of these jet drones within a few days.
+Today, let's look at the biggest problem for Ukraine's air defence in 2026: jet drones, and the speed race to catch them.
+
+In the last episode, we saw Geran drones that fly on a propeller.
+Their speed is about 185 kilometres an hour.
+That is why machine-gun trucks and propeller interceptor drones could catch them.
+But Russia began fitting its drones with jet engines.
+Ukraine's military intelligence says the newest Geran-5 flies at 450 to 600 kilometres an hour.
+That is nearly three times faster than the old Geran.
+The shape changed too.
+Instead of a triangular wing, it has a long body with straight wings, and looks like a cruise missile.
+Its engine is reported to be a small Chinese-made jet engine.
+And the numbers grew fast.
+Reports say jet-drone attacks rose from about 350 in June 2026 to nearly 2,800 in August.
+That is an eightfold jump in just three summer months.
+
+Why is a faster drone harder to stop?
+Let's do the simple math.
+Say there are 10 kilometres left between where the drone is spotted and the city.
+At 185 kilometres an hour, it takes more than three minutes to arrive.
+At 500 kilometres an hour, it takes just over a minute.
+The time to stop it shrinks to nearly a third.
+The same principle we saw with Ukraine's jet missile-drones in Episode 2 is now aimed back at Ukraine.
+And time is not the only problem.
+Propeller interceptor drones often chased their targets from behind and rammed them.
+But if the target is much faster than you, you can never catch it from behind.
+You have to wait across its path, or build a faster hunter.
+On top of that, jet drones sometimes fly above 3 kilometres, where machine guns can barely reach.
+
+The result shows in the numbers.
+President Zelensky said Ukraine shoots down 85 to 92 percent of propeller drones, but only about 55 to 60 percent of jet ones.
+That means nearly four in ten get through the defences.
+So Ukraine went looking for a new kind of hunter to catch jet drones.
+In fact, Ukraine already knows interceptor drones well.
+Ukraine's defence ministry said interceptor drones shot down 33,000 Russian drones in March 2026 alone.
+But most of them were drones far slower than jet drones.
+Jet drones needed a completely new hunter.
+
+Brave1, Ukraine's defence technology agency, began funding counters to jet drones in the summer of 2025.
+It says 22 teams are now building fast interceptor drones, and 12 of them receive government funding.
+Seven types of interceptors have already been used in combat.
+In September, it was also announced that 67 companies were working on interceptors for jet drones.
+The designs vary.
+Some use small jet engines, some spin propellers with powerful electric motors, and some push air with a fan inside a duct.
+In late September, a Ukrainian unit reportedly used a new interceptor to down a Geran-5 flying at 425 kilometres an hour, more than 3 kilometres up.
+It was that interceptor's first success.
+
+Another idea is to turn an attack weapon around.
+Ukraine has a jet drone called Bars, originally built to strike Russia.
+Ukraine converted Bars into an interceptor that hunts drones in the sky.
+In early October, President Zelensky said Bars had shown about a 30 percent hit rate against jet drones, the best result so far.
+Thirty percent may sound low, but considering it means hitting a target flying at hundreds of kilometres an hour in mid-air, it is far from low.
+There were also reports that Germany agreed to fund the joint production of 2,000 Bars drones.
+
+Then, on October 12th, came the scene from the start.
+Fedorov said a new interceptor built with the special forces unit Lasar's Group had shot down two Geran-5s heading for Kyiv.
+He said it took only one month to go from idea to real kills.
+A human flies it for now, but the goal is to make it find and catch targets on its own with artificial intelligence.
+He also announced plans to build hundreds of them a month by the end of 2026.
+However, most of these kill records are Ukrainian announcements and have not been independently confirmed.
+
+There is a big obstacle in this race.
+It is the engine.
+Fast interceptor drones need small, powerful jet engines.
+But President Zelensky said Ukraine relies mostly on imports for these engines, and domestic production is still too small.
+Government orders have already passed 1,000 interceptors, but production is still ramping up.
+Even the earlier propeller interceptors took about half a year to reach mass production.
+In the meantime, fighter jets are helping too.
+President Zelensky said Ukraine will receive new 20-millimetre cannon rounds for its F-16s from allies to raise the jet-drone kill rate.
+
+Russia is not standing still either.
+One Russian military expert claimed the Geran-5 reached 800 kilometres an hour, but this has not been confirmed.
+When one side gets faster, the other gets faster still, and then the first side speeds up again.
+The cycle of attack and counter we saw in Episode 3 has now become a speed race in the sky.
+
+Catching jet drones is, in the end, a fight over speed and time.
+The side that builds more, faster hunters, more quickly, holds the sky.
+But as speeds outrun human eyes and hands, defences where machines aim and fire on their own have appeared.
+In the next episode, let's look together at the AI machine guns guarding Kyiv, and the invisible network that finds drones by sound and radio.
