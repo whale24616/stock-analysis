@@ -1,0 +1,113 @@
+It is Sunday afternoon, June 1st, 2025.
+An ordinary truck pulls over by a road in Russian Siberia.
+On its flatbed sits a box that looks like a small wooden house.
+Then its roof slowly opens.
+Dozens of small drones rise out of it.
+They head straight for a nearby air base.
+There, Russia's big bombers stand parked in rows.
+This base is more than 4,000 kilometres from Ukraine.
+At almost the same moment, the same thing happened at other Russian bases.
+Ukraine called this Operation Spiderweb.
+Today, using what has been made public, let's walk through how it was prepared and carried out.
+
+After the war began, Russian bombers took off from deep inside Russia.
+From far away, they fired missiles at Ukrainian cities.
+Ukraine could stop some of the incoming missiles.
+But it could barely touch the bombers that carried them.
+The bases where they sat were simply too far away.
+Some were near the Arctic, and some were in the middle of Siberia.
+So Ukraine changed the question.
+If you can't fly that far, take off right next door.
+Ukrainian officials said the operation took a year and a half to prepare.
+
+Think of the Trojan horse from the old story.
+Soldiers hid inside a giant wooden horse and were carried into the city.
+Spiderweb worked in a similar way.
+A small drone can't fly even a few dozen kilometres on its own.
+But a truck can drive thousands of kilometres.
+The road network became the drone's fuel tank.
+Here is how SBU chief Vasyl Maliuk later described the preparations.
+First, they rented an office and a warehouse in the Russian city of Chelyabinsk.
+It was reportedly not far from an office of Russia's security service.
+The drones were hidden in boxes built to look like mobile wooden cabins.
+Trucking small wooden cabins around is a common sight in Russia.
+The drones sat in a compartment just under the roof.
+Batteries and solar panels inside reportedly kept the drones charged.
+Trucks and drivers were arranged separately.
+According to reports, the drivers did not know what they were carrying.
+Near the destination, each driver got a phone call telling them where to stop.
+Once the truck stopped, the roof opened by remote control.
+There was a moment when it almost fell apart.
+On one truck, the roof reportedly came off about 290 kilometres into the trip.
+One account says the driver pulled over and saw the hidden drones.
+Ukraine said 117 drones were used in the operation.
+Radar watches the sky.
+But no one watches every cargo truck on every road.
+
+So how do you fly a drone that is thousands of kilometres away?
+Normally a drone can only go as far as its controller's radio signal reaches.
+The defence analysts at Janes studied video released from the operation.
+On screen was ArduPilot, a free flight program anyone can download.
+This program can connect to a distant pilot over a mobile phone network.
+Janes judged that the drones may have been flown from inside Ukraine over Russia's own mobile networks.
+Think of a phone call instead of a walkie-talkie.
+The signal goes from the drone to a nearby cell tower, across the internet, to the pilot.
+But the longer the path, the later each command can arrive.
+So the flight program helps the drone keep its balance and follow its route on its own.
+The human only has to decide where to go and what to hit.
+Here is the part worth noticing.
+A truck, a wooden cabin, a phone network, free software, small drones.
+None of it was a secret weapon.
+What was new was the way ordinary things were tied together.
+
+The attacks came at several bases almost at once.
+Olenya in the Arctic, Belaya in Siberia, and Dyagilevo and Ivanovo closer to Moscow.
+A fifth base in Russia's Far East was also targeted, but that attack reportedly failed.
+Why strike them all at the same time?
+Because surprise can be used only once.
+The moment one base is hit, the others go on alert.
+They can move planes, cover them, or stop suspicious trucks.
+So every strike had to land before the alarm spread.
+Remember the boats in Episode 4 that carried small drones?
+This time, the truck played that role.
+A big carrier covered the distance, and small drones made the final precise strike.
+
+Ukraine claimed it hit 41 aircraft, including bombers and early-warning planes.
+It estimated the damage at about 7 billion dollars.
+But these figures are Ukraine's claims.
+Independent assessments were lower.
+The Insider, an independent Russian outlet that analysed satellite images, counted 15 aircraft confirmed destroyed.
+According to Reuters, US officials assessed about 10 destroyed and up to 20 damaged.
+Even the lower numbers matter.
+Russia no longer builds Tu-95 or Tu-22M3 bombers.
+The Tu-160 is built only in tiny numbers.
+Lost bombers are not easy to replace.
+A few small drones took down aircraft that are hard to replace.
+But the biggest shock was a change in thinking.
+For a long time, armies divided the world into a dangerous front and a safe rear.
+Spiderweb showed that for aircraft parked on the ground, there may be no safe rear.
+
+That shock has carried into 2026.
+The Insider reported that Russia moved many of its remaining bombers to more distant bases in the Far East.
+Still, the attacks continued.
+In July and August 2026, Tu-95 bombers at Engels air base were hit one after another.
+The SBU said the August strike used long-range drones that flew about 800 kilometres, not trucks.
+Reports said satellite images showed a bomber with a badly broken wing.
+Russia is building large roofed shelters for its bombers at Engels.
+In June 2026 satellite images, at least 17 appeared to be under construction.
+
+Of course, operations like this have limits.
+Spiderweb depended almost entirely on surprise.
+Once the world has seen it, the same surprise is hard to pull off again.
+Since May 2025, Russia has repeatedly cut mobile internet in many regions.
+The Russian government says this is to keep drones from using phone networks.
+The surest defence is old and simple.
+Put a strong roof over the aircraft that small drones can't get through.
+Cheaper options are covering planes with nets or spreading them across many bases.
+Now the price of a concrete shelter is being weighed against one truck full of cheap drones.
+
+Spiderweb showed what is possible when a big carrier brings small drones close.
+But Ukraine is not the only side attacking with drones.
+Russia also sends hundreds of drones into Ukraine every night.
+They are Geran drones, an Iranian design that Russia now mass-produces.
+In the next episode, let's look together at how Ukraine stops these drones in the night sky.
