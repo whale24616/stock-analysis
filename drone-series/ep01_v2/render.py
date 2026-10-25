@@ -170,8 +170,8 @@ def build_timeline_audio(sents, timing):
 # ---------------- subtitles ----------------
 
 FORWARD_MODIFIERS = set("한두세네몇큰새첫각약총단이그저전매온")  # one-syllable words that belong to the NEXT word
-BOUND_NOUNS = set("수데번것줄개대초분년곳")  # one-syllable words that belong to the PREVIOUS word
-KEEP_TOGETHER = ("시 베이비",)  # multi-word names that must not be split across lines
+BOUND_NOUNS = set("수데번것줄개대초분년곳때")  # one-syllable words that belong to the PREVIOUS word
+KEEP_TOGETHER = ("시 베이비", "디 인사이더", "1년 반")  # multi-word names that must not be split across lines
 
 
 def _cut_ok(p, cut):
