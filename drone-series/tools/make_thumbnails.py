@@ -23,6 +23,8 @@ EPISODES = [
          tag="2026 우크라이나 실전 · 방공 돌파 전술"),
     dict(ep=3, img="e3_01_pilot_goggles", side="right", lines=["400달러로", "전쟁을 바꾸다"], sub="FPV 드론의 모든 것",
          tag="2026 우크라이나 실전 · FPV 공격 전술"),
+    dict(ep=4, img="e3_34_boat_vs_warship", side="left", lines=["3억 원 보트가", "함대를 밀어냈다"],
+         sub="해군 없이 흑해를 바꾼 무인 보트", tag="2026 우크라이나 실전 · 해상 드론 공격 전술"),
 ]
 
 
@@ -113,5 +115,7 @@ def make(cfg, out_dir):
 if __name__ == "__main__":
     out_dir = sys.argv[1] if len(sys.argv) > 1 else "."
     Path(out_dir).mkdir(parents=True, exist_ok=True)
+    only = {int(a) for a in sys.argv[2:]}
     for cfg in EPISODES:
-        print(make(cfg, out_dir))
+        if not only or cfg["ep"] in only:
+            print(make(cfg, out_dir))
