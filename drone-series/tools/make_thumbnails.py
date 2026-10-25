@@ -29,6 +29,8 @@ EPISODES = [
          sub="4,000km 밖 기습, 거미줄 작전", tag="우크라이나 실전 · 러시아 공군기지 동시 타격"),
     dict(ep=6, img="e6_11_searchlight_catch", side="left", lines=["드론 463대가", "날아온 밤"],
          sub="우크라이나는 418대를 막았다", tag="2026 우크라이나 실전 · 러시아 드론 방어"),
+    dict(ep=7, img="e7_02_interceptor_rise", side="left", lines=["시속 500km", "제트 드론을 잡아라"],
+         sub="요격 드론의 속도 경쟁", tag="2026 우크라이나 실전 · 제트 드론 요격"),
 ]
 
 
