@@ -171,6 +171,7 @@ def build_timeline_audio(sents, timing):
 
 FORWARD_MODIFIERS = set("한두세네몇큰새첫각약총단이그저전매온")  # one-syllable words that belong to the NEXT word
 BOUND_NOUNS = set("수데번것줄개대초분년곳")  # one-syllable words that belong to the PREVIOUS word
+KEEP_TOGETHER = ("시 베이비",)  # multi-word names that must not be split across lines
 
 
 def _cut_ok(p, cut):
@@ -179,6 +180,8 @@ def _cut_ok(p, cut):
     after = p[cut:].split()[0] if p[cut:].split() else ""
     if before.endswith(","):
         return True
+    if any(p.find(k) < cut < p.find(k) + len(k) for k in KEEP_TOGETHER if k in p):
+        return False
     if len(before) == 1 and before in FORWARD_MODIFIERS:  # "크게 세 / 가지로"
         return False
     if after.rstrip(",.") in BOUND_NOUNS:  # "쏠 / 수 있고", "지나는 / 데", "수천 / 번"
