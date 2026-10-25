@@ -27,7 +27,7 @@ EPISODES = [
          sub="해군 없이 흑해를 바꾼 무인 보트", sub_y=616, tag="2026 우크라이나 실전 · 해상 드론 공격 전술"),
     dict(ep=5, img="e5_01_roof_opening", side="right", lines=["트럭에 숨긴 드론", "폭격기를 덮치다"],
          sub="4,000km 밖 기습, 거미줄 작전", tag="우크라이나 실전 · 러시아 공군기지 동시 타격"),
-    dict(ep=6, img="e6_12_gunner_tracers", side="right", lines=["드론 463대가", "날아온 밤"],
+    dict(ep=6, img="e6_11_searchlight_catch", side="left", lines=["드론 463대가", "날아온 밤"],
          sub="우크라이나는 418대를 막았다", tag="2026 우크라이나 실전 · 러시아 드론 방어"),
 ]
 

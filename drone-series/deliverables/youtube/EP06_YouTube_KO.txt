@@ -1,0 +1,54 @@
+[제목]
+[실전] 러시아 드론 463대가 날아온 밤, 우크라이나는 418대를 막았다 | 2026 드론 방어 | 드론 전쟁 해부 EP06
+
+[다른 제목 후보]
+- [실전] 기관총 트럭부터 요격 드론까지, 우크라이나가 밤하늘을 지키는 법 | 드론 전쟁 해부 EP06
+- [실전] 드론 한 대에 미사일 수백만 달러? 우크라이나의 값싼 방공 전술 | 드론 전쟁 해부 EP06
+
+[섬네일]
+https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/a4a4d4fa-64ac-40ff-8140-8def2cef29c4.jpg
+
+[설명]
+2026년 10월 18일, 러시아는 하루 동안 공격 드론 463대를 우크라이나로 보냈습니다. 우크라이나는 그중 418대를 막았다고 밝혔습니다.
+그 숫자 뒤에서 밤새 하늘을 지킨 사람들, 기관총을 실은 트럭의 이동 사격팀, 게파르트 대공포, F-16 조종사, 그리고 드론을 잡는 요격 드론까지, 2026년 지금 우크라이나가 러시아 드론을 막는 방법을 실제 사례와 출처로 쉽게 풀어 봅니다.
+싼 드론을 비싼 미사일로 막으면 왜 지는지, 그리고 더 빨라진 제트 드론이 왜 새로운 위기인지도 함께 살펴봅니다.
+
+■ 목차
+0:00 드론 463대가 날아온 밤
+?:?? 상대를 알자: 게란과 미끼 드론
+?:?? 싼 드론, 비싼 미사일의 계산
+?:?? 트럭 위의 기관총, 이동 사격팀
+?:?? 대공포와 전투기 조종사
+?:?? 드론을 잡는 드론
+?:?? 겹겹의 그물, 그리고 막지 못한 45대
+?:?? 더 빨라진 적, 다음 편
+
+■ 시리즈 드론 전쟁 해부 (Drone War Decoded)
+우크라이나 전쟁의 드론을 한 편에 하나씩, 원리부터 쉽게 해부합니다.
+1~5편은 우크라이나의 드론 공격, 6~10편은 우크라이나가 러시아 드론을 막는 방법을 다룹니다.
+
+※ 그림은 AI로 만든 일러스트이며 실제 사진이 아닙니다. 내레이션은 AI 음성으로 제작했습니다.
+※ 격추 수치는 대부분 우크라이나 정부·군 발표이며, 영상에 '주장(CLAIM)'으로 표시했습니다. 확인되지 않은 보도는 '미검증'으로 밝혔습니다.
+※ 가격은 언론·분석가의 추정치이며, 미사일 비용 계산은 이해를 돕기 위한 단순 계산입니다.
+※ 이 영상은 전쟁 속 기술을 이해하기 위한 교육용 해설입니다. 무기 제작·운용 정보는 다루지 않습니다.
+
+■ 출처 (2026년 10월 확인)
+· Ukrinform (총참모부, 10/18 463대 중 418대) https://www.ukrinform.net/amp/rubric-ato/4176043-ukrainian-air-defenses-down-418-out-of-463-russian-attack-drones-in-24-hours.html
+· ua.news (같은 발표, 기종) https://ua.news/en/war-vs-rf/ukrayinska-ppo-za-dobu-znishchila-ponad-400-rosiiskikh-bezpilotnikiv
+· GlobalSecurity – Geran-2 https://www.globalsecurity.org/military/world/russia/geran-2.html
+· Militarnyi (알라부가 생산 시설) https://militarnyi.com/en/news/new-production-facilities-territory-alabuga/
+· Kyiv Post (게르베라 미끼 드론) https://www.kyivpost.com/post/46692
+· Majalla (드론 vs 요격 미사일 비용) https://en.majalla.com/node/330459
+· Liga (요격 드론과 샤헤드 가격) https://news.liga.net/en/politics/news/interceptor-drones-are-significantly-cheaper-than-shaheds-what-are-the-prices
+· Gwara Media 2025-09 (이동 사격팀) https://gwaramedia.com/en/ukrainian-mobile-firing-groups-hunt-for-russian-shaheds-with-guns-unfit-to-efficiently-down-them/
+· Militarnyi (이동 방공팀 트럭) https://militarnyi.com/en/news/ukrainian-community-donates-trucks-for-air-defense-against-drones/
+· Ukraine's Arms Monitor (샤헤드 대응 수단) https://ukrainesarmsmonitor.substack.com/p/stopping-shaheds-ukraines-solutions
+· Ukrainska Pravda 2025-05-06 (미사일 1발 남은 F-16) https://www.pravda.com.ua/eng/news/2025/05/06/7510912/
+· Kyiv Post (F-16 기관포 격추 영상) https://www.kyivpost.com/amp/post/69702
+· Ukrainska Pravda 2026-02-08 (F-16 드론 격추) https://www.pravda.com.ua/eng/news/2026/02/08/8020041/
+· AP via Fortune 2026-03 (요격 드론 1,000~2,000달러) https://fortune.com/2026/03/07/us-gulf-states-iran-war-shahed-ukraine-interceptor-drones-weapons-export-ban
+· DroneXL 2026-05 (독일, 요격 드론 1만 5천 대) https://dronexl.co/2026/05/25/ukraine-shahed-drones-interceptor-pentagon/
+· DroneXL 2026-03 (1월 요격 드론 비율, The Economist 인용) https://dronexl.co/2026/03/01/ukraine-is-scaling-up-interceptor-drones-as-russias-shahed-threat-outpaces-every-defense/
+· Ukranews 2026-10 (젤렌스키, 제트형 55~60% 격추) https://ukranews.com/en/news/1181837-president-zelenskyy-states-that-air-force-is-shooting-down-up-to-60-of-jet-powered-shahed-drones
+
+#우크라이나드론 #실전 #드론방어 #방공 #게란 #샤헤드 #요격드론 #F16 #우크라이나 #군사 #드론전쟁해부 #DroneWarDecoded
