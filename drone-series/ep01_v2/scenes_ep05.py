@@ -1,8 +1,8 @@
 """EP05 line-art scenes ("Operation Spiderweb"). Same signature as scenes.py: fn(cv, s, T, ph)."""
 import math
 
-from gfx import (DIM, GREY, ORANGE, RED, WHITE, check, clamp, clock_icon, cross, ease, lerp, lerp_pt, missile_icon,
-                 radar_dish, seg, tower_icon)
+from gfx import (DIM, GREY, ORANGE, RED, WHITE, check, clamp, clock_icon, cross, ease, lerp, lerp_pt, radar_dish, seg,
+                 tower_icon)
 from scenes import BG, BG_O, CX, CY, backdrop, end_card, title_card
 from scenes_ep03 import big_word, controller, quad_top
 from scenes_ep04 import drone_boat, sea_line
@@ -53,15 +53,28 @@ def bomber_top(cv, c, s=1.0, col=WHITE, w=4, a=0.0):
     cv.line([P(-90, 4), P(-115, 45), P(-122, 45), P(-110, 4)], w - 1, col)
 
 
-def bomber_side(cv, c, s=1.0, col=WHITE, w=4):
+def bomber_side(cv, c, s=1.0, col=WHITE, w=4, flip=False):
     x, y = c
+    d = -1 if flip else 1
 
     def P(dx, dy):
-        return (x + dx * s, y + dy * s)
+        return (x + d * dx * s, y + dy * s)
 
     cv.line([P(-200, 0), P(170, 0), P(210, -15), P(170, -30), P(-150, -30), P(-200, -110), P(-225, -110),
              P(-215, -30), P(-200, 0)], w, col)
     cv.line([P(-30, -12), P(-110, 30), P(-80, 30), P(40, -12)], w, col)
+
+
+def missile_dir(cv, c, s=1.0, col=WHITE, w=5, a=0.0):
+    """Cruise missile like gfx.missile_icon, but with its nose pointing along angle a."""
+    ca, sa = math.cos(a), math.sin(a)
+
+    def P(dx, dy):
+        return (c[0] + (dx * ca - dy * sa) * s, c[1] + (dx * sa + dy * ca) * s)
+
+    cv.line([P(-140, -16), P(110, -16), P(150, 0), P(110, 16), P(-140, 16), P(-140, -16)], w, col)
+    cv.line([P(-140, -16), P(-170, -50), P(-110, -16)], w, col)
+    cv.line([P(-140, 16), P(-170, 50), P(-110, 16)], w, col)
 
 
 def phone(cv, c, s=1.0, col=WHITE, w=5):
@@ -207,12 +220,12 @@ def e5_title(cv, s, T, ph=0):
 
 def e5_bomber_missile(cv, s, T, ph=0):
     backdrop(cv, s, "grid")
-    bomber_side(cv, (1450, 300), 1.1, WHITE, 5)
-    p = seg(s, 0.2, 1.4) * (0.62 if ph == 0 else 1.0)
-    a, b = (1320, 330), (420, 560)
+    bomber_side(cv, (1450, 300), 1.1, WHITE, 5, flip=True)
+    p = seg(s, 0.2, 1.4) * (0.62 if ph == 0 else 0.85)
+    a, b = (1250, 330), (420, 560)
     m = lerp_pt(a, b, p)
     cv.dashed([a, m], 3, GREY, offset=s * 40)
-    missile_icon(cv, m, 0.7, ORANGE, 4)
+    missile_dir(cv, m, 0.7, ORANGE, 4, a=math.atan2(b[1] - a[1], b[0] - a[0]))
     cv.text((420, 650), "UKRAINIAN CITY", 28, WHITE)
     cv.line([(330, 610), (330, 560), (380, 560), (380, 520), (430, 520), (430, 600), (480, 600), (480, 610)], 4,
             WHITE)
