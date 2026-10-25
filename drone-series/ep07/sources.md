@@ -10,8 +10,9 @@
 | 제트 드론 공격 6월 약 350대 → 8월 약 2,800대 | Defence Blog https://defence-blog.com/ukraine-faces-8x-more-jet-powered-russian-drones-than-last-year/ · DroneXL/Censor (Zelensky) | REPORTED |
 | 10km 거리 기준 도착 시간 계산 | 단순 계산(185km/h → 3.2분, 500km/h → 1.2분) | CALCULATION · ILLUSTRATIVE |
 | 제트 드론이 3km 넘는 높이로 비행 | Euromaidan Press 2026-09-29 https://euromaidanpress.com/2026/09/29/ukraine-just-caught-a-geran-5-at-425-km-h-the-jet-drone-that-has-often-outrun-ukrainian-interceptor-drones-since-january/ | REPORTED |
-| 젤렌스키: 프로펠러형 85~92%, 제트형 55~60% 격추, F-16용 새 20mm 탄 | Ukranews 2026-10-17 https://ukranews.com/en/news/1181837-president-zelenskyy-states-that-air-force-is-shooting-down-up-to-60-of-jet-powered-shahed-drones | SOURCE: ZELENSKY VIA UKRANEWS, OCT 2026 |
-| 2026-03 요격 드론이 러시아 드론 3만 3천 대 격추(국방부) | Ukrainska Pravda 2026-04-09 https://www.pravda.com.ua/eng/news/2026/04/09/8029447 | SOURCE: UKRAINE MoD VIA UKRAINSKA PRAVDA · CLAIM |
+| 젤렌스키: F-16용 새 20mm 탄으로 제트 드론 격추율 향상(격추율 수치는 6편에서 사용) | Ukranews 2026-10-17 https://ukranews.com/en/news/1181837-president-zelenskyy-states-that-air-force-is-shooting-down-up-to-60-of-jet-powered-shahed-drones | SOURCE: ZELENSKY VIA UKRANEWS, OCT 2026 |
+| 9월 처음 3주 제트 드론 2,100대(우크라이나 측) | NV 인터뷰 https://english.nv.ua/amp/ukraine-needs-reliable-interceptor-before-mass-production-against-jet-shaheds-interview-with-flash-50644302.html | SOURCE: UKRAINIAN OFFICIAL VIA NV, SEP 2026 · CLAIM |
+| 게란-5는 1월부터 우크라이나 요격 드론을 자주 따돌림 | Euromaidan Press 2026-09-29 https://euromaidanpress.com/2026/09/29/ukraine-just-caught-a-geran-5-at-425-km-h-the-jet-drone-that-has-often-outrun-ukrainian-interceptor-drones-since-january/ | REPORTED |
 | 브레이브원: 2025년 여름부터 지원, 22개 팀(12개 정부 지원), 7종 실전, 제트·전기 프로펠러·덕티드 팬, 주문 1천 대 이상, 대량 생산까지 약 6개월 | Ukrainska Pravda 2026-10-18 https://www.pravda.com.ua/eng/news/2026/10/18/8058628/ · United24 https://united24media.com/war-in-ukraine/ukraine-has-7-different-drone-hunters-in-the-sky-and-22-teams-racing-to-build-the-next-ones-23587 | SOURCE: BRAVE1 VIA UKRAINSKA PRAVDA, OCT 2026 |
 | 9월, 제트 드론 요격기 개발 회사 67곳 | Censor.net https://censor.net/en/news/4023971/zelenskyy-reports-successful-test-against-jet-powered-shahed | SOURCE: ZELENSKY VIA CENSOR.NET, SEP 2026 |
 | 9월 말, 시속 425km·3km 이상 게란-5를 새 요격 드론으로 격추(첫 성공) | Euromaidan Press 2026-09-29 (위) | REPORTED · CLAIM |
@@ -21,6 +22,7 @@
 | 러시아 전문가: 게란-5 시속 800km 주장(미확인) | www1.ru 2026-10-16 https://www1.ru/en/news/2026/10/16/reaktivnyi-dron-geran-5-vpervye-razognali-do-rekordnyx-800-kmc.html | RUSSIAN CLAIM · NOT VERIFIED |
 
 ## 넣지 않은 것
+- "3월 요격 드론 3만 3천 대"(페도로우 국방부 장관 발표): 전선의 정찰·소형 드론까지 합친 숫자로, 같은 달 샤헤드형 발사(약 6,400대 추정)와 비교하면 도시 방공 수치로 오해될 수 있어 제외.
 - 게란-5 탄두 무게, 엔진 모델명 등 세부 제원.
 - 요격 드론의 구체적 성능·유도 방식.
 
