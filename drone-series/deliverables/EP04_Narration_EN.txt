@@ -1,0 +1,108 @@
+It's night on the Black Sea.
+A Russian warship sits on the water.
+The crew scans the dark sea.
+Then something moves.
+A shadow barely higher than the waves races toward them.
+It's not alone.
+Several of them close in from different directions.
+Each one is about the size of a small speedboat.
+And there's no one on board any of them.
+Today, let's break down, simply, how Ukraine, with almost no navy, fought a fleet with drones on the sea.
+
+In 2022, the Black Sea belonged to Russia.
+Russia's fleet blockaded Ukraine's ports and fired missiles from the sea.
+Ukraine's grain exports, a key source of income, were stuck in port.
+It was a big enough problem to reach the dinner tables of the many countries that bought Ukrainian grain.
+But Ukraine had almost no fleet.
+Building warships takes decades and enormous sums of money.
+So Ukraine took another path.
+Boats with no one aboard: drones on the sea.
+Think of a speedboat steered by remote control from far away.
+The best known are military intelligence's Magura and the security service's Sea Baby.
+A Magura reportedly costs about 250,000 dollars.
+Compared with the price of a warship, that's very little.
+To see why these small boats worked, we first need to look at their shape.
+
+An ordinary slow boat pushes water aside as it moves.
+The faster it goes, the more the water resists, so speed is hard to gain.
+Sea drones are built differently.
+Once they pick up speed, they rise up and skim across the water.
+With less hull touching the water, there's less drag.
+Their makers claim speeds of around 80 to 90 kilometres per hour.
+Second, they sit very low.
+So little shows above the surface that they're hard for radar to pick up.
+On rough days, they're even easier to hide among the signals bouncing off the waves.
+At night, the eye sees little more than a dark dot or a white wake.
+Third, they're small.
+The Magura is reportedly just over five metres long.
+Small means hard to hit, but it also means less fuel, less payload, and trouble in high waves.
+Fast, low and small: the shape itself is built to get close without being seen.
+
+At sea there's a bigger problem than in the air.
+The horizon is very close.
+From just above the water, the horizon is only a few kilometres away.
+Because the Earth is round, radio signals can't reach straight past it.
+Yet these boats reached targets hundreds of kilometres away.
+According to reports, the answer is satellite internet.
+A terminal on the boat sends video and commands through satellites.
+So a pilot on land can steer while looking through the boat's camera.
+On the long transit, it follows a preset route by itself.
+And the most important part, the final approach, is handled by a person.
+The pilot watches the screen and chooses exactly where to strike.
+
+A single boat is relatively easy to spot and stop.
+So they're reported to attack in groups, from several directions at once.
+It's the same idea we saw in episode one: swamping air defences all at once.
+A warship's crew and guns can only deal with a few targets at a time.
+While one boat is being stopped, another buys time to get closer.
+Video released in February 2024 showed several boats striking a landing ship from both sides at once.
+
+Sea drones kept evolving.
+At first, their whole job was to reach a warship and ram it.
+Then came boats armed with missiles.
+The boats were no longer just attackers; they could aim at the sky too.
+Ukraine's military intelligence claimed a sea drone shot down Russian helicopters on the last day of 2024, and two fighter jets in May 2025.
+However, these claims haven't been independently verified.
+If true, it's the first time uncrewed boats have downed crewed aircraft.
+Some boats carry small flying drones close to an enemy coast and launch them from the water.
+The boat covers the long sea route, and the flying drone covers the last few kilometres.
+What matters now isn't any one weapon on board, but the long-range boat itself.
+
+The best-known results came in 2023 and 2024.
+In July 2023, Ukraine's security service said Sea Baby drones attacked the Kerch Bridge linking Crimea to Russia.
+On February 1, 2024, Ukraine's military intelligence said several Magura drones sank a Russian missile corvette.
+In February and March, it claimed to have sunk a landing ship and a patrol ship as well.
+Ukraine put the patrol ship's value at about 65 million dollars.
+That's hundreds of times the price of a boat.
+As the pressure grew, Russia moved much of its fleet from Sevastopol in Crimea east to Novorossiysk.
+The fleet pulled out of the port that had long been the Black Sea Fleet's home.
+With the warships pushed back, Ukraine opened a new sea route along its coast.
+Ukrainian officials said grain exports from Odesa's ports were back near pre-war levels by early 2024.
+Without a single major naval battle, a fleet had been pushed out of much of its own sea.
+In 2026, Ukraine's navy claims the Black Sea Fleet does little more than fire missiles once or twice a month.
+The targets widened from warships to Russian oil tankers.
+On October 6, 2026, Russian officials said a tanker caught fire off Sochi after an attack by an uncrewed boat.
+
+But cheap weapons can be copied by anyone.
+Since the summer of 2026, Russia has been using drones to attack Odesa's ports and the ships that use them.
+In August, Ukraine's government cut its grain export forecast because of these attacks.
+In October, a cargo ship sank off Romania after a drone attack, and Romania blamed Russia.
+Russia is also reported to be building its own sea drone units.
+The weapon that changed the Black Sea is now being turned the other way.
+
+Of course, sea drones have their limits.
+Their most dangerous opponent was the helicopter.
+It can look down over a wide stretch of sea and chase them at speed.
+A gunner on board aims at the boats from above.
+Warships added more guns, thermal cameras and searchlights.
+At harbour entrances, floating booms, nets and sunken old hulls were placed to block the way.
+It's the same idea used more than a hundred years ago against torpedo boats.
+There are also ongoing attempts to jam the satellite and radio links.
+And the sea itself is a big enemy.
+Small, low boats struggle when the waves are high.
+Sometimes the weather ends a mission before the enemy does.
+
+Sea drones showed that a cheap boat can threaten the most expensive warships.
+And that idea is now spreading beyond the sea.
+Next time, we'll look at drones hidden in trucks and smuggled deep into Russia: Operation Spiderweb.
+Join us as we see how bombers thousands of kilometres from the front came under attack.
