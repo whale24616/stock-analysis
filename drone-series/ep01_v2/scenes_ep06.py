@@ -51,6 +51,84 @@ def ukraine_map(cv, s):
 KYIV = (930, 330)
 
 
+# ---------------- series turn: spear → shield ----------------
+
+ATTACK_EPS = [("EP01", "LONG-RANGE", "p14_swarm"), ("EP02", "JET DRONES", "e2_03_jet_climb"),
+              ("EP03", "FPV", "e3_01_pilot_goggles"), ("EP04", "SEA DRONES", "e3_34_boat_vs_warship"),
+              ("EP05", "SPIDERWEB", "e5_01_roof_opening")]
+DEFENCE_EPS = ["NIGHT SKY", "JET DRONES", "ROBOT GUNS", "KILL ZONE", "EXPORTS"]
+_cards = {}
+
+
+def photo_card(cv, name, box, alpha=1.0):
+    """Paste a pencil illustration (img/<name>.png) into box, dimmed by alpha; plain frame if missing."""
+    from pathlib import Path
+    from PIL import Image, ImageOps
+    from gfx import SS
+    x0, y0, x1, y1 = box
+    key = (name, int(x1 - x0), int(y1 - y0))
+    if key not in _cards:
+        f = Path(__file__).resolve().parent / "img" / f"{name}.png"
+        if f.exists():
+            im = ImageOps.autocontrast(Image.open(f).convert("L"), cutoff=0.5).convert("RGB")
+            _cards[key] = ImageOps.fit(im, (int((x1 - x0) * SS), int((y1 - y0) * SS)))
+        else:
+            _cards[key] = None
+    im = _cards[key]
+    if im is not None and alpha > 0:
+        cv.im.paste(im.point(lambda v: int(v * alpha)), (int(x0 * SS), int(y0 * SS)))
+    cv.rect(box, 3, WHITE if alpha > 0.6 else GREY, radius=4)
+
+
+def spear(cv, c, s=1.0, col=ORANGE, w=6):
+    x, y = c
+    cv.line([(x - 260 * s, y), (x + 150 * s, y)], w, col)
+    cv.poly([(x + 150 * s, y - 34 * s), (x + 260 * s, y), (x + 150 * s, y + 34 * s)], fill=col)
+
+
+def shield(cv, c, s=1.0, col=WHITE, w=6):
+    x, y = c
+    pts = [(x - 150 * s, y - 170 * s), (x + 150 * s, y - 170 * s), (x + 150 * s, y + 10 * s), (x, y + 190 * s),
+           (x - 150 * s, y + 10 * s), (x - 150 * s, y - 170 * s)]
+    cv.line(pts, w, col)
+    cv.line([(x, y - 140 * s), (x, y + 140 * s)], 3, col)
+    cv.line([(x - 120 * s, y - 20 * s), (x + 120 * s, y - 20 * s)], 3, col)
+
+
+def e6_spear_shield(cv, s, T, ph=0):
+    """ph0 spear vs shield, ph1 EP01–05 attack cards (the spear), ph2 turn to the shield: EP06–10."""
+    backdrop(cv, s, "grid")
+    if ph == 0:
+        p = ease(seg(s, 0.1, 1.0))
+        spear(cv, (lerp(300, CX - 260, p), CY), 1.3, ORANGE)
+        shield(cv, (CX + 330, CY), 1.3, WHITE)
+        cv.text((CX - 330, CY + 200), "SPEAR · ATTACK", 40, ORANGE, alpha=seg(s, 0.5, 0.3))
+        cv.text((CX + 330, CY + 290), "SHIELD · DEFENCE", 40, WHITE, alpha=seg(s, 0.8, 0.3))
+        return
+    cw, chh, gap = 300, 190, 30
+    x0 = CX - (5 * cw + 4 * gap) / 2
+    y = 250 if ph == 1 else 150
+    for i, (ep, lab, img) in enumerate(ATTACK_EPS):
+        x = x0 + i * (cw + gap)
+        a = seg(s, 0.1 + i * 0.25, 0.4) if ph == 1 else 0.35
+        if a <= 0:
+            continue
+        photo_card(cv, img, (x, y, x + cw, y + chh), a)
+        cv.text((x + cw / 2, y + chh + 34), ep, 28, ORANGE if ph == 1 else GREY, alpha=a)
+        cv.text((x + cw / 2, y + chh + 70), lab, 24, WHITE if ph == 1 else DIM, alpha=a)
+    if ph == 1:
+        spear(cv, (CX, 640), 1.1, ORANGE)
+        cv.text((CX, 760), "SO FAR · UKRAINE'S ATTACK DRONES", 44, ORANGE, alpha=seg(s, 1.4, 0.3))
+        return
+    shield(cv, (CX - 520, 590), 0.8, WHITE)
+    for i, lab in enumerate(DEFENCE_EPS):
+        yy = 470 + i * 62
+        a = seg(s, 0.3 + i * 0.2, 0.3)
+        cv.text((CX - 300, yy), f"EP{6 + i:02d}", 30, ORANGE, anchor="lm", alpha=a)
+        cv.text((CX - 170, yy), lab, 30, WHITE, anchor="lm", alpha=a)
+    cv.text((CX + 470, 590), "FROM HERE · DEFENCE", 48, WHITE, alpha=seg(s, 1.3, 0.3))
+
+
 # ---------------- cold open ----------------
 
 def e6_siren(cv, s, T, ph=0):

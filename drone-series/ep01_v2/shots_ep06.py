@@ -19,8 +19,12 @@ SOURCES = {
 P, L = "P", "L"
 
 SHOTS = [
+    # [0] series turn
+    dict(at="드론 전쟁은 창과", kind=L, scene="e6_spear_shield", ph=0),
+    dict(at="지금까지 우크라이나 공격", kind=L, scene="e6_spear_shield", ph=1),
+    dict(at="지금부터는 우크라이나 드론", kind=L, scene="e6_spear_shield", ph=2),
     # [1] cold open
-    dict(at="2026년 10월 18일", kind=P, img="e6_00_air_raid_city", move="in", fade_in=2.5),
+    dict(at="2026년 10월 18일", kind=P, img="e6_00_air_raid_city", move="in", fade_in=1.5),
     dict(at="도시 곳곳에서", kind=L, scene="e6_siren"),
     dict(at="사람들은 지하철역과", kind=P, img="e6_01_metro_shelter", move="right"),
     dict(at="그 시각, 러시아에서", kind=P, img="e6_02_drones_dark_sky", move="left"),
