@@ -543,7 +543,7 @@ def e5_compare(cv, s, T, ph=0):
         cv.text((CX - 700, y - 50), lab, 28, col, anchor="lm")
         w = 1300 * v / 41
         cv.rect((CX - 700, y - 22, CX - 700 + w * p, y + 22), 0, fill=col, radius=6)
-        if i == 2:
+        if i == 2 and p > 0.5:
             cv.rect((CX - 700 + w, y - 22, CX - 700 + w * 2 * p, y + 22), 3, col, radius=6)
         cv.text((CX - 700 + (w * 2 if i == 2 else w) * p + 24, y), txt, 32, col, anchor="lm")
 
