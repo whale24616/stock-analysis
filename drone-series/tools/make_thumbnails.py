@@ -24,7 +24,7 @@ EPISODES = [
     dict(ep=3, img="e3_01_pilot_goggles", side="right", lines=["400달러로", "전쟁을 바꾸다"], sub="FPV 드론의 모든 것",
          tag="2026 우크라이나 실전 · FPV 공격 전술"),
     dict(ep=4, img="e3_34_boat_vs_warship", side="left", lines=["3억 원 보트가", "함대를 밀어냈다"],
-         sub="해군 없이 흑해를 바꾼 무인 보트", tag="2026 우크라이나 실전 · 해상 드론 공격 전술"),
+         sub="해군 없이 흑해를 바꾼 무인 보트", sub_y=616, tag="2026 우크라이나 실전 · 해상 드론 공격 전술"),
 ]
 
 
@@ -103,7 +103,7 @@ def make(cfg, out_dir):
     # sub line on a black bar
     fs = fit(d, cfg["sub"], 54, max_w)
     tw = words_width(d, cfg["sub"].split(), fs, fs.size * 0.28)
-    y += 26
+    y = cfg.get("sub_y", y + 26)
     x0 = x - tw - 24 if right else x - 24
     d.rectangle((x0, y - 16, x0 + tw + 48, y + fs.size + 22), fill=(0, 0, 0))
     draw_words(d, (x, y), cfg["sub"], fs, WHITE, anchor_right=right)
