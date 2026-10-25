@@ -1,0 +1,52 @@
+[제목]
+[실전] 시속 500km 제트 드론을 잡아라, 우크라이나 요격 드론의 속도 전쟁 | 2026 드론 방어 | 드론 전쟁 해부 EP07
+
+[다른 제목 후보]
+- [실전] 세 배 빨라진 러시아 드론, 우크라이나는 어떻게 잡았나 | 드론 전쟁 해부 EP07
+- [실전] 뒤에서는 절대 못 잡는다, 제트 드론과 요격 드론의 속도 경쟁 | 드론 전쟁 해부 EP07
+
+[섬네일]
+https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/3754f5d7-3b3a-4fcd-9021-7b15fc661a4a.jpg
+
+[설명]
+2026년 10월, 키이우 하늘에서 우크라이나의 새 요격 드론이 시속 400km가 넘는 러시아 제트 드론 두 대를 떨어뜨렸다고 발표됐습니다.
+러시아의 최신형 게란-5는 예전 프로펠러 게란보다 세 배 가까이 빠르고, 제트 드론 공격은 여름 석 달 만에 여덟 배로 늘었습니다.
+속도가 빨라지면 왜 막기 어려운지, 우크라이나가 제트 엔진 요격 드론과 공격용 드론 바르스를 거꾸로 써서 어떻게 대응하고 있는지, 그리고 엔진이라는 큰 걸림돌까지 실제 사례와 출처로 쉽게 풀어 봅니다.
+
+■ 목차
+0:00 키이우 하늘의 작은 불꽃
+?:?? 세 배 빨라진 제트 드론, 게란-5
+?:?? 속도가 빨라지면 왜 막기 어려울까
+?:?? 새로운 사냥꾼을 찾아서
+?:?? 공격 드론 바르스를 거꾸로 쓰다
+?:?? 10월 12일, 키이우의 두 대
+?:?? 걸림돌은 엔진
+?:?? 끝나지 않는 속도 경쟁, 다음 편
+
+■ 시리즈 드론 전쟁 해부 (Drone War Decoded)
+우크라이나 전쟁의 드론을 한 편에 하나씩, 원리부터 쉽게 해부합니다.
+1~5편은 우크라이나의 드론 공격, 6~10편은 우크라이나가 러시아 드론을 막는 방법을 다룹니다.
+
+※ 그림은 AI로 만든 일러스트이며 실제 사진이 아닙니다. 내레이션은 AI 음성으로 제작했습니다.
+※ 격추·생산 수치는 대부분 우크라이나 정부·군·개발자 발표이며, 영상에 '주장(CLAIM)'으로 표시했습니다. 러시아 측 주장은 '미검증'으로 밝혔습니다.
+※ 도착 시간 계산은 이해를 돕기 위한 단순 계산입니다.
+※ 이 영상은 전쟁 속 기술을 이해하기 위한 교육용 해설입니다. 무기 제작·운용 정보는 다루지 않습니다.
+
+■ 출처 (2026년 10월 확인)
+· Ukrainska Pravda 2026-10-12 (페도로우, 새 요격 드론 게란-5 2대 격추) https://www.pravda.com.ua/eng/news/2026/10/12/8057628/
+· Euromaidan Press 2026-10-12 (라사르 그룹 요격 드론) https://euromaidanpress.com/2026/10/12/built-by-ukraines-ex-defense-minister-and-unit-that-wrecked-12-billion-of-russian-gear-new-interceptor-downs-two-jet-drones-over-kyiv/
+· RBC-Ukraine (정보총국, 게란-5 속도와 모양) https://newsukraine.rbc.ua/news/ukraine-reveals-russia-s-new-geran-5-jet-1768813778.html
+· drone-warfare.com (게란-5 엔진) https://drone-warfare.com/research/geran-5/
+· Defence Blog (제트 드론 공격 증가) https://defence-blog.com/ukraine-faces-8x-more-jet-powered-russian-drones-than-last-year/
+· NV (9월 3주 제트 드론 2,100대) https://english.nv.ua/amp/ukraine-needs-reliable-interceptor-before-mass-production-against-jet-shaheds-interview-with-flash-50644302.html
+· Euromaidan Press 2026-09-29 (시속 425km 게란-5 격추, 고도) https://euromaidanpress.com/2026/09/29/ukraine-just-caught-a-geran-5-at-425-km-h-the-jet-drone-that-has-often-outrun-ukrainian-interceptor-drones-since-january/
+· Ukrainska Pravda 2026-10-18 (브레이브원, 22개 팀·7종·주문 1천 대) https://www.pravda.com.ua/eng/news/2026/10/18/8058628/
+· United24 (요격 드론 7종, 22개 팀) https://united24media.com/war-in-ukraine/ukraine-has-7-different-drone-hunters-in-the-sky-and-22-teams-racing-to-build-the-next-ones-23587
+· Censor.net (젤렌스키, 67개 회사) https://censor.net/en/news/4023971/zelenskyy-reports-successful-test-against-jet-powered-shahed
+· Euromaidan Press 2026-10-21 (바르스 요격기, 약 30%) https://euromaidanpress.com/2026/10/21/bars-interceptor/
+· Militarnyi (독일, 바르스 2천 대) https://militarnyi.com/en/news/jet-powered-interceptor-likely-developed-based-on-bars-missile-drone/
+· Kyiv Independent (젤렌스키 FT 인터뷰, 엔진 수입 의존) https://kyivindependent.com/ukraine-aims-to-produce-up-to-400-interceptor-drones-as-russian-jet-powered-drone-use-grows-zelensky-says/
+· Ukranews 2026-10-17 (F-16용 20mm 새 탄) https://ukranews.com/en/news/1181837-president-zelenskyy-states-that-air-force-is-shooting-down-up-to-60-of-jet-powered-shahed-drones
+· www1.ru 2026-10-16 (러시아 측 시속 800km 주장, 미검증) https://www1.ru/en/news/2026/10/16/reaktivnyi-dron-geran-5-vpervye-razognali-do-rekordnyx-800-kmc.html
+
+#우크라이나드론 #실전 #드론방어 #제트드론 #게란5 #요격드론 #바르스 #방공 #우크라이나 #군사 #드론전쟁해부 #DroneWarDecoded
