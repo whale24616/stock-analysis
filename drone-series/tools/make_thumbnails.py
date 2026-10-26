@@ -31,6 +31,8 @@ EPISODES = [
          sub="우크라이나는 418대를 막았다", tag="2026 우크라이나 실전 · 러시아 드론 방어"),
     dict(ep=7, img="e7_02_interceptor_rise", side="left", lines=["시속 500km", "제트 드론을 잡아라"],
          sub="요격 드론의 속도 경쟁", tag="2026 우크라이나 실전 · 제트 드론 요격"),
+    dict(ep=8, img="e8_02_turret_firing", side="left", lines=["AI 기관총이", "키이우를 지킨다"],
+         sub="소리로 듣고, 스스로 겨눈다", tag="2026 우크라이나 실전 · 드론 방어 기술"),
 ]
 
 
