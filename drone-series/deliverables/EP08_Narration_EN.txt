@@ -1,0 +1,97 @@
+It is October 2026, beside a bridge in Kyiv.
+A large machine gun on a mount points at the sky.
+No one is turning it by hand, yet the barrel slowly turns on its own, scanning the sky.
+When the radar picks up a jet drone, the barrel stops on one point and fires a short burst.
+On October 5th, Ukraine's Air Force spokesman Ihnat said robotic turrets like this had begun shooting down Geran-5 jet drones.
+He admitted that at first he had been a big skeptic himself.
+Today, let's look at the AI machine guns guarding Kyiv, and the invisible network behind them that finds drones by sound and radio.
+
+Why did machines become necessary?
+The jet drones we saw in the last episode fly in at around 500 kilometres an hour.
+That means moving almost 140 metres every second.
+Finding a target like that in the night sky with human eyes, and aiming at it by hand, is very hard.
+So Ukraine thinks of its defence like a human body.
+First the ears that listen, then the shield that makes drones lose their way, and finally the hands that shoot.
+Let's look at them one by one.
+
+The first is the ears.
+On poles across Ukraine sit small devices made of a mobile phone and a microphone.
+The acoustic detection network they form together is called Sky Fortress.
+In 2022, Ukrainian engineers began building it to catch Shahed drones.
+Radar can easily miss small drones flying low.
+But propeller drones make a distinctive sound, like a motorbike.
+The microphone on the pole hears that sound, and artificial intelligence works out whether it is a drone.
+When several poles hear the same sound, the difference in when it reached each one can be used to calculate the drone's position and direction.
+This information is gathered centrally and sent straight to the tablet screens of fire teams in the field.
+It is also how the mobile fire teams on machine-gun trucks we saw in Episode 6 knew where drones would come from in the dark.
+More than 10,000 sensors are now reported to be spread across Ukraine.
+The most surprising part is the price.
+General Hecker, then commander of US Air Forces in Europe, said each sensor costs 400 to 500 dollars.
+And he said the whole network cost less than two Patriot missiles.
+He also said the network played a big role in one attack in which 80 of 84 incoming drones were shot down.
+The US said it wanted to test the system itself, and a senior NATO general said the alliance should invest in such cheap acoustic sensors.
+Of course, it has weaknesses too.
+Strong wind or city noise can mask the sound of a drone.
+And sound is slower than you might think.
+By the time the sound of a fast target like a jet drone is heard, the drone is already much further ahead.
+That is why the acoustic data is combined with radar data.
+
+The second sense is radio.
+To be controlled from afar or to send data, a drone has to give off radio signals.
+Ukraine's military said that since November 2025, Russia has been steadily fitting Geran drones with communication devices called mesh modems.
+These devices reportedly let Russian operators control the drones from hundreds of kilometres away.
+But according to one Ukrainian expert, these modems have strong signals, so they are easily picked up by signals-intelligence equipment and even by small radio analysers.
+The device that made the drone smarter has become a beacon that gives away its own position.
+Ukrainian defence adviser Beskrestnov explained that the relay stations passing on these signals are often placed on tall towers near the border, and that Ukraine finds their locations.
+Some of them were reportedly found in Belarus.
+
+The third is the shield.
+Geran drones find their way to the target by checking their position with satellite signals.
+The easiest method is jamming, which covers those signals with loud noise.
+But a Geran keeps flying on inertial navigation even when the satellite signal is cut.
+So Ukraine uses a different method.
+It sends fake satellite signals that trick the drone into thinking it is somewhere else.
+It is like handing a traveller the wrong map.
+Ukraine's electronic warfare system that does this is called Pokrova.
+Ukraine's Air Force confirmed in 2024 that Pokrova was in real use.
+France's Le Monde reported that in one attack in November 2024, 95 of 188 Russian drones lost their way because of fake signals.
+It also reported that between November 24th and 26th, 43 drones flew off towards neighbouring Belarus.
+However, little has been made public about how well Pokrova works, so it is hard to verify independently.
+And if a drone leaves the jamming zone and picks up the real signal again, it can correct its course.
+So a shield alone is not enough, and in the end you need hands.
+
+Fourth, today's main character: the hands.
+In May 2025, Ukraine unveiled an AI turret called Sky Sentinel.
+The turret, fitted with a 12.7-millimetre heavy machine gun, turns a full 360 degrees.
+Here is how it works.
+First, radar tells it roughly where the drone is.
+Then a camera finds and locks on to the target, and artificial intelligence calculates the drone's speed, direction and even the wind.
+Then it aims at the spot the drone is about to pass through.
+One Ukrainian military expert explained that the turret fires a short burst ahead into the drone's path, creating a cloud of fragments for the drone to fly into.
+A calculation that would take a person several seconds by hand, the machine does in an instant.
+Spokesman Ihnat said that because AI removes human error, it can hit even jet drones.
+The software was built by Ukrainian engineers themselves, but some of the optics and rangefinders are still foreign-made.
+At first it caught propeller Shaheds, and one unit commander said it downed six Shaheds in six engagements.
+Then on October 4th, 2026, President Zelensky said more than 12 of these turrets had been installed in Kyiv, with 8 more to be placed around the city.
+Turrets are also being set up next to important sites such as bridges.
+The next day, the Air Force announced that the turrets had actually shot down jet drones.
+On October 19th, President Zelensky said more capacity for turret production had been found, and that orders would be increased.
+The price is worth noting too.
+According to reports, one turret costs about 150,000 dollars, similar to the estimated price of a single jet Geran.
+But unlike a missile, a turret does not disappear after one use.
+The developers estimate that protecting one city takes about 10 to 30 of these turrets.
+However, these kill records are Ukrainian announcements and have not been independently confirmed.
+
+Of course, AI turrets are not all-powerful either.
+Spokesman Ihnat said the turret's reach is just over one kilometre.
+Because it is a machine gun, it cannot shoot distant drones, and it can only protect the bridge or building right next to it.
+So he stressed that the turret is not a cure-all, but one layer of a multi-layered air defence.
+President Zelensky also said small domestically made missiles for catching jet drones would start to be used from late October.
+Fighter jets and missiles stop drones far away, interceptor drones in the middle, and turrets in the last kilometre.
+
+Let's sum up.
+Microphones on poles listen for the sound, and radio equipment picks up the drone's signals.
+Fake satellite signals make the drone wander, and AI turrets hit the drones that still get close.
+What this defence network has in common is that it is cheap, made by Ukraine itself, and changes quickly to keep up with an ever-faster enemy.
+Guarding the sky is no longer just the work of human eyes and hands, but of machine ears and hands as well.
+In the next episode, let's come down from the sky to the ground, and look together at how soldiers survive in the 15-kilometre kill zone at the front, where drones target everything that moves.
