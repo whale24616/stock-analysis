@@ -101,7 +101,7 @@ SHOTS = [
     dict(at="3편에서 본 공격과", kind=L, scene="e7_spiral", ph=1),
     # [9] outro
     dict(at="제트 드론을 잡는 일은", kind=L, scene="e7_recap"),
-    dict(at="더 빠른 사냥꾼을", kind=P, img="e7_19_dawn_kyiv", move="in"),
+    dict(at="더 빠르고 똑똑한", kind=P, img="e7_19_dawn_kyiv", move="in"),
     dict(at="하지만 사람의 눈과 손으로는", kind=P, img="e7_20_robot_turret", move="right"),
     dict(at="다음 편에서는 키이우를", kind=P, img="e7_20_robot_turret", move="in"),
     dict(dur=4.0, kind=L, scene="e7_endcard"),

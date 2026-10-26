@@ -172,7 +172,8 @@ def build_timeline_audio(sents, timing):
 FORWARD_MODIFIERS = set("한두세네몇큰새첫각약총단이그저전매온서더잘")  # one-syllable words that belong to the NEXT word
 BOUND_NOUNS = set("수데번것줄개대초분년곳때배")  # one-syllable words that belong to the PREVIOUS word
 KEEP_TOGETHER = ("시 베이비", "디 인사이더", "1년 반", "이동 사격팀", "수백만 달러", "요격 드론", "제트 드론",
-                 "가장 큰 숙제", "드론 공격은", "만들고 있고", "수입에 의존하고", "결코 낮지 않습니다")  # multi-word names that must not be split across lines
+                 "가장 큰 숙제", "드론 공격은", "만들고 있고", "수입에 의존하고", "결코 낮지 않습니다",
+                 "보이지 않는", "상대로 한", "대공 미사일 부족과", "300에서 400킬로미터")  # multi-word names that must not be split across lines
 
 
 def _cut_ok(p, cut):
@@ -182,6 +183,8 @@ def _cut_ok(p, cut):
     if before.endswith(","):
         return True
     if any(p.find(k) < cut < p.find(k) + len(k) for k in KEEP_TOGETHER if k in p):
+        return False
+    if before == "시속":  # "시속 / 416킬로미터"
         return False
     if len(before) == 1 and before in FORWARD_MODIFIERS:  # "크게 세 / 가지로"
         return False

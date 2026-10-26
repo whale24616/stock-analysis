@@ -45,6 +45,17 @@ Seven types of interceptors have already been used in combat.
 In September, it was also announced that 67 companies were working on interceptors for jet drones.
 The designs vary.
 Some use small jet engines, some spin propellers with powerful electric motors, and some push air with a fan inside a duct.
+Some of these hunters are already known by name.
+On August 21st, Ukraine's defence ministry announced it had put Alexa Spatium, the country's first home-built jet interceptor drone, into service.
+It is small enough to fit in the bed of a pickup truck, and it can be launched from a mobile catapult within minutes.
+If it cannot find a target, it can fly back and be used again.
+The same month, Fedorov said combat trials had begun for a jet interceptor drone that flies faster than 600 kilometres an hour.
+Interceptors with electric motors are getting faster too.
+In July, a company called SkyFall unveiled the JetKiller interceptor, which reaches 370 kilometres an hour, up from 310 for its earlier model.
+It is slower than the Geran-5, but the idea is that it can still catch one by waiting across its path.
+In September, a company called Vluchnyk released an interceptor that reaches 416 kilometres an hour and can be fitted with AI tracking.
+The company lists its price at about 2,000 dollars each.
+However, most of these performance figures come from the makers themselves.
 In late September, a Ukrainian unit reportedly used a new interceptor to down a Geran-5 flying at 425 kilometres an hour, more than 3 kilometres up.
 It was that interceptor's first success.
 
@@ -62,12 +73,28 @@ A human flies it for now, but the goal is to make it find and catch targets on i
 He also announced plans to build hundreds of them a month by the end of 2026.
 However, most of these kill records are Ukrainian announcements and have not been independently confirmed.
 
+Another arena of the interceptor race is one you cannot see: artificial intelligence.
+Jet drones are so fast that it is getting harder for a person to fly an interceptor by watching a screen.
+In January 2026, Brave1 opened a facility called the Dataroom together with the American data company Palantir.
+It collects video and thermal images of aerial targets such as Shaheds, and uses them to train and test AI that recognises drones.
+Because the data is sensitive, for now only Ukrainian companies can use it.
+In June, it was announced that an interceptor drone that chases its target on its own had passed combat testing in the Kharkiv region.
+Fedorov, then defence minister, said 95 percent of the process, from launch to kill, was automated.
+Even so, a human chooses the target and approves the attack, and can call it off at any moment.
+But that test was against propeller Shaheds; catching jet drones needs faster airframes and faster decisions.
+In October, there were also reports that Palantir would become the first investor in a new interceptor company Fedorov is founding.
+The speed race is now not only about how fast the machines fly, but how fast they decide.
+
 There is a big obstacle in this race.
 It is the engine.
 Fast interceptor drones need small, powerful jet engines.
 But President Zelensky said Ukraine relies mostly on imports for these engines, and domestic production is still too small.
 Government orders have already passed 1,000 interceptors, but production is still ramping up.
 Even the earlier propeller interceptors took about half a year to reach mass production.
+The AP reported that even Ukraine's fastest interceptor drones mostly fly at 300 to 400 kilometres an hour.
+It estimated that building a proper defence against jet drones could take three to six months.
+Finding parts, testing and training pilots all take time.
+On October 21st, Ukrainian media reported that shortages of air-defence missiles and of fast interceptor drones are holding back jet-drone kills.
 In the meantime, fighter jets are helping too.
 President Zelensky said Ukraine will receive new 20-millimetre cannon rounds for its F-16s from allies to raise the jet-drone kill rate.
 
@@ -77,6 +104,6 @@ When one side gets faster, the other gets faster still, and then the first side 
 The cycle of attack and counter we saw in Episode 3 has now become a speed race in the sky.
 
 Catching jet drones is, in the end, a fight over speed and time.
-The side that builds more, faster hunters, more quickly, holds the sky.
+The side that builds faster, smarter hunters, in greater numbers and more quickly, holds the sky.
 But as speeds outrun human eyes and hands, defences where machines aim and fire on their own have appeared.
 In the next episode, let's look together at the AI machine guns guarding Kyiv, and the invisible network that finds drones by sound and radio.
