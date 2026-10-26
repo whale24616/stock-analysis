@@ -11,24 +11,26 @@ https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/3754f5d7-
 [설명]
 2026년 10월, 키이우 하늘에서 우크라이나의 새 요격 드론이 시속 400km가 넘는 러시아 제트 드론 두 대를 떨어뜨렸다고 발표됐습니다.
 러시아의 최신형 게란-5는 예전 프로펠러 게란보다 세 배 가까이 빠르고, 제트 드론 공격은 여름 석 달 만에 여덟 배로 늘었습니다.
-속도가 빨라지면 왜 막기 어려운지, 우크라이나가 제트 엔진 요격 드론과 공격용 드론 바르스를 거꾸로 써서 어떻게 대응하고 있는지, 그리고 엔진이라는 큰 걸림돌까지 실제 사례와 출처로 쉽게 풀어 봅니다.
+속도가 빨라지면 왜 막기 어려운지, 우크라이나가 제트 엔진 요격 드론과 공격용 드론 바르스를 거꾸로 써서 어떻게 대응하고 있는지, 지금 개발 중인 제트 요격 드론들과 인공지능 요격 연구, 그리고 엔진이라는 큰 걸림돌까지 실제 사례와 출처로 쉽게 풀어 봅니다.
 
 ■ 목차
 0:00 키이우 하늘의 작은 불꽃
-0:38 세 배 빨라진 제트 드론, 게란-5
-1:25 속도가 빨라지면 왜 막기 어려울까
-2:09 숫자로 드러난 위기
-2:36 새로운 사냥꾼을 찾아서
-3:19 공격 드론 바르스를 거꾸로 쓰다
-3:52 10월 12일, 키이우의 두 대
-4:23 걸림돌은 엔진
-4:58 끝나지 않는 속도 경쟁, 다음 편
+?:?? 세 배 빨라진 제트 드론, 게란-5
+?:?? 속도가 빨라지면 왜 막기 어려울까
+?:?? 숫자로 드러난 위기
+?:?? 새로운 사냥꾼을 찾아서
+?:?? 공격 드론 바르스를 거꾸로 쓰다
+?:?? 10월 12일, 키이우의 두 대
+?:?? 보이지 않는 경쟁, 인공지능
+?:?? 걸림돌은 엔진
+?:?? 끝나지 않는 속도 경쟁, 다음 편
 
 ■ 시리즈 드론 전쟁 해부 (Drone War Decoded)
 우크라이나 전쟁의 드론을 한 편에 하나씩, 원리부터 쉽게 해부합니다.
 1~5편은 우크라이나의 드론 공격, 6~10편은 우크라이나가 러시아 드론을 막는 방법을 다룹니다.
 
 ※ 그림은 AI로 만든 일러스트이며 실제 사진이 아닙니다. 내레이션은 AI 음성으로 제작했습니다.
+※ 요격 드론 성능 수치는 대부분 제조사 발표입니다.
 ※ 격추·생산 수치는 대부분 우크라이나 정부·군·개발자 발표이며, 영상에 '주장(CLAIM)'으로 표시했습니다. 러시아 측 주장은 '미검증'으로 밝혔습니다.
 ※ 도착 시간 계산은 이해를 돕기 위한 단순 계산입니다.
 ※ 이 영상은 전쟁 속 기술을 이해하기 위한 교육용 해설입니다. 무기 제작·운용 정보는 다루지 않습니다.
@@ -48,6 +50,15 @@ https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/3754f5d7-
 · Militarnyi (독일, 바르스 2천 대) https://militarnyi.com/en/news/jet-powered-interceptor-likely-developed-based-on-bars-missile-drone/
 · Kyiv Independent (젤렌스키 FT 인터뷰, 엔진 수입 의존) https://kyivindependent.com/ukraine-aims-to-produce-up-to-400-interceptor-drones-as-russian-jet-powered-drone-use-grows-zelensky-says/
 · Ukranews 2026-10-17 (F-16용 20mm 새 탄) https://ukranews.com/en/news/1181837-president-zelenskyy-states-that-air-force-is-shooting-down-up-to-60-of-jet-powered-shahed-drones
+· 우크라이나 국방부 (알렉사 스파티움 배치) https://mod.gov.ua/en/news/defence-forces-arsenal-expands-with-the-addition-of-ukraines-first-jet-powered-drone-interceptor-alexa-spatium
+· Ukrainska Pravda 2026-08-14 (시속 600km 제트 요격 드론 시험) https://www.pravda.com.ua/eng/news/2026/08/14/8048658/
+· Ukrainska Pravda 2026-07-21 (스카이폴 젯킬러) https://www.pravda.com.ua/eng/news/2026/07/21/8045166/
+· Ukrainska Pravda 2026-09-21 (블루치닉 조렐리트 v5) https://www.pravda.com.ua/eng/news/2026/09/21/8054452/
+· Defense News 2026-01-21 (브레이브원 데이터룸, 팔란티어) https://www.defensenews.com/global/europe/2026/01/21/ukraine-feeds-sensitive-military-data-to-palantir-ai-for-training/
+· United24 (자율 요격 드론 95% 자동화) https://united24media.com/war-in-ukraine/ukrainian-ai-interceptors-are-now-downing-russian-shahed-drones-autonomously-19054
+· Janes 2026-10 (팔란티어, 새 요격 드론 회사 투자) https://www.janes.com/defence-intelligence-insights/defence-news/air/palantir-to-fund-ukrainian-interceptor-uav-company-targeting-russias-geran-5
+· Ukranews (AP: 요격 체계 3~6개월) https://ukranews.com/en/news/1178423-deployment-of-system-to-intercept-shahed-drones-could-take-3-to-6-months-ap
+· Ukrainska Pravda 2026-10-21 (미사일·요격 드론 부족) https://www.pravda.com.ua/eng/articles/2026/10/21/8059132/
 · www1.ru 2026-10-16 (러시아 측 시속 800km 주장, 미검증) https://www1.ru/en/news/2026/10/16/reaktivnyi-dron-geran-5-vpervye-razognali-do-rekordnyx-800-kmc.html
 
-#우크라이나드론 #실전 #드론방어 #제트드론 #게란5 #요격드론 #바르스 #방공 #우크라이나 #군사 #드론전쟁해부 #DroneWarDecoded
+#우크라이나드론 #실전 #드론방어 #제트드론 #게란5 #요격드론 #바르스 #인공지능 #방공 #우크라이나 #군사 #드론전쟁해부 #DroneWarDecoded
