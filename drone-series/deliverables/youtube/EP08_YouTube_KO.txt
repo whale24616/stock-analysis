@@ -1,0 +1,57 @@
+[제목]
+[실전] AI 기관총이 키이우를 지킨다, 소리와 전파로 드론을 잡는 보이지 않는 방어망 | 2026 드론 방어 | 드론 전쟁 해부 EP08
+
+[다른 제목 후보]
+- [실전] 사람 손을 떠난 기관총, 우크라이나 AI 포탑이 제트 드론을 떨어뜨렸다 | 드론 전쟁 해부 EP08
+- [실전] 패트리엇 두 발 값으로 나라 전체를 듣는다, 우크라이나의 값싼 방공 기술 | 드론 전쟁 해부 EP08
+
+[섬네일]
+https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/1ca150b1-d010-412e-8e9e-7a9bd61e7848.jpg
+
+[설명]
+2026년 10월, 우크라이나 공군은 인공지능이 스스로 겨누는 로봇 기관총 포탑이 러시아의 제트 드론 게란-5를 떨어뜨리기 시작했다고 밝혔습니다.
+시속 500킬로미터로 날아오는 드론을 사람의 눈과 손만으로 막기는 어렵습니다. 그래서 우크라이나는 방어를 사람의 몸처럼 나눴습니다.
+기둥 위의 마이크로 드론 소리를 듣는 음향 탐지망 '스카이 포트리스', 드론의 전파를 잡아내는 전파 정찰, 가짜 위성 신호로 드론을 헤매게 하는 전자전 '포크로바', 그리고 마지막 1킬로미터를 지키는 AI 포탑 '스카이 센티넬'까지, 키이우를 지키는 보이지 않는 방어망을 실제 사례와 출처로 쉽게 풀어 봅니다.
+
+■ 목차
+0:00 키이우 다리 옆의 로봇 기관총
+?:?? 왜 기계가 필요해졌을까
+?:?? 귀: 1만 개의 마이크, 스카이 포트리스
+?:?? 전파: 스스로 위치를 알리는 드론
+?:?? 방패: 가짜 위성 신호, 포크로바
+?:?? 손: AI 포탑 스카이 센티넬
+?:?? 만능은 아니다, 여러 겹의 방어
+?:?? 정리, 다음 편
+
+■ 시리즈 드론 전쟁 해부 (Drone War Decoded)
+우크라이나 전쟁의 드론을 한 편에 하나씩, 원리부터 쉽게 해부합니다.
+1~5편은 우크라이나의 드론 공격, 6~10편은 우크라이나가 러시아 드론을 막는 방법을 다룹니다.
+
+※ 그림은 AI로 만든 일러스트이며 실제 사진이 아닙니다. 내레이션은 AI 음성으로 제작했습니다.
+※ 격추 수치는 대부분 우크라이나 정부·군 발표이며, 영상에 '주장(CLAIM)'으로 표시했습니다. 확인되지 않은 보도는 '보도(REPORTED)'로 밝혔습니다.
+※ 가격은 언론 보도와 추정치이며, 소리 속도 비교는 이해를 돕기 위한 단순 계산입니다.
+※ 이 영상은 전쟁 속 기술을 이해하기 위한 교육용 해설입니다. 무기 제작·운용 정보는 다루지 않습니다.
+
+■ 출처 (2026년 10월 확인)
+· Kyiv Independent (자동 포탑, 제트 드론 첫 격추) https://kyivindependent.com/new-automatic-gun-turrets-successfully-down-first-russian-jet-powered-drones-air-force-says/
+· Kyiv Post 2026-10-05 (이흐나트 "나도 회의론자였다") https://www.kyivpost.com/post/86141
+· Ukrainska Pravda 2026-10-05 (로봇 포탑 게란-5 격추) https://www.pravda.com.ua/eng/news/2026/10/05/8056505/
+· Liga (이흐나트, 포탑 작동과 사거리) https://news.liga.net/en/war/news/ukraine-is-already-shooting-down-jet-drones-with-ai-powered-robotic-turrets-air-force
+· United24 (키이우 포탑 12대+, 8대 추가) https://united24media.com/war-in-ukraine/kyiv-rolls-out-12-50-cal-turrets-to-hunt-russias-jet-powered-drones-23095
+· United24 (스카이 센티넬 가격, 도시당 10~30대) https://united24media.com/war-in-ukraine/ukraines-new-ai-powered-turret-sky-sentinel-is-already-shooting-down-russias-fastest-drones-23750
+· RBC-Ukraine 2026-10-19 (포탑 주문 확대) https://newsukraine.rbc.ua/news/ukraine-to-ramp-up-production-of-ai-powered-1792427326.html
+· Militarnyi (스카이 센티넬 작동 원리) https://militarnyi.com/en/news/sky-sentinel-ukraine-to-produce-anti-aircraft-turrets-for-intercepting-drones-and-cruise-missiles/
+· NV (전문가: 파편 구름 원리) https://english.nv.ua/nation/how-ai-turrets-may-destroy-russian-jet-drones-expert-50647397.html
+· Business Insider via AOL (샤헤드 6대 격추) https://www.aol.com/news/ukraine-using-ai-powered-automated-151011484.html
+· Militarnyi (작은 국산 미사일) https://militarnyi.com/en/news/small-air-defense-missiles-to-begin-use-against-drones-in-october-zelensky/
+· United24 (스카이 포트리스) https://united24media.com/war-in-ukraine/sky-fortress-ukraines-acoustic-detection-system-that-tracks-drones-cheap-and-fast-9451
+· NV (스카이 포트리스 개발) https://english.nv.ua/russian-war/ukrainian-engineers-develop-sky-fortress-drone-detection-system-to-counter-shaheds-50520480.html
+· FlightGlobal (헤커 장군, 휴대전화 마이크 방공망) https://www.flightglobal.com/military-uavs/how-ukraine-turned-mobile-phone-microphones-into-an-air-defence-network/159997.article
+· Unmanned Airspace (미국, 음향 센서 시험 희망) https://unmannedairspace.info/?p=26500
+· Euromaidan Press 2026-03-31 (메시 모뎀) https://euromaidanpress.com/2026/03/31/are-russian-shaheds-mounting-radar-hunting-modules/
+· NV (베스크레스노우, 중계 장치) https://english.nv.ua/nation/dronovi-ataki-dlya-upravlinnya-svojiimi-shahedami-rosiyani-vikoristovuvali-teritoriyu-bilorusi-50587686.html
+· Kyiv Post (포크로바) https://www.kyivpost.com/post/28059
+· Espreso (포크로바 효과 논쟁) https://global.espreso.tv/pokrova-system-against-missiles-and-shahed-drones-is-it-really-a-game-changer
+· The Defense Post 2024-12 (르몽드 인용, 스푸핑) https://thedefensepost.com/2024/12/05/ukraine-spoofs-shahed-drones/
+
+#우크라이나드론 #실전 #드론방어 #AI포탑 #스카이센티넬 #스카이포트리스 #포크로바 #전자전 #방공 #우크라이나 #드론전쟁해부 #DroneWarDecoded
