@@ -394,6 +394,171 @@ def e7_orders(cv, s, T, ph=0):
         cv.text((CX, 720), "PROPELLER INTERCEPTORS TOOK ~6 MONTHS TO MASS-PRODUCE", 38, GREY, alpha=seg(s, 0.2, 0.3))
 
 
+# ---------------- named hunters ----------------
+
+def _kmh_x(v):
+    return 420 + 1200 * v / 650
+
+
+def e7_hunters(cv, s, T, ph=0):
+    """Reported top speeds vs the Geran-5 band. ph0 band, ph1 600+ jet interceptor, ph2 JetKiller 310→370,
+    ph3 Zorelit v5 416, ph4 most interceptors 300–400 (AP)."""
+    backdrop(cv, s, "grid")
+    cv.text((CX, 150), "INTERCEPTOR TOP SPEEDS (REPORTED)", 40, WHITE)
+    x0, x1 = _kmh_x(450), _kmh_x(600)
+    cv.rect((x0, 230, x1, 690), 3, RED, radius=6)
+    cv.text(((x0 + x1) / 2, 205), "GERAN-5  450–600", 30, RED)
+    cv.line([(_kmh_x(0), 700), (_kmh_x(650), 700)], 3, GREY)
+    for v in (0, 100, 200, 300, 400, 500, 600):
+        cv.text((_kmh_x(v), 730), str(v), 24, GREY)
+    cv.text((_kmh_x(650), 730), "KM/H", 24, GREY, anchor="lm")
+    rows = [(1, "JET INTERCEPTOR (TRIALS)", 620, "600+"), (2, "SKYFALL JETKILLER", 370, "370"),
+            (3, "VLUCHNYK ZORELIT V5", 416, "416  ·  ~$2,000")]
+    for i, (need, lab, v, txt) in enumerate(rows):
+        if ph < need:
+            continue
+        y = 340 + i * 120
+        p = ease(seg(s, 0.1, 0.9)) if ph == need else 1.0
+        cv.text((_kmh_x(0), y - 40), lab, 28, WHITE, anchor="lm")
+        cv.rect((_kmh_x(0), y - 16, _kmh_x(0) + (_kmh_x(v) - _kmh_x(0)) * p, y + 16), 0, fill=ORANGE, radius=5)
+        if need == 2:
+            cv.line([(_kmh_x(310), y - 26), (_kmh_x(310), y + 26)], 4, GREY)
+            cv.text((_kmh_x(310), y + 46), "OLD 310", 22, GREY)
+        cv.text((_kmh_x(v * p) + 20, y), txt, 30, ORANGE, anchor="lm", alpha=seg(s, 0.8, 0.3) if ph == need else 1.0)
+    if ph >= 4:
+        a, b = _kmh_x(300), _kmh_x(400)
+        cv.line([(a, 790), (a, 810), (b, 810), (b, 790)], 4, WHITE)
+        cv.text(((a + b) / 2, 850), "MOST INTERCEPTORS TODAY: 300–400 (AP)", 32, WHITE, alpha=seg(s, 0.2, 0.3))
+    elif ph >= 1:
+        cv.text((CX, 850), "MAKER / OFFICIAL FIGURES · NOT INDEPENDENTLY TESTED", 28, GREY)
+
+
+def e7_return(cv, s, T, ph=0):
+    """Reusable jet interceptor: flies out, finds nothing, comes back to the truck."""
+    backdrop(cv, s, "grid")
+    tx, ty = 420, 700
+    cv.rect((tx - 170, ty - 70, tx + 170, ty), 4, WHITE, radius=10)
+    cv.rect((tx - 170, ty - 140, tx - 50, ty - 70), 4, WHITE, radius=10)
+    cv.circle((tx - 100, ty + 10), 34, 4, WHITE)
+    cv.circle((tx + 100, ty + 10), 34, 4, WHITE)
+    cv.line([(tx - 20, ty - 70), (tx + 160, ty - 140)], 5, GREY)
+    c, rx, ry = (1060, 520), 560, 260
+    p = (s * 0.22) % 1
+    a = math.pi + p * 2 * math.pi
+    pos = (c[0] + rx * math.cos(a), c[1] + ry * math.sin(a))
+    ang = math.atan2(ry * math.cos(a), -rx * math.sin(a))
+    pts = [(c[0] + rx * math.cos(math.pi + k / 40 * 2 * math.pi), c[1] + ry * math.sin(math.pi + k / 40 * 2 * math.pi))
+           for k in range(41)]
+    for k in range(0, 40, 2):
+        cv.line([pts[k], pts[k + 1]], 3, DIM)
+    interceptor(cv, pos, 0.6, ORANGE, 4, a=ang)
+    cv.text((CX, 170), "NO TARGET?  FLY BACK  ·  LAUNCH AGAIN", 44, ORANGE, alpha=seg(s, 0.3, 0.3))
+    cv.text((tx, ty + 90), "FITS IN A PICKUP", 30, WHITE)
+
+
+# ---------------- the AI race ----------------
+
+def e7_dataroom(cv, s, T, ph=0):
+    """Brave1 Dataroom: video + thermal images of aerial targets → train and test AI."""
+    backdrop(cv, s, "grid")
+    cv.text((CX, 150), "BRAVE1 DATAROOM  ·  WITH PALANTIR", 40, WHITE)
+    for col, lab in enumerate(("VIDEO", "THERMAL")):
+        cv.text((330 + col * 300, 260), lab, 30, GREY)
+        for r in range(3):
+            k = col * 3 + r
+            x, y = 330 + col * 300, 360 + r * 150
+            al = seg(s, 0.1 + k * 0.12, 0.3)
+            cv.rect((x - 110, y - 55, x + 110, y + 55), 3, WHITE if col == 0 else ORANGE, radius=6)
+            geran(cv, (x, y), 0.18, WHITE if col == 0 else ORANGE, 2)
+            if al > 0.5:
+                cv.rect((x - 40, y - 34, x + 40, y + 34), 2, RED, radius=2)
+    cv.arrow((800, 510), (1060, 510), 5, ORANGE, seg(s, 0.9, 0.4), 22)
+    cv.rect((1090, 400, 1530, 620), 5, ORANGE, radius=16)
+    cv.text((1310, 480), "AI MODEL", 50, ORANGE)
+    cv.text((1310, 560), "LEARNS TO SPOT DRONES", 28, WHITE)
+    cv.tag((CX, 820), "SENSITIVE DATA · UKRAINIAN COMPANIES ONLY", 32, GREY, alpha=seg(s, 1.4, 0.3))
+
+
+def e7_auto95(cv, s, T, ph=0):
+    """ph0 95% automated from launch to kill, ph1 the human still selects, approves and can abort."""
+    backdrop(cv, s, "grid")
+    cv.text((CX, 170), "AUTONOMOUS INTERCEPTOR TEST · JUNE 2026", 38, WHITE)
+    x0, x1, y = 260, 1660, 440
+    p = ease(seg(s, 0.1, 1.2)) if ph == 0 else 1.0
+    split = x0 + (x1 - x0) * 0.95
+    cv.rect((x0, y - 50, x0 + (split - x0) * p, y + 50), 0, fill=ORANGE, radius=8)
+    cv.rect((split, y - 50, x1, y + 50), 4, WHITE, radius=8)
+    cv.text((x0, y - 90), "LAUNCH", 30, GREY, anchor="lm")
+    cv.text((x1, y - 90), "KILL", 30, GREY, anchor="rm")
+    cv.text(((split + x1) / 2, y + 80), "5% HUMAN", 26, WHITE)
+    cv.text(((x0 + split) / 2, y), "95% AUTOMATED", 50, BG, alpha=seg(s, 0.9, 0.3) if ph == 0 else 1.0)
+    if ph >= 1:
+        for k, lab in enumerate(("SELECT TARGET", "APPROVE ATTACK", "ABORT ANYTIME")):
+            x = 460 + k * 500
+            cv.tag((x, 680), lab, 34, WHITE, alpha=seg(s, 0.2 + k * 0.3, 0.3))
+        cv.text((CX, 800), "THE HUMAN DECIDES", 46, ORANGE, alpha=seg(s, 1.2, 0.3))
+
+
+def e7_invest(cv, s, T, ph=0):
+    backdrop(cv, s, "grid")
+    cv.rect((240, 420, 720, 600), 5, WHITE, radius=16)
+    cv.text((480, 510), "PALANTIR", 50, WHITE)
+    cv.arrow((760, 510), (1100, 510), 5, ORANGE, seg(s, 0.2, 0.4), 22)
+    cv.text((930, 460), "FIRST INVESTOR", 30, ORANGE, alpha=seg(s, 0.5, 0.3))
+    cv.rect((1140, 400, 1700, 620), 5, ORANGE, radius=16)
+    cv.text((1420, 480), "NEW INTERCEPTOR", 40, ORANGE)
+    cv.text((1420, 550), "COMPANY · FEDOROV", 34, WHITE)
+
+
+def _gauge(cv, c, lab, v, col):
+    cv.arc(c, 200, 180, 360, 6, GREY)
+    a = math.pi + math.pi * v
+    cv.line([c, (c[0] + 180 * math.cos(a), c[1] + 180 * math.sin(a))], 6, col)
+    cv.dot(c, 12, col)
+    cv.text((c[0], c[1] + 70), lab, 36, col)
+
+
+def e7_two_speeds(cv, s, T, ph=0):
+    backdrop(cv, s, "radar")
+    _gauge(cv, (CX - 420, 560), "AIRFRAME SPEED", clamp(ease(seg(s, 0.1, 1.2)) * 0.85, 0, 1), WHITE)
+    _gauge(cv, (CX + 420, 560), "DECISION SPEED", clamp(ease(seg(s, 0.8, 1.2)) * 0.95, 0, 1), ORANGE)
+    cv.text((CX, 200), "THE RACE NOW HAS TWO SPEEDS", 48, WHITE, alpha=seg(s, 0.2, 0.3))
+
+
+# ---------------- scaling up ----------------
+
+def e7_months(cv, s, T, ph=0):
+    """ph0 3–6 months to build a real jet-drone defence (AP estimate), ph1 parts · testing · pilot training."""
+    backdrop(cv, s, "grid")
+    x0, x1, y = 300, 1620, 420
+    cv.line([(x0, y), (x1, y)], 4, GREY)
+    for m in range(7):
+        x = x0 + (x1 - x0) * m / 6
+        cv.line([(x, y - 16), (x, y + 16)], 3, GREY)
+        cv.text((x, y + 50), f"{m}", 28, GREY)
+    cv.text((x1 + 40, y + 50), "MONTHS", 26, GREY, anchor="lm")
+    p = ease(seg(s, 0.1, 0.8))
+    a, b = x0 + (x1 - x0) * 3 / 6, x0 + (x1 - x0) * 6 / 6
+    cv.rect((a, y - 34, a + (b - a) * p, y + 34), 0, fill=ORANGE, radius=8)
+    cv.text(((a + b) / 2, y - 80), "3–6 MONTHS (AP ESTIMATE)", 38, ORANGE, alpha=seg(s, 0.6, 0.3))
+    if ph >= 1:
+        for k, lab in enumerate(("PARTS", "TESTING", "PILOT TRAINING")):
+            cv.tag((520 + k * 440, 680), lab, 36, WHITE, alpha=seg(s, 0.1 + k * 0.4, 0.3))
+
+
+def e7_shortage(cv, s, T, ph=0):
+    backdrop(cv, s, "grid")
+    cv.text((CX, 170), "WHAT HOLDS BACK JET-DRONE KILLS", 44, WHITE)
+    for k, lab in enumerate(("AIR-DEFENSE MISSILES", "FAST INTERCEPTORS")):
+        x = CX - 380 + k * 760
+        cv.rect((x - 240, 330, x + 240, 610), 5, WHITE, radius=14)
+        lvl = 1 - 0.75 * ease(seg(s, 0.2 + k * 0.4, 1.0))
+        cv.rect((x - 220, 590 - 240 * lvl, x + 220, 590), 0, fill=RED, radius=8)
+        cv.arrow((x + 300, 380), (x + 300, 580), 5, RED, seg(s, 0.4 + k * 0.4, 0.4), 20)
+        cv.text((x, 680), lab, 36, WHITE)
+        cv.text((x, 740), "SHORT", 40, RED, alpha=seg(s, 0.8 + k * 0.4, 0.3))
+
+
 # ---------------- the race goes on ----------------
 
 def e7_ru800(cv, s, T, ph=0):
@@ -422,7 +587,7 @@ def e7_recap(cv, s, T, ph=0):
     cv.text((CX - 380, CY - 40), "SPEED", 80, RED, alpha=seg(s, 0.1, 0.3))
     cv.text((CX, CY - 40), "+", 80, GREY, alpha=seg(s, 0.4, 0.3))
     cv.text((CX + 380, CY - 40), "TIME", 80, ORANGE, alpha=seg(s, 0.6, 0.3))
-    cv.text((CX, CY + 100), "MORE, FASTER HUNTERS · BUILT MORE QUICKLY", 40, WHITE, alpha=seg(s, 1.0, 0.3))
+    cv.text((CX, CY + 100), "FASTER, SMARTER HUNTERS · BUILT MORE QUICKLY", 40, WHITE, alpha=seg(s, 1.0, 0.3))
 
 
 def e7_endcard(cv, s, T, ph=0):
