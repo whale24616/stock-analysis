@@ -200,7 +200,7 @@ def e8_84(cv, s, T, ph=0):
         cv.dot((x, y), 14, GREY if down else RED)
         if down:
             cross(cv, (x, y), 14, ORANGE, 4)
-    cv.text((CX, 840), "80 SHOT DOWN · NETWORK PLAYED A BIG ROLE", 42, ORANGE, alpha=seg(s, 1.6, 0.3))
+    cv.text((CX, 770), "80 SHOT DOWN · NETWORK PLAYED A BIG ROLE", 42, ORANGE, alpha=seg(s, 1.6, 0.3))
 
 
 def e8_interest(cv, s, T, ph=0):
@@ -232,10 +232,10 @@ def e8_fusion(cv, s, T, ph=0):
     cv.text((420, 700), "SOUND", 36, WHITE)
     radar_dish(cv, (420, 860), 0.8, WHITE, 4)
     cv.text((420, 950), "RADAR", 36, WHITE)
-    cv.arrow((560, 500), (1040, 600), 5, ORANGE, seg(s, 0.2, 0.4), 22)
-    cv.arrow((560, 860), (1040, 680), 5, ORANGE, seg(s, 0.4, 0.4), 22)
-    cv.rect((1080, 460, 1640, 820), 5, ORANGE, radius=16)
-    cv.text((1360, 640), "ONE AIR PICTURE", 44, ORANGE, alpha=seg(s, 0.8, 0.3))
+    cv.arrow((560, 480), (1040, 560), 5, ORANGE, seg(s, 0.2, 0.4), 22)
+    cv.arrow((560, 860), (1040, 640), 5, ORANGE, seg(s, 0.4, 0.4), 22)
+    cv.rect((1080, 420, 1640, 740), 5, ORANGE, radius=16)
+    cv.text((1360, 580), "ONE AIR PICTURE", 44, ORANGE, alpha=seg(s, 0.8, 0.3))
 
 
 # ---------------- radio ----------------
@@ -458,15 +458,15 @@ def e8_kyivmap(cv, s, T, ph=0):
 def e8_price(cv, s, T, ph=0):
     """ph0 the price, ph1 ~$150,000 turret vs jet Geran (estimate), ph2 reusable vs one-shot missile."""
     backdrop(cv, s, "grid")
-    turret(cv, (520, 640), 1.3, WHITE, 5)
-    cv.text((520, 760), "TURRET", 40, WHITE)
+    turret(cv, (520, 580), 1.3, WHITE, 5)
+    cv.text((520, 680), "TURRET", 40, WHITE)
     if ph == 0:
         cv.text((CX + 300, CY), "THE PRICE?", 70, WHITE, alpha=seg(s, 0.2, 0.3))
         return
-    cv.text((520, 830), "~$150,000", 52, ORANGE)
-    jet_geran(cv, (1350, 460), 0.8, RED, 4, a=math.pi)
-    cv.text((1350, 760), "JET GERAN", 40, RED)
-    cv.text((1350, 830), "~$100,000–200,000 (EST.)", 40, RED)
+    cv.text((520, 750), "~$150,000", 52, ORANGE)
+    jet_geran(cv, (1350, 420), 0.8, RED, 4, a=math.pi)
+    cv.text((1350, 680), "JET GERAN", 40, RED)
+    cv.text((1350, 750), "~$100,000–200,000 (EST.)", 40, RED)
     if ph >= 2:
         cv.tag((CX, 180), "A TURRET FIRES AGAIN AND AGAIN · A MISSILE IS GONE AFTER ONE SHOT", 34, WHITE,
                alpha=seg(s, 0.2, 0.3))
