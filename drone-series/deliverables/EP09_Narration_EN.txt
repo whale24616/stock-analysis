@@ -1,0 +1,100 @@
+It is autumn 2026, on a country road in Donetsk, eastern Ukraine.
+Above the rain-soaked road, netting stretches for kilometres like a tunnel.
+Beneath it, a small van wrapped in wire mesh races along, throwing up mud.
+On a clear day, this van could not have moved.
+Because drones are watching from the sky.
+So the soldiers here wait for rain and fog.
+Today, let's look at how Ukrainian soldiers survive in the kill zone at the front, where drones target everything that moves.
+
+What is the kill zone?
+Britain's Financial Times reported that the area within about 15 kilometres of the front has become a kill zone.
+Inside it, small FPV drones target anything that moves, people and vehicles alike.
+The FPV drones we saw in Episode 3 now cover the whole front line.
+How deep the kill zone reaches differs from area to area.
+Some reports say it reaches 20 to 25 kilometres in some areas.
+One Ukrainian corps commander expects it could widen to 30 kilometres by the end of this year.
+Inside it, transport by trucks and other vehicles has almost stopped.
+Soldiers move in scattered groups of two or three, and sometimes crawl for days under cloaks that hide their body heat.
+These cloaks make the body harder to see on a drone's thermal camera.
+But there are still few of them, and assessments say their effect depends on the situation.
+Some positions reportedly take three days to reach on foot.
+America's NPR reported that in some areas, there are fewer than ten soldiers per 1.6 kilometres.
+Many soldiers dig deep and hold out hiding in underground positions.
+Even wounded soldiers sometimes cannot get out right away, and wait in their positions for days or even weeks.
+People even say that drones bring the supplies and robots bring back the wounded.
+The danger is not only at the front.
+In October 2025, a Russian drone attacked a pickup truck in the city of Kramatorsk, about 19 kilometres from the front.
+Since then, there have also been reports of vehicles hit by drones on the road between Kramatorsk and Sloviansk.
+Of course, the kill zone exists for both sides.
+Because Ukraine is holding back Russian troops the same way.
+With its Drone Line project, costing about 880 million dollars, Ukraine set the goal of stopping Russian troops from moving freely within 10 to 15 kilometres of the front.
+So Russian troops have also switched to slipping through in twos and threes, and reports say they use bad weather, when drones see poorly.
+From here, let's look at the Ukrainian shields for surviving inside it.
+
+The first shield is netting.
+Drones come down from above and crash into their target.
+So if you cover a road with netting, drones get caught in it and cannot reach the vehicles.
+Ukraine's State Special Transport Service, under the defence ministry, said it has put up this netting over more than 1,640 kilometres of road since the start of 2026.
+About 87 kilometres were added in October alone.
+The defence ministry has also set a goal of covering another 4,000 kilometres this year.
+However, at the current pace, that goal is still a long way off.
+Netting has weaknesses too.
+It can burn or melt, and drones are reported to sometimes hide under the netting and wait.
+Netting is not only on front-line roads.
+In cities near the front where drones fly into the streets, netting is strung over the roads people walk on.
+Skies covered in netting are no longer an unusual sight in Ukraine.
+Still, every kilometre of netting means safer evacuations and faster supply.
+
+The second shield is jamming.
+Ordinary FPV drones are controlled by radio.
+So blasting strong noise can cut the link between the pilot and the drone.
+But Russia has increased the number of drones that avoid this weakness.
+Fiber-optic drones.
+They carry a fiber-optic line as thin as a hair on their tail, unspooling it for kilometres as they fly.
+Because the control signals travel along the line, not by radio, jamming does not work.
+Some analyses say that with longer lines they can fly tens of kilometres away.
+Ukraine's commander-in-chief Syrskyi admitted that Russia is ahead in fiber-optic drones, in both numbers and range of use.
+In January 2026, he also said Ukraine was still catching up in this field.
+Wherever fiber-optic drones pass, kilometres of line are left across fields and roads like a spider's web.
+Experts say there is still no way to stop fiber-optic drones at scale.
+In the end, the only options left are to shoot them down, entangle them, or block them.
+Ukraine is working to find fiber-optic drones first with sound and thermal cameras instead of radio.
+Once found, they must in the end be stopped physically.
+
+So the third shield is the defence of the last moment.
+The simplest weapon is the shotgun.
+Ukrainian special forces are training to shoot FPV drones with shotguns.
+Shotguns are not affected by jamming, and the small pellets spread widely, so they can hit even fast drones.
+But there are concerns that newer Russian drones are bigger and tougher, and ordinary shot often fails to bring them down.
+So new ammunition made with heavier materials is also being tested.
+To stop fiber-optic drones, a device has even appeared that spins barbed wire with a motor to wind up and cut the line.
+
+What stands out most these days is firing nets.
+Ukrainian company Phantom Defense has built a net launcher called Mangal.
+When a drone approaches, it fires a weighted net six metres by six metres, which wraps the drone and brings it down.
+One net shot reportedly costs around 45 dollars.
+It has been used on a trial basis at the front since March 2026, has also been mounted on a ground robot, and is now heading for mass production.
+The developer describes it as a second line of defence that can stop even fiber-optic drones when jamming fails.
+There are also interceptor drones that fire nets in the sky.
+An interceptor drone called Spider, made by WINFLY, reportedly catches enemy drones with a net, then returns undamaged and flies again.
+The developer says each net shot costs about 27 dollars.
+However, most of these performance and kill records are the developers' own claims and have not been independently verified.
+
+The fourth shield is robots that move instead of people.
+The fewer times people enter the kill zone, the more lives can be saved.
+So Ukraine has greatly expanded unmanned ground vehicles, so-called ground robots.
+According to Ukraine's defence ministry, supply and evacuation missions by ground robots rose from about 7,500 in January 2026 to more than 31,000 in October.
+That is more than a fourfold increase in ten months.
+More than 22,000 ground robots have been contracted this year alone.
+In September, one robot crossed a road covered by mines and drones and brought back four wounded soldiers at once.
+In the sky, large heavy-lift drones carry ammunition and water.
+One brigade said it makes more than 1,500 supply runs a month with these large drones alone.
+Of course, robots are attacked too, and many never come back.
+Still, losing a robot is better than losing a soldier.
+
+Let's sum up.
+Surviving the kill zone means hiding, covering, blocking, and sending machines instead of people.
+Netting over roads, jamming, shotguns and net launchers, and ground robots protect soldiers layer upon layer.
+But as with Russia's fiber-optic drones, when one side builds a new shield, the other builds a spear to pierce it.
+The spear and shield of drone warfare change every day, even on the dirt roads of the front.
+In the next episode, let's look together at how Ukraine's shield, refined in war, is now being sold to the world.
