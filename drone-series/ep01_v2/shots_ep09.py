@@ -31,9 +31,9 @@ P, L = "P", "L"
 
 SHOTS = [
     # [1] cold open
-    dict(at="2026년 가을, 우크라이나 동부", kind=P, img="e8_20_netted_road", move="in", fade_in=2.5),
-    dict(at="비가 쏟아지는 길 위로", kind=P, img="e3_29_net_tunnel", move="up"),
-    dict(at="그 아래로 철망을", kind=P, img="e3_28_cage_vehicle", move="right"),
+    dict(at="2026년 가을, 우크라이나 동부", kind=P, img="e3_29_net_tunnel", move="in", fade_in=2.5),
+    dict(at="비가 쏟아지는 길 위로", kind=P, img="e8_20_netted_road", move="up"),
+    dict(at="그 아래로 철망을", kind=P, img="e8_20_netted_road", move="in"),
     dict(at="맑은 날이었다면", kind=L, scene="e9_weather", ph=0),
     dict(at="그래서 이곳의 병사들은", kind=L, scene="e9_weather", ph=1, src="ft"),
     dict(at="오늘은 드론이 움직이는", kind=L, scene="e9_intro"),

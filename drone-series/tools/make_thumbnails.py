@@ -33,6 +33,8 @@ EPISODES = [
          sub="요격 드론의 속도 경쟁", tag="2026 우크라이나 실전 · 제트 드론 요격"),
     dict(ep=8, img="e8_02_turret_firing", side="left", lines=["AI 기관총이", "키이우를 지킨다"],
          sub="소리로 듣고, 스스로 겨눈다", tag="2026 우크라이나 실전 · 드론 방어 기술"),
+    dict(ep=9, img="e8_20_netted_road", side="right", lines=["15km 킬존에서", "살아남기"],
+         sub="그물·산탄총·로봇의 방패", tag="2026 우크라이나 실전 · 전선 드론 방어"),
 ]
 
 
