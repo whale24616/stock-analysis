@@ -35,6 +35,8 @@ EPISODES = [
          sub="소리로 듣고, 스스로 겨눈다", tag="2026 우크라이나 실전 · 드론 방어 기술"),
     dict(ep=9, img="e8_20_netted_road", side="right", lines=["15km 킬존에서", "살아남기"],
          sub="그물·산탄총·로봇의 방패", tag="2026 우크라이나 실전 · 전선 드론 방어"),
+    dict(ep=10, img="e6_19_interceptor_launch", side="left", lines=["전쟁이 만든 방패", "세계로 팔리다"],
+         sub="미군 기지를 지킨 우크라이나 기술", tag="2026 우크라이나 실전 · 드론 방어 수출"),
 ]
 
 
