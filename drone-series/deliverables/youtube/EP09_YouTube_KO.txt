@@ -1,0 +1,59 @@
+[제목]
+[실전] 움직이면 드론이 덮친다, 15km 킬존에서 살아남는 법 | 2026 전선 드론 방어 | 드론 전쟁 해부 EP09
+
+[다른 제목 후보]
+- [실전] 1,640km 그물 터널과 로봇 3만 번, 우크라이나 병사들은 이렇게 버틴다 | 드론 전쟁 해부 EP09
+- [실전] 전파 방해가 안 통하는 광섬유 드론, 산탄총과 그물로 막는다 | 드론 전쟁 해부 EP09
+
+[섬네일]
+https://d2ol7oe51mr4n9.cloudfront.net/user_3HIKAGiSnsPYdWRbH12PkB3ohVT/e919e387-ffd2-408c-864b-d2aa0135a956.jpg
+
+[설명]
+2026년 우크라이나 동부 전선에서는 전선에서 약 15킬로미터 안쪽이 '킬존'이 되었습니다. 작은 FPV 드론이 움직이는 것이라면 사람이든 차든 가리지 않고 노리기 때문입니다.
+그래서 병사들은 비와 안개를 기다리고, 열을 가리는 망토를 덮고 기어서 움직이며, 길 위에는 몇 킬로미터씩 그물 터널을 씌웁니다.
+전파 방해가 통하지 않는 러시아의 광섬유 드론, 마지막 방어선인 산탄총과 그물 발사기, 그리고 사람 대신 보급과 후송을 맡는 지상 로봇까지, 킬존에서 살아남기 위한 우크라이나의 방패를 실제 사례와 출처로 쉽게 풀어 봅니다.
+
+■ 목차
+0:00 비 오는 날에만 달리는 차
+?:?? 킬존이란 무엇인가
+?:?? 첫 번째 방패: 길 위의 그물
+?:?? 두 번째 방패: 전파 방해와 광섬유 드론
+?:?? 세 번째 방패: 산탄총과 그물 발사기
+?:?? 네 번째 방패: 사람 대신 로봇
+?:?? 정리, 다음 편
+
+■ 시리즈 드론 전쟁 해부 (Drone War Decoded)
+우크라이나 전쟁의 드론을 한 편에 하나씩, 원리부터 쉽게 해부합니다.
+1~5편은 우크라이나의 드론 공격, 6~10편은 우크라이나가 러시아 드론을 막는 방법을 다룹니다.
+
+※ 그림은 AI로 만든 일러스트이며 실제 사진이 아닙니다. 내레이션은 AI 음성으로 제작했습니다.
+※ 수치는 대부분 우크라이나 정부·군 발표이며, 영상에 '주장(CLAIM)'으로 표시했습니다. 장비 성능과 가격은 개발사 발표(MAKER CLAIM)입니다.
+※ 킬존의 깊이는 지역과 시기에 따라 다르게 보도됩니다.
+※ 이 영상은 전쟁 속 기술을 이해하기 위한 교육용 해설입니다. 무기 제작·운용 정보는 다루지 않습니다.
+
+■ 출처 (2026년 11월 확인)
+· DroneXL 2026-02 (FT 킬존 보도) https://dronexl.co/2026/02/23/kill-zone-ukraine-frontline-drone/
+· Euromaidan Press 2026-07 (킬존 25km, 30km 전망) https://euromaidanpress.com/2026/07/03/ukraines-eastern-kill-zone-is-25-km-deep-corps-commander-expects-30-by-years-end/
+· Euromaidan Press 2026-08 (진지까지 사흘, 대형 드론 보급) https://euromaidanpress.com/2026/08/14/armor-can-barely-reach-ukraines-front-now-so-robots-drive-and-soldiers-walk/
+· NPR 2026-10 (지하 진지, 병사 배치) https://www.kpbs.org/news/international/2026/10/05/drones-buzz-overhead-troops-hunker-underground-in-ukraines-hellish-kill-zone
+· Grey Dynamics (열 차단 망토) https://greydynamics.com/ukraine-war-innovations-sleeper-drones-infiltrators-cloaking/
+· Kyiv Independent (크라마토르스크 광섬유 FPV) https://kyivindependent.com/russian-fiber-optic-fpv-drones-appear-in-heart-of-ukraines-donbas-stronghold/
+· TWZ (후방 도시까지 오는 광섬유 드론) https://www.twz.com/news-features/russian-fiber-optic-drones-are-now-reaching-into-ukrainian-cities-far-behind-the-lines
+· Euromaidan Press 2026-03 (드론 라인 8억 8천만 달러) https://euromaidanpress.com/2026/03/04/ukraines-880m-drone-line-has-turned-russian-movement-on-frontline-into-death-sentence-in-just-12-months/
+· Business Insider via AOL (궂은 날씨 침투) https://www.aol.com/articles/russian-infiltration-teams-exploiting-bad-120001268.html
+· UA.News 2026-11-03 (그물 1,640km) https://ua.news/en/ukraine/antidronovimi-sitkami-zatiagnuli-vzhe-ponad-1640-km-ukrayinskikh-dorig
+· Liga (연말까지 4,000km 추가 목표) https://news.liga.net/en/politics/news/another-4000-km-of-roads-will-be-covered-with-anti-drone-tunnels-in-ukraine-by-the-end-of-the-year-photo
+· Euromaidan Press 2026-06 (그물 1km의 의미) https://euromaidanpress.com/2026/06/06/ukraine-has-built-822-kilometers-of-anti-drone-road-tunnels-each-kilometer-means-safer-evacuations-and-faster-supply/
+· NPR 2026-03 (도시 거리 위 그물) https://www.npr.org/2026/03/17/nx-s1-5743446/russia-ukraine-war-nets-drones
+· Lowy Institute (시르스키, 광섬유 드론 러시아 우위) https://www.lowyinstitute.org/the-interpreter/fibre-optic-drones-reshape-ukraine-s-technological-war
+· Ukrainska Pravda 2026-01-25 (광섬유 드론 격차) https://www.pravda.com.ua/eng/articles/2026/01/25/8017810/
+· Euromaidan Press 2025-02 (소리·열화상 탐지) https://euromaidanpress.com/2025/02/03/russias-fiber-optic-drones-dodge-jamming-but-ukraine-hunts-them-with-infrared-and-sound/
+· Army Recognition (특수부대 산탄총) https://www.armyrecognition.com/focus-analysis-conflicts/army/defence-security-industry-technology/ukrainian-special-forces-reveal-shotgun-tactics-against-aerial-drones-relevant-to-u-s-and-nato
+· Militarnyi (대형 FPV와 산탄총) https://militarnyi.com/en/news/shotguns-ineffective-15-inch-fpv-drones/
+· Forbes 2026-08 (새 탄약) https://www.forbes.com/sites/davidhambling/2026/08/07/is-special-assault-rifle-ammo-better-than-a-shotgun-against-fpvs/
+· Euromaidan Press 2026-11-06 (망갈 그물 발사기) https://euromaidanpress.com/2026/11/06/fishing-for-drones-a-ukrainian-box-that-fires-nets-at-fpvs-heads-for-serial-production/
+· Euromaidan Press 2026-08-11 (윈플라이 스파이더) https://euromaidanpress.com/2026/08/11/ukraines-newest-interceptor-doesnt-ram-its-target-it-nets-it-for-27-then-flies-home-to-catch-another/
+· 우크라이나 국방부 (지상 로봇 10월 임무) https://mod.gov.ua/en/news/ukraine-ugv-missions-october-2026
+· Ukrainska Pravda 2026-09-30 (로봇 한 대로 부상병 4명 후송) https://www.pravda.com.ua/eng/news/2026/09/30/8055856/
+
+#우크라이나드론 #실전 #킬존 #FPV #광섬유드론 #드론방어 #지상로봇 #우크라이나 #군사 #드론전쟁해부 #DroneWarDecoded
