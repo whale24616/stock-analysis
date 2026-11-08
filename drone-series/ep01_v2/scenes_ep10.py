@@ -242,7 +242,7 @@ def e10_germany(cv, s, T, ph=0):
     txt, col = texts[ph]
     cv.text((CX, 680), txt, 40 if ph != 4 else 32, col, alpha=seg(s, 0.2, 0.3))
     if ph in (1, 3, 5):
-        for k in range(40 if ph != 5 else 80):
+        for k in range(24 if ph != 5 else 32):
             x = 360 + (k % 16) * 70
             y = 750 + (k // 16) * 34
             if seg(s, 0.3 + k * 0.01, 0.2) > 0.5:
