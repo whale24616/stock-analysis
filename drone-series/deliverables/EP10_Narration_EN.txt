@@ -1,0 +1,82 @@
+It is March 2026, at a US military base in the desert of Jordan, in the Middle East.
+At this time, with a war with Iran under way, US bases in the Middle East were coming under attack from Iranian Shahed drones.
+But among the people who came to guard this base were not American troops, but Ukrainian drone-defence specialists.
+President Zelensky said he received the US request on March 5th, and a Ukrainian drone-defence team left for Jordan on March 9th.
+The experience of fending off Russia's Shaheds for years was now being used to protect another country.
+Today, let's look at how Ukraine's drone shield, built in war, is spreading around the world.
+
+Why Ukraine, of all countries?
+The answer lies in the math.
+According to America's Center for Strategic and International Studies, one Shahed costs about 20,000 to 50,000 dollars.
+But one Patriot PAC-3 missile used to stop it costs about 3.8 million dollars.
+If you stop cheap drones with expensive missiles, the more you stop, the more you lose.
+As we saw in Episode 6, Ukraine built interceptor drones costing about 1,000 to 2,000 dollars each, machine-gun teams and an acoustic detection network to change this math.
+Ukraine is probably the country that has stopped more Shaheds than any other in the world.
+There is an interesting twist too.
+According to the US outlet Axios, the year before, when Ukraine offered to sell its drone-defence systems, the United States turned it down.
+But after US forces were attacked by Shaheds, it changed its mind.
+
+It was not just Jordan.
+On March 17th, President Zelensky said 201 Ukrainian drone-defence specialists were already working across the Middle East and the Gulf.
+Ten days later, reports said the number had grown to 228.
+They were reported to be working in Saudi Arabia, Qatar, the United Arab Emirates, Kuwait and Jordan.
+On March 26th, Ukraine and Saudi Arabia signed a defence cooperation agreement in Jeddah.
+It was Ukraine's first security agreement with a Gulf state.
+Ukraine was later reported to have signed ten-year military-technical cooperation agreements with the UAE and Qatar as well.
+President Zelensky said Ukraine would share its entire air-defence system, from sea drones and electronic warfare to interception technology.
+In return, Ukraine is reported to receive crude oil, diesel, and interceptor missiles.
+A country that only used to receive help has become one that gives technology and gets what it needs in return.
+President Zelensky said 11 countries had shown interest in Ukraine's drone technology, and that joint production was also being discussed.
+
+In April, an even more striking report emerged.
+Reuters reported that the US military had installed Sky Map, Ukrainian drone-defence software, at Prince Sultan Air Base in Saudi Arabia.
+Sky Map is a command program made by Sky Fortress, the Ukrainian company behind the acoustic detection network we saw in Episode 8.
+It helps find incoming drones and send interceptor drones to stop them.
+According to the report, Ukrainian military personnel came to the base and taught US troops how to use Sky Map and how to bring down drones with interceptor drones.
+In effect, the world's most powerful military learned drone defence from soldiers of a country at war.
+However, US Central Command and the company declined to comment, and some analyses say it is still a trial, not a formal contract.
+
+Ukraine's shield is also heading to Europe.
+On October 2nd, 2026, Lithuania's defence ministry said it had begun a trial deployment of Ukraine's Sky Fortress system.
+It is a system that detects low-flying drones and cruise missiles by sound and radio signals, with AI working out what they are.
+Lithuania's defence minister explained that rather than building one from scratch, Lithuania chose to bring in a Ukrainian system already proven in war.
+Germany is helping by paying for interceptor drones made in Ukraine.
+In March 2026, Germany agreed to pay for 15,000 Ukrainian-made STRILA interceptor drones for Ukraine's National Guard.
+German drone company Quantum Systems and Ukrainian company WIY Drones are scaling up production together.
+Based on the reported amount, that is just over 2,000 dollars each.
+Quantum Systems has its biggest plant outside Germany in Ukraine, with about 1,000 employees.
+In October, German Chancellor Merz said Germany would pay for tens of thousands of Quantum Systems interceptor drones made in Ukraine.
+President Zelensky has also announced plans to open 10 arms-export offices in Europe by the end of 2026.
+
+But selling a shield also brings hard dilemmas.
+When the war began in 2022, Ukraine banned arms exports.
+For a country at war, every single weapon counts.
+In February 2026, Ukraine's National Security and Defence Council set out a plan to license exports of surplus weapons only to approved countries, and to use the proceeds to buy urgently needed weapons such as interceptor drones.
+But some companies moved behind the government's back.
+On March 28th, President Zelensky said Ukrainian companies had built about 10 interceptor-drone factories abroad without the government's knowledge.
+He also said one company sold 1,000 interceptor drones to a foreign country for 3.5 million dollars.
+President Zelensky said that at that price they could just as well have given them away, and stressed that Ukraine's own forces must come first.
+He also said Ukraine can make up to 2,000 interceptor drones a day, but only has money for 1,000.
+And he said the warheads for these drones are kept separately by Ukraine's military.
+He also told of a European country that bought interceptor drones without warheads and then asked for Ukrainian pilots too, a request he turned down.
+This dilemma weighs heavily because Ukraine's own sky is still not safe.
+In early November, President Zelensky said Russia had launched 115 missiles and more than 3,000 attack drones in a single week.
+Patriot interceptor missiles to stop ballistic missiles are still in short supply.
+At the end of October, the US approved the sale of Patriot interceptor missiles to Ukraine, but Reuters reported that new missiles might not arrive until the early 2030s.
+Ukraine is selling a shield to protect others, while short of the shield to protect its own sky.
+
+Still, what Ukraine has shown the world is clear.
+In the drone era, the shield is not a few expensive weapons, but many cheap defences stacked in layers.
+Microphones on poles and machine-gun trucks, cheap interceptor drones and AI turrets, netting over roads and ground robots are the proof.
+And all of it was refined not in a laboratory, but on a battlefield where drones come every night.
+That is why the world now wants to buy Ukraine's experience.
+
+This is where Drone War Decoded ends.
+Episodes 1 to 5 covered how Ukraine used drones as a spear.
+From long-range drones that fly 1,000 kilometres and 400-dollar FPVs, to sea drones that pushed back a fleet, and Operation Spiderweb.
+Episodes 6 to 10 told the other side: the story of the shield that stops drones.
+We looked at the people guarding the night sky, the interceptors chasing jet drones, the AI machine guns of Kyiv, the nets and robots of the kill zone, and the shield now being sold around the world.
+In drone warfare, spear and shield change every day as they chase each other.
+Today's shield will meet a new spear tomorrow.
+And at the heart of that race, there are always people trying to protect others for one more day.
+Thank you for joining Drone War Decoded all the way to the end.
