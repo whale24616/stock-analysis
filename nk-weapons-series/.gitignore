@@ -1,0 +1,6 @@
+ep01_v2/img/
+ep01_v2/out/
+ep01_v2/fonts/*.ttf
+*.mp4
+*.zip
+__pycache__/

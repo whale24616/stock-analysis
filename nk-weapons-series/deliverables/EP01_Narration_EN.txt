@@ -1,0 +1,99 @@
+It is midday on October 29, 2026, off the coast of Wonsan, Gangwon Province.
+Pillars of fire rise all at once from large launch vehicles lined up along the shore.
+This firing took place at North Korea's first-ever drone exhibition, with Kim Jong Un watching.
+North Korea called the weapon "Sniper" and said it was the first combat firing ever shown in front of a crowd.
+The same day, South Korea's Joint Chiefs of Staff said the North had fired about ten short-range ballistic missiles that flew roughly 250 kilometers.
+North Korea calls it a rocket launcher, and the South Korean military calls it a ballistic missile.
+Today, let's make it simple: why one weapon has two names, how it flies, what is new, and how it can be stopped.
+
+First, what is a multiple rocket launcher?
+It is a weapon that mounts several tubes on a truck and fires rockets all at once.
+Originally it had no guidance and was meant to blanket a wide area in one go.
+That is why each rocket is usually only about 10 to 30 centimeters wide.
+A ballistic missile is different.
+It is one large round with a guidance system that sends it far and accurately.
+The 600-millimeter launcher mixes the two.
+At 60 centimeters across, it is several times thicker than a typical rocket launcher round.
+Analysts estimate it is more than eight meters long.
+Judged by the size of a single round, it is similar to a short-range ballistic missile.
+But carrying several rounds on one truck and firing them in succession is like a rocket launcher.
+So North Korea calls it a super-large rocket launcher, while U.S. Forces Korea named it KN-25 and classifies it as a short-range ballistic missile.
+The U.S. North Korea analysis site 38 North described it as a long-range guided rocket that sits between a rocket launcher and a ballistic missile.
+
+Now, how does it fly?
+A typical ballistic missile climbs high and falls along a parabola.
+Radar watches that parabola and calculates in advance where it will land.
+But analysts say the 600-millimeter rocket flies much lower and flatter.
+One European nonproliferation research report called its trajectory unusually flat.
+According to 2020 reporting, North Korea described this kind of flight as a "low-altitude gliding and leaping flight trajectory."
+It is understood to mean flying low, then rising slightly again on the way down to change its path.
+Why is flying low an advantage?
+Because the Earth is round, ground-based radar sees objects flying low far away later.
+Seen later means less time to prepare a defense.
+And if the path changes in flight, the planned intercept point has to be recalculated.
+The secret to changing its path lies in the fins.
+Researchers who analyzed public photos see four small control fins at the front and four fixed fins at the back.
+The front fins are thought to move to correct its attitude and direction in flight.
+In other words, it is not just a rocket that is thrown, but one that corrects its path as it flies.
+
+So what changed in 2026?
+On January 27, North Korea said it test-fired an upgraded large-caliber rocket launcher with new technology.
+The North claimed four rounds hit a sea target 358.5 kilometers away, and the Joint Chiefs said they flew about 350 kilometers.
+The notable change was the launch vehicle.
+Analysts said the tubes increased from four to five, and the devices that raise the tubes went from two to one.
+Experts saw it as fixing the problems of rapid follow-up fire and mobility exposed in the Russia-Ukraine war.
+It means firing more from one vehicle and leaving the spot faster.
+Kim Jong Un named an "autonomous precision-guided flight system" as the weapon's key feature.
+It is a claim that the weapon can ignore any outside interference.
+It reads as meaning the rocket finds its own way even if satellite navigation signals are jammed.
+Some experts have raised the possibility that Russia handed over military satellite navigation technology, but this is not a confirmed fact.
+On February 18, a ceremony in Pyongyang handed 50 of these new launch vehicles over to the military.
+North Korea claimed it had built 50 more in just two months.
+At a March 14 drill, 12 vehicles each fired one round, and Kim directly mentioned enemies within a 420-kilometer range.
+Then on October 29, this launcher shared the stage with drones.
+Analysts say the North wanted to show a pairing in which drones find targets and the launcher strikes them.
+Kim named making unmanned weapons artificially intelligent as the top priority.
+On the number fired, the Joint Chiefs said about ten, while one South Korean military expert analyzed photos and concluded fifteen flew at once.
+
+Let's sum up these features from the defender's point of view.
+The first is distance.
+Draw a 420-kilometer circle from near the DMZ, and it reaches the southern tip of the peninsula.
+The second is numbers.
+When many rounds come at once, the defender must fire just as many interceptors at once.
+The third is a low, changing trajectory.
+The fourth is mobility.
+If a truck hides, comes out, fires and leaves right away, it is hard to find before it shoots.
+The fifth is that it is hard to know what is coming.
+North Korea has claimed this launcher can carry the Hwasan-31 tactical nuclear warhead.
+Not knowing whether an incoming round is conventional or nuclear makes the decision even harder.
+
+So how is South Korea preparing?
+South Korea's response can be divided into three broad stages.
+The first stage is finding it before it fires.
+This is called Kill Chain.
+In November 2025, South Korea launched its fifth military reconnaissance satellite, completing a five-satellite system.
+The Defense Ministry said this completed the reconnaissance foundation of Kill Chain.
+The goal is to use satellites and drones to find where launch vehicles hide and stop them before they fire.
+The second stage is hitting incoming rounds and bringing them down.
+Korean missile defense is built in several layers.
+The lower layer is handled by Patriot and Cheongung-II.
+L-SAM, the long-range surface-to-air missile for the layer above, has entered mass production, and the Defense Ministry has budgeted to bring its deployment forward.
+The third stage is massive punishment and retaliation, striking back harder if attacked.
+The very fact of being able to strike back acts as deterrence that keeps the other side from firing in the first place.
+On top of this, important facilities are spread out and hardened.
+That is because an attack that arrives in large numbers at once is hard to stop with interceptors alone.
+
+There are, however, things to view with caution.
+"Ultra-precision," "100 percent hits" and "50 more built in two months" are all North Korean claims.
+None has been independently confirmed.
+Nor has it been confirmed that the Hwasan-31 has actually been fitted to this launcher.
+The idea that Russian technology went into it is also speculation.
+The flight distance confirmed in October was about 250 kilometers, and 420 kilometers is the maximum North Korea has stated.
+Hong Min, a senior research fellow at the Korea Institute for National Unification, assessed that this "Sniper" is likely an existing system rather than a completely new weapon.
+
+Let's wrap up.
+The 600-millimeter launcher is called a rocket launcher, but each round is as big as a missile and corrects its path in flight.
+And its numbers are as large as a rocket launcher's.
+The changes in 2026 point toward firing more, faster, and resisting interference.
+For the defender, finding it before it fires, stopping it in layers and having the power to strike back are all needed together.
+In the next episode, let's look together at another new weapon North Korea is showing off.
